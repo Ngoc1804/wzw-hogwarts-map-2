@@ -1,0 +1,309 @@
+{
+  "report": [
+    {
+      "id": "h1",
+      "locations": 31,
+      "keyboardSelections": 31,
+      "occluders": 19,
+      "maskFailures": 0,
+      "missing": [],
+      "duplicateIds": []
+    },
+    {
+      "id": "h2",
+      "locations": 72,
+      "keyboardSelections": 72,
+      "occluders": 25,
+      "maskFailures": 0,
+      "missing": [],
+      "duplicateIds": []
+    },
+    {
+      "id": "hall",
+      "locations": 16,
+      "keyboardSelections": 16,
+      "occluders": 4,
+      "maskFailures": 0,
+      "missing": [],
+      "duplicateIds": []
+    },
+    {
+      "id": "ministry2",
+      "locations": 7,
+      "keyboardSelections": 7,
+      "occluders": 0,
+      "maskFailures": 0,
+      "missing": [],
+      "duplicateIds": []
+    },
+    {
+      "id": "express",
+      "locations": 34,
+      "keyboardSelections": 34,
+      "occluders": 0,
+      "maskFailures": 0,
+      "missing": [],
+      "duplicateIds": []
+    },
+    {
+      "id": "gryffindor-common",
+      "locations": 8,
+      "keyboardSelections": 8,
+      "occluders": 3,
+      "maskFailures": 0,
+      "missing": [],
+      "duplicateIds": []
+    },
+    {
+      "id": "ravenclaw-common",
+      "locations": 7,
+      "keyboardSelections": 7,
+      "occluders": 2,
+      "maskFailures": 0,
+      "missing": [],
+      "duplicateIds": []
+    },
+    {
+      "id": "hufflepuff-common",
+      "locations": 11,
+      "keyboardSelections": 11,
+      "occluders": 3,
+      "maskFailures": 0,
+      "missing": [],
+      "duplicateIds": []
+    },
+    {
+      "id": "slytherin-common",
+      "locations": 12,
+      "keyboardSelections": 12,
+      "occluders": 5,
+      "maskFailures": 0,
+      "missing": [],
+      "duplicateIds": []
+    },
+    {
+      "id": "village-static",
+      "locations": 35,
+      "keyboardSelections": 35,
+      "occluders": 32,
+      "maskFailures": 0,
+      "missing": [],
+      "duplicateIds": []
+    },
+    {
+      "id": "pitch-static",
+      "locations": 14,
+      "keyboardSelections": 14,
+      "occluders": 12,
+      "maskFailures": 0,
+      "missing": [],
+      "duplicateIds": []
+    },
+    {
+      "id": "diagon-knockturn",
+      "locations": 69,
+      "keyboardSelections": 69,
+      "occluders": 67,
+      "maskFailures": 0,
+      "missing": [],
+      "duplicateIds": []
+    },
+    {
+      "id": "ministry-8-10",
+      "locations": 32,
+      "keyboardSelections": 32,
+      "occluders": 0,
+      "maskFailures": 0,
+      "missing": [],
+      "duplicateIds": []
+    }
+  ],
+  "mechanism": {
+    "matched": [
+      "region:extra:5"
+    ],
+    "opacity": "0.3",
+    "insideWithoutOverlap": 0,
+    "restored": 1,
+    "cleanup": 0,
+    "outOfBounds": false
+  },
+  "errors": [],
+  "interaction": {
+    "checks": [
+      {
+        "id": "h1",
+        "mobile": false,
+        "target": "region-6",
+        "click": true
+      },
+      {
+        "id": "h2",
+        "mobile": false,
+        "target": "h2-place-10",
+        "click": true
+      },
+      {
+        "id": "hall",
+        "mobile": false,
+        "target": "gf-antechamber",
+        "click": true
+      },
+      {
+        "id": "ministry2",
+        "mobile": false,
+        "target": "min-level-1",
+        "click": true
+      },
+      {
+        "id": "express",
+        "mobile": false,
+        "target": "ex-station",
+        "click": true
+      },
+      {
+        "id": "gryffindor-common",
+        "mobile": false,
+        "target": "gryff-stairs-0",
+        "click": true
+      },
+      {
+        "id": "ravenclaw-common",
+        "mobile": false,
+        "target": "raven-dorm-door",
+        "click": true
+      },
+      {
+        "id": "hufflepuff-common",
+        "mobile": false,
+        "target": "huff-dorm-0",
+        "click": true
+      },
+      {
+        "id": "slytherin-common",
+        "mobile": false,
+        "target": "sly-lake",
+        "click": true
+      },
+      {
+        "id": "village-static",
+        "mobile": false,
+        "target": "v-shack",
+        "click": true
+      },
+      {
+        "id": "pitch-static",
+        "mobile": false,
+        "target": "q-commentary",
+        "click": true
+      },
+      {
+        "id": "diagon-knockturn",
+        "mobile": false,
+        "target": "da-flourish",
+        "click": true
+      },
+      {
+        "id": "ministry-8-10",
+        "mobile": false,
+        "target": "mm-floo-in-1",
+        "click": true
+      },
+      {
+        "mobile": false,
+        "feet": {
+          "uses": 6,
+          "inBounds": 1,
+          "swapped": "#demo-shoe-r"
+        }
+      },
+      {
+        "id": "h1",
+        "mobile": true,
+        "target": "region-6",
+        "click": true
+      },
+      {
+        "id": "h2",
+        "mobile": true,
+        "target": "h2-place-49",
+        "click": true
+      },
+      {
+        "id": "hall",
+        "mobile": true,
+        "target": "gf-antechamber",
+        "click": true
+      },
+      {
+        "id": "ministry2",
+        "mobile": true,
+        "target": "min-level-1",
+        "click": true
+      },
+      {
+        "id": "express",
+        "mobile": true,
+        "target": "ex-standard",
+        "click": true
+      },
+      {
+        "id": "gryffindor-common",
+        "mobile": true,
+        "target": "gryff-stairs-1",
+        "click": true
+      },
+      {
+        "id": "ravenclaw-common",
+        "mobile": true,
+        "target": "raven-dorm-door",
+        "click": true
+      },
+      {
+        "id": "hufflepuff-common",
+        "mobile": true,
+        "target": "huff-dorm-0",
+        "click": true
+      },
+      {
+        "id": "slytherin-common",
+        "mobile": true,
+        "target": "sly-dorm",
+        "click": true
+      },
+      {
+        "id": "village-static",
+        "mobile": true,
+        "target": "v-shack",
+        "click": true
+      },
+      {
+        "id": "pitch-static",
+        "mobile": true,
+        "target": "q-commentary",
+        "click": true
+      },
+      {
+        "id": "diagon-knockturn",
+        "mobile": true,
+        "target": "da-terrace-7",
+        "click": true
+      },
+      {
+        "id": "ministry-8-10",
+        "mobile": true,
+        "target": "mm-floo-in-0",
+        "click": true
+      },
+      {
+        "mobile": true,
+        "feet": {
+          "uses": 6,
+          "inBounds": 1,
+          "swapped": "#demo-shoe-r"
+        }
+      }
+    ],
+    "errors": []
+  }
+}
