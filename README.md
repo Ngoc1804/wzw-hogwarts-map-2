@@ -1,3 +1,18 @@
+# WZW Map 2 — trạng thái hiện tại
+
+Nhánh duy nhất: `M2-P01-baseline-loader`. **System prompt chỉ dán [W4.1 gọn](docs/W4_1.md) + [R14.6](docs/MAP_PROMPT.md)** theo [hướng dẫn](docs/PASTE_GUIDE.md); không dán Atlas chi tiết vào Gemini nữa.
+
+- Contract và từ công năng ngắn dùng một bảng `assets/vocabulary.json`: classroom → CLASSROOM, potions → POTIONS_LAB…; không bắt AI biết ID từng đồ vật/phòng artwork.
+- Fixed/cụm/Custom, shop bindings và inventory merge đã có; [Atlas đầy đủ](docs/ATLAS_W4.md) vẫn là nguồn GitHub, index sinh tự động. W4.1 chỉ là bản định tuyến nén.
+- **[P4 review offline](examples/p4-review.html)**: Horizontal + Potions/Office/Storage/Classroom, H36, cửa/hành lang/hốc nhẹ theo seed, vật lạ và Inspector; chuyển được P4 + 13 Fixed. **Chờ duyệt thẩm mỹ**, chưa nhân rộng chín layout còn lại.
+- Recipe khác vẫn có inventory/fallback, chưa có QA geometry đầy đủ. P5/P6/P7 và nghiệm thu Google AI Studio Preview còn mở; không tuyên bố hoàn tất toàn dự án.
+
+Build từ repo root: `python tools/atlas.py`, `python tools/build.py`, `python tools/review.py`. Sinh lại bản prompt gọn: `python tools/prompt.py` (giữ loader đã pin). Serve `python -m http.server 8790`. Kiểm: `node tests/vocabulary.cjs`, `node tests/compact-p4.cjs`, `node tests/ids-props.cjs`, `node tests/p2-p3.cjs`. [P4 QA và giới hạn](docs/P4_REVIEW.md).
+
+---
+
+## Nhật ký baseline và các mốc trước
+
 # WZW Map 2 — UI cố định, đồ họa và tích hợp P0/P1
 
 Nhánh làm việc hợp nhất duy nhất: `M2-P01-baseline-loader`. Nhánh này kế thừa toàn bộ lịch sử `01-template-ui` tại `24c6c207bd5c321a511299004aa036d54294571f`; nhánh cũ đã được hợp nhất theo yêu cầu người dùng và không còn dùng làm nhánh chỉnh sửa. [Baseline and decisions](docs/P0-P1.md), [upload hashes](docs/baseline.json), [Atlas](docs/ATLAS_W4.md), [build sizes](docs/build-metrics.json).

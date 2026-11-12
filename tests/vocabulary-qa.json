@@ -1,0 +1,13 @@
+{
+  "checks": [
+    "repeat bundle keeps current scene",
+    "all 41 function words",
+    "all tower/AU short IDs",
+    "seeded alcoves unchanged by time",
+    "custom relative zone",
+    "PC on actual generated corridor",
+    "PC on room threshold",
+    "patrol tag needs no extra prompt flag"
+  ],
+  "errors": []
+}

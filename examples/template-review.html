@@ -565,7 +565,7 @@ async function prepareTemplateUI(){
  const maskFor=async r=>{if(!r.promise)r.promise=paintedMask(r.node).then(m=>r.mask=m);await r.promise;return r.mask};
  function pointSafe(x,y,pad=0){if(!inMap(x,y,pad))return false;for(const r of records){if(x+pad<r.box.x||x-pad>r.box.x+r.box.w||y+pad<r.box.y||y-pad>r.box.y+r.box.h)continue;if(!r.mask)return false;if(maskOverlaps(r.mask,{x:x-pad,y:y-pad,w:Math.max(.1,pad*2),h:Math.max(.1,pad*2)}))return false;}return true}
  async function readyMasks(){await Promise.all(records.map(maskFor))}
- function localPoint(place,inside){const node=[...svg.querySelectorAll('[data-id]')].find(e=>e.dataset.id===place.id&&!e.closest('defs'));if(!node)return null;const b=worldBox(node),center={x:b.x+b.w/2,y:b.y+b.h/2};if(inside)return center;const min=Math.min(originalVB[2],originalVB[3]),step=min/110;
+ function localPoint(place,inside,actor){if(actor?.scenePoint&&Number.isFinite(actor.scenePoint.x)&&Number.isFinite(actor.scenePoint.y))return actor.scenePoint;const node=[...svg.querySelectorAll('[data-id]')].find(e=>e.dataset.id===place.id&&!e.closest('defs'));if(!node)return null;const b=worldBox(node),center={x:b.x+b.w/2,y:b.y+b.h/2};if(inside)return center;const min=Math.min(originalVB[2],originalVB[3]),step=min/110;
   // Search only the named place's bounds and immediate threshold; never reroute to a different place.
   for(let ring=0;ring<18;ring++)for(let a=0;a<(ring?16:1);a++){const x=center.x+Math.cos(a*Math.PI/8)*ring*step,y=center.y+Math.sin(a*Math.PI/8)*ring*step;if(x<b.x-12||x>b.x+b.w+12||y<b.y-12||y>b.y+b.h+24)continue;if(pointSafe(x,y,5))return{x,y}}
   return null;
@@ -579,9 +579,9 @@ async function prepareTemplateUI(){
  }
  function clearActors(){for(const a of actorItems){a.stop?.();a.element.remove();a.feet?.remove()}actorItems=[];renderPositions()}
  async function mountActors(actors=[]){const version=++generation;await readyMasks();if(svg!==scene||version!==generation)return;clearActors();
-  for(const actor of actors){const place=(DATA.maps[activeId].places||[]).find(p=>p.id===actor.placeId||p.name===actor.placeName);if(!place)continue;const inside=actor.inside===true||actor.pcSpot==='inside',point=localPoint(place,inside);if(!point)continue;
+  for(const actor of actors){const place=(DATA.maps[activeId].places||[]).find(p=>p.id===actor.placeId||p.name===actor.placeName);if(!place)continue;const inside=actor.inside===true||actor.pcSpot==='inside',point=localPoint(place,inside,actor);if(!point)continue;
    const element=actorTag(actor);element.classList.add('npc-tag');element.title=actor.activity||place.name;layer.append(element);
-   element.onclick=()=>{put('#place-title',actor.name||'Chưa rõ');put('#drawer-name',actor.name||'Chưa rõ');put('#activity',actor.activity||'');put('#observation',actor.observation||place.desc||'')};
+   element.onclick=()=>{put('#place-title',actor.name||'Chưa rõ');put('#drawer-name',actor.name||'Chưa rõ');put('#activity',actor.hearingText||'');put('#observation',[actor.activity,actor.observation||place.desc].filter(Boolean).join('\n'))};
    const stance=inside?'hidden':(['walk','idle','hidden'].includes(actor.footstep)?actor.footstep:'idle');let feet=null,stop=null;
    if(stance!=='hidden'){
     feet=uiElement('g',{class:'footstep',transform:`translate(${point.x} ${point.y}) scale(.6)`},footLayer);stop=mountFeet(feet,stance);

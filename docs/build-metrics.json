@@ -1,13 +1,13 @@
 {
   "template-review.html": {
-    "bytes": 964614,
-    "gzipBytes": 699932,
-    "sha256": "ea0d9f3add6aef3753f40f7a75d9ea1713fda08923510ec5c7643b21e516410d"
+    "bytes": 964788,
+    "gzipBytes": 699998,
+    "sha256": "223b77b47490a9f4bc2a3c8746fda1ae457af77c3ea1c9d6417d255585de1628"
   },
   "bundle.js": {
-    "bytes": 161243,
-    "gzipBytes": 33798,
-    "sha256": "4c52c56b9a3c8d8ddf8ddf71d5cd8b2babf9b6f6dec93f21cafc370b7d44ef5c"
+    "bytes": 259346,
+    "gzipBytes": 45108,
+    "sha256": "f0259c14b4b906591c6b0bab869bc4a0a0ec4fa64413469e3abca655d1069bb3"
   },
   "shell.css": {
     "bytes": 10895,

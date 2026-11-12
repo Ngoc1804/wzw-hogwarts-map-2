@@ -1,0 +1,34 @@
+{
+  "report": {
+    "rooms": 4,
+    "walls": [
+      "36",
+      "36",
+      "36",
+      "36"
+    ],
+    "instances": 97,
+    "duplicates": 0,
+    "missing": [],
+    "fallback": 1,
+    "recipe": [
+      "POTIONS_LAB",
+      "OFFICE",
+      "STORAGE",
+      "CLASSROOM"
+    ],
+    "feet": 0
+  },
+  "replace": {
+    "empty": 0,
+    "zones": [
+      "Phòng Độc dược",
+      "Văn phòng",
+      "Kho đồ",
+      "Lớp học"
+    ]
+  },
+  "errors": [],
+  "review": "PENDING USER VISUAL APPROVAL",
+  "preview": "Google AI Studio NOT TESTED"
+}
