@@ -19,8 +19,10 @@ Theo yêu cầu mới, cho phép bộ **mẫu kiểm/duyệt** bao phủ đủ 1
 - [ ] USER VISUAL APPROVAL — chờ người dùng; không tự tick.
 - [ ] TARGET PREVIEW — chưa thử, local không thay nghiệm thu AI Studio.
 
-Lịch tiếp tục mỗi giờ đã được yêu cầu trong chat này; mỗi lượt đọc checkpoint, kiểm HEAD và phiên đang chạy, tránh làm trùng. Tắt khi bộ mẫu đã kiểm/giao xong và chờ duyệt, hoặc phần việc hoàn tất. Không nhập repo cũ/demo-5, không merge main/release/force-push. Bộ mẫu được giao ở mốc sửa này; lịch sẽ tạm tắt khi bàn giao để chờ duyệt, không tự mở P5/P6 hoặc tự duyệt. Các lượt sau phải tiếp tục từ checkpoint này và kiểm HEAD mới nhất.
+Lịch tiếp tục mỗi giờ đã chạy theo yêu cầu; hiện tạm tắt khi bàn giao bộ mẫu để chờ người dùng duyệt. Khi được tiếp tục, mỗi lượt đọc checkpoint, kiểm HEAD và phiên đang chạy, tránh làm trùng. Tắt khi bộ mẫu đã kiểm/giao xong và chờ duyệt, hoặc phần việc hoàn tất. Không nhập repo cũ/demo-5, không merge main/release/force-push. Bộ mẫu được giao ở mốc sửa này; lịch sẽ tạm tắt khi bàn giao để chờ duyệt, không tự mở P5/P6 hoặc tự duyệt. Các lượt sau phải tiếp tục từ checkpoint này và kiểm HEAD mới nhất.
 
+
+Runtime sửa đã push tại `392a4682fd550c1f8cdbe199856db6b84660c41c`; MAP_PROMPT/loader ghim cùng SHA này để kiểm đúng bản sửa. Đây là bản chờ duyệt, chưa phát hành/AI Studio.
 
 Bàn giao: [HTML offline tổng hợp](examples/p4-review.html) · [ảnh tổng hợp 12 cảnh](tests/repair-overview.png) · [MAP_DATA mô phỏng](examples/rp-review-data.json) · [báo cáo sửa/giới hạn](docs/P4_REVIEW.md). Mỗi cảnh có ảnh desktop/mobile trong `tests/repair-*.png`. Selector gồm 10 Indoor + 2 Outdoor + 13 Fixed. Fixtures không được bundle vào runtime.
 

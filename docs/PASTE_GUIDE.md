@@ -6,6 +6,8 @@
 
 Giữ nguyên R14.7 /INVENTORY, R14.8 /TASK và các phần RP khác. Loader cũ/iframe/repo cũ phải được thay, không dán nối thêm. __MAP_DATA_JSON__ là chỗ Gemini điền JSON RP thật, escape `<` thành `\u003c`.
 
-W4_1.md là bản định tuyến ngắn cùng nguồn với Atlas đầy đủ trong GitHub. Không dán 348 anchor, danh sách phòng nền, recipe instance hoặc catalog 363 element. R14.6 đã có từ công năng và loại NPC; runtime tự tra đúng recipe. Tên phòng mới được dùng tự do. P4 đang chờ duyệt hình ảnh; các layout chưa có geometry vẫn có sơ đồ fallback, chưa được coi là đã hoàn thiện. Google AI Studio Preview CHƯA THỬ.
+W4_1.md là bản định tuyến ngắn cùng nguồn với Atlas đầy đủ trong GitHub. Không dán 348 anchor, danh sách phòng nền, recipe instance hoặc catalog 363 element. R14.6 đã có từ công năng và loại NPC; runtime tự tra đúng recipe. Tên phòng mới được dùng tự do. P4 sửa đang chờ duyệt hình ảnh: 10 preset dùng geometry hành lang nguồn; 4 công năng có artwork, công năng khác giữ đại diện tên và chưa được coi là hoàn thiện nội thất. Google AI Studio Preview CHƯA THỬ.
 
 Bản mới: W4.1 khoảng 4,7 KB, R14.6 khoảng 4,8 KB UTF-8. Atlas chi tiết 48,8 KB chỉ nằm ở GitHub. Loader sẽ được ghim cùng SHA của code/vocabulary đã kiểm; không thay riêng một URL.
+
+Runtime bản sửa dùng đồng SHA `392a4682fd550c1f8cdbe199856db6b84660c41c` (bản kiểm local, chưa nghiệm thu AI Studio/duyệt hình). HTML tổng hợp: examples/p4-review.html. Không lấy bản 10d2c37 đã bị bác bỏ để kiểm lại.
