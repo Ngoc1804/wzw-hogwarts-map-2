@@ -448,7 +448,7 @@ function feetState(elapsed, stance='idle', reduced=false) {
 }
 const feetJobs=new Set();let feetTimer;
 function mountFeet(g,stance='idle'){
- if(stance==='hidden'){g.replaceChildren();return()=>{}}const reduced=matchMedia('(prefers-reduced-motion: reduce)');const job={g,stance,reduced,origin:performance.now(),mode:null};feetJobs.add(job);
+ if(stance==='hidden'){g.replaceChildren();return()=>{}}const reduced=matchMedia('(prefers-reduced-motion: reduce)');const job={g,stance,reduced,origin:performance.now(),mode:reduced.matches?'idle':stance};feetJobs.add(job);g.dataset.motion=job.mode;setupFeet(g);for(const n of g.children)n.style.opacity='0';
  if(!feetTimer)feetTimer=setInterval(()=>{if(document.hidden||document.body.classList.contains('motion-off'))return;const now=performance.now();for(const j of feetJobs){const next=j.reduced.matches?'idle':j.stance;if(next!==j.mode){j.mode=next;j.g.dataset.motion=next;setupFeet(j.g)}const values=feetState(now-j.origin,j.stance,j.reduced.matches);[...j.g.children].forEach((n,i)=>n.style.opacity=String(j.valid&&!j.valid(n)?0:(values[i]??0)));}},100);
  return ()=>{feetJobs.delete(job);if(!feetJobs.size){clearInterval(feetTimer);feetTimer=null}};
 }
@@ -515,7 +515,7 @@ function eventClick(e){if(svg.dataset.dragged==='true'){svg.dataset.dragged='fal
  const id=node.dataset.id||'',place=(DATA.maps[activeId].places||[]).find(p=>p.id===id),label=place?.name||node.getAttribute('aria-label')||node.dataset.name||node.dataset.label||id;
  put('#place-title',label.replace(/[-_]/g,' '));put('#drawer-name',label.replace(/[-_]/g,' '));
  put('#activity','');put('#observation',place?.desc||'Chưa có mô tả cho địa điểm này.');presentation?.showPlaceActors(id);
- svg.querySelectorAll('.map-selected').forEach(x=>x.classList.remove('map-selected'));node.classList.add('map-selected');
+ svg.querySelectorAll('.map-selected').forEach(x=>x.classList.remove('map-selected'));node.classList.add('map-selected');svg.dispatchEvent(new CustomEvent('wzw-place-selected',{detail:{id}}));
 }
 async function setTemplate(id){if(!DATA?.maps[id])return;activeId=id;stopScene();
  const doc=new DOMParser().parseFromString(DATA.maps[id].svg,'image/svg+xml');svg=document.importNode(doc.documentElement,true);
@@ -559,11 +559,12 @@ function maskOverlaps(mask,b){if(!mask)return false;const{box,w,h,pixels}=mask;c
 async function prepareTemplateUI(){
  if(presentation)presentation.dispose();
  const scene=svg,layer=document.createElement('div');layer.className='qa-tags';$('#mapmount').append(layer);
+ const linkLayer=uiElement('g',{'data-layer':'actor-links','pointer-events':'none',stroke:'#a58c6a','stroke-width':'.7',opacity:'.65'},svg);
  const footLayer=uiElement('g',{'data-layer':'actor-feet','pointer-events':'none'},svg);
  const zones=[...svg.querySelectorAll('[data-forbidden]')].filter(e=>!e.closest('defs'));
- const records=zones.map(node=>({node,box:worldBox(node),mask:null,promise:null}));let actorItems=[],eventItems=[],generation=0;
+ const records=zones.map(node=>{const box=worldBox(node);return{node,box,depth:Number.isFinite(+node.dataset.depth)?+node.dataset.depth:box.y+box.h,mask:null,promise:null}});let actorItems=[],eventItems=[],generation=0;
  const maskFor=async r=>{if(!r.promise)r.promise=paintedMask(r.node).then(m=>r.mask=m);await r.promise;return r.mask};
- function pointSafe(x,y,pad=0){if(!inMap(x,y,pad))return false;for(const r of records){if(x+pad<r.box.x||x-pad>r.box.x+r.box.w||y+pad<r.box.y||y-pad>r.box.y+r.box.h)continue;if(!r.mask)return false;if(maskOverlaps(r.mask,{x:x-pad,y:y-pad,w:Math.max(.1,pad*2),h:Math.max(.1,pad*2)}))return false;}return true}
+ function pointSafe(x,y,pad=0){if(!inMap(x,y,pad)||DATA.maps[activeId].safeFloor&&!DATA.maps[activeId].safeFloor(x,y,pad))return false;for(const r of records){if(x+pad<r.box.x||x-pad>r.box.x+r.box.w||y+pad<r.box.y||y-pad>r.box.y+r.box.h)continue;if(!r.mask)return false;if(maskOverlaps(r.mask,{x:x-pad,y:y-pad,w:Math.max(.1,pad*2),h:Math.max(.1,pad*2)}))return false;}return true}
  async function readyMasks(){await Promise.all(records.map(maskFor))}
  function localPoint(place,inside,actor){if(actor?.scenePoint&&Number.isFinite(actor.scenePoint.x)&&Number.isFinite(actor.scenePoint.y))return actor.scenePoint;const node=[...svg.querySelectorAll('[data-id]')].find(e=>e.dataset.id===place.id&&!e.closest('defs'));if(!node)return null;const b=worldBox(node),center={x:b.x+b.w/2,y:b.y+b.h/2};if(inside)return center;const min=Math.min(originalVB[2],originalVB[3]),step=min/110;
   // Search only the named place's bounds and immediate threshold; never reroute to a different place.
@@ -571,9 +572,13 @@ async function prepareTemplateUI(){
   return null;
  }
  function renderPositions(){if(svg!==scene)return;const base=$('#mapmount').getBoundingClientRect(),ctm=svg.getScreenCTM(),inverse=ctm.inverse();
-  for(const item of [...actorItems,...eventItems]){const screen=new DOMPoint(item.point.x,item.point.y).matrixTransform(ctm),a=new DOMPoint(originalVB[0],originalVB[1]).matrixTransform(ctm),b=new DOMPoint(originalVB[0]+originalVB[2],originalVB[1]+originalVB[3]).matrixTransform(ctm),rect=item.element.getBoundingClientRect();const x=Math.max(a.x+rect.width/2,Math.min(b.x-rect.width/2,screen.x)),y=Math.max(a.y+rect.height,Math.min(b.y,screen.y));item.element.style.left=(x-base.left)+'px';item.element.style.top=(y-base.top)+'px'}
+  linkLayer.replaceChildren();const placed=[];for(const item of [...actorItems,...eventItems]){const screen=new DOMPoint(item.point.x,item.point.y).matrixTransform(ctm),a=new DOMPoint(originalVB[0],originalVB[1]).matrixTransform(ctm),b=new DOMPoint(originalVB[0]+originalVB[2],originalVB[1]+originalVB[3]).matrixTransform(ctm),rect=item.element.getBoundingClientRect();let x=Math.max(a.x+rect.width/2,Math.min(b.x-rect.width/2,screen.x)),y=Math.max(a.y+rect.height,Math.min(b.y,screen.y));
+   const collides=(x,y)=>placed.some(r=>x+rect.width/2+3>r.x&&x-rect.width/2-3<r.x+r.w&&y+3>r.y&&y-rect.height-3<r.y+r.h);
+   if(collides(x,y)){let found=false;for(let ring=1;ring<=8&&!found;ring++)for(const [dx,dy]of [[0,-ring],[0,ring],[-ring,0],[ring,0],[-ring,-ring],[ring,ring]]){const nx=x+dx*(rect.width+5),ny=y+dy*(rect.height+5);if(nx-rect.width/2<a.x||nx+rect.width/2>b.x||ny-rect.height<a.y||ny>b.y||collides(nx,ny))continue;x=nx;y=ny;found=true;break;}}
+   if(Math.hypot(x-screen.x,y-screen.y)>20){const target=new DOMPoint(x,y).matrixTransform(inverse);uiElement('line',{x1:item.point.x,y1:item.point.y,x2:target.x,y2:target.y},linkLayer);}
+   placed.push({x:x-rect.width/2,y:y-rect.height,w:rect.width,h:rect.height});item.element.style.left=(x-base.left)+'px';item.element.style.top=(y-base.top)+'px'}
   const faded=new Set();for(const a of actorItems){const r=a.element.getBoundingClientRect(),corners=[[r.left,r.top],[r.right,r.bottom]].map(([x,y])=>new DOMPoint(x,y).matrixTransform(inverse)),b={x:corners[0].x,y:corners[0].y,w:corners[1].x-corners[0].x,h:corners[1].y-corners[0].y};
-   for(const record of records)if(record.node.dataset.occluder==='building'&&maskOverlaps(record.mask,b))faded.add(record.node);
+   for(const record of records)if(record.node.dataset.occluder==='building'&&record.depth>a.point.y+.1&&maskOverlaps(record.mask,b))faded.add(record.node);
   }
   for(const r of records)r.node.classList.toggle('occluded',faded.has(r.node));
  }
@@ -593,13 +598,13 @@ async function prepareTemplateUI(){
  }
  function showPlaceActors(placeId){const target=$('#actors');target.replaceChildren();for(const item of actorItems.filter(a=>!placeId||a.placeId===placeId)){const row=actorTag(item.actor,true);row.onclick=item.element.onclick;target.append(row)}}
  function mountEvents(events=[]){for(const e of eventItems)e.element.remove();eventItems=[];$('#quests').replaceChildren();put('#hintcount',String(events.length));
-  for(const event of events){const place=(DATA.maps[activeId].places||[]).find(p=>p.id===event.placeId||p.name===event.placeName);if(!place)continue;const node=[...svg.querySelectorAll('[data-id]')].find(e=>e.dataset.id===place.id);if(!node)continue;const b=worldBox(node),point={x:b.x+b.w/2,y:b.y+b.h/2};
+  for(const event of events){const place=(DATA.maps[activeId].places||[]).find(p=>p.id===event.placeId||p.name===event.placeName);if(!place)continue;const node=[...svg.querySelectorAll('[data-id]')].find(e=>e.dataset.id===place.id);if(!node)continue;const b=worldBox(node);let point={x:b.x+b.w/2,y:b.y+b.h/2};if(place.geometry?.room){const r=place.geometry.room;point={x:r.x+r.w*(r.circular?.65:.82),y:r.y+r.h*.25};const door=place.geometry.door;if(event.target?.kind==='door'&&door)point=door.ln.axis==='H'?{x:door.at,y:door.ln.at}:{x:door.ln.at,y:door.at};}else if(place.geometry?.outdoor){const[x,y,w,h]=place.bounds;point={x:x+w*.8,y:y+h*.25};}
    const button=document.createElement('button');button.className='event-marker '+(event.hidden?'hidden-marker':'');button.setAttribute('aria-label',event.title||'Đầu mối');button.title=event.title||'Đầu mối';
    const v=uiElement('svg',{viewBox:'0 0 24 24','aria-hidden':'true'});if(event.hidden)uiElement('path',{d:'M9 8a3 3 0 1 1 5 2c-2 1-2 2-2 4M12 18h.01',fill:'none',stroke:'currentColor','stroke-width':2,'stroke-linecap':'round'},v);else{uiElement('circle',{cx:10,cy:10,r:6,fill:'none',stroke:'currentColor','stroke-width':2},v);uiElement('path',{d:'m15 15 6 6',stroke:'currentColor','stroke-width':2,'stroke-linecap':'round'},v)}button.append(v);
    button.onclick=()=>{layer.querySelectorAll('.event-marker').forEach(b=>b.classList.remove('chosen'));button.classList.add('chosen');put('#place-title',event.title||'Đầu mối');put('#observation',event.detail||'');};layer.append(button);eventItems.push({point,element:button});const row=document.createElement('button');row.className='event-row';row.textContent=event.title||'Đầu mối';row.onclick=button.onclick;$('#quests').append(row);
   }renderPositions();
  }
- const resize=new ResizeObserver(renderPositions);resize.observe($('#mapmount'));presentation={mountActors,mountEvents,showPlaceActors,renderPositions,pointSafe,readyMasks,get records(){return records},dispose(){generation++;clearActors();resize.disconnect();layer.remove();footLayer.remove();for(const r of records)r.node.classList.remove('occluded')}};
+ const resize=new ResizeObserver(renderPositions);resize.observe($('#mapmount'));presentation={mountActors,mountEvents,showPlaceActors,renderPositions,pointSafe,readyMasks,get records(){return records},dispose(){generation++;clearActors();resize.disconnect();layer.remove();linkLayer.remove();footLayer.remove();for(const r of records)r.node.classList.remove('occluded')}};
  // Accessibility uses the same selection path as mouse/touch.
  scene.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.closest('[data-id]')){e.preventDefault();eventClick(e)}});
  return presentation;

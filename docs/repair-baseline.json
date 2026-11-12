@@ -1,0 +1,42 @@
+{
+  "baseCommit": "10d2c372b507fc8c07490d4dc5dbc8bc1250f366",
+  "branch": "M2-P01-baseline-loader",
+  "plan": {
+    "bytes": 48838,
+    "sha256": "0e6024c12db1608016f18c8a654fb61b34a2fd7c5fc2940fbbbd1f41823bfaa8",
+    "canonicalLocation": "README.md — appendix PROJECT PLAN (verbatim)"
+  },
+  "files": {
+    "examples/template-review.html": {
+      "bytes": 964788,
+      "sha256": "223b77b47490a9f4bc2a3c8746fda1ae457af77c3ea1c9d6417d255585de1628"
+    },
+    "assets/source/corridors.js": {
+      "bytes": 40906,
+      "sha256": "be1052923f625645905af8b6229dd6b9abc7e4f7f56f9a930ca09c8538aa26af"
+    },
+    "assets/source/catalog.json.gz": {
+      "bytes": 78538,
+      "sha256": "3f0055bd94ef2b0fefa099f306b50b7f180bc237547ee5dd069b41d93278737f"
+    },
+    "assets/source/interiors.json.gz": {
+      "bytes": 57334,
+      "sha256": "c13d7033498dbf56e4395c8ec270e3765334af4aa34328f43107c2b65d6318c4"
+    },
+    "assets/atlas.json": {
+      "bytes": 55098,
+      "sha256": "971c32e9baf0ce1a5ebccf146182c75d4215e41c6fb12fbbcd2b71ea3bf9dfb0"
+    },
+    "assets/recipes.json": {
+      "bytes": 110733,
+      "sha256": "688de4e6db273d4e8d7d4887866adf9baf029e7209a226c29f7614fd84c9bc98"
+    },
+    "dist/shell.css": {
+      "bytes": 10895,
+      "sha256": "d767ceb45ab822ae1aba576b661afbebc4cbf6054cc7956a7b5f71ef907751bd"
+    }
+  },
+  "fixedCount": 13,
+  "recipes": 41,
+  "licenseStatus": "Source notices retained in supplied catalog/interiors packs and Fixed dialog; no new third-party source imported. No separate ownership certification."
+}

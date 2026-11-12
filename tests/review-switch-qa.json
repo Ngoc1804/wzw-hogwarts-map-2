@@ -1,6 +1,17 @@
 {
   "scenes": [
-    "p4",
+    "horizontal",
+    "vertical",
+    "windows",
+    "ell",
+    "tee",
+    "cross",
+    "court",
+    "cloister",
+    "curved",
+    "tower",
+    "outdoor-yard",
+    "outdoor-lake",
     "h1",
     "h2",
     "hall",
@@ -17,9 +28,9 @@
   ],
   "errors": [],
   "checks": [
-    "switch 13 Fixed and return P4",
-    "one SVG root",
-    "one PC after scene cleanup"
+    "25 scenes and return Horizontal",
+    "one SVG/tag/feet layer",
+    "4 actors after cleanup"
   ],
   "preview": "local only"
 }

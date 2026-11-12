@@ -1,0 +1,1235 @@
+[
+  {
+    "id": "horizontal",
+    "name": "Trục ngang — lớp thực hành",
+    "data": {
+      "meta": {
+        "date": "Ngày kiểm mô phỏng",
+        "time": "09:30",
+        "areaName": "Trục ngang — lớp thực hành",
+        "quote": "DỮ LIỆU KIỂM THỬ MÔ PHỎNG — chờ duyệt hình, không phải diễn biến RP thật."
+      },
+      "atlasAnchor": "custom",
+      "mapMode": "indoor",
+      "layoutType": "horizontal",
+      "pcPlace": "Văn phòng",
+      "pcSpot": "inside",
+      "places": [
+        {
+          "name": "Phòng Độc dược",
+          "type": "potions",
+          "description": "Các bàn thực hành có vạc, chai thủy tinh và ghế; lối vào để trống.",
+          "overhear": "Tiếng thủy tinh chạm nhẹ và lời nhắc giữ bàn sạch.",
+          "props": [
+            {
+              "name": "Hộp mẫu lạ có khóa đồng",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "name": "Văn phòng",
+          "type": "office",
+          "description": "Bàn làm việc có hồ sơ; kệ sách đặt sát phía bắc."
+        },
+        {
+          "name": "Kho đồ",
+          "type": "storage",
+          "description": "Rương và thùng đã được kiểm kê; một khoảng trống dành cho người ra vào."
+        },
+        {
+          "name": "Lớp học",
+          "type": "classroom",
+          "description": "Sách và lọ mực trên bàn học; bảng ở đầu lớp."
+        }
+      ],
+      "actors": [
+        {
+          "name": "An — PC mẫu",
+          "isPC": true,
+          "placeName": "Văn phòng",
+          "tagType": "slytherin",
+          "footstep": "hidden",
+          "activity": "Đang đối chiếu ghi chú tại vị trí đã khai báo.",
+          "observation": "Mang sổ kiểm kê bìa nâu."
+        },
+        {
+          "name": "Cô Mai — mẫu",
+          "placeName": "Phòng Độc dược",
+          "spot": "inside",
+          "tagType": "teacher",
+          "footstep": "hidden",
+          "activity": "Đang hướng dẫn cách giữ bàn thực hành sạch.",
+          "observation": "Đứng cạnh bàn có các chai thủy tinh."
+        },
+        {
+          "name": "Bình — mẫu",
+          "placeName": "Kho đồ",
+          "spot": "corridor",
+          "tagType": "ravenclaw",
+          "footstep": "walk",
+          "activity": "Đang đi ở hành lang phía ngoài kho.",
+          "observation": "Cầm một tờ danh mục."
+        },
+        {
+          "name": "Lan — mẫu",
+          "placeName": "Lớp học",
+          "spot": "inside",
+          "tagType": "gryffindor",
+          "footstep": "hidden",
+          "activity": "Đang đọc trang sách được mở sẵn.",
+          "observation": "Có túi vải đặt cạnh ghế."
+        }
+      ],
+      "events": [
+        {
+          "title": "Nhãn hộp mẫu",
+          "placeName": "Phòng Độc dược",
+          "detail": "Nhân vật đã nhìn thấy nhãn giấy trên hộp có khóa đồng; nội dung chỉ là dữ liệu mô phỏng."
+        },
+        {
+          "title": "Dấu phấn ở cửa",
+          "placeName": "Văn phòng",
+          "hidden": true,
+          "target": {
+            "kind": "door"
+          },
+          "detail": "Có một dấu phấn đã được nhận biết cạnh cửa; không ngụ ý bí mật ngoài payload."
+        }
+      ]
+    }
+  },
+  {
+    "id": "vertical",
+    "name": "Trục dọc — khu giáo vụ",
+    "data": {
+      "meta": {
+        "date": "Ngày kiểm mô phỏng",
+        "time": "09:30",
+        "areaName": "Trục dọc — khu giáo vụ",
+        "quote": "DỮ LIỆU KIỂM THỬ MÔ PHỎNG — chờ duyệt hình, không phải diễn biến RP thật."
+      },
+      "atlasAnchor": "custom",
+      "mapMode": "indoor",
+      "layoutType": "vertical",
+      "pcPlace": "Văn phòng",
+      "pcSpot": "corridor",
+      "places": [
+        {
+          "name": "Phòng Độc dược",
+          "type": "potions",
+          "description": "Các bàn thực hành có vạc, chai thủy tinh và ghế; lối vào để trống.",
+          "overhear": "Tiếng thủy tinh chạm nhẹ và lời nhắc giữ bàn sạch.",
+          "props": [
+            {
+              "name": "Hộp mẫu lạ có khóa đồng",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "name": "Văn phòng",
+          "type": "office",
+          "description": "Bàn làm việc có hồ sơ; kệ sách đặt sát phía bắc."
+        },
+        {
+          "name": "Kho đồ",
+          "type": "storage",
+          "description": "Rương và thùng đã được kiểm kê; một khoảng trống dành cho người ra vào."
+        },
+        {
+          "name": "Lớp học",
+          "type": "classroom",
+          "description": "Sách và lọ mực trên bàn học; bảng ở đầu lớp."
+        }
+      ],
+      "actors": [
+        {
+          "name": "An — PC mẫu",
+          "isPC": true,
+          "placeName": "Văn phòng",
+          "tagType": "slytherin",
+          "footstep": "idle",
+          "activity": "Đang đối chiếu ghi chú tại vị trí đã khai báo.",
+          "observation": "Mang sổ kiểm kê bìa nâu."
+        },
+        {
+          "name": "Cô Mai — mẫu",
+          "placeName": "Phòng Độc dược",
+          "spot": "inside",
+          "tagType": "teacher",
+          "footstep": "hidden",
+          "activity": "Đang hướng dẫn cách giữ bàn thực hành sạch.",
+          "observation": "Đứng cạnh bàn có các chai thủy tinh."
+        },
+        {
+          "name": "Bình — mẫu",
+          "placeName": "Kho đồ",
+          "spot": "corridor",
+          "tagType": "ravenclaw",
+          "footstep": "walk",
+          "activity": "Đang đi ở hành lang phía ngoài kho.",
+          "observation": "Cầm một tờ danh mục."
+        },
+        {
+          "name": "Lan — mẫu",
+          "placeName": "Lớp học",
+          "spot": "inside",
+          "tagType": "gryffindor",
+          "footstep": "hidden",
+          "activity": "Đang đọc trang sách được mở sẵn.",
+          "observation": "Có túi vải đặt cạnh ghế."
+        }
+      ],
+      "events": [
+        {
+          "title": "Nhãn hộp mẫu",
+          "placeName": "Phòng Độc dược",
+          "detail": "Nhân vật đã nhìn thấy nhãn giấy trên hộp có khóa đồng; nội dung chỉ là dữ liệu mô phỏng."
+        },
+        {
+          "title": "Dấu phấn ở cửa",
+          "placeName": "Văn phòng",
+          "hidden": true,
+          "target": {
+            "kind": "door"
+          },
+          "detail": "Có một dấu phấn đã được nhận biết cạnh cửa; không ngụ ý bí mật ngoài payload."
+        }
+      ]
+    }
+  },
+  {
+    "id": "windows",
+    "name": "Cửa sổ — cánh nhìn ra vườn",
+    "data": {
+      "meta": {
+        "date": "Ngày kiểm mô phỏng",
+        "time": "09:30",
+        "areaName": "Cửa sổ — cánh nhìn ra vườn",
+        "quote": "DỮ LIỆU KIỂM THỬ MÔ PHỎNG — chờ duyệt hình, không phải diễn biến RP thật."
+      },
+      "atlasAnchor": "custom",
+      "mapMode": "indoor",
+      "layoutType": "windows",
+      "pcPlace": "Văn phòng",
+      "pcSpot": "threshold",
+      "places": [
+        {
+          "name": "Phòng Độc dược",
+          "type": "potions",
+          "description": "Các bàn thực hành có vạc, chai thủy tinh và ghế; lối vào để trống.",
+          "overhear": "Tiếng thủy tinh chạm nhẹ và lời nhắc giữ bàn sạch.",
+          "props": [
+            {
+              "name": "Hộp mẫu lạ có khóa đồng",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "name": "Văn phòng",
+          "type": "office",
+          "description": "Bàn làm việc có hồ sơ; kệ sách đặt sát phía bắc."
+        },
+        {
+          "name": "Kho đồ",
+          "type": "storage",
+          "description": "Rương và thùng đã được kiểm kê; một khoảng trống dành cho người ra vào."
+        },
+        {
+          "name": "Lớp học",
+          "type": "classroom",
+          "description": "Sách và lọ mực trên bàn học; bảng ở đầu lớp."
+        }
+      ],
+      "actors": [
+        {
+          "name": "An — PC mẫu",
+          "isPC": true,
+          "placeName": "Văn phòng",
+          "tagType": "slytherin",
+          "footstep": "idle",
+          "activity": "Đang đối chiếu ghi chú tại vị trí đã khai báo.",
+          "observation": "Mang sổ kiểm kê bìa nâu."
+        },
+        {
+          "name": "Cô Mai — mẫu",
+          "placeName": "Phòng Độc dược",
+          "spot": "inside",
+          "tagType": "teacher",
+          "footstep": "hidden",
+          "activity": "Đang hướng dẫn cách giữ bàn thực hành sạch.",
+          "observation": "Đứng cạnh bàn có các chai thủy tinh."
+        },
+        {
+          "name": "Bình — mẫu",
+          "placeName": "Kho đồ",
+          "spot": "corridor",
+          "tagType": "ravenclaw",
+          "footstep": "walk",
+          "activity": "Đang đi ở hành lang phía ngoài kho.",
+          "observation": "Cầm một tờ danh mục."
+        },
+        {
+          "name": "Lan — mẫu",
+          "placeName": "Lớp học",
+          "spot": "inside",
+          "tagType": "gryffindor",
+          "footstep": "hidden",
+          "activity": "Đang đọc trang sách được mở sẵn.",
+          "observation": "Có túi vải đặt cạnh ghế."
+        }
+      ],
+      "events": [
+        {
+          "title": "Nhãn hộp mẫu",
+          "placeName": "Phòng Độc dược",
+          "detail": "Nhân vật đã nhìn thấy nhãn giấy trên hộp có khóa đồng; nội dung chỉ là dữ liệu mô phỏng."
+        },
+        {
+          "title": "Dấu phấn ở cửa",
+          "placeName": "Văn phòng",
+          "hidden": true,
+          "target": {
+            "kind": "door"
+          },
+          "detail": "Có một dấu phấn đã được nhận biết cạnh cửa; không ngụ ý bí mật ngoài payload."
+        }
+      ]
+    }
+  },
+  {
+    "id": "ell",
+    "name": "Chữ L — buổi kiểm kê",
+    "data": {
+      "meta": {
+        "date": "Ngày kiểm mô phỏng",
+        "time": "09:30",
+        "areaName": "Chữ L — buổi kiểm kê",
+        "quote": "DỮ LIỆU KIỂM THỬ MÔ PHỎNG — chờ duyệt hình, không phải diễn biến RP thật."
+      },
+      "atlasAnchor": "custom",
+      "mapMode": "indoor",
+      "layoutType": "ell",
+      "pcPlace": "Văn phòng",
+      "pcSpot": "inside",
+      "places": [
+        {
+          "name": "Phòng Độc dược",
+          "type": "potions",
+          "description": "Các bàn thực hành có vạc, chai thủy tinh và ghế; lối vào để trống.",
+          "overhear": "Tiếng thủy tinh chạm nhẹ và lời nhắc giữ bàn sạch.",
+          "props": [
+            {
+              "name": "Hộp mẫu lạ có khóa đồng",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "name": "Văn phòng",
+          "type": "office",
+          "description": "Bàn làm việc có hồ sơ; kệ sách đặt sát phía bắc."
+        },
+        {
+          "name": "Kho đồ",
+          "type": "storage",
+          "description": "Kho đã được dọn trống theo dữ kiện mô phỏng; kiến trúc vẫn nguyên.",
+          "propsMode": "replace",
+          "props": []
+        },
+        {
+          "name": "Lớp học",
+          "type": "classroom",
+          "description": "Sách và lọ mực trên bàn học; bảng ở đầu lớp."
+        }
+      ],
+      "actors": [
+        {
+          "name": "An — PC mẫu",
+          "isPC": true,
+          "placeName": "Văn phòng",
+          "tagType": "slytherin",
+          "footstep": "hidden",
+          "activity": "Đang đối chiếu ghi chú tại vị trí đã khai báo.",
+          "observation": "Mang sổ kiểm kê bìa nâu."
+        },
+        {
+          "name": "Cô Mai — mẫu",
+          "placeName": "Phòng Độc dược",
+          "spot": "inside",
+          "tagType": "teacher",
+          "footstep": "hidden",
+          "activity": "Đang hướng dẫn cách giữ bàn thực hành sạch.",
+          "observation": "Đứng cạnh bàn có các chai thủy tinh."
+        },
+        {
+          "name": "Bình — mẫu",
+          "placeName": "Kho đồ",
+          "spot": "corridor",
+          "tagType": "ravenclaw",
+          "footstep": "walk",
+          "activity": "Đang đi ở hành lang phía ngoài kho.",
+          "observation": "Cầm một tờ danh mục."
+        },
+        {
+          "name": "Lan — mẫu",
+          "placeName": "Lớp học",
+          "spot": "inside",
+          "tagType": "gryffindor",
+          "footstep": "hidden",
+          "activity": "Đang đọc trang sách được mở sẵn.",
+          "observation": "Có túi vải đặt cạnh ghế."
+        }
+      ],
+      "events": [
+        {
+          "title": "Nhãn hộp mẫu",
+          "placeName": "Phòng Độc dược",
+          "detail": "Nhân vật đã nhìn thấy nhãn giấy trên hộp có khóa đồng; nội dung chỉ là dữ liệu mô phỏng."
+        },
+        {
+          "title": "Dấu phấn ở cửa",
+          "placeName": "Văn phòng",
+          "hidden": true,
+          "target": {
+            "kind": "door"
+          },
+          "detail": "Có một dấu phấn đã được nhận biết cạnh cửa; không ngụ ý bí mật ngoài payload."
+        }
+      ]
+    }
+  },
+  {
+    "id": "tee",
+    "name": "Chữ T — trước tiết học",
+    "data": {
+      "meta": {
+        "date": "Ngày kiểm mô phỏng",
+        "time": "09:30",
+        "areaName": "Chữ T — trước tiết học",
+        "quote": "DỮ LIỆU KIỂM THỬ MÔ PHỎNG — chờ duyệt hình, không phải diễn biến RP thật."
+      },
+      "atlasAnchor": "custom",
+      "mapMode": "indoor",
+      "layoutType": "tee",
+      "pcPlace": "Văn phòng",
+      "pcSpot": "corridor",
+      "places": [
+        {
+          "name": "Phòng Độc dược",
+          "type": "potions",
+          "description": "Các bàn thực hành có vạc, chai thủy tinh và ghế; lối vào để trống.",
+          "overhear": "Tiếng thủy tinh chạm nhẹ và lời nhắc giữ bàn sạch.",
+          "props": [
+            {
+              "name": "Hộp mẫu lạ có khóa đồng",
+              "count": 1
+            },
+            {
+              "name": "Vạc thuốc",
+              "count": 6
+            }
+          ]
+        },
+        {
+          "name": "Văn phòng",
+          "type": "office",
+          "description": "Bàn làm việc có hồ sơ; kệ sách đặt sát phía bắc."
+        },
+        {
+          "name": "Kho đồ",
+          "type": "storage",
+          "description": "Rương và thùng đã được kiểm kê; một khoảng trống dành cho người ra vào."
+        },
+        {
+          "name": "Lớp học",
+          "type": "classroom",
+          "description": "Sách và lọ mực trên bàn học; bảng ở đầu lớp."
+        }
+      ],
+      "actors": [
+        {
+          "name": "An — PC mẫu",
+          "isPC": true,
+          "placeName": "Văn phòng",
+          "tagType": "slytherin",
+          "footstep": "idle",
+          "activity": "Đang đối chiếu ghi chú tại vị trí đã khai báo.",
+          "observation": "Mang sổ kiểm kê bìa nâu."
+        },
+        {
+          "name": "Cô Mai — mẫu",
+          "placeName": "Phòng Độc dược",
+          "spot": "inside",
+          "tagType": "teacher",
+          "footstep": "hidden",
+          "activity": "Đang hướng dẫn cách giữ bàn thực hành sạch.",
+          "observation": "Đứng cạnh bàn có các chai thủy tinh."
+        },
+        {
+          "name": "Bình — mẫu",
+          "placeName": "Kho đồ",
+          "spot": "corridor",
+          "tagType": "ravenclaw",
+          "footstep": "walk",
+          "activity": "Đang đi ở hành lang phía ngoài kho.",
+          "observation": "Cầm một tờ danh mục."
+        },
+        {
+          "name": "Lan — mẫu",
+          "placeName": "Lớp học",
+          "spot": "inside",
+          "tagType": "gryffindor",
+          "footstep": "hidden",
+          "activity": "Đang đọc trang sách được mở sẵn.",
+          "observation": "Có túi vải đặt cạnh ghế."
+        }
+      ],
+      "events": [
+        {
+          "title": "Nhãn hộp mẫu",
+          "placeName": "Phòng Độc dược",
+          "detail": "Nhân vật đã nhìn thấy nhãn giấy trên hộp có khóa đồng; nội dung chỉ là dữ liệu mô phỏng."
+        },
+        {
+          "title": "Dấu phấn ở cửa",
+          "placeName": "Văn phòng",
+          "hidden": true,
+          "target": {
+            "kind": "door"
+          },
+          "detail": "Có một dấu phấn đã được nhận biết cạnh cửa; không ngụ ý bí mật ngoài payload."
+        }
+      ]
+    }
+  },
+  {
+    "id": "cross",
+    "name": "Ngã tư — giờ đổi lớp",
+    "data": {
+      "meta": {
+        "date": "Ngày kiểm mô phỏng",
+        "time": "09:30",
+        "areaName": "Ngã tư — giờ đổi lớp",
+        "quote": "DỮ LIỆU KIỂM THỬ MÔ PHỎNG — chờ duyệt hình, không phải diễn biến RP thật."
+      },
+      "atlasAnchor": "custom",
+      "mapMode": "indoor",
+      "layoutType": "cross",
+      "pcPlace": "Văn phòng",
+      "pcSpot": "threshold",
+      "places": [
+        {
+          "name": "Phòng Độc dược",
+          "type": "potions",
+          "description": "Các bàn thực hành có vạc, chai thủy tinh và ghế; lối vào để trống.",
+          "overhear": "Tiếng thủy tinh chạm nhẹ và lời nhắc giữ bàn sạch.",
+          "props": [
+            {
+              "name": "Hộp mẫu lạ có khóa đồng",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "name": "Văn phòng",
+          "type": "office",
+          "description": "Bàn làm việc có hồ sơ; kệ sách đặt sát phía bắc.",
+          "props": [
+            {
+              "id": "OFFICE:13",
+              "name": "Lò sưởi đã tắt",
+              "state": "broken",
+              "count": 1
+            }
+          ],
+          "templateState": "modified_props"
+        },
+        {
+          "name": "Kho đồ",
+          "type": "storage",
+          "description": "Rương và thùng đã được kiểm kê; một khoảng trống dành cho người ra vào."
+        },
+        {
+          "name": "Lớp học",
+          "type": "classroom",
+          "description": "Sách và lọ mực trên bàn học; bảng ở đầu lớp."
+        },
+        {
+          "name": "Phòng Độc dược phụ",
+          "type": "potions",
+          "description": "Các bàn thực hành có vạc, chai thủy tinh và ghế; lối vào để trống."
+        },
+        {
+          "name": "Văn phòng phụ",
+          "type": "office",
+          "description": "Bàn làm việc có hồ sơ; kệ sách đặt sát phía bắc."
+        }
+      ],
+      "actors": [
+        {
+          "name": "An — PC mẫu",
+          "isPC": true,
+          "placeName": "Văn phòng",
+          "tagType": "slytherin",
+          "footstep": "idle",
+          "activity": "Đang đối chiếu ghi chú tại vị trí đã khai báo.",
+          "observation": "Mang sổ kiểm kê bìa nâu."
+        },
+        {
+          "name": "Cô Mai — mẫu",
+          "placeName": "Phòng Độc dược",
+          "spot": "inside",
+          "tagType": "teacher",
+          "footstep": "hidden",
+          "activity": "Đang hướng dẫn cách giữ bàn thực hành sạch.",
+          "observation": "Đứng cạnh bàn có các chai thủy tinh."
+        },
+        {
+          "name": "Bình — mẫu",
+          "placeName": "Kho đồ",
+          "spot": "corridor",
+          "tagType": "ravenclaw",
+          "footstep": "walk",
+          "activity": "Đang đi ở hành lang phía ngoài kho.",
+          "observation": "Cầm một tờ danh mục."
+        },
+        {
+          "name": "Lan — mẫu",
+          "placeName": "Văn phòng phụ",
+          "spot": "inside",
+          "tagType": "gryffindor",
+          "footstep": "hidden",
+          "activity": "Đang đọc trang sách được mở sẵn.",
+          "observation": "Có túi vải đặt cạnh ghế."
+        }
+      ],
+      "events": [
+        {
+          "title": "Nhãn hộp mẫu",
+          "placeName": "Phòng Độc dược",
+          "detail": "Nhân vật đã nhìn thấy nhãn giấy trên hộp có khóa đồng; nội dung chỉ là dữ liệu mô phỏng."
+        },
+        {
+          "title": "Dấu phấn ở cửa",
+          "placeName": "Văn phòng",
+          "hidden": true,
+          "target": {
+            "kind": "door"
+          },
+          "detail": "Có một dấu phấn đã được nhận biết cạnh cửa; không ngụ ý bí mật ngoài payload."
+        }
+      ]
+    }
+  },
+  {
+    "id": "court",
+    "name": "Sân chữ U — nhóm thực địa",
+    "data": {
+      "meta": {
+        "date": "Ngày kiểm mô phỏng",
+        "time": "09:30",
+        "areaName": "Sân chữ U — nhóm thực địa",
+        "quote": "DỮ LIỆU KIỂM THỬ MÔ PHỎNG — chờ duyệt hình, không phải diễn biến RP thật."
+      },
+      "atlasAnchor": "custom",
+      "mapMode": "indoor",
+      "layoutType": "court",
+      "pcPlace": "Văn phòng",
+      "pcSpot": "outdoor",
+      "places": [
+        {
+          "name": "Phòng Độc dược",
+          "type": "potions",
+          "description": "Các bàn thực hành có vạc, chai thủy tinh và ghế; lối vào để trống.",
+          "overhear": "Tiếng thủy tinh chạm nhẹ và lời nhắc giữ bàn sạch.",
+          "props": [
+            {
+              "name": "Hộp mẫu lạ có khóa đồng",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "name": "Văn phòng",
+          "type": "office",
+          "description": "Bàn làm việc có hồ sơ; kệ sách đặt sát phía bắc."
+        },
+        {
+          "name": "Kho đồ",
+          "type": "storage",
+          "description": "Rương và thùng đã được kiểm kê; một khoảng trống dành cho người ra vào."
+        },
+        {
+          "name": "Lớp học",
+          "type": "classroom",
+          "description": "Sách và lọ mực trên bàn học; bảng ở đầu lớp."
+        },
+        {
+          "name": "Phòng Độc dược phụ",
+          "type": "potions",
+          "description": "Các bàn thực hành có vạc, chai thủy tinh và ghế; lối vào để trống."
+        },
+        {
+          "name": "Văn phòng phụ",
+          "type": "office",
+          "description": "Bàn làm việc có hồ sơ; kệ sách đặt sát phía bắc."
+        }
+      ],
+      "actors": [
+        {
+          "name": "An — PC mẫu",
+          "isPC": true,
+          "placeName": "Văn phòng",
+          "tagType": "slytherin",
+          "footstep": "idle",
+          "activity": "Đang đối chiếu ghi chú tại vị trí đã khai báo.",
+          "observation": "Mang sổ kiểm kê bìa nâu."
+        },
+        {
+          "name": "Cô Mai — mẫu",
+          "placeName": "Phòng Độc dược",
+          "spot": "inside",
+          "tagType": "teacher",
+          "footstep": "hidden",
+          "activity": "Đang hướng dẫn cách giữ bàn thực hành sạch.",
+          "observation": "Đứng cạnh bàn có các chai thủy tinh."
+        },
+        {
+          "name": "Bình — mẫu",
+          "placeName": "Kho đồ",
+          "spot": "corridor",
+          "tagType": "ravenclaw",
+          "footstep": "walk",
+          "activity": "Đang đi ở hành lang phía ngoài kho.",
+          "observation": "Cầm một tờ danh mục."
+        },
+        {
+          "name": "Lan — mẫu",
+          "placeName": "Văn phòng phụ",
+          "spot": "inside",
+          "tagType": "gryffindor",
+          "footstep": "hidden",
+          "activity": "Đang đọc trang sách được mở sẵn.",
+          "observation": "Có túi vải đặt cạnh ghế."
+        }
+      ],
+      "events": [
+        {
+          "title": "Nhãn hộp mẫu",
+          "placeName": "Phòng Độc dược",
+          "detail": "Nhân vật đã nhìn thấy nhãn giấy trên hộp có khóa đồng; nội dung chỉ là dữ liệu mô phỏng."
+        },
+        {
+          "title": "Dấu phấn ở cửa",
+          "placeName": "Văn phòng",
+          "hidden": true,
+          "target": {
+            "kind": "door"
+          },
+          "detail": "Có một dấu phấn đã được nhận biết cạnh cửa; không ngụ ý bí mật ngoài payload."
+        }
+      ]
+    }
+  },
+  {
+    "id": "cloister",
+    "name": "Bao sân — đoàn tham quan",
+    "data": {
+      "meta": {
+        "date": "Ngày kiểm mô phỏng",
+        "time": "09:30",
+        "areaName": "Bao sân — đoàn tham quan",
+        "quote": "DỮ LIỆU KIỂM THỬ MÔ PHỎNG — chờ duyệt hình, không phải diễn biến RP thật."
+      },
+      "atlasAnchor": "custom",
+      "mapMode": "indoor",
+      "layoutType": "cloister",
+      "pcPlace": "Văn phòng",
+      "pcSpot": "inside",
+      "places": [
+        {
+          "name": "Phòng Độc dược",
+          "type": "potions",
+          "description": "Các bàn thực hành có vạc, chai thủy tinh và ghế; lối vào để trống.",
+          "overhear": "Tiếng thủy tinh chạm nhẹ và lời nhắc giữ bàn sạch.",
+          "props": [
+            {
+              "name": "Hộp mẫu lạ có khóa đồng",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "name": "Văn phòng",
+          "type": "office",
+          "description": "Bàn làm việc có hồ sơ; kệ sách đặt sát phía bắc."
+        },
+        {
+          "name": "Kho đồ",
+          "type": "storage",
+          "description": "Rương và thùng đã được kiểm kê; một khoảng trống dành cho người ra vào."
+        },
+        {
+          "name": "Lớp học",
+          "type": "classroom",
+          "description": "Sách và lọ mực trên bàn học; bảng ở đầu lớp."
+        },
+        {
+          "name": "Phòng Độc dược phụ",
+          "type": "potions",
+          "description": "Các bàn thực hành có vạc, chai thủy tinh và ghế; lối vào để trống."
+        },
+        {
+          "name": "Văn phòng phụ",
+          "type": "office",
+          "description": "Bàn làm việc có hồ sơ; kệ sách đặt sát phía bắc."
+        },
+        {
+          "name": "Kho đồ phụ",
+          "type": "storage",
+          "description": "Rương và thùng đã được kiểm kê; một khoảng trống dành cho người ra vào."
+        },
+        {
+          "name": "Lớp học phụ",
+          "type": "classroom",
+          "description": "Sách và lọ mực trên bàn học; bảng ở đầu lớp."
+        }
+      ],
+      "actors": [
+        {
+          "name": "An — PC mẫu",
+          "isPC": true,
+          "placeName": "Văn phòng",
+          "tagType": "slytherin",
+          "footstep": "hidden",
+          "activity": "Đang đối chiếu ghi chú tại vị trí đã khai báo.",
+          "observation": "Mang sổ kiểm kê bìa nâu."
+        },
+        {
+          "name": "Cô Mai — mẫu",
+          "placeName": "Phòng Độc dược",
+          "spot": "inside",
+          "tagType": "teacher",
+          "footstep": "hidden",
+          "activity": "Đang hướng dẫn cách giữ bàn thực hành sạch.",
+          "observation": "Đứng cạnh bàn có các chai thủy tinh."
+        },
+        {
+          "name": "Bình — mẫu",
+          "placeName": "Kho đồ",
+          "spot": "corridor",
+          "tagType": "ravenclaw",
+          "footstep": "walk",
+          "activity": "Đang đi ở hành lang phía ngoài kho.",
+          "observation": "Cầm một tờ danh mục."
+        },
+        {
+          "name": "Lan — mẫu",
+          "placeName": "Lớp học phụ",
+          "spot": "inside",
+          "tagType": "gryffindor",
+          "footstep": "hidden",
+          "activity": "Đang đọc trang sách được mở sẵn.",
+          "observation": "Có túi vải đặt cạnh ghế."
+        },
+        {
+          "name": "Khách mẫu 1",
+          "placeName": "Lớp học",
+          "spot": "inside",
+          "tagType": "hufflepuff",
+          "footstep": "hidden",
+          "activity": "Đang nghe phần hướng dẫn mô phỏng.",
+          "observation": "Đã được PC nhận biết trong cùng phòng."
+        },
+        {
+          "name": "Khách mẫu 2",
+          "placeName": "Lớp học",
+          "spot": "inside",
+          "tagType": "beauxbatons",
+          "footstep": "hidden",
+          "activity": "Đang nghe phần hướng dẫn mô phỏng.",
+          "observation": "Đã được PC nhận biết trong cùng phòng."
+        },
+        {
+          "name": "Khách mẫu 3",
+          "placeName": "Lớp học",
+          "spot": "inside",
+          "tagType": "adult",
+          "footstep": "hidden",
+          "activity": "Đang nghe phần hướng dẫn mô phỏng.",
+          "observation": "Đã được PC nhận biết trong cùng phòng."
+        },
+        {
+          "name": "Khách mẫu 4",
+          "placeName": "Lớp học",
+          "spot": "inside",
+          "tagType": "hufflepuff",
+          "footstep": "hidden",
+          "activity": "Đang nghe phần hướng dẫn mô phỏng.",
+          "observation": "Đã được PC nhận biết trong cùng phòng."
+        },
+        {
+          "name": "Khách mẫu 5",
+          "placeName": "Lớp học",
+          "spot": "inside",
+          "tagType": "beauxbatons",
+          "footstep": "hidden",
+          "activity": "Đang nghe phần hướng dẫn mô phỏng.",
+          "observation": "Đã được PC nhận biết trong cùng phòng."
+        },
+        {
+          "name": "Khách mẫu 6",
+          "placeName": "Lớp học",
+          "spot": "inside",
+          "tagType": "adult",
+          "footstep": "hidden",
+          "activity": "Đang nghe phần hướng dẫn mô phỏng.",
+          "observation": "Đã được PC nhận biết trong cùng phòng."
+        }
+      ],
+      "events": [
+        {
+          "title": "Nhãn hộp mẫu",
+          "placeName": "Phòng Độc dược",
+          "detail": "Nhân vật đã nhìn thấy nhãn giấy trên hộp có khóa đồng; nội dung chỉ là dữ liệu mô phỏng."
+        },
+        {
+          "title": "Dấu phấn ở cửa",
+          "placeName": "Văn phòng",
+          "hidden": true,
+          "target": {
+            "kind": "door"
+          },
+          "detail": "Có một dấu phấn đã được nhận biết cạnh cửa; không ngụ ý bí mật ngoài payload."
+        }
+      ]
+    }
+  },
+  {
+    "id": "curved",
+    "name": "Cánh cong — khu nghiên cứu",
+    "data": {
+      "meta": {
+        "date": "Ngày kiểm mô phỏng",
+        "time": "09:30",
+        "areaName": "Cánh cong — khu nghiên cứu",
+        "quote": "DỮ LIỆU KIỂM THỬ MÔ PHỎNG — chờ duyệt hình, không phải diễn biến RP thật."
+      },
+      "atlasAnchor": "custom",
+      "mapMode": "indoor",
+      "layoutType": "curved",
+      "pcPlace": "Văn phòng",
+      "pcSpot": "corridor",
+      "places": [
+        {
+          "name": "Phòng Độc dược",
+          "type": "potions",
+          "description": "Các bàn thực hành có vạc, chai thủy tinh và ghế; lối vào để trống.",
+          "overhear": "Tiếng thủy tinh chạm nhẹ và lời nhắc giữ bàn sạch.",
+          "props": [
+            {
+              "name": "Hộp mẫu lạ có khóa đồng",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "name": "Văn phòng",
+          "type": "office",
+          "description": "Bàn làm việc có hồ sơ; kệ sách đặt sát phía bắc."
+        },
+        {
+          "name": "Kho đồ",
+          "type": "storage",
+          "description": "Rương và thùng đã được kiểm kê; một khoảng trống dành cho người ra vào."
+        },
+        {
+          "name": "Lớp học",
+          "type": "classroom",
+          "description": "Sách và lọ mực trên bàn học; bảng ở đầu lớp."
+        }
+      ],
+      "actors": [
+        {
+          "name": "An — PC mẫu",
+          "isPC": true,
+          "placeName": "Văn phòng",
+          "tagType": "slytherin",
+          "footstep": "idle",
+          "activity": "Đang đối chiếu ghi chú tại vị trí đã khai báo.",
+          "observation": "Mang sổ kiểm kê bìa nâu."
+        },
+        {
+          "name": "Cô Mai — mẫu",
+          "placeName": "Phòng Độc dược",
+          "spot": "inside",
+          "tagType": "teacher",
+          "footstep": "hidden",
+          "activity": "Đang hướng dẫn cách giữ bàn thực hành sạch.",
+          "observation": "Đứng cạnh bàn có các chai thủy tinh."
+        },
+        {
+          "name": "Bình — mẫu",
+          "placeName": "Kho đồ",
+          "spot": "corridor",
+          "tagType": "ravenclaw",
+          "footstep": "walk",
+          "activity": "Đang đi ở hành lang phía ngoài kho.",
+          "observation": "Cầm một tờ danh mục."
+        },
+        {
+          "name": "Lan — mẫu",
+          "placeName": "Lớp học",
+          "spot": "inside",
+          "tagType": "gryffindor",
+          "footstep": "hidden",
+          "activity": "Đang đọc trang sách được mở sẵn.",
+          "observation": "Có túi vải đặt cạnh ghế."
+        }
+      ],
+      "events": [
+        {
+          "title": "Nhãn hộp mẫu",
+          "placeName": "Phòng Độc dược",
+          "detail": "Nhân vật đã nhìn thấy nhãn giấy trên hộp có khóa đồng; nội dung chỉ là dữ liệu mô phỏng."
+        },
+        {
+          "title": "Dấu phấn ở cửa",
+          "placeName": "Văn phòng",
+          "hidden": true,
+          "target": {
+            "kind": "door"
+          },
+          "detail": "Có một dấu phấn đã được nhận biết cạnh cửa; không ngụ ý bí mật ngoài payload."
+        }
+      ]
+    }
+  },
+  {
+    "id": "tower",
+    "name": "Chân tháp — cuộc hẹn",
+    "data": {
+      "meta": {
+        "date": "Ngày kiểm mô phỏng",
+        "time": "09:30",
+        "areaName": "Chân tháp — cuộc hẹn",
+        "quote": "DỮ LIỆU KIỂM THỬ MÔ PHỎNG — chờ duyệt hình, không phải diễn biến RP thật."
+      },
+      "atlasAnchor": "custom",
+      "mapMode": "indoor",
+      "layoutType": "tower",
+      "pcPlace": "Văn phòng",
+      "pcSpot": "threshold",
+      "places": [
+        {
+          "name": "Phòng Độc dược",
+          "type": "potions",
+          "description": "Các bàn thực hành có vạc, chai thủy tinh và ghế; lối vào để trống.",
+          "overhear": "Tiếng thủy tinh chạm nhẹ và lời nhắc giữ bàn sạch.",
+          "props": [
+            {
+              "name": "Hộp mẫu lạ có khóa đồng",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "name": "Văn phòng",
+          "type": "office",
+          "description": "Bàn làm việc có hồ sơ; kệ sách đặt sát phía bắc."
+        },
+        {
+          "name": "Kho đồ",
+          "type": "storage",
+          "description": "Rương và thùng đã được kiểm kê; một khoảng trống dành cho người ra vào."
+        },
+        {
+          "name": "Phòng học chân tháp",
+          "type": "classroom",
+          "description": "Gian tròn chân tháp, đồ học tập đặt trong phần sàn hữu dụng."
+        }
+      ],
+      "actors": [
+        {
+          "name": "An — PC mẫu",
+          "isPC": true,
+          "placeName": "Văn phòng",
+          "tagType": "slytherin",
+          "footstep": "idle",
+          "activity": "Đang đối chiếu ghi chú tại vị trí đã khai báo.",
+          "observation": "Mang sổ kiểm kê bìa nâu."
+        },
+        {
+          "name": "Cô Mai — mẫu",
+          "placeName": "Phòng Độc dược",
+          "spot": "inside",
+          "tagType": "teacher",
+          "footstep": "hidden",
+          "activity": "Đang hướng dẫn cách giữ bàn thực hành sạch.",
+          "observation": "Đứng cạnh bàn có các chai thủy tinh."
+        },
+        {
+          "name": "Bình — mẫu",
+          "placeName": "Kho đồ",
+          "spot": "corridor",
+          "tagType": "ravenclaw",
+          "footstep": "walk",
+          "activity": "Đang đi ở hành lang phía ngoài kho.",
+          "observation": "Cầm một tờ danh mục."
+        },
+        {
+          "name": "Lan — mẫu",
+          "placeName": "Phòng học chân tháp",
+          "spot": "inside",
+          "tagType": "gryffindor",
+          "footstep": "hidden",
+          "activity": "Đang đọc trang sách được mở sẵn.",
+          "observation": "Có túi vải đặt cạnh ghế."
+        }
+      ],
+      "events": [
+        {
+          "title": "Nhãn hộp mẫu",
+          "placeName": "Phòng Độc dược",
+          "detail": "Nhân vật đã nhìn thấy nhãn giấy trên hộp có khóa đồng; nội dung chỉ là dữ liệu mô phỏng."
+        },
+        {
+          "title": "Dấu phấn ở cửa",
+          "placeName": "Văn phòng",
+          "hidden": true,
+          "target": {
+            "kind": "door"
+          },
+          "detail": "Có một dấu phấn đã được nhận biết cạnh cửa; không ngụ ý bí mật ngoài payload."
+        }
+      ]
+    }
+  },
+  {
+    "id": "outdoor-yard",
+    "name": "Ngoài trời — sân và nhà kho",
+    "data": {
+      "meta": {
+        "date": "Ngày kiểm mô phỏng",
+        "time": "15:10",
+        "areaName": "Ngoài trời — sân và nhà kho",
+        "quote": "DỮ LIỆU KIỂM THỬ MÔ PHỎNG — kiểm nền ngoài trời, mái và nước."
+      },
+      "atlasAnchor": "custom",
+      "mapMode": "outdoor",
+      "pcPlace": "Sân luyện tập",
+      "pcSpot": "outdoor",
+      "places": [
+        {
+          "name": "Sân luyện tập",
+          "type": "yard",
+          "description": "Sân đất mở, có lối đi giữa các cụm cây.",
+          "props": [
+            "Cọc đánh dấu bằng gỗ"
+          ]
+        },
+        {
+          "name": "Nhà kho sân",
+          "type": "storage",
+          "description": "Công trình nhỏ bên sân; nội thất không chồng lên mái.",
+          "props": [
+            "Bảng kiểm kê treo ngoài cửa"
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "name": "An — PC mẫu",
+          "isPC": true,
+          "placeName": "Sân luyện tập",
+          "tagType": "slytherin",
+          "footstep": "idle",
+          "activity": "Đang ghi nhận cảnh quan đã thấy.",
+          "observation": "Đứng trên nền khô."
+        },
+        {
+          "name": "Người trông coi — mẫu",
+          "placeName": "Nhà kho sân",
+          "spot": "inside",
+          "tagType": "adult",
+          "footstep": "hidden",
+          "activity": "Đang kiểm giấy tờ trong công trình.",
+          "observation": "Đã được PC biết vị trí qua dữ kiện kiểm."
+        }
+      ],
+      "events": [
+        {
+          "title": "Ghi chú hiện trường",
+          "placeName": "Sân luyện tập",
+          "detail": "Tờ ghi chú này chỉ thuộc cảnh mô phỏng và đã được nhân vật nhìn thấy."
+        }
+      ]
+    }
+  },
+  {
+    "id": "outdoor-lake",
+    "name": "Ngoài trời — bờ hồ và tháp",
+    "data": {
+      "meta": {
+        "date": "Ngày kiểm mô phỏng",
+        "time": "15:10",
+        "areaName": "Ngoài trời — bờ hồ và tháp",
+        "quote": "DỮ LIỆU KIỂM THỬ MÔ PHỎNG — kiểm nền ngoài trời, mái và nước."
+      },
+      "atlasAnchor": "custom",
+      "mapMode": "outdoor",
+      "pcPlace": "Bờ cỏ phía đông",
+      "pcSpot": "outdoor",
+      "places": [
+        {
+          "name": "Bờ cỏ phía đông",
+          "type": "garden",
+          "description": "Khoảng cỏ khô để đứng quan sát bờ nước.",
+          "props": [
+            "Giỏ dụng cụ lấy mẫu"
+          ]
+        },
+        {
+          "name": "Hồ thử nghiệm",
+          "type": "lake",
+          "description": "Mặt nước được chỉ định rõ, không phải vùng đứng."
+        },
+        {
+          "name": "Tháp quan sát",
+          "type": "tower",
+          "description": "Tháp nằm trên nền khô; người bên trong được gắn nhãn, không hiện chân trên mái."
+        }
+      ],
+      "actors": [
+        {
+          "name": "An — PC mẫu",
+          "isPC": true,
+          "placeName": "Bờ cỏ phía đông",
+          "tagType": "slytherin",
+          "footstep": "idle",
+          "activity": "Đang ghi nhận cảnh quan đã thấy.",
+          "observation": "Đứng trên nền khô."
+        },
+        {
+          "name": "Người trông coi — mẫu",
+          "placeName": "Tháp quan sát",
+          "spot": "inside",
+          "tagType": "adult",
+          "footstep": "hidden",
+          "activity": "Đang kiểm giấy tờ trong công trình.",
+          "observation": "Đã được PC biết vị trí qua dữ kiện kiểm."
+        }
+      ],
+      "events": [
+        {
+          "title": "Ghi chú hiện trường",
+          "placeName": "Bờ cỏ phía đông",
+          "detail": "Tờ ghi chú này chỉ thuộc cảnh mô phỏng và đã được nhân vật nhìn thấy."
+        }
+      ]
+    }
+  }
+]

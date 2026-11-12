@@ -1,4 +1,4 @@
-function resolve(d){let source=DATA.maps[d.atlasAnchor];let cluster=ATLAS.clusters[d.atlasAnchor];if(cluster&&!cluster.rooms.length&&cluster.pointers.length===1&&DATA.maps[cluster.pointers[0]])source=DATA.maps[cluster.pointers[0]];const structural=d.templateState==='structural_change'||d.places.some(p=>p.templateState==='structural_change'&&(key(p.name)===key(d.pcPlace)));
+function resolve(d){let source=DATA.maps[d.atlasAnchor];let cluster=ATLAS.clusters[d.atlasAnchor];if(cluster&&!cluster.rooms.length&&cluster.pointers.length===1&&DATA.maps[cluster.pointers[0]])source=DATA.maps[cluster.pointers[0]];const pcInput=d.places.find(p=>p.id===d.pcPlace||key(p.name)===key(d.pcPlace));const structural=(pcInput?.templateState||d.templateState)==='structural_change';
  let places=source?source.places.map(p=>({...p})):cluster?cluster.rooms.map(p=>({...p})):[];const used=new Set();const bindings={};
  const aliases={'great hall':'đại sảnh','honeydukes':'tiệm công tước mật','three broomsticks':'quán ba cây chổi thần','borgin & burkes':'tiệm borgin và burkes'};
  const exact=name=>{const canonical=aliases[key(name)]||key(name);const hits=places.filter(p=>p.id===name||key(p.name)===canonical);return hits.length===1?hits[0]:null};
@@ -7,4 +7,4 @@ function resolve(d){let source=DATA.maps[d.atlasAnchor];let cluster=ATLAS.cluste
  for(const name of [d.pcPlace,...d.actors.filter(a=>!a.isPC).map(a=>a.placeId||a.placeName),...d.events.map(e=>e.placeId||e.placeName)].filter(Boolean))if(!exact(name))places.push({id:'rp:'+key(name),name,desc:''});
  for(const place of places)place.inventory=composeRoom(place);
  if(!places.length)places.push({id:'context',name:d.meta.areaName||'Không gian RP',desc:''});
- return {source:source&&!structural?source:null,cluster,places,bindings,detail:!!source&&(structural||places.some(p=>!source.places.some(x=>x.id===p.id))),exact};}
+ return {source:source&&!structural?source:null,cluster,places,bindings,detail:!!source&&(structural||places.some(p=>p.templateState==='structural_change')||places.some(p=>!source.places.some(x=>x.id===p.id))),exact};}
