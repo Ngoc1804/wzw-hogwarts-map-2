@@ -1,6 +1,6 @@
-# Map 2 — P0/P1 integration progress
+# WZW Map 2 — UI cố định, đồ họa và tích hợp P0/P1
 
-Current task branch: `M2-P01-baseline-loader`. [Baseline and decisions](docs/P0-P1.md), [upload hashes](docs/baseline.json), [Atlas](docs/ATLAS_W4.md), [build sizes](docs/build-metrics.json).
+Nhánh làm việc hợp nhất duy nhất: `M2-P01-baseline-loader`. Nhánh này kế thừa toàn bộ lịch sử `01-template-ui` tại `24c6c207bd5c321a511299004aa036d54294571f`; nhánh cũ đã được hợp nhất theo yêu cầu người dùng và không còn dùng làm nhánh chỉnh sửa. [Baseline and decisions](docs/P0-P1.md), [upload hashes](docs/baseline.json), [Atlas](docs/ATLAS_W4.md), [build sizes](docs/build-metrics.json).
 
 - [x] P0 source inventory, hashes, keep/adapt/missing and prior approval identified.
 - [x] P1 local Fixed shell/loader/SVG, one MAP_DATA bootstrap and deterministic build.
@@ -17,12 +17,14 @@ Agreed geometry: wall height 36; upright furniture except actual wall attachment
 
 ---
 
-# WZW Map 2 — Nhánh 01: Template và UI cố định
+## UI cố định và đồ họa đã kế thừa
 
-Nhánh baseline: `01-template-ui`. Mã task/commit: `TUI-01`–`TUI-08`.
+Baseline lịch sử: `01-template-ui` tại `24c6c207bd5c321a511299004aa036d54294571f`. Các task/commit `TUI-01`–`TUI-08` được giữ nguyên trong lịch sử nhánh hợp nhất.
 Không merge `main`, không phát hành; repo cũ chỉ đọc.
 
 ## Bản chính
+
+Chỉ sửa một nguồn Fixed/UI: `examples/template-review.html`. `dist/` là đầu ra tự sinh bởi `tools/build.py`, không sửa trực tiếp. Các pack trong `assets/source/` là đầu vào đồ họa tham khảo đã kiểm kê, không phải renderer chạy song song. Bộ xem offline có selector đủ 13 mẫu; runtime P1 không có selector review.
 
 `examples/template-review.html` là bản offline duy nhất, chứa đủ 13 SVG, definitions và UI. Mở trực tiếp bằng Chromium hoặc chạy:
 
