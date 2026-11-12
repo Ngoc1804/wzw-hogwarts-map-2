@@ -5,7 +5,7 @@ r=Path(__file__).resolve().parents[1];s=(r/'docs/ATLAS_W4.md').read_text();fixed
 fixed_text=s.split('### 6.2.',1)[1].split('### 6.3.',1)[0]
 for cid,body in re.findall(r'#### `([^`]+)`\n(.*?)(?=\n#### |\Z)',fixed_text,re.S):
  fixed[cid]={'places':[{'id':pid,'name':name.strip().rstrip('.')} for pid,name in re.findall(r'`([^`]+)`=([^;\n]+)',body)]}
-for cid,layout,status,body in re.findall(r'#### `([^`]+)` \[(\w+)\](?: (ACTIVE|LOCKED))?\n(.*?)(?=\n#### |\Z)',s.split('### 6.3.',1)[1],re.S):
+for cid,layout,status,body in re.findall(r'#### `([^`]+)` \[(\w+)\](?: (ACTIVE|LOCKED))?(?: — [^\n]*)?\n(.*?)(?=\n#{2,4} |\Z)',s,re.S):
  rooms=[]
  for pid,name,level,recipe in re.findall(r'`([^`]+)`=(.*?)(?: \[([^\]]+)\])? → (?:`([^`]+)`|—)(?=;|\.\n)',body):
   rooms.append({'id':pid,'name':name,'owner':cid,'level':level,'type':recipe})

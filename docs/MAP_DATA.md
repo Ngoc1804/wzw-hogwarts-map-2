@@ -10,7 +10,7 @@ Optional mapMode selects indoor/outdoor; layoutType is a hint. `region: "diagon"
 
 ## Canonical-ID update
 
-AI sends atlasAnchor directly from ATLAS_W4.md §6 and pcPlace/placeId as exact location IDs. places[].id updates that location; places[].type uses a real supplied recipe ID such as POTIONS_LAB, OFFICE, STORAGE. Names are display labels, not an identity substitute. Unknown names remain supported for Custom sandbox.
+AI sends atlasAnchor directly from the canonical tables in ATLAS_W4.md and pcPlace/placeId as exact location IDs. places[].id updates that location; places[].type uses a real supplied recipe ID such as POTIONS_LAB, OFFICE, STORAGE. Names are display labels, not an identity substitute. Unknown names remain supported for Custom sandbox.
 
 Atlas source content retained; §6 is its explicit ID table. tools/atlas.py compiles that table (13 Fixed, 348 artwork anchors, 59 scopes including towers/AU/World, 285 named non-Fixed records). World region scopes intentionally do not instantiate every city/house; places[] provides current RP scope. Some Atlas semantic rooms do not have an independent artwork anchor: no falsely exact geometry is claimed. Preserve names, source owner and AU status. Pointer-only cluster to one Fixed resolves directly; pointers accompanying real rooms do not duplicate rooms or silently expand scope.
 

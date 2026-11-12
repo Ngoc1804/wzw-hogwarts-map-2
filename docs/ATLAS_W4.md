@@ -75,81 +75,194 @@ Pitch/Turf; Stands; Commentary Box; Auxiliary Rooms; Mini Training Pitch; Intern
 **Owner:** các nội thất Hogwarts chưa thuộc 13 fixed templates. Chọn theo `Floor → Direction → Cluster [layout] → Room`; lấy recipe đúng tên trong `assets/recipes.json`. `[layout]` giữ nguyên (`vertical`, `ell`, `horizontal`, `tee`, `cross`, `curved`, `cloister`, `court`, `windows`, `tower`). Các `→` bên dưới là **routing pointer**, không phải room duplicate.
 
 ### SUB-DUNGEONS (HẦM NGẦM)
-- N Tech Tunnels [vertical]: Stone Corridor under Astronomy Tower; Alchemy Room; Coal/Fuel Store; Tower Foundation Check Room.
-- E Relic Vaults [ell]: Chamber of Secrets Pipe; Chamber of Secrets; Ancient Vault Gatehouse; Sealed Vault Corridor.
-- S Y1 Stone Chambers [horizontal]: Devil's Snare; Flying Keys; Wizard's Chess; Potions Trial; Final Mirror Chamber.
-- W Ancient Study [tee]: Map Chamber; Undercroft; Archaeological Tool Store; Blueprint Room.
+#### `SUB-DUNGEONS-N` [vertical] — N Tech Tunnels
+`SUB-DUNGEONS-N:01`=Stone Corridor under Astronomy Tower → `PASSAGE_PROPS`; `SUB-DUNGEONS-N:02`=Alchemy Room → —; `SUB-DUNGEONS-N:03`=Coal/Fuel Store → `STORAGE`; `SUB-DUNGEONS-N:04`=Tower Foundation Check Room → —.
+
+#### `SUB-DUNGEONS-E` [ell] — E Relic Vaults
+`SUB-DUNGEONS-E:01`=Chamber of Secrets Pipe → —; `SUB-DUNGEONS-E:02`=Chamber of Secrets → `CHAMBER_OF_SECRETS`; `SUB-DUNGEONS-E:03`=Ancient Vault Gatehouse → `GUARDROOM`; `SUB-DUNGEONS-E:04`=Sealed Vault Corridor → `PASSAGE_PROPS`.
+
+#### `SUB-DUNGEONS-S` [horizontal] — S Y1 Stone Chambers
+`SUB-DUNGEONS-S:01`=Devil's Snare → —; `SUB-DUNGEONS-S:02`=Flying Keys → —; `SUB-DUNGEONS-S:03`=Wizard's Chess → `GAMES_ROOM`; `SUB-DUNGEONS-S:04`=Potions Trial → `POTIONS_LAB`; `SUB-DUNGEONS-S:05`=Final Mirror Chamber → —.
+
+#### `SUB-DUNGEONS-W` [tee] — W Ancient Study
+`SUB-DUNGEONS-W:01`=Map Chamber → `ART_CARTOGRAPHY_STUDIO`; `SUB-DUNGEONS-W:02`=Undercroft → —; `SUB-DUNGEONS-W:03`=Archaeological Tool Store → `STORAGE`; `SUB-DUNGEONS-W:04`=Blueprint Room → `ART_CARTOGRAPHY_STUDIO`.
+
 
 ### DUNGEONS (HẦM NGỤC)
-- N Potions Cluster [cross]: Potions Classroom; Snape's Office; Potions Ingredient Store; Practical Prep Room; Cauldron Washroom.
-- E Slytherin Approach [curved]: →slytherin-common.
-- S Under-Hall Service [horizontal]: Deathday Party Chamber; Cleaning Supply Store; Food Transit Corridor; House-Elf Duty Room; Furnace Tech Room.
-- W Subterranean Classes [ell]: Astronomy Dungeon Corridor; Mineral Sorting Room; Empty Classroom HN-01; Old Cauldron Store; Potion Sample Archive.
+#### `DUNGEONS-N` [cross] — N Potions Cluster
+`DUNGEONS-N:01`=Potions Classroom → `POTIONS_LAB`; `DUNGEONS-N:02`=Snape's Office → `OFFICE`; `DUNGEONS-N:03`=Potions Ingredient Store → `STORAGE`; `DUNGEONS-N:04`=Practical Prep Room → `POTIONS_LAB`; `DUNGEONS-N:05`=Cauldron Washroom → `BATHROOM`.
+
+#### `DUNGEONS-E` [curved] — E Slytherin Approach
+.
+Pointers: slytherin-common.
+
+#### `DUNGEONS-S` [horizontal] — S Under-Hall Service
+`DUNGEONS-S:01`=Deathday Party Chamber → —; `DUNGEONS-S:02`=Cleaning Supply Store → `STORAGE`; `DUNGEONS-S:03`=Food Transit Corridor → `PASSAGE_PROPS`; `DUNGEONS-S:04`=House-Elf Duty Room → —; `DUNGEONS-S:05`=Furnace Tech Room → `UTILITY_ROOM`.
+
+#### `DUNGEONS-W` [ell] — W Subterranean Classes
+`DUNGEONS-W:01`=Astronomy Dungeon Corridor → `PASSAGE_PROPS`; `DUNGEONS-W:02`=Mineral Sorting Room → —; `DUNGEONS-W:03`=Empty Classroom HN-01 → `CLASSROOM`; `DUNGEONS-W:04`=Old Cauldron Store → `STORAGE`; `DUNGEONS-W:05`=Potion Sample Archive → `ARCHIVE`.
+
 
 ### KITCHENS (TẦNG BẾP)
-- N Kitchens & Service [tee]: Hogwarts Kitchens; Dry Food Store; Meal Prep Room; Scullery/Dishwashing; Kitchen Logistics Corridor.
-- E Hufflepuff Approach [ell]: →hufflepuff-common.
-- S Laundry & Linen [vertical]: Laundry Room; Linen Room; Tablecloth Store; Laundry Maintenance; South Storage Corridor.
-- W Elf Quarters & Larder [cross]: House-Elf Quarters; Vegetable Larder; Kitchen Herb Store; Spare Utensil Store; West Basement Link Corridor.
+#### `KITCHENS-N` [tee] — N Kitchens & Service
+`KITCHENS-N:01`=Hogwarts Kitchens → `KITCHEN`; `KITCHENS-N:02`=Dry Food Store → `STORAGE`; `KITCHENS-N:03`=Meal Prep Room → `KITCHEN`; `KITCHENS-N:04`=Scullery/Dishwashing → `BATHROOM`; `KITCHENS-N:05`=Kitchen Logistics Corridor → `PASSAGE_PROPS`.
+
+#### `KITCHENS-E` [ell] — E Hufflepuff Approach
+.
+Pointers: hufflepuff-common.
+
+#### `KITCHENS-S` [vertical] — S Laundry & Linen
+`KITCHENS-S:01`=Laundry Room → `LAUNDRY`; `KITCHENS-S:02`=Linen Room → `LAUNDRY`; `KITCHENS-S:03`=Tablecloth Store → `STORAGE`; `KITCHENS-S:04`=Laundry Maintenance → `LAUNDRY`; `KITCHENS-S:05`=South Storage Corridor → `PASSAGE_PROPS`.
+
+#### `KITCHENS-W` [cross] — W Elf Quarters & Larder
+`KITCHENS-W:01`=House-Elf Quarters → `BEDROOM`; `KITCHENS-W:02`=Vegetable Larder → `STORAGE`; `KITCHENS-W:03`=Kitchen Herb Store → `STORAGE`; `KITCHENS-W:04`=Spare Utensil Store → `STORAGE`; `KITCHENS-W:05`=West Basement Link Corridor → `PASSAGE_PROPS`.
+
 
 ### F1 (GROUND / TẦNG 1)
-- N North Hall–Bell Tower [cloister]: North Hall; Bell Tower Foot Hall; North Gate Corridor; North Gate Guardroom; Practice Gear Store; Empty Classroom B-01.
-- E Library Annex–Viaduct [cross]: Central Hall; Viaduct Entrance Hall; Greenhouse Link Corridor; New Pupil Reception; Central Hall Store; Empty Classroom Đ-01.
-- S Great Hall Approach [tee]: →hall.
-- W Transfig Courtyard Approach [court]: Transfiguration Courtyard Corridor; Quad Corridor; Cloakroom; Transfiguration Supply Store; →hall.
+#### `F1-N` [cloister] — N North Hall–Bell Tower
+`F1-N:01`=North Hall → —; `F1-N:02`=Bell Tower Foot Hall → —; `F1-N:03`=North Gate Corridor → `PASSAGE_PROPS`; `F1-N:04`=North Gate Guardroom → `GUARDROOM`; `F1-N:05`=Practice Gear Store → `TOWER_CLOCKWORK`; `F1-N:06`=Empty Classroom B-01 → `CLASSROOM`.
+
+#### `F1-E` [cross] — E Library Annex–Viaduct
+`F1-E:01`=Central Hall → —; `F1-E:02`=Viaduct Entrance Hall → —; `F1-E:03`=Greenhouse Link Corridor → `PASSAGE_PROPS`; `F1-E:04`=New Pupil Reception → `RECEPTION`; `F1-E:05`=Central Hall Store → `STORAGE`; `F1-E:06`=Empty Classroom Đ-01 → `CLASSROOM`.
+
+#### `F1-S` [tee] — S Great Hall Approach
+.
+Pointers: hall.
+
+#### `F1-W` [court] — W Transfig Courtyard Approach
+`F1-W:01`=Transfiguration Courtyard Corridor → `PASSAGE_PROPS`; `F1-W:02`=Quad Corridor → `PASSAGE_PROPS`; `F1-W:03`=Cloakroom → `CLOAKROOM_LOCKERS`; `F1-W:04`=Transfiguration Supply Store → `STORAGE`.
+Pointers: hall.
+
 
 ### F2 (TẦNG 2)
-- N History & Transfiguration [horizontal]: History of Magic Classroom; McGonagall's Office; Transfiguration Classroom; Transfiguration Prep Room; History Book Store; Empty Classroom B-02.
-- E Scholars Upper Walk [windows]: Muggle Studies Classroom; Hieroglyphics Room; North Hall Upper Corridor; Historical Model Archive; Teaching Map Store; Empty Classroom T-02.
-- S Hospital & Faculty Access [ell]: Hospital Wing; Pomfrey's Office; Faculty Tower Access Corridor; Bandage/Dressing Room; Medical Supply Store; Infirmary Waiting Room.
-- W DADA Teaching Cluster [tee]: DADA Classroom (tower door); Lower DADA Tower Corridor; DADA Auxiliary Room; Defence Practical Room; DADA Prop Store; Empty Classroom Đ-02.
+#### `F2-N` [horizontal] — N History & Transfiguration
+`F2-N:01`=History of Magic Classroom → `CLASSROOM`; `F2-N:02`=McGonagall's Office → `OFFICE`; `F2-N:03`=Transfiguration Classroom → `CLASSROOM`; `F2-N:04`=Transfiguration Prep Room → —; `F2-N:05`=History Book Store → `STORAGE`; `F2-N:06`=Empty Classroom B-02 → `CLASSROOM`.
+
+#### `F2-E` [windows] — E Scholars Upper Walk
+`F2-E:01`=Muggle Studies Classroom → `CLASSROOM`; `F2-E:02`=Hieroglyphics Room → `CLASSROOM`; `F2-E:03`=North Hall Upper Corridor → `PASSAGE_PROPS`; `F2-E:04`=Historical Model Archive → `ARCHIVE`; `F2-E:05`=Teaching Map Store → `STORAGE`; `F2-E:06`=Empty Classroom T-02 → `CLASSROOM`.
+
+#### `F2-S` [ell] — S Hospital & Faculty Access
+`F2-S:01`=Hospital Wing → `HOSPITAL_WARD`; `F2-S:02`=Pomfrey's Office → `OFFICE`; `F2-S:03`=Faculty Tower Access Corridor → `PASSAGE_PROPS`; `F2-S:04`=Bandage/Dressing Room → —; `F2-S:05`=Medical Supply Store → `STORAGE`; `F2-S:06`=Infirmary Waiting Room → `HOSPITAL_WARD`.
+
+#### `F2-W` [tee] — W DADA Teaching Cluster
+`F2-W:01`=DADA Classroom (tower door) → `CLASSROOM`; `F2-W:02`=Lower DADA Tower Corridor → `PASSAGE_PROPS`; `F2-W:03`=DADA Auxiliary Room → —; `F2-W:04`=Defence Practical Room → —; `F2-W:05`=DADA Prop Store → `STORAGE`; `F2-W:06`=Empty Classroom Đ-02 → `CLASSROOM`.
+
 
 ### F3 (TẦNG 3)
-- N Myrtle's Corridor [horizontal]: Myrtle's Bathroom; "Second-Floor" Corridor by Myrtle's Bathroom; Boys' Bathroom; Plumbing Store; Corridor Guardroom B-03.
-- E Shortcut Stair Walk [curved]: Argyllshire Map Tapestry Corridor; Stair Safety Check Room; Empty Classroom T-03; Desk/Chair Store.
-- S Supplemental Classes [vertical]: Basic Wand-Practice Room; Empty Classroom N-03; Study Equipment Store; TA Office; Small Student Lounge.
-- W DADA Office Route [ell]: DADA Professor's Office (Lockhart 1992); DADA Office Corridor; DADA Parent Reception; Lesson Plan Archive; Empty Classroom Đ-03.
+#### `F3-N` [horizontal] — N Myrtle's Corridor
+`F3-N:01`=Myrtle's Bathroom → `BATHROOM`; `F3-N:02`="Second-Floor" Corridor by Myrtle's Bathroom → `PASSAGE_PROPS`; `F3-N:03`=Boys' Bathroom → `BATHROOM`; `F3-N:04`=Plumbing Store → `STORAGE`; `F3-N:05`=Corridor Guardroom B-03 → `PASSAGE_PROPS`.
+
+#### `F3-E` [curved] — E Shortcut Stair Walk
+`F3-E:01`=Argyllshire Map Tapestry Corridor → `PASSAGE_PROPS`; `F3-E:02`=Stair Safety Check Room → `PASSAGE_PROPS`; `F3-E:03`=Empty Classroom T-03 → `CLASSROOM`; `F3-E:04`=Desk/Chair Store → `STORAGE`.
+
+#### `F3-S` [vertical] — S Supplemental Classes
+`F3-S:01`=Basic Wand-Practice Room → `MAGIC_PRACTICE`; `F3-S:02`=Empty Classroom N-03 → `CLASSROOM`; `F3-S:03`=Study Equipment Store → `STORAGE`; `F3-S:04`=TA Office → `OFFICE`; `F3-S:05`=Small Student Lounge → `LOUNGE`.
+
+#### `F3-W` [ell] — W DADA Office Route
+`F3-W:01`=DADA Professor's Office (Lockhart 1992) → `OFFICE`; `F3-W:02`=DADA Office Corridor → `PASSAGE_PROPS`; `F3-W:03`=DADA Parent Reception → `RECEPTION`; `F3-W:04`=Lesson Plan Archive → `ARCHIVE`; `F3-W:05`=Empty Classroom Đ-03 → `CLASSROOM`.
+
 
 ### F4 (TẦNG 4)
-- N Trophy–Armour Gallery [windows]: Trophy Room; Armour Gallery; Music Room; Trophy Preservation Store; Ensemble Practice Room; Empty Classroom B-04.
-- E Upper North Gallery [curved]: North Hall Upper Gallery Corridor; Educational Artefact Display; Empty Classroom T-04; Costume Store; Artefact Restoration Room.
-- S Clubs & Group Work [cross]: Backup Duelling Practice Room; Club Prep Room; Public Speaking Room; Student Meeting Room; Empty Classroom N-04.
-- W Charms & Forbidden Route [ell]: Charms Classroom; Charms Corridor; 1991 "Third-Floor" Forbidden Corridor; Fluffy's Trapdoor Chamber (1991); Charms Practical Room; Charms Supply Store.
+#### `F4-N` [windows] — N Trophy–Armour Gallery
+`F4-N:01`=Trophy Room → `TROPHY_ROOM`; `F4-N:02`=Armour Gallery → `GALLERY`; `F4-N:03`=Music Room → `MUSIC_ROOM`; `F4-N:04`=Trophy Preservation Store → `STORAGE`; `F4-N:05`=Ensemble Practice Room → `MUSIC_ROOM`; `F4-N:06`=Empty Classroom B-04 → `CLASSROOM`.
+
+#### `F4-E` [curved] — E Upper North Gallery
+`F4-E:01`=North Hall Upper Gallery Corridor → `PASSAGE_PROPS`; `F4-E:02`=Educational Artefact Display → `GALLERY`; `F4-E:03`=Empty Classroom T-04 → `CLASSROOM`; `F4-E:04`=Costume Store → `STORAGE`; `F4-E:05`=Artefact Restoration Room → `WORKSHOP`.
+
+#### `F4-S` [cross] — S Clubs & Group Work
+`F4-S:01`=Backup Duelling Practice Room → `MAGIC_PRACTICE`; `F4-S:02`=Club Prep Room → `MEETING_CLUB`; `F4-S:03`=Public Speaking Room → —; `F4-S:04`=Student Meeting Room → `MEETING_CLUB`; `F4-S:05`=Empty Classroom N-04 → `CLASSROOM`.
+
+#### `F4-W` [ell] — W Charms & Forbidden Route
+`F4-W:01`=Charms Classroom → `CLASSROOM`; `F4-W:02`=Charms Corridor → `PASSAGE_PROPS`; `F4-W:03`=1991 "Third-Floor" Forbidden Corridor → `PASSAGE_PROPS`; `F4-W:04`=Fluffy's Trapdoor Chamber (1991) → —; `F4-W:05`=Charms Practical Room → —; `F4-W:06`=Charms Supply Store → `STORAGE`.
+
 
 ### F5 (TẦNG 5)
-- N Library & Restricted [cloister]: Hogwarts Library; Restricted Section; Pince's Office; Research Reading Room; Catalogue Index Room; Rare Book Store.
-- E Long Gallery [windows]: Long Gallery; Arithmancy Classroom; Magical Cartography Room; Cipher/Cryptology Room; Empty Classroom Đ-05.
-- S Fourth-Floor Walk & Mirror [ell]: Former 1991 Mirror of Erised Room; Old Secret Mirror Corridor; Library Records Archive; Empty Classroom N-05; Reading Room Store; Tapestry Shortcut Stair.
-- W Ancient Runes [tee]: Ancient Runes Classroom; Runes Translation Room; History Seminar Room; Source Research Room; Empty Classroom T-05.
+#### `F5-N` [cloister] — N Library & Restricted
+`F5-N:01`=Hogwarts Library → `LIBRARY`; `F5-N:02`=Restricted Section → `LIBRARY`; `F5-N:03`=Pince's Office → `OFFICE`; `F5-N:04`=Research Reading Room → `STUDY_ROOM`; `F5-N:05`=Catalogue Index Room → `ARCHIVE`; `F5-N:06`=Rare Book Store → `STORAGE`.
+
+#### `F5-E` [windows] — E Long Gallery
+`F5-E:01`=Long Gallery → `GALLERY`; `F5-E:02`=Arithmancy Classroom → `CLASSROOM`; `F5-E:03`=Magical Cartography Room → `ART_CARTOGRAPHY_STUDIO`; `F5-E:04`=Cipher/Cryptology Room → —; `F5-E:05`=Empty Classroom Đ-05 → `CLASSROOM`.
+
+#### `F5-S` [ell] — S Fourth-Floor Walk & Mirror
+`F5-S:01`=Former 1991 Mirror of Erised Room → —; `F5-S:02`=Old Secret Mirror Corridor → `PASSAGE_PROPS`; `F5-S:03`=Library Records Archive → `ARCHIVE`; `F5-S:04`=Empty Classroom N-05 → `CLASSROOM`; `F5-S:05`=Reading Room Store → `STORAGE`; `F5-S:06`=Tapestry Shortcut Stair → `PASSAGE_PROPS`.
+
+#### `F5-W` [tee] — W Ancient Runes
+`F5-W:01`=Ancient Runes Classroom → `CLASSROOM`; `F5-W:02`=Runes Translation Room → `CLASSROOM`; `F5-W:03`=History Seminar Room → `CLASSROOM`; `F5-W:04`=Source Research Room → `STUDY_ROOM`; `F5-W:05`=Empty Classroom T-05 → `CLASSROOM`.
+
 
 ### F6 (TẦNG 6)
-- N Prefects–Faculty Route [ell]: Prefects' Bathroom; Prefects' Bathroom Corridor; Upper Faculty Tower Corridor; Prefects' Lounge; Towel/Uniform Store; Empty Classroom B-06.
-- E Intermediate Classes [horizontal]: Arithmancy Research Room; "Fifth-Floor" East Wing Corridor; Magical Art Room; Assignment/Chart Store; Empty Classroom Đ-06.
-- S Clock Tower Ascent [curved]: Upper Clock Tower Corridor; Academic Club Room; Student Newspaper Room; Exhibit Gear Store; →Clock Tower (maintenance).
-- W West High Windows [windows]: "Fifth-Floor" West Window Corridor; Small Ensemble Room; Quiet Reading Room; Empty Classroom T-06; Craft Supply Store.
+#### `F6-N` [ell] — N Prefects–Faculty Route
+`F6-N:01`=Prefects' Bathroom → `PREFECTS_BATHROOM`; `F6-N:02`=Prefects' Bathroom Corridor → `PREFECTS_BATHROOM`; `F6-N:03`=Upper Faculty Tower Corridor → `PASSAGE_PROPS`; `F6-N:04`=Prefects' Lounge → `LOUNGE`; `F6-N:05`=Towel/Uniform Store → `STORAGE`; `F6-N:06`=Empty Classroom B-06 → `CLASSROOM`.
+
+#### `F6-E` [horizontal] — E Intermediate Classes
+`F6-E:01`=Arithmancy Research Room → `CLASSROOM`; `F6-E:02`="Fifth-Floor" East Wing Corridor → `PASSAGE_PROPS`; `F6-E:03`=Magical Art Room → `ART_CARTOGRAPHY_STUDIO`; `F6-E:04`=Assignment/Chart Store → `STORAGE`; `F6-E:05`=Empty Classroom Đ-06 → `CLASSROOM`.
+
+#### `F6-S` [curved] — S Clock Tower Ascent
+`F6-S:01`=Upper Clock Tower Corridor → `PASSAGE_PROPS`; `F6-S:02`=Academic Club Room → `MEETING_CLUB`; `F6-S:03`=Student Newspaper Room → —; `F6-S:04`=Exhibit Gear Store → `TOWER_CLOCKWORK`.
+Pointers: Clock Tower (maintenance).
+
+#### `F6-W` [windows] — W West High Windows
+`F6-W:01`="Fifth-Floor" West Window Corridor → `PASSAGE_PROPS`; `F6-W:02`=Small Ensemble Room → `MUSIC_ROOM`; `F6-W:03`=Quiet Reading Room → `STUDY_ROOM`; `F6-W:04`=Empty Classroom T-06 → `CLASSROOM`; `F6-W:05`=Craft Supply Store → `STORAGE`.
+
 
 ### F7 (TẦNG 7)
-- N Upper Stair Access [vertical]: Academic Achievement Archive; Grade Ledger Archive; Advanced Lesson Gear Store; Empty Classroom B-07; North Stair Corridor.
-- E Seminar & Labs [cross]: "Sixth-Floor" Boys' Bathroom; Advanced Magic Seminar Room; Small Colloquium Room; Safe Lab; Empty Classroom Đ-07.
-- S Faculty/Clock Link [ell]: Upper Faculty Tower Corridor; Staff Minutes Archive; Timetable Room; Reference Book Store; Empty Classroom N-07.
-- W Games & Projects [windows]: Gobstones Room; Wizard's Chess Club Room; Student Project Room; Empty Classroom T-07; High Glass Corridor.
+#### `F7-N` [vertical] — N Upper Stair Access
+`F7-N:01`=Academic Achievement Archive → `ARCHIVE`; `F7-N:02`=Grade Ledger Archive → `ARCHIVE`; `F7-N:03`=Advanced Lesson Gear Store → `TOWER_CLOCKWORK`; `F7-N:04`=Empty Classroom B-07 → `CLASSROOM`; `F7-N:05`=North Stair Corridor → `PASSAGE_PROPS`.
+
+#### `F7-E` [cross] — E Seminar & Labs
+`F7-E:01`="Sixth-Floor" Boys' Bathroom → `BATHROOM`; `F7-E:02`=Advanced Magic Seminar Room → `CLASSROOM`; `F7-E:03`=Small Colloquium Room → `MEETING_CLUB`; `F7-E:04`=Safe Lab → —; `F7-E:05`=Empty Classroom Đ-07 → `CLASSROOM`.
+
+#### `F7-S` [ell] — S Faculty/Clock Link
+`F7-S:01`=Upper Faculty Tower Corridor → `PASSAGE_PROPS`; `F7-S:02`=Staff Minutes Archive → `ARCHIVE`; `F7-S:03`=Timetable Room → —; `F7-S:04`=Reference Book Store → `STORAGE`; `F7-S:05`=Empty Classroom N-07 → `CLASSROOM`.
+
+#### `F7-W` [windows] — W Games & Projects
+`F7-W:01`=Gobstones Room → `GAMES_ROOM`; `F7-W:02`=Wizard's Chess Club Room → `MEETING_CLUB`; `F7-W:03`=Student Project Room → —; `F7-W:04`=Empty Classroom T-07 → `CLASSROOM`; `F7-W:05`=High Glass Corridor → `PASSAGE_PROPS`.
+
 
 ### F8 (TẦNG 8)
-- N Headmaster Approach [tower]: Headmaster's Office Approach Corridor; Headmaster's Entrance Hall; Upper Grand Staircase Hall; Empty Classroom B-08; Academic Records Store.
-- E Room of Requirement [horizontal]: "Seventh-Floor" Corridor outside RoR; Room of Requirement; Empty Classroom Đ-08; Academic Ceremony Room; Portrait Conservation Room.
-- S Gryffindor Route [curved]: "Seventh-Floor" Study Group Room; "Seventh-Floor" Portrait Corridor; →gryffindor-common.
-- W Senior Clubs / CCC [tee]: Empty Classroom T-08; →AU:CCC 07.18.
+#### `F8-N` [tower] — N Headmaster Approach
+`F8-N:01`=Headmaster's Office Approach Corridor → `HEADMASTER_OFFICE`; `F8-N:02`=Headmaster's Entrance Hall → —; `F8-N:03`=Upper Grand Staircase Hall → `PASSAGE_PROPS`; `F8-N:04`=Empty Classroom B-08 → `CLASSROOM`; `F8-N:05`=Academic Records Store → `ARCHIVE`.
+
+#### `F8-E` [horizontal] — E Room of Requirement
+`F8-E:01`="Seventh-Floor" Corridor outside RoR → `PASSAGE_PROPS`; `F8-E:02`=Room of Requirement → `ROOM_OF_REQUIREMENT`; `F8-E:03`=Empty Classroom Đ-08 → `CLASSROOM`; `F8-E:04`=Academic Ceremony Room → `CEREMONY_HALL`; `F8-E:05`=Portrait Conservation Room → `GALLERY`.
+
+#### `F8-S` [curved] — S Gryffindor Route
+`F8-S:01`="Seventh-Floor" Study Group Room → `STUDY_ROOM`; `F8-S:02`="Seventh-Floor" Portrait Corridor → `PASSAGE_PROPS`.
+Pointers: gryffindor-common.
+
+#### `F8-W` [tee] — W Senior Clubs / CCC
+`F8-W:01`=Empty Classroom T-08 → `CLASSROOM`.
+Pointers: AU:CCC 07.18.
+
 
 ### HOGWARTS TOWERS (NỘI THẤT THÁP KHÔNG CÓ FIXED TEMPLATE)
 - Gryffindor SW [tower]: →gryffindor-common | Ravenclaw W [tower]: →ravenclaw-common | West/Owlery W [tower]: →h2.
-- North/Divination N [tower]: Approach (Spiral Stair, Star-Chart Archive) | Top (Divination Classroom, Divination Store).
-- Astronomy NW [tower]: Base (Foot Corridor, Telescope Maintenance) | Mid (Observation Prep, Star-Map Store) | Top (Astronomy Classroom, Observatory).
-- Headmaster's N/Center [tower]: Entry (Gargoyle Spiral Stair, Waiting Room) | Top (Headmaster's Office, Instrument Room, Archive).
-- Clock Tower SW [curved]: Base (Clock Tower Hall, Timekeeper Room) | Mid (Gearwork Chamber, Clock Maintenance) | Top (Great Pendulum, Bell Check Chamber).
-- Bell Tower N [tower]: Base (Bell Gear Room) | Top (Belfry, Bell Control Room).
-- Faculty Tower S [windows]: Entry (Faculty Entrance, Staff Duty Room) | Mid (Staff Quarters Corridor, Staff Lounge) | Top (Infirmary Link Corridor, Closed Staff Meeting Room).
-- DADA Tower E [tee]: Base (DADA Tower Hall, →F2W) | Mid (Tower Wand-Practice Room, →F2W) | Top (Upper DADA Corridor, Auxiliary Office).
-- Grand Staircase Tower Center [cross]: Base (Grand Staircase, Stair Check Room) | Mid (Portrait Link Corridor, Mid-Floor Guardroom) | Top (Directory Sign Store, →F8N).
+#### `TOWER-NORTH-DIVINATION-N` [tower] — North/Divination N
+`TOWER-NORTH-DIVINATION-N:approach-spiral-stair`=Spiral Stair [Approach] → `PASSAGE_PROPS`; `TOWER-NORTH-DIVINATION-N:approach-star-chart-archive`=Star-Chart Archive [Approach] → `ARCHIVE`; `TOWER-NORTH-DIVINATION-N:top-divination-classroom`=Divination Classroom [Top] → `DIVINATION_CLASSROOM`; `TOWER-NORTH-DIVINATION-N:top-divination-store`=Divination Store [Top] → `STORAGE`.
+
+#### `TOWER-ASTRONOMY-NW` [tower] — Astronomy NW
+`TOWER-ASTRONOMY-NW:base-foot-corridor`=Foot Corridor [Base] → `PASSAGE_PROPS`; `TOWER-ASTRONOMY-NW:base-telescope-maintenance`=Telescope Maintenance [Base] → `UTILITY_ROOM`; `TOWER-ASTRONOMY-NW:mid-observation-prep`=Observation Prep [Mid] → —; `TOWER-ASTRONOMY-NW:mid-star-map-store`=Star-Map Store [Mid] → `STORAGE`; `TOWER-ASTRONOMY-NW:top-astronomy-classroom`=Astronomy Classroom [Top] → `ASTRONOMY_OBSERVATORY`; `TOWER-ASTRONOMY-NW:top-observatory`=Observatory [Top] → `ASTRONOMY_OBSERVATORY`.
+
+#### `TOWER-HEADMASTER-S-N-CENTER` [tower] — Headmaster's N/Center
+`TOWER-HEADMASTER-S-N-CENTER:entry-gargoyle-spiral-stair`=Gargoyle Spiral Stair [Entry] → `PASSAGE_PROPS`; `TOWER-HEADMASTER-S-N-CENTER:entry-waiting-room`=Waiting Room [Entry] → `RECEPTION`; `TOWER-HEADMASTER-S-N-CENTER:top-headmaster-s-office`=Headmaster's Office [Top] → `HEADMASTER_OFFICE`; `TOWER-HEADMASTER-S-N-CENTER:top-instrument-room`=Instrument Room [Top] → —; `TOWER-HEADMASTER-S-N-CENTER:top-archive`=Archive [Top] → `ARCHIVE`.
+
+#### `TOWER-CLOCK-TOWER-SW` [curved] — Clock Tower SW
+`TOWER-CLOCK-TOWER-SW:base-clock-tower-hall`=Clock Tower Hall [Base] → —; `TOWER-CLOCK-TOWER-SW:base-timekeeper-room`=Timekeeper Room [Base] → `OFFICE`; `TOWER-CLOCK-TOWER-SW:mid-gearwork-chamber`=Gearwork Chamber [Mid] → `TOWER_CLOCKWORK`; `TOWER-CLOCK-TOWER-SW:mid-clock-maintenance`=Clock Maintenance [Mid] → `TOWER_CLOCKWORK`; `TOWER-CLOCK-TOWER-SW:top-great-pendulum`=Great Pendulum [Top] → `TOWER_CLOCKWORK`; `TOWER-CLOCK-TOWER-SW:top-bell-check-chamber`=Bell Check Chamber [Top] → —.
+
+#### `TOWER-BELL-TOWER-N` [tower] — Bell Tower N
+`TOWER-BELL-TOWER-N:base-bell-gear-room`=Bell Gear Room [Base] → `TOWER_CLOCKWORK`; `TOWER-BELL-TOWER-N:top-belfry`=Belfry [Top] → `TOWER_CLOCKWORK`; `TOWER-BELL-TOWER-N:top-bell-control-room`=Bell Control Room [Top] → `TOWER_CLOCKWORK`.
+
+#### `TOWER-FACULTY-TOWER-S` [windows] — Faculty Tower S
+`TOWER-FACULTY-TOWER-S:entry-faculty-entrance`=Faculty Entrance [Entry] → —; `TOWER-FACULTY-TOWER-S:entry-staff-duty-room`=Staff Duty Room [Entry] → —; `TOWER-FACULTY-TOWER-S:mid-staff-quarters-corridor`=Staff Quarters Corridor [Mid] → `PASSAGE_PROPS`; `TOWER-FACULTY-TOWER-S:mid-staff-lounge`=Staff Lounge [Mid] → `LOUNGE`; `TOWER-FACULTY-TOWER-S:top-infirmary-link-corridor`=Infirmary Link Corridor [Top] → `PASSAGE_PROPS`; `TOWER-FACULTY-TOWER-S:top-closed-staff-meeting-room`=Closed Staff Meeting Room [Top] → `MEETING_CLUB`.
+
+#### `TOWER-DADA-TOWER-E` [tee] — DADA Tower E
+`TOWER-DADA-TOWER-E:base-dada-tower-hall`=DADA Tower Hall [Base] → —; `TOWER-DADA-TOWER-E:mid-tower-wand-practice-room`=Tower Wand-Practice Room [Mid] → `MAGIC_PRACTICE`; `TOWER-DADA-TOWER-E:top-upper-dada-corridor`=Upper DADA Corridor [Top] → `PASSAGE_PROPS`; `TOWER-DADA-TOWER-E:top-auxiliary-office`=Auxiliary Office [Top] → `OFFICE`.
+Pointers: F2W, F2W.
+
+#### `TOWER-GRAND-STAIRCASE-TOWER-CENTER` [cross] — Grand Staircase Tower Center
+`TOWER-GRAND-STAIRCASE-TOWER-CENTER:base-grand-staircase`=Grand Staircase [Base] → `PASSAGE_PROPS`; `TOWER-GRAND-STAIRCASE-TOWER-CENTER:base-stair-check-room`=Stair Check Room [Base] → `PASSAGE_PROPS`; `TOWER-GRAND-STAIRCASE-TOWER-CENTER:mid-portrait-link-corridor`=Portrait Link Corridor [Mid] → `PASSAGE_PROPS`; `TOWER-GRAND-STAIRCASE-TOWER-CENTER:mid-mid-floor-guardroom`=Mid-Floor Guardroom [Mid] → `GUARDROOM`; `TOWER-GRAND-STAIRCASE-TOWER-CENTER:top-directory-sign-store`=Directory Sign Store [Top] → `STORAGE`.
+Pointers: F8N.
+
 
 ## 3. WORLD_NON_TEMPLATE — WIZARDING WORLD REGIONS
 
@@ -175,12 +288,21 @@ Pitch/Turf; Stands; Commentary Box; Auxiliary Rooms; Mini Training Pitch; Intern
 **Owner:** AU là vùng riêng; `ACTIVE` dùng map AU tương ứng nếu PC thật sự ở đó. `LOCKED/UNBUILT` không tự tạo hay mở map; narrative RP chỉ khi story-gated.
 
 ### ACTIVE (USE)
-- **PC Home — London:** Basement (Utility; Laundry; Store; Workshop) | F1 (Hall; Living; Dining; Kitchen; Rear Porch/Garden) | F2 (Master Bedroom; Study; Bath) | F3 (PC's Room; Guest Room) | Attic (Hobby Room; Loft Store).
-- **CCC 07.18 — Hogwarts F8W:** Anteroom; Inter-House Mail Room; Writing Room; Records Store; Inter-House Meeting Room. `F8 W Senior Clubs / CCC →AU:CCC 07.18` là route, không duplicate.
-- **Liad's Attic — Hogwarts:** Liad's Attic Loft.
+#### `AU-PC-HOME` [auto] ACTIVE — PC Home — London
+`AU-PC-HOME:basement-utility`=Utility [Basement] → `UTILITY_ROOM`; `AU-PC-HOME:basement-laundry`=Laundry [Basement] → `LAUNDRY`; `AU-PC-HOME:basement-store`=Store [Basement] → `STORAGE`; `AU-PC-HOME:basement-workshop`=Workshop [Basement] → `WORKSHOP`; `AU-PC-HOME:f1-hall`=Hall [F1] → —; `AU-PC-HOME:f1-living`=Living [F1] → `LOUNGE`; `AU-PC-HOME:f1-dining`=Dining [F1] → —; `AU-PC-HOME:f1-kitchen`=Kitchen [F1] → `KITCHEN`; `AU-PC-HOME:f1-rear-porch-garden`=Rear Porch/Garden [F1] → —; `AU-PC-HOME:f2-master-bedroom`=Master Bedroom [F2] → `BEDROOM`; `AU-PC-HOME:f2-study`=Study [F2] → `STUDY_ROOM`; `AU-PC-HOME:f2-bath`=Bath [F2] → —; `AU-PC-HOME:f3-pc-s-room`=PC's Room [F3] → —; `AU-PC-HOME:f3-guest-room`=Guest Room [F3] → —; `AU-PC-HOME:attic-hobby-room`=Hobby Room [Attic] → —; `AU-PC-HOME:attic-loft-store`=Loft Store [Attic] → `STORAGE`.
+
+#### `AU-CCC-07-18` [auto] ACTIVE — CCC 07.18 — Hogwarts F8W
+`AU-CCC-07-18:anteroom`=Anteroom → `RECEPTION`; `AU-CCC-07-18:inter-house-mail-room`=Inter-House Mail Room → —; `AU-CCC-07-18:writing-room`=Writing Room → —; `AU-CCC-07-18:records-store`=Records Store → `ARCHIVE`; `AU-CCC-07-18:inter-house-meeting-room`=Inter-House Meeting Room → `MEETING_CLUB`.
+F8 W Senior Clubs / CCC → AU-CCC-07-18 là route, không duplicate.
+
+#### `AU-LIAD-S-ATTIC` [auto] ACTIVE — Liad's Attic — Hogwarts
+`AU-LIAD-S-ATTIC:liad-s-attic-loft`=Liad's Attic Loft → `BEDROOM`.
+
 
 ### LOCKED MAP (LOCKED / UNBUILT)
-- **Whitecap Estate — Isle of Wight:** Grounds (Villa; Garden; Pool; Beach; Guesthouse; Coop; Dock) | F1 (Hall; Living; Dining; Library; D&D Room; Kitchen; Veranda; Sunroom) | F2 (Family/Guest Bedrooms; Lounge; Balcony) | Attic (Loft; Store; Hobby).
+#### `AU-WHITECAP-ESTATE` [auto] LOCKED — Whitecap Estate — Isle of Wight
+`AU-WHITECAP-ESTATE:grounds-villa`=Villa [Grounds] → —; `AU-WHITECAP-ESTATE:grounds-garden`=Garden [Grounds] → —; `AU-WHITECAP-ESTATE:grounds-pool`=Pool [Grounds] → —; `AU-WHITECAP-ESTATE:grounds-beach`=Beach [Grounds] → —; `AU-WHITECAP-ESTATE:grounds-guesthouse`=Guesthouse [Grounds] → —; `AU-WHITECAP-ESTATE:grounds-coop`=Coop [Grounds] → —; `AU-WHITECAP-ESTATE:grounds-dock`=Dock [Grounds] → —; `AU-WHITECAP-ESTATE:f1-hall`=Hall [F1] → —; `AU-WHITECAP-ESTATE:f1-living`=Living [F1] → `LOUNGE`; `AU-WHITECAP-ESTATE:f1-dining`=Dining [F1] → —; `AU-WHITECAP-ESTATE:f1-library`=Library [F1] → `LIBRARY`; `AU-WHITECAP-ESTATE:f1-d-d-room`=D&D Room [F1] → —; `AU-WHITECAP-ESTATE:f1-kitchen`=Kitchen [F1] → `KITCHEN`; `AU-WHITECAP-ESTATE:f1-veranda`=Veranda [F1] → —; `AU-WHITECAP-ESTATE:f1-sunroom`=Sunroom [F1] → —; `AU-WHITECAP-ESTATE:f2-family-guest-bedrooms`=Family/Guest Bedrooms [F2] → `BEDROOM`; `AU-WHITECAP-ESTATE:f2-lounge`=Lounge [F2] → `LOUNGE`; `AU-WHITECAP-ESTATE:f2-balcony`=Balcony [F2] → —; `AU-WHITECAP-ESTATE:attic-loft`=Loft [Attic] → —; `AU-WHITECAP-ESTATE:attic-store`=Store [Attic] → `STORAGE`; `AU-WHITECAP-ESTATE:attic-hobby`=Hobby [Attic] → —.
+
 - **Other locked sites:** 7 Rowan Mews (London); WzW House (Soho); Loft 5A (Fitzrovia); Grayhaven Estate (California).
 
 ## 5. QUICK ROUTING TEST
@@ -279,192 +401,13 @@ Pitch/Turf; Stands; Commentary Box; Auxiliary Rooms; Mini Training Pitch; Intern
 #### `ministry-8-10`
 `mm-floo-in-0`=Mạng Floo · Lối đến 1; `mm-floo-out-0`=Mạng Floo · Lối đi 1; `mm-floo-in-1`=Mạng Floo · Lối đến 2; `mm-floo-out-1`=Mạng Floo · Lối đi 2; `mm-floo-in-2`=Mạng Floo · Lối đến 3; `mm-floo-out-2`=Mạng Floo · Lối đi 3; `mm-floo-in-3`=Mạng Floo · Lối đến 4; `mm-floo-out-3`=Mạng Floo · Lối đi 4; `mm-floo-in-4`=Mạng Floo · Lối đến 5; `mm-floo-out-4`=Mạng Floo · Lối đi 5; `mm-floo-in-5`=Mạng Floo · Lối đến 6; `mm-floo-out-5`=Mạng Floo · Lối đi 6; `mm-fountain`=Đài phun Huynh đệ Pháp thuật; `mm-visitor`=Lối vào dành cho khách · Luân Đôn; `mm-security`=Bàn kiểm tra an ninh; `mm-lift-8`=Thang máy · Tầng 8 → 9; `mm-up`=Thang máy · Bộ tầng 1–7; `mm-time`=Phòng Thời gian; `mm-prophecy`=Phòng Tiên tri; `mm-death`=Phòng Tử thần; `mm-brain`=Phòng Não; `mm-space`=Phòng Không gian; `mm-love`=Phòng Tình yêu · Khóa kín; `mm-rotunda`=Phòng xoay · Mười hai cửa; `mm-lift-9`=Thang máy · Tầng 9 → Tiền sảnh; `mm-stairs-9`=Cầu thang · Tầng 9 → 10; `mm-court`=Phòng xử án số Mười · Hội đồng Wizengamot; `mm-accused`=Ghế bị cáo; `mm-waiting`=PHÒNG CHỜ; `mm-office`=KHU HỖ TRỢ; `mm-escort`=TUYẾN ÁP GIẢI; `mm-stairs-10`=Cầu thang · Tầng 10 → 9.
 
-### 6.3. ID cluster và phòng — giữ scope/tầng/hướng
 
-Mỗi dòng: `cluster` [layout]; `roomID`=tên → `recipeID` (— là chưa có recipe chuyên biệt). Pointer chỉ điều hướng, không nhân phòng.
+### 6.3. World scope IDs
 
-#### `SUB-DUNGEONS-N` [vertical]
-`SUB-DUNGEONS-N:01`=Stone Corridor under Astronomy Tower → `PASSAGE_PROPS`; `SUB-DUNGEONS-N:02`=Alchemy Room → —; `SUB-DUNGEONS-N:03`=Coal/Fuel Store → `STORAGE`; `SUB-DUNGEONS-N:04`=Tower Foundation Check Room → —.
-
-#### `SUB-DUNGEONS-E` [ell]
-`SUB-DUNGEONS-E:01`=Chamber of Secrets Pipe → —; `SUB-DUNGEONS-E:02`=Chamber of Secrets → `CHAMBER_OF_SECRETS`; `SUB-DUNGEONS-E:03`=Ancient Vault Gatehouse → `GUARDROOM`; `SUB-DUNGEONS-E:04`=Sealed Vault Corridor → `PASSAGE_PROPS`.
-
-#### `SUB-DUNGEONS-S` [horizontal]
-`SUB-DUNGEONS-S:01`=Devil's Snare → —; `SUB-DUNGEONS-S:02`=Flying Keys → —; `SUB-DUNGEONS-S:03`=Wizard's Chess → `GAMES_ROOM`; `SUB-DUNGEONS-S:04`=Potions Trial → `POTIONS_LAB`; `SUB-DUNGEONS-S:05`=Final Mirror Chamber → —.
-
-#### `SUB-DUNGEONS-W` [tee]
-`SUB-DUNGEONS-W:01`=Map Chamber → `ART_CARTOGRAPHY_STUDIO`; `SUB-DUNGEONS-W:02`=Undercroft → —; `SUB-DUNGEONS-W:03`=Archaeological Tool Store → `STORAGE`; `SUB-DUNGEONS-W:04`=Blueprint Room → `ART_CARTOGRAPHY_STUDIO`.
-
-#### `DUNGEONS-N` [cross]
-`DUNGEONS-N:01`=Potions Classroom → `POTIONS_LAB`; `DUNGEONS-N:02`=Snape's Office → `OFFICE`; `DUNGEONS-N:03`=Potions Ingredient Store → `STORAGE`; `DUNGEONS-N:04`=Practical Prep Room → `POTIONS_LAB`; `DUNGEONS-N:05`=Cauldron Washroom → `BATHROOM`.
-
-#### `DUNGEONS-E` [curved]
-.
-Pointers: slytherin-common.
-
-#### `DUNGEONS-S` [horizontal]
-`DUNGEONS-S:01`=Deathday Party Chamber → —; `DUNGEONS-S:02`=Cleaning Supply Store → `STORAGE`; `DUNGEONS-S:03`=Food Transit Corridor → `PASSAGE_PROPS`; `DUNGEONS-S:04`=House-Elf Duty Room → —; `DUNGEONS-S:05`=Furnace Tech Room → `UTILITY_ROOM`.
-
-#### `DUNGEONS-W` [ell]
-`DUNGEONS-W:01`=Astronomy Dungeon Corridor → `PASSAGE_PROPS`; `DUNGEONS-W:02`=Mineral Sorting Room → —; `DUNGEONS-W:03`=Empty Classroom HN-01 → `CLASSROOM`; `DUNGEONS-W:04`=Old Cauldron Store → `STORAGE`; `DUNGEONS-W:05`=Potion Sample Archive → `ARCHIVE`.
-
-#### `KITCHENS-N` [tee]
-`KITCHENS-N:01`=Hogwarts Kitchens → `KITCHEN`; `KITCHENS-N:02`=Dry Food Store → `STORAGE`; `KITCHENS-N:03`=Meal Prep Room → `KITCHEN`; `KITCHENS-N:04`=Scullery/Dishwashing → `BATHROOM`; `KITCHENS-N:05`=Kitchen Logistics Corridor → `PASSAGE_PROPS`.
-
-#### `KITCHENS-E` [ell]
-.
-Pointers: hufflepuff-common.
-
-#### `KITCHENS-S` [vertical]
-`KITCHENS-S:01`=Laundry Room → `LAUNDRY`; `KITCHENS-S:02`=Linen Room → `LAUNDRY`; `KITCHENS-S:03`=Tablecloth Store → `STORAGE`; `KITCHENS-S:04`=Laundry Maintenance → `LAUNDRY`; `KITCHENS-S:05`=South Storage Corridor → `PASSAGE_PROPS`.
-
-#### `KITCHENS-W` [cross]
-`KITCHENS-W:01`=House-Elf Quarters → `BEDROOM`; `KITCHENS-W:02`=Vegetable Larder → `STORAGE`; `KITCHENS-W:03`=Kitchen Herb Store → `STORAGE`; `KITCHENS-W:04`=Spare Utensil Store → `STORAGE`; `KITCHENS-W:05`=West Basement Link Corridor → `PASSAGE_PROPS`.
-
-#### `F1-N` [cloister]
-`F1-N:01`=North Hall → —; `F1-N:02`=Bell Tower Foot Hall → —; `F1-N:03`=North Gate Corridor → `PASSAGE_PROPS`; `F1-N:04`=North Gate Guardroom → `GUARDROOM`; `F1-N:05`=Practice Gear Store → `TOWER_CLOCKWORK`; `F1-N:06`=Empty Classroom B-01 → `CLASSROOM`.
-
-#### `F1-E` [cross]
-`F1-E:01`=Central Hall → —; `F1-E:02`=Viaduct Entrance Hall → —; `F1-E:03`=Greenhouse Link Corridor → `PASSAGE_PROPS`; `F1-E:04`=New Pupil Reception → `RECEPTION`; `F1-E:05`=Central Hall Store → `STORAGE`; `F1-E:06`=Empty Classroom Đ-01 → `CLASSROOM`.
-
-#### `F1-S` [tee]
-.
-Pointers: hall.
-
-#### `F1-W` [court]
-`F1-W:01`=Transfiguration Courtyard Corridor → `PASSAGE_PROPS`; `F1-W:02`=Quad Corridor → `PASSAGE_PROPS`; `F1-W:03`=Cloakroom → `CLOAKROOM_LOCKERS`; `F1-W:04`=Transfiguration Supply Store → `STORAGE`.
-Pointers: hall.
-
-#### `F2-N` [horizontal]
-`F2-N:01`=History of Magic Classroom → `CLASSROOM`; `F2-N:02`=McGonagall's Office → `OFFICE`; `F2-N:03`=Transfiguration Classroom → `CLASSROOM`; `F2-N:04`=Transfiguration Prep Room → —; `F2-N:05`=History Book Store → `STORAGE`; `F2-N:06`=Empty Classroom B-02 → `CLASSROOM`.
-
-#### `F2-E` [windows]
-`F2-E:01`=Muggle Studies Classroom → `CLASSROOM`; `F2-E:02`=Hieroglyphics Room → `CLASSROOM`; `F2-E:03`=North Hall Upper Corridor → `PASSAGE_PROPS`; `F2-E:04`=Historical Model Archive → `ARCHIVE`; `F2-E:05`=Teaching Map Store → `STORAGE`; `F2-E:06`=Empty Classroom T-02 → `CLASSROOM`.
-
-#### `F2-S` [ell]
-`F2-S:01`=Hospital Wing → `HOSPITAL_WARD`; `F2-S:02`=Pomfrey's Office → `OFFICE`; `F2-S:03`=Faculty Tower Access Corridor → `PASSAGE_PROPS`; `F2-S:04`=Bandage/Dressing Room → —; `F2-S:05`=Medical Supply Store → `STORAGE`; `F2-S:06`=Infirmary Waiting Room → `HOSPITAL_WARD`.
-
-#### `F2-W` [tee]
-`F2-W:01`=DADA Classroom (tower door) → `CLASSROOM`; `F2-W:02`=Lower DADA Tower Corridor → `PASSAGE_PROPS`; `F2-W:03`=DADA Auxiliary Room → —; `F2-W:04`=Defence Practical Room → —; `F2-W:05`=DADA Prop Store → `STORAGE`; `F2-W:06`=Empty Classroom Đ-02 → `CLASSROOM`.
-
-#### `F3-N` [horizontal]
-`F3-N:01`=Myrtle's Bathroom → `BATHROOM`; `F3-N:02`="Second-Floor" Corridor by Myrtle's Bathroom → `PASSAGE_PROPS`; `F3-N:03`=Boys' Bathroom → `BATHROOM`; `F3-N:04`=Plumbing Store → `STORAGE`; `F3-N:05`=Corridor Guardroom B-03 → `PASSAGE_PROPS`.
-
-#### `F3-E` [curved]
-`F3-E:01`=Argyllshire Map Tapestry Corridor → `PASSAGE_PROPS`; `F3-E:02`=Stair Safety Check Room → `PASSAGE_PROPS`; `F3-E:03`=Empty Classroom T-03 → `CLASSROOM`; `F3-E:04`=Desk/Chair Store → `STORAGE`.
-
-#### `F3-S` [vertical]
-`F3-S:01`=Basic Wand-Practice Room → `MAGIC_PRACTICE`; `F3-S:02`=Empty Classroom N-03 → `CLASSROOM`; `F3-S:03`=Study Equipment Store → `STORAGE`; `F3-S:04`=TA Office → `OFFICE`; `F3-S:05`=Small Student Lounge → `LOUNGE`.
-
-#### `F3-W` [ell]
-`F3-W:01`=DADA Professor's Office (Lockhart 1992) → `OFFICE`; `F3-W:02`=DADA Office Corridor → `PASSAGE_PROPS`; `F3-W:03`=DADA Parent Reception → `RECEPTION`; `F3-W:04`=Lesson Plan Archive → `ARCHIVE`; `F3-W:05`=Empty Classroom Đ-03 → `CLASSROOM`.
-
-#### `F4-N` [windows]
-`F4-N:01`=Trophy Room → `TROPHY_ROOM`; `F4-N:02`=Armour Gallery → `GALLERY`; `F4-N:03`=Music Room → `MUSIC_ROOM`; `F4-N:04`=Trophy Preservation Store → `STORAGE`; `F4-N:05`=Ensemble Practice Room → `MUSIC_ROOM`; `F4-N:06`=Empty Classroom B-04 → `CLASSROOM`.
-
-#### `F4-E` [curved]
-`F4-E:01`=North Hall Upper Gallery Corridor → `PASSAGE_PROPS`; `F4-E:02`=Educational Artefact Display → `GALLERY`; `F4-E:03`=Empty Classroom T-04 → `CLASSROOM`; `F4-E:04`=Costume Store → `STORAGE`; `F4-E:05`=Artefact Restoration Room → `WORKSHOP`.
-
-#### `F4-S` [cross]
-`F4-S:01`=Backup Duelling Practice Room → `MAGIC_PRACTICE`; `F4-S:02`=Club Prep Room → `MEETING_CLUB`; `F4-S:03`=Public Speaking Room → —; `F4-S:04`=Student Meeting Room → `MEETING_CLUB`; `F4-S:05`=Empty Classroom N-04 → `CLASSROOM`.
-
-#### `F4-W` [ell]
-`F4-W:01`=Charms Classroom → `CLASSROOM`; `F4-W:02`=Charms Corridor → `PASSAGE_PROPS`; `F4-W:03`=1991 "Third-Floor" Forbidden Corridor → `PASSAGE_PROPS`; `F4-W:04`=Fluffy's Trapdoor Chamber (1991) → —; `F4-W:05`=Charms Practical Room → —; `F4-W:06`=Charms Supply Store → `STORAGE`.
-
-#### `F5-N` [cloister]
-`F5-N:01`=Hogwarts Library → `LIBRARY`; `F5-N:02`=Restricted Section → `LIBRARY`; `F5-N:03`=Pince's Office → `OFFICE`; `F5-N:04`=Research Reading Room → `STUDY_ROOM`; `F5-N:05`=Catalogue Index Room → `ARCHIVE`; `F5-N:06`=Rare Book Store → `STORAGE`.
-
-#### `F5-E` [windows]
-`F5-E:01`=Long Gallery → `GALLERY`; `F5-E:02`=Arithmancy Classroom → `CLASSROOM`; `F5-E:03`=Magical Cartography Room → `ART_CARTOGRAPHY_STUDIO`; `F5-E:04`=Cipher/Cryptology Room → —; `F5-E:05`=Empty Classroom Đ-05 → `CLASSROOM`.
-
-#### `F5-S` [ell]
-`F5-S:01`=Former 1991 Mirror of Erised Room → —; `F5-S:02`=Old Secret Mirror Corridor → `PASSAGE_PROPS`; `F5-S:03`=Library Records Archive → `ARCHIVE`; `F5-S:04`=Empty Classroom N-05 → `CLASSROOM`; `F5-S:05`=Reading Room Store → `STORAGE`; `F5-S:06`=Tapestry Shortcut Stair → `PASSAGE_PROPS`.
-
-#### `F5-W` [tee]
-`F5-W:01`=Ancient Runes Classroom → `CLASSROOM`; `F5-W:02`=Runes Translation Room → `CLASSROOM`; `F5-W:03`=History Seminar Room → `CLASSROOM`; `F5-W:04`=Source Research Room → `STUDY_ROOM`; `F5-W:05`=Empty Classroom T-05 → `CLASSROOM`.
-
-#### `F6-N` [ell]
-`F6-N:01`=Prefects' Bathroom → `PREFECTS_BATHROOM`; `F6-N:02`=Prefects' Bathroom Corridor → `PREFECTS_BATHROOM`; `F6-N:03`=Upper Faculty Tower Corridor → `PASSAGE_PROPS`; `F6-N:04`=Prefects' Lounge → `LOUNGE`; `F6-N:05`=Towel/Uniform Store → `STORAGE`; `F6-N:06`=Empty Classroom B-06 → `CLASSROOM`.
-
-#### `F6-E` [horizontal]
-`F6-E:01`=Arithmancy Research Room → `CLASSROOM`; `F6-E:02`="Fifth-Floor" East Wing Corridor → `PASSAGE_PROPS`; `F6-E:03`=Magical Art Room → `ART_CARTOGRAPHY_STUDIO`; `F6-E:04`=Assignment/Chart Store → `STORAGE`; `F6-E:05`=Empty Classroom Đ-06 → `CLASSROOM`.
-
-#### `F6-S` [curved]
-`F6-S:01`=Upper Clock Tower Corridor → `PASSAGE_PROPS`; `F6-S:02`=Academic Club Room → `MEETING_CLUB`; `F6-S:03`=Student Newspaper Room → —; `F6-S:04`=Exhibit Gear Store → `TOWER_CLOCKWORK`.
-Pointers: Clock Tower (maintenance).
-
-#### `F6-W` [windows]
-`F6-W:01`="Fifth-Floor" West Window Corridor → `PASSAGE_PROPS`; `F6-W:02`=Small Ensemble Room → `MUSIC_ROOM`; `F6-W:03`=Quiet Reading Room → `STUDY_ROOM`; `F6-W:04`=Empty Classroom T-06 → `CLASSROOM`; `F6-W:05`=Craft Supply Store → `STORAGE`.
-
-#### `F7-N` [vertical]
-`F7-N:01`=Academic Achievement Archive → `ARCHIVE`; `F7-N:02`=Grade Ledger Archive → `ARCHIVE`; `F7-N:03`=Advanced Lesson Gear Store → `TOWER_CLOCKWORK`; `F7-N:04`=Empty Classroom B-07 → `CLASSROOM`; `F7-N:05`=North Stair Corridor → `PASSAGE_PROPS`.
-
-#### `F7-E` [cross]
-`F7-E:01`="Sixth-Floor" Boys' Bathroom → `BATHROOM`; `F7-E:02`=Advanced Magic Seminar Room → `CLASSROOM`; `F7-E:03`=Small Colloquium Room → `MEETING_CLUB`; `F7-E:04`=Safe Lab → —; `F7-E:05`=Empty Classroom Đ-07 → `CLASSROOM`.
-
-#### `F7-S` [ell]
-`F7-S:01`=Upper Faculty Tower Corridor → `PASSAGE_PROPS`; `F7-S:02`=Staff Minutes Archive → `ARCHIVE`; `F7-S:03`=Timetable Room → —; `F7-S:04`=Reference Book Store → `STORAGE`; `F7-S:05`=Empty Classroom N-07 → `CLASSROOM`.
-
-#### `F7-W` [windows]
-`F7-W:01`=Gobstones Room → `GAMES_ROOM`; `F7-W:02`=Wizard's Chess Club Room → `MEETING_CLUB`; `F7-W:03`=Student Project Room → —; `F7-W:04`=Empty Classroom T-07 → `CLASSROOM`; `F7-W:05`=High Glass Corridor → `PASSAGE_PROPS`.
-
-#### `F8-N` [tower]
-`F8-N:01`=Headmaster's Office Approach Corridor → `HEADMASTER_OFFICE`; `F8-N:02`=Headmaster's Entrance Hall → —; `F8-N:03`=Upper Grand Staircase Hall → `PASSAGE_PROPS`; `F8-N:04`=Empty Classroom B-08 → `CLASSROOM`; `F8-N:05`=Academic Records Store → `ARCHIVE`.
-
-#### `F8-E` [horizontal]
-`F8-E:01`="Seventh-Floor" Corridor outside RoR → `PASSAGE_PROPS`; `F8-E:02`=Room of Requirement → `ROOM_OF_REQUIREMENT`; `F8-E:03`=Empty Classroom Đ-08 → `CLASSROOM`; `F8-E:04`=Academic Ceremony Room → `CEREMONY_HALL`; `F8-E:05`=Portrait Conservation Room → `GALLERY`.
-
-#### `F8-S` [curved]
-`F8-S:01`="Seventh-Floor" Study Group Room → `STUDY_ROOM`; `F8-S:02`="Seventh-Floor" Portrait Corridor → `PASSAGE_PROPS`.
-Pointers: gryffindor-common.
-
-#### `F8-W` [tee]
-`F8-W:01`=Empty Classroom T-08 → `CLASSROOM`.
-Pointers: AU:CCC 07.18.
-
-#### `TOWER-NORTH-DIVINATION-N` [tower]
-`TOWER-NORTH-DIVINATION-N:approach-spiral-stair`=Spiral Stair [Approach] → `PASSAGE_PROPS`; `TOWER-NORTH-DIVINATION-N:approach-star-chart-archive`=Star-Chart Archive [Approach] → `ARCHIVE`; `TOWER-NORTH-DIVINATION-N:top-divination-classroom`=Divination Classroom [Top] → `DIVINATION_CLASSROOM`; `TOWER-NORTH-DIVINATION-N:top-divination-store`=Divination Store [Top] → `STORAGE`.
-
-#### `TOWER-ASTRONOMY-NW` [tower]
-`TOWER-ASTRONOMY-NW:base-foot-corridor`=Foot Corridor [Base] → `PASSAGE_PROPS`; `TOWER-ASTRONOMY-NW:base-telescope-maintenance`=Telescope Maintenance [Base] → `UTILITY_ROOM`; `TOWER-ASTRONOMY-NW:mid-observation-prep`=Observation Prep [Mid] → —; `TOWER-ASTRONOMY-NW:mid-star-map-store`=Star-Map Store [Mid] → `STORAGE`; `TOWER-ASTRONOMY-NW:top-astronomy-classroom`=Astronomy Classroom [Top] → `ASTRONOMY_OBSERVATORY`; `TOWER-ASTRONOMY-NW:top-observatory`=Observatory [Top] → `ASTRONOMY_OBSERVATORY`.
-
-#### `TOWER-HEADMASTER-S-N-CENTER` [tower]
-`TOWER-HEADMASTER-S-N-CENTER:entry-gargoyle-spiral-stair`=Gargoyle Spiral Stair [Entry] → `PASSAGE_PROPS`; `TOWER-HEADMASTER-S-N-CENTER:entry-waiting-room`=Waiting Room [Entry] → `RECEPTION`; `TOWER-HEADMASTER-S-N-CENTER:top-headmaster-s-office`=Headmaster's Office [Top] → `HEADMASTER_OFFICE`; `TOWER-HEADMASTER-S-N-CENTER:top-instrument-room`=Instrument Room [Top] → —; `TOWER-HEADMASTER-S-N-CENTER:top-archive`=Archive [Top] → `ARCHIVE`.
-
-#### `TOWER-CLOCK-TOWER-SW` [curved]
-`TOWER-CLOCK-TOWER-SW:base-clock-tower-hall`=Clock Tower Hall [Base] → —; `TOWER-CLOCK-TOWER-SW:base-timekeeper-room`=Timekeeper Room [Base] → `OFFICE`; `TOWER-CLOCK-TOWER-SW:mid-gearwork-chamber`=Gearwork Chamber [Mid] → `TOWER_CLOCKWORK`; `TOWER-CLOCK-TOWER-SW:mid-clock-maintenance`=Clock Maintenance [Mid] → `TOWER_CLOCKWORK`; `TOWER-CLOCK-TOWER-SW:top-great-pendulum`=Great Pendulum [Top] → `TOWER_CLOCKWORK`; `TOWER-CLOCK-TOWER-SW:top-bell-check-chamber`=Bell Check Chamber [Top] → —.
-
-#### `TOWER-BELL-TOWER-N` [tower]
-`TOWER-BELL-TOWER-N:base-bell-gear-room`=Bell Gear Room [Base] → `TOWER_CLOCKWORK`; `TOWER-BELL-TOWER-N:top-belfry`=Belfry [Top] → `TOWER_CLOCKWORK`; `TOWER-BELL-TOWER-N:top-bell-control-room`=Bell Control Room [Top] → `TOWER_CLOCKWORK`.
-
-#### `TOWER-FACULTY-TOWER-S` [windows]
-`TOWER-FACULTY-TOWER-S:entry-faculty-entrance`=Faculty Entrance [Entry] → —; `TOWER-FACULTY-TOWER-S:entry-staff-duty-room`=Staff Duty Room [Entry] → —; `TOWER-FACULTY-TOWER-S:mid-staff-quarters-corridor`=Staff Quarters Corridor [Mid] → `PASSAGE_PROPS`; `TOWER-FACULTY-TOWER-S:mid-staff-lounge`=Staff Lounge [Mid] → `LOUNGE`; `TOWER-FACULTY-TOWER-S:top-infirmary-link-corridor`=Infirmary Link Corridor [Top] → `PASSAGE_PROPS`; `TOWER-FACULTY-TOWER-S:top-closed-staff-meeting-room`=Closed Staff Meeting Room [Top] → `MEETING_CLUB`.
-
-#### `TOWER-DADA-TOWER-E` [tee]
-`TOWER-DADA-TOWER-E:base-dada-tower-hall`=DADA Tower Hall [Base] → —; `TOWER-DADA-TOWER-E:mid-tower-wand-practice-room`=Tower Wand-Practice Room [Mid] → `MAGIC_PRACTICE`; `TOWER-DADA-TOWER-E:top-upper-dada-corridor`=Upper DADA Corridor [Top] → `PASSAGE_PROPS`; `TOWER-DADA-TOWER-E:top-auxiliary-office`=Auxiliary Office [Top] → `OFFICE`.
-Pointers: F2W, F2W.
-
-#### `TOWER-GRAND-STAIRCASE-TOWER-CENTER` [cross]
-`TOWER-GRAND-STAIRCASE-TOWER-CENTER:base-grand-staircase`=Grand Staircase [Base] → `PASSAGE_PROPS`; `TOWER-GRAND-STAIRCASE-TOWER-CENTER:base-stair-check-room`=Stair Check Room [Base] → `PASSAGE_PROPS`; `TOWER-GRAND-STAIRCASE-TOWER-CENTER:mid-portrait-link-corridor`=Portrait Link Corridor [Mid] → `PASSAGE_PROPS`; `TOWER-GRAND-STAIRCASE-TOWER-CENTER:mid-mid-floor-guardroom`=Mid-Floor Guardroom [Mid] → `GUARDROOM`; `TOWER-GRAND-STAIRCASE-TOWER-CENTER:top-directory-sign-store`=Directory Sign Store [Top] → `STORAGE`.
-Pointers: F8N.
-
-#### `AU-PC-HOME` [auto] ACTIVE
-`AU-PC-HOME:basement-utility`=Utility [Basement] → `UTILITY_ROOM`; `AU-PC-HOME:basement-laundry`=Laundry [Basement] → `LAUNDRY`; `AU-PC-HOME:basement-store`=Store [Basement] → `STORAGE`; `AU-PC-HOME:basement-workshop`=Workshop [Basement] → `WORKSHOP`; `AU-PC-HOME:f1-hall`=Hall [F1] → —; `AU-PC-HOME:f1-living`=Living [F1] → `LOUNGE`; `AU-PC-HOME:f1-dining`=Dining [F1] → —; `AU-PC-HOME:f1-kitchen`=Kitchen [F1] → `KITCHEN`; `AU-PC-HOME:f1-rear-porch-garden`=Rear Porch/Garden [F1] → —; `AU-PC-HOME:f2-master-bedroom`=Master Bedroom [F2] → `BEDROOM`; `AU-PC-HOME:f2-study`=Study [F2] → `STUDY_ROOM`; `AU-PC-HOME:f2-bath`=Bath [F2] → —; `AU-PC-HOME:f3-pc-s-room`=PC's Room [F3] → —; `AU-PC-HOME:f3-guest-room`=Guest Room [F3] → —; `AU-PC-HOME:attic-hobby-room`=Hobby Room [Attic] → —; `AU-PC-HOME:attic-loft-store`=Loft Store [Attic] → `STORAGE`.
-
-#### `AU-CCC-07-18` [auto] ACTIVE
-`AU-CCC-07-18:anteroom`=Anteroom → `RECEPTION`; `AU-CCC-07-18:inter-house-mail-room`=Inter-House Mail Room → —; `AU-CCC-07-18:writing-room`=Writing Room → —; `AU-CCC-07-18:records-store`=Records Store → `ARCHIVE`; `AU-CCC-07-18:inter-house-meeting-room`=Inter-House Meeting Room → `MEETING_CLUB`.
-
-#### `AU-LIAD-S-ATTIC` [auto] ACTIVE
-`AU-LIAD-S-ATTIC:liad-s-attic-loft`=Liad's Attic Loft → `BEDROOM`.
-
-#### `AU-WHITECAP-ESTATE` [auto] LOCKED
-`AU-WHITECAP-ESTATE:grounds-villa`=Villa [Grounds] → —; `AU-WHITECAP-ESTATE:grounds-garden`=Garden [Grounds] → —; `AU-WHITECAP-ESTATE:grounds-pool`=Pool [Grounds] → —; `AU-WHITECAP-ESTATE:grounds-beach`=Beach [Grounds] → —; `AU-WHITECAP-ESTATE:grounds-guesthouse`=Guesthouse [Grounds] → —; `AU-WHITECAP-ESTATE:grounds-coop`=Coop [Grounds] → —; `AU-WHITECAP-ESTATE:grounds-dock`=Dock [Grounds] → —; `AU-WHITECAP-ESTATE:f1-hall`=Hall [F1] → —; `AU-WHITECAP-ESTATE:f1-living`=Living [F1] → `LOUNGE`; `AU-WHITECAP-ESTATE:f1-dining`=Dining [F1] → —; `AU-WHITECAP-ESTATE:f1-library`=Library [F1] → `LIBRARY`; `AU-WHITECAP-ESTATE:f1-d-d-room`=D&D Room [F1] → —; `AU-WHITECAP-ESTATE:f1-kitchen`=Kitchen [F1] → `KITCHEN`; `AU-WHITECAP-ESTATE:f1-veranda`=Veranda [F1] → —; `AU-WHITECAP-ESTATE:f1-sunroom`=Sunroom [F1] → —; `AU-WHITECAP-ESTATE:f2-family-guest-bedrooms`=Family/Guest Bedrooms [F2] → `BEDROOM`; `AU-WHITECAP-ESTATE:f2-lounge`=Lounge [F2] → `LOUNGE`; `AU-WHITECAP-ESTATE:f2-balcony`=Balcony [F2] → —; `AU-WHITECAP-ESTATE:attic-loft`=Loft [Attic] → —; `AU-WHITECAP-ESTATE:attic-store`=Store [Attic] → `STORAGE`; `AU-WHITECAP-ESTATE:attic-hobby`=Hobby [Attic] → —.
-
+Các vùng World giữ nguyên nội dung mục 3; chỉ dựng places RP đang cần.
 #### `LONDON` [auto]
 .
-
 #### `ENGLAND_REGIONS` [auto]
 .
-
 #### `TRANSIT_AND_INTL` [auto]
 .

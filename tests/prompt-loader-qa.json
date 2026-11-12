@@ -1,0 +1,12 @@
+{
+  "runtimeCommit": "272e8776671af381618a37aa46a70727c9b6a016",
+  "checks": [
+    "one pinned SHA",
+    "one entry no iframe",
+    "safe script transport",
+    "five Inspector sections",
+    "RP fallback on core failure"
+  ],
+  "source": "CDN requests fulfilled with local exact dist; live CDN/AI Studio NOT TESTED",
+  "errors": []
+}
