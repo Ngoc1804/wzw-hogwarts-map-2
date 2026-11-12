@@ -17,7 +17,7 @@ Tham số URL phục vụ kiểm mẫu, không thêm lại thanh chuyển templa
 
 ## Trạng thái duyệt
 
-**TUI-04 — Nội thất map sảnh: CHƯA ĐƯỢC DUYỆT.** Người dùng phản hồi bản trước xấu và chồng chéo. Bản sửa hiện tại là đề xuất để xem lại; kết quả test kỹ thuật không thay thế duyệt thẩm mỹ. Lịch tự động vẫn tắt.
+**TUI-04 — Nội thất map sảnh: ĐÃ ĐƯỢC NGƯỜI DÙNG DUYỆT.** Bản sửa tại commit `f7931908e805148f5edd687d0291041a5f528897` đã được duyệt trong thread gốc. Lịch tự động vẫn tắt.
 
 ## Task đã triển khai
 
@@ -26,7 +26,7 @@ Tham số URL phục vụ kiểm mẫu, không thêm lại thanh chuyển templa
 | TUI-01 | Nhập đủ 13 template; giữ referenced defs, IDs và tỷ lệ; loại placeholder definition rỗng và tham chiếu không vẽ gì. Ghi nguồn dưới đây. |
 | TUI-02 | Đổi vị trí use chân trái/phải, glow đỏ nhẹ; walk sáu nhịp 550 ms, ẩn 2.000 ms, idle hai dấu; reduced-motion dùng hai chân tĩnh; inside tắt chân. Kiểm toàn bounds của dấu, không chỉ tâm. |
 | TUI-03 | Phục hồi 106 hook H1 motion; cleanup khi đổi mẫu; tôn trọng reduced-motion. Bỏ hiệu ứng chọn đỏ cạnh tranh, giảm bóng cầu; nền H2 cùng #f1e5ca với viewport. Thêm bóng rêu #637752, blur 9, opacity .22 sau từng công trình H1/H2, không thêm khối đặc. |
-| TUI-04 · CHỜ DUYỆT | Giữ element Đại Sảnh; bổ sung đồ dùng, tủ, kệ sách, cây, đèn và chân dung cho các phòng quanh sảnh. Nới sân trong về trái 14 đơn vị, thay đài cũ bằng chính nhóm SVG đài H2; thêm ghế và cây. |
+| TUI-04 · ĐÃ DUYỆT | Giữ element Đại Sảnh; bổ sung đồ dùng, tủ, kệ sách, cây, đèn và chân dung cho các phòng quanh sảnh. Nới sân trong về trái 14 đơn vị, thay đài cũ bằng chính nhóm SVG đài H2; thêm ghế và cây. |
 | TUI-05 | Bốn nhà chung thêm bàn học, đèn, cây và kệ sách chi tiết. Lò sưởi hiện có tăng 40% quanh tâm; Ravenclaw được bổ sung lò cùng kiểu tài nguyên. Giữ kích thước mặt bằng và màu Nhà. |
 | TUI-06 | Click/tap và Enter/Space chọn địa điểm, Inspector đọc metadata; pointer capture chỉ khi thật sự kéo. Glow thống nhất. Event=Quest dùng kính lúp vàng/burgundy; Hidden dấu hỏi xanh giấy cổ; pulse nhẹ, reduced-motion sáng tĩnh. X-Ray chỉ khi alpha artwork thật chồng lên ribbon. |
 | TUI-07 | Từng công trình dùng nhóm độc lập; 172 nhóm occluder trên các template có kiến trúc nổi/đồ cao. Map Bộ/Express dạng mặt bằng không có kiến trúc nổi cần làm mờ. Vùng cấm tách theo hình công trình/nước/đồ cao; ngoài vùng cấm là đất trong bounds. Nhãn công trình con có trong artwork được thêm vào metadata hiển thị, không tạo Atlas thứ hai hay nội dung RP. |
@@ -106,4 +106,4 @@ Có thể đặt `CHROMIUM_PATH` để chọn Chromium. Lịch theo giờ hoàn 
 
 ### Sửa nội thất sảnh sau phản hồi
 
-Đã bỏ toàn bộ lớp decor thêm gây chồng chéo, sắp lại cụm tiếp khách phòng giáo viên, giữ một tủ sách sát tường; trả lối bên phải lớp học và tủ hồ sơ đơn của Filch về bố trí gọn. Phòng chờ có hai ghế dài dọc tường, một bàn nhỏ và ghế tách rời. Sân trong giữ một đài H2, bốn chậu cây gốc và hai ghế; bỏ các chậu lặp. Đại Sảnh và bàn bốn Nhà giữ nguyên. Ảnh riêng `tests/hall-review.webp` là bản CHỜ DUYỆT, không phải bản được nghiệm thu.
+Đã bỏ toàn bộ lớp decor thêm gây chồng chéo, sắp lại cụm tiếp khách phòng giáo viên, giữ một tủ sách sát tường; trả lối bên phải lớp học và tủ hồ sơ đơn của Filch về bố trí gọn. Phòng chờ có hai ghế dài dọc tường, một bàn nhỏ và ghế tách rời. Sân trong giữ một đài H2, bốn chậu cây gốc và hai ghế; bỏ các chậu lặp. Đại Sảnh và bàn bốn Nhà giữ nguyên. Ảnh riêng `tests/hall-review.webp` là bản sửa đã được người dùng duyệt.
