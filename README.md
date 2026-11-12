@@ -128,3 +128,9 @@ Có thể đặt `CHROMIUM_PATH` để chọn Chromium. Lịch theo giờ hoàn 
 ### Sửa nội thất sảnh sau phản hồi
 
 Đã bỏ toàn bộ lớp decor thêm gây chồng chéo, sắp lại cụm tiếp khách phòng giáo viên, giữ một tủ sách sát tường; trả lối bên phải lớp học và tủ hồ sơ đơn của Filch về bố trí gọn. Phòng chờ có hai ghế dài dọc tường, một bàn nhỏ và ghế tách rời. Sân trong giữ một đài H2, bốn chậu cây gốc và hai ghế; bỏ các chậu lặp. Đại Sảnh và bàn bốn Nhà giữ nguyên. Ảnh riêng `tests/hall-review.webp` là bản sửa đã được người dùng duyệt.
+
+## M2-P02/P03 sandbox integration
+
+User approved concise payload, tolerant fallback, runtime catalog selection and new-shop binding. See [contract/status](docs/MAP_DATA.md) and [draft Gemini prompt](docs/MAP_PROMPT.md). Current implementation adds contract + prop composition helper, 44 floor/direction clusters, Fixed/Custom resolve, empty-house assignment and supplementary schematic detail. No new branch.
+
+P2/P3 are **in progress**, not globally complete: full World/tower/AU alias bindings, pointer traversal, recipe merge integration, event architectural targets and exact Generated geometry remain unverified/unimplemented as documented. P4 aesthetic gate and target Preview remain open. The P1 error-on-unknown policy is superseded: runtime now attempts schematic/text fallback. Reference P0/P1 measurements describe the earlier commit only. Latest bytes are in build-metrics.json. Use local server port 8770 for current p1/p2-p3 tests.

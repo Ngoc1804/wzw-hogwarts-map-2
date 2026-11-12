@@ -1,21 +1,14 @@
-// P1 bootstrap only. P2 owns the full contract and resolver.
-function showError(error){put('#place-title','Không dựng được bản đồ');put('#observation',error.message);root.dataset.status='error';}
-async function boot(){
- try{
-  let input=window.MAP_DATA;
-  const transport=document.getElementById('map-data');
-  if(transport){try{input=JSON.parse(transport.textContent)}catch{throw Error('MAP_DATA chưa đầy đủ hoặc JSON không hợp lệ.')}}
-  if(!input||typeof input!=='object'||Array.isArray(input))throw Error('Thiếu MAP_DATA.');
-  if(!window.WZW_TEMPLATE_PACK)throw Error('Không tải được templates pack.');
-  if(!input.atlasAnchor)throw Error('P1 cần atlasAnchor của một Fixed; resolver đầy đủ thuộc P2/P3.');
-  const bytes=Uint8Array.from(atob(window.WZW_TEMPLATE_PACK),c=>c.charCodeAt(0));
-  DATA=JSON.parse(await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text());
-  if(!DATA.maps[input.atlasAnchor])throw Error('Fixed chưa được hỗ trợ: '+input.atlasAnchor);
-  if(input.actors?.length||input.events?.length||input.places?.length)throw Error('P1 chưa hỗ trợ nội dung RP chi tiết; chờ contract/resolver P2/P3.');
-  window.MAP_DATA=input;bindUI();await setTemplate(input.atlasAnchor);
-  if(input.meta?.areaName)put('#zone',input.meta.areaName);
-  if(input.meta?.quote)document.querySelector('.quote').textContent=input.meta.quote;
-  root.dataset.status='ready';root.dataset.renderMs=String(performance.now()-window.WZW_START);
- }catch(error){showError(error);}
-}
+let sceneData=null;
+function inspect(place){put('#place-title',place?.name||sceneData.pcPlace);put('#activity',place?.overhear||'');put('#observation',[place?.description||place?.desc,...(place?.props||[]).map(p=>p.name+(p.state?' · '+p.state:''))].filter(Boolean).join('\n'));const actors=$('#actors');actors.replaceChildren();for(const a of sceneData.actors.filter(a=>!place||a.placeId===place.id||key(a.placeName)===key(place.name))){const row=actorTag(a,true);row.onclick=()=>{put('#place-title',a.name);put('#activity',place?.overhear||'');put('#observation',[a.activity,a.observation].filter(Boolean).join('\n'))};actors.append(row);}const events=sceneData.events.filter(e=>!place||e.placeId===place.id||key(e.placeName)===key(place.name));$('#quests').replaceChildren();put('#hintcount',String(events.length));for(const e of events){const row=document.createElement('button');row.className='event-row';row.textContent=e.title;row.onclick=()=>{put('#place-title',e.title);put('#observation',e.detail||'')};$('#quests').append(row);}}
+async function renderInput(input){root.parentElement.querySelectorAll('[data-rp-detail]').forEach(e=>e.remove());sceneData=normalize(input);const d=sceneData;
+ if(!window.WZW_ORIGINAL_MAPS)window.WZW_ORIGINAL_MAPS=structuredClone(DATA.maps);DATA.maps=structuredClone(window.WZW_ORIGINAL_MAPS);
+ const scene=resolve(d);let mapId=scene.source?d.atlasAnchor:'rp-scene';if(scene.source){DATA.maps[mapId].places=scene.places.filter(p=>scene.source.places.some(x=>x.id===p.id));}else DATA.maps[mapId]=basicMap(scene,d);
+ await setTemplate(mapId);if(scene.source&&scene.detail){const b=document.createElement('button');b.dataset.rpDetail='true';b.textContent='Xem khu/phòng RP bổ sung';b.onclick=async()=>{DATA.maps['rp-detail']=basicMap({...scene,places:scene.places.filter(p=>!scene.source.places.some(x=>x.id===p.id)||p.templateState==='structural_change')},d);await setTemplate('rp-detail');await mount();};$('#mapmount').parentElement.append(b);}
+ async function mount(){for(const a of d.actors){const place=scene.exact(a.placeId||a.placeName);a.placeId=place?.id;if(a.isPC){a.placeName=d.pcPlace;a.placeId=scene.exact(d.pcPlace)?.id;a.spot=d.pcSpot;}a.inside=a.spot==='inside';if(a.inside)a.footstep='hidden';}for(const e of d.events)e.placeId=scene.exact(e.placeId||e.placeName)?.id;await presentation.mountActors(d.actors.filter(a=>a.placeId));presentation.mountEvents(d.events.filter(e=>e.placeId));svg.addEventListener('click',e=>{const id=e.target.closest('[data-id]')?.dataset.id;if(id)inspect(scene.places.find(p=>p.id===id))});svg.addEventListener('keydown',e=>{if(['Enter',' '].includes(e.key)){const id=e.target.closest('[data-id]')?.dataset.id;if(id)inspect(scene.places.find(p=>p.id===id))}});inspect(scene.exact(d.pcPlace));}
+ await mount();for(const [selector,value]of [['#zone',d.meta.areaName],['.quote',d.meta.quote],['.date',d.meta.date],['.clock',d.meta.time]]){const el=$(selector);if(el)el.textContent=value||'';}
+ root.dataset.status='ready';root.dataset.renderMs=String(performance.now()-(window.WZW_START||0));window.WZW_SCENE={...scene,diagnostics:d.diagnostics};return scene;}
+async function boot(){let input=window.MAP_DATA;try{const t=document.getElementById('map-data');if(t)input=JSON.parse(t.textContent)}catch{input={};root.dataset.transport='incomplete';}
+ try{if(window.WZW_TEMPLATE_PACK){const b=Uint8Array.from(atob(window.WZW_TEMPLATE_PACK),c=>c.charCodeAt(0));DATA=JSON.parse(await new Response(new Blob([b]).stream().pipeThrough(new DecompressionStream('gzip'))).text());}else DATA={maps:{},vectors:{}};bindUI();window.MAP_DATA=input;await renderInput(input);}
+ catch{root.replaceChildren();const p=document.createElement('p');p.textContent=sceneData?.meta?.areaName||'Bản đồ RP';root.append(p);for(const item of [...(sceneData?.places||[]),...(sceneData?.actors||[]),...(sceneData?.events||[])]){const el=document.createElement('p');el.textContent=[item.name||item.title,item.description||item.activity||item.detail].filter(Boolean).join(' — ');root.append(el);}root.dataset.status='text-fallback';}}
+window.WZWMap={normalize,mergeProps,render:renderInput};
 if(!window.WZW_BOOT){window.WZW_BOOT=true;boot();}

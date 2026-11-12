@@ -1,0 +1,17 @@
+{
+  "checks": [
+    "unknown prop represented",
+    "custom ready",
+    "cluster five rooms plus PC location",
+    "shop binds empty house",
+    "stable shop binding",
+    "knockturn pool",
+    "overflow retained in detail",
+    "finite count",
+    "ensure does not duplicate",
+    "replace empty",
+    "pc location retained"
+  ],
+  "errors": [],
+  "preview": "NOT TESTED"
+}

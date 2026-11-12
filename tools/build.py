@@ -16,7 +16,7 @@ code=code[:code.index('async function boot()')]
 # Offline-only picker is not shipped to RP runtime.
 code=re.sub(r'function mountTemplatePicker\(\)\{.*?\n\}', '', code, flags=re.S)
 pack='window.WZW_TEMPLATE_PACK='+json.dumps(payload)+';\n'
-entry=(r/'src/index.js').read_text()
+entry='const ATLAS='+ (r/'assets/atlas.json').read_text()+';\n'+'\n'.join((r/'src'/name).read_text() for name in ['contract.js','resolver.js','index.js'])
 bundle='(()=>{\n'+"const root=document.getElementById('wzw-map');if(!root)throw Error('Missing wzw-map root');root.innerHTML="+json.dumps(body,ensure_ascii=False)+';\n'+code+'\n'+entry+'\n})();\n'
 for name,content in [('shell.css',css),('templates-pack.js',pack),('bundle.js',bundle)]: (r/'dist'/name).write_text(content)
 report={p.name:{'bytes':len(p.read_bytes()),'gzipBytes':len(gzip.compress(p.read_bytes(),mtime=0)),'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in [r/'examples/template-review.html',*sorted((r/'dist').glob('*'))]}
