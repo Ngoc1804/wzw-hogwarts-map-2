@@ -134,3 +134,11 @@ Có thể đặt `CHROMIUM_PATH` để chọn Chromium. Lịch theo giờ hoàn 
 User approved concise payload, tolerant fallback, runtime catalog selection and new-shop binding. See [contract/status](docs/MAP_DATA.md) and [draft Gemini prompt](docs/MAP_PROMPT.md). Current implementation adds contract + prop composition helper, 44 floor/direction clusters, Fixed/Custom resolve, empty-house assignment and supplementary schematic detail. No new branch.
 
 P2/P3 are **in progress**, not globally complete: full World/tower/AU alias bindings, pointer traversal, recipe merge integration, event architectural targets and exact Generated geometry remain unverified/unimplemented as documented. P4 aesthetic gate and target Preview remain open. The P1 error-on-unknown policy is superseded: runtime now attempts schematic/text fallback. Reference P0/P1 measurements describe the earlier commit only. Latest bytes are in build-metrics.json. Use local server port 8770 for current p1/p2-p3 tests.
+
+## M2-P02 — ID alignment and prompt handoff
+
+Atlas content is complete; current work aligns IDs instead of adding geography. ATLAS_W4.md §6 now lists all 13 existing Fixed, 348 exact artwork metadata IDs, 41 real recipe IDs, floor/tower/AU scopes and location IDs. `tools/atlas.py` compiles those tables; runtime consumes canonical IDs directly. World macro scopes keep their supplied content, and construct only current RP places, not entire regions.
+
+`assets/recipes.json` contains inventories extracted from the supplied interiors, stable per-instance IDs and original transforms. `src/props.js` composes those actual inventories (ensure/add/replace/state) without mutation; the bundle excludes unused source transforms and duplicate Fixed metadata. Displaying the resulting furniture geometry belongs to P4 and has not received visual approval. Current Generated remains schematic. No old source was fetched or imported.
+
+Commands: `python tools/atlas.py`, `python tools/build.py`, `python tools/loader.py`; serve on localhost:8780. QA: tests/ids-props.cjs and tests/p2-p3.cjs; previous Fixed smoke rerun with MAP_PREVIEW_URL. Canonical IDs, nine inventory/binding cases and eleven sandbox cases passed locally. Google AI Studio Preview remains NOT TESTED. System-prompt paste instructions and full R14.6 are supplied separately; no user prompt is edited automatically.

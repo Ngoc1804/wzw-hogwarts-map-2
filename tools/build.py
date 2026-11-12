@@ -16,7 +16,11 @@ code=code[:code.index('async function boot()')]
 # Offline-only picker is not shipped to RP runtime.
 code=re.sub(r'function mountTemplatePicker\(\)\{.*?\n\}', '', code, flags=re.S)
 pack='window.WZW_TEMPLATE_PACK='+json.dumps(payload)+';\n'
-entry='const ATLAS='+ (r/'assets/atlas.json').read_text()+';\n'+'\n'.join((r/'src'/name).read_text() for name in ['contract.js','resolver.js','index.js'])
+# Runtime consumes recipe identities/inventory only; reference transforms/descriptions stay in source.
+recipes=json.loads((r/'assets/recipes.json').read_text())
+compact_recipes={rid:{'instances':[{k:x[k] for k in ['id','name','item','count'] if k in x} for x in recipe['instances']]} for rid,recipe in recipes.items()}
+atlas=json.loads((r/'assets/atlas.json').read_text());atlas.pop('fixed',None) # Fixed metadata already packed once.
+entry='const RECIPES='+json.dumps(compact_recipes,ensure_ascii=False,separators=(',',':'))+';\nconst ATLAS='+json.dumps(atlas,ensure_ascii=False,separators=(',',':'))+';\n'+'\n'.join((r/'src'/name).read_text() for name in ['contract.js','props.js','resolver.js','index.js'])
 bundle='(()=>{\n'+"const root=document.getElementById('wzw-map');if(!root)throw Error('Missing wzw-map root');root.innerHTML="+json.dumps(body,ensure_ascii=False)+';\n'+code+'\n'+entry+'\n})();\n'
 for name,content in [('shell.css',css),('templates-pack.js',pack),('bundle.js',bundle)]: (r/'dist'/name).write_text(content)
 report={p.name:{'bytes':len(p.read_bytes()),'gzipBytes':len(gzip.compress(p.read_bytes(),mtime=0)),'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in [r/'examples/template-review.html',*sorted((r/'dist').glob('*'))]}
