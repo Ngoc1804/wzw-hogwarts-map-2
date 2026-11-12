@@ -1,0 +1,24 @@
+{
+  "baseline": {
+    "renderMs": 334,
+    "nodes": 2190,
+    "requests": [
+      {
+        "name": "http://localhost:8766/dist/shell.css",
+        "bytes": 11195
+      },
+      {
+        "name": "http://localhost:8766/dist/templates-pack.js",
+        "bytes": 906941
+      },
+      {
+        "name": "http://localhost:8766/dist/bundle.js",
+        "bytes": 48226
+      }
+    ],
+    "inspector": 5
+  },
+  "errors": [],
+  "cases": 6,
+  "targetPreview": "NOT TESTED"
+}

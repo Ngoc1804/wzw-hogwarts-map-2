@@ -1,6 +1,25 @@
+# Map 2 — P0/P1 integration progress
+
+Current task branch: `M2-P01-baseline-loader`. [Baseline and decisions](docs/P0-P1.md), [upload hashes](docs/baseline.json), [Atlas](docs/ATLAS_W4.md), [build sizes](docs/build-metrics.json).
+
+- [x] P0 source inventory, hashes, keep/adapt/missing and prior approval identified.
+- [x] P1 local Fixed shell/loader/SVG, one MAP_DATA bootstrap and deterministic build.
+- [x] Pre-upload optimization gate: exclude reference viewers/unused picker, measure bytes, preserve artwork.
+- [ ] P1 target Google AI Studio Preview acceptance (not tested).
+- [ ] P2 contract and normalization; P3 Atlas resolver.
+- [ ] P4 Horizontal/Potions/Office/Storage sample and user visual approval.
+- [ ] P5/P6 after visual gate; P7/P8; P9 final QA/measurement.
+- [ ] X optional, no core dependency.
+
+Run `python tools/build.py`, then `python -m http.server 8766`. Open [P1 loader](examples/minimal.html) or [13-template offline review](examples/template-review.html). Tests: `node tests/p1.cjs`; `MAP_PREVIEW_URL=http://localhost:8766/examples/template-review.html node tests/template-ui.cjs` and `node tests/interaction.cjs` with the same variable.
+
+Agreed geometry: wall height 36; upright furniture except actual wall attachments. These are integration requirements; reference viewers retain source defaults. Do not treat local technical PASS as new aesthetic approval. No merge/main/release/automation.
+
+---
+
 # WZW Map 2 — Nhánh 01: Template và UI cố định
 
-Nhánh: `01-template-ui`. Mã task/commit: `TUI-01`–`TUI-08`.
+Nhánh baseline: `01-template-ui`. Mã task/commit: `TUI-01`–`TUI-08`.
 Không merge `main`, không phát hành; repo cũ chỉ đọc.
 
 ## Bản chính

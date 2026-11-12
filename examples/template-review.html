@@ -31,6 +31,10 @@ body.motion-off #mapmount *{animation-play-state:paused!important}#mapmount .tre
 .event-row{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:8px 0;color:var(--ink)}
 @keyframes clue-pulse{50%{filter:brightness(1.16) drop-shadow(0 0 3px #d2a64d88)}}
 @media(prefers-reduced-motion:reduce){.event-marker:is(:hover,:focus-visible,.chosen){animation:none;filter:brightness(1.12)}}
+
+.template-picker{position:fixed;right:12px;bottom:30px;z-index:50;font:13px Georgia,serif;color:#eadbc2;background:#3b2925;border:1px solid #ad9570;box-shadow:0 2px 8px #35272040;padding:8px 11px}
+.template-picker summary{cursor:pointer;list-style:none}.template-picker summary::after{content:' ▾';color:#d2a64d}
+.template-picker select{display:block;max-width:min(370px,82vw);margin-top:9px;padding:9px;background:#f1e5ca;color:#49362b;border:1px solid #baa585;font:14px Georgia,serif}
 </style></head><body><div class="sheet"><header><div class="brand"><div class="seal"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24">
 <circle cx="12" cy="12" r="10"></circle>
 <path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"></path>
@@ -609,7 +613,18 @@ function bindUI(){
  for(const d of document.querySelectorAll('dialog')){const b=d.querySelector('.close');if(b)b.onclick=()=>d.close()}
  
 }
+
+function mountTemplatePicker(){
+ const picker=document.createElement('details');picker.className='template-picker';
+ const title=document.createElement('summary');title.textContent='Xem template · 13 mẫu';picker.append(title);
+ const select=document.createElement('select');select.setAttribute('aria-label','Chọn template bản đồ');
+ for(const[id,map]of Object.entries(DATA.maps)){const option=document.createElement('option');option.value=id;option.textContent=map.title||id;select.append(option)}
+ select.value=activeId;
+ select.onchange=async()=>{select.disabled=true;try{await setTemplate(select.value);picker.open=false;}finally{select.disabled=false}};
+ picker.append(select);document.body.append(picker);
+}
+
 async function boot(){const a=$('#wzw-embedded-atlas').textContent.trim(),b=Uint8Array.from(atob(a),c=>c.charCodeAt(0));DATA=JSON.parse(await new Response(new Blob([b]).stream().pipeThrough(new DecompressionStream('gzip'))).text());
- bindUI();const requested=new URLSearchParams(location.search).get('template');await setTemplate(DATA.maps[requested]?requested:'h1');}
+ bindUI();const requested=new URLSearchParams(location.search).get('template');await setTemplate(DATA.maps[requested]?requested:'h1');mountTemplatePicker();}
 boot().catch(e=>{put('#place-title','Không tải được mẫu');put('#observation',e.message);console.error(e)});
 </script></body></html>
