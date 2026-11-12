@@ -1,5 +1,5 @@
 {
-  "runtimeCommit": "0933744e8b47c23fa6140df8b864ddcd63da850b",
+  "runtimeCommit": "f6498ffd9af16010549cc719a2db858fdf02ce7f",
   "checks": [
     "one pinned SHA",
     "one entry no iframe",

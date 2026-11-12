@@ -13,3 +13,5 @@ Build: python tools/build.py && python tools/review.py. Import lại artwork m�
 Vị trí đã kiểm: PC corridor nằm ở dải hành lang thật, threshold ở cửa phòng; thiếu anchor ở layout chưa có geometry thì giữ actor trong Inspector, không đặt giả trong phòng. Code không nhận tọa độ Gemini; scenePoint chỉ là dữ liệu nội bộ do geometry cung cấp. Bundle khởi tạo lặp giữ nguyên scene. Kiểm sâu footsteps/occlusion ngoài mẫu này vẫn thuộc P7.
 
 Đã kiểm thêm click/Enter ở desktop, tap thật ở mobile, activity không tự trở thành overhear, và tag patrol không cần field onPatrol trong prompt. Fixed artwork pack giữ nguyên hash; chỉ adapter nhận điểm nội bộ và mapping Inspector được chỉnh để khớp contract. Bản prompt mới: W4.1 4.746 byte, R14.6 khoảng 4.842 byte (UTF-8, không phải số token Gemini).
+
+Bộ chọn review đã chuyển qua 13 Fixed rồi trở lại P4: một SVG root và một PC sau cleanup. Kết quả máy đọc: tests/review-switch-qa.json.

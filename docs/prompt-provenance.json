@@ -1,28 +1,27 @@
 {
-  "runtimeCommit": "0933744e8b47c23fa6140df8b864ddcd63da850b",
+  "runtimeCommit": "f6498ffd9af16010549cc719a2db858fdf02ce7f",
   "urls": [
-    "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@0933744e8b47c23fa6140df8b864ddcd63da850b/dist/shell.css",
-    "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@0933744e8b47c23fa6140df8b864ddcd63da850b/dist/templates-pack.js",
-    "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@0933744e8b47c23fa6140df8b864ddcd63da850b/dist/bundle.js"
+    "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@f6498ffd9af16010549cc719a2db858fdf02ce7f/dist/shell.css",
+    "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@f6498ffd9af16010549cc719a2db858fdf02ce7f/dist/templates-pack.js",
+    "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@f6498ffd9af16010549cc719a2db858fdf02ce7f/dist/bundle.js"
   ],
-  "sourcePromptOriginalLines": 1139,
-  "targetPreview": "NOT TESTED",
   "files": {
-    "ATLAS_W4.md": {
-      "bytes": 48821,
-      "sha256": "a2ede4a03abb00223965283709bb1996293c1078a46492bcefbabe8c494fd598"
+    "W4_1.md": {
+      "bytes": 4746,
+      "sha256": "30ef0da17d592bbb58cc097fde324364b07b33c42a16b88bf66fcd1f4ae2cec2"
     },
     "MAP_PROMPT.md": {
-      "bytes": 5922,
-      "sha256": "2887fceb7e21ac2d593789a1ec1990f453f8f217fa50233e09e75e1ee3c17829"
+      "bytes": 4920,
+      "sha256": "11128992699ebf9d97b78674b457aed613e1adac0fc316c7a33b008c60ce4a30"
+    },
+    "PASTE_GUIDE.md": {
+      "bytes": 1422,
+      "sha256": "966ee48c1ba979b324893659bc52dc123c3da696cc1a271a2595fcc4ce2359ab"
     },
     "W4_TAIL.md": {
       "bytes": 1798,
       "sha256": "1f00ae3c36921503c16661940a1243de7a5ad7c2b312d59743199ba706bc3de4"
-    },
-    "PASTE_GUIDE.md": {
-      "bytes": 3884,
-      "sha256": "48ca2bfc8df1b676964301707930f4e84687f4ebb651e8c598cadc79b4970cb9"
     }
-  }
+  },
+  "targetPreview": "NOT TESTED"
 }

@@ -1,0 +1,25 @@
+{
+  "scenes": [
+    "p4",
+    "h1",
+    "h2",
+    "hall",
+    "ministry2",
+    "express",
+    "gryffindor-common",
+    "ravenclaw-common",
+    "hufflepuff-common",
+    "slytherin-common",
+    "village-static",
+    "pitch-static",
+    "diagon-knockturn",
+    "ministry-8-10"
+  ],
+  "errors": [],
+  "checks": [
+    "switch 13 Fixed and return P4",
+    "one SVG root",
+    "one PC after scene cleanup"
+  ],
+  "preview": "local only"
+}
