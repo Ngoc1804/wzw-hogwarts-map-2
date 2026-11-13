@@ -16,7 +16,7 @@ function normalize(input){
   }).filter(p=>p.name);
   return {...p,id,name:text(p.name),type:text(p.type),description:text(p.description),isNewConstruction:p.isNewConstruction===true,propsMode:p.propsMode==='replace'?'replace':'merge',props};
  });
- const actors=list(d.actors).filter(a=>a&&text(a.name)).map(a=>({...a,name:text(a.name),isPC:a.isPC===true,placeId:text(a.placeId),placeName:text(a.placeName),tagType:KEYS.includes(a.tagType)?a.tagType:'unknown',onPatrol:a.onPatrol===true,spot:spot(a.spot),zone:text(a.zone),members:list(a.members).filter(n=>typeof n==='string'&&n.trim()),summary:text(a.summary),activity:text(a.activity),observation:text(a.observation),footstep:['walk','idle','hidden'].includes(a.footstep)?a.footstep:'hidden'}));
+ const actors=list(d.actors).filter(a=>a&&text(a.name)).map(a=>({...a,name:text(a.name),isPC:a.isPC===true,placeId:text(a.placeId),placeName:text(a.placeName),tagType:KEYS.includes(a.tagType)?a.tagType:'unknown',onPatrol:a.onPatrol===true,spot:spot(a.spot),zone:text(a.zone),posture:['standing','sitting','lying','hidden'].includes(a.posture)?a.posture:'standing',placement:['normal','on_furniture','in_wall'].includes(a.placement)?a.placement:'normal',supportId:text(a.supportId),members:list(a.members).filter(n=>typeof n==='string'&&n.trim()),summary:text(a.summary),activity:text(a.activity),observation:text(a.observation),footstep:['walk','idle','hidden'].includes(a.footstep)?a.footstep:'hidden'}));
  if(actors.filter(a=>a.isPC).length>1){diagnostics.push('ambiguous-pc');actors.forEach(a=>a.isPC=false);}
  if(actors.filter(a=>!a.isPC).length>10)diagnostics.push('npc-ribbon-limit-exceeded'); // Preserve RP; Gemini must group, never silently truncate.
  const pcPlace=text(d.pcPlace),pc=actors.find(a=>a.isPC);

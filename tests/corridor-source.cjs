@@ -3,7 +3,7 @@ const assert=require('node:assert/strict'),fs=require('fs'),vm=require('vm');
 const{corridorSource}=require('../tools/corridor-source.cjs');
 const{api}=corridorSource();
 const CORRIDORS={templates:api.templates,defaults:api.defaults,build:api.build,draw:api.draw,decorate:key=>api.decor[key]?.draw||'',patterns:api.patterns,opening:api.opening,yard:api.yard,materials:api.materials};
-const context={CORRIDORS,structuredClone,recipeId:()=>null,furnitureLayout:()=>({width:100,height:80}),drawFurniture:()=>({svg:'',footprints:[]}),escapeXML:s=>s,composeRoom:()=>({objects:[]}),SCENERY:{},key:s=>s};
+const context={RECIPES:{},CORRIDORS,structuredClone,recipeId:()=>null,furnitureLayout:()=>({width:100,height:80}),drawFurniture:()=>({svg:'',footprints:[]}),escapeXML:s=>s,composeRoom:()=>({objects:[]}),SCENERY:{},key:s=>s};
 vm.createContext(context);
 vm.runInContext(fs.readFileSync('src/draw.js','utf8')+fs.readFileSync('src/build.js','utf8')+';styleIndoor=s=>s;furnitureLayout=()=>({width:100,height:80});drawFurniture=()=>({svg:"",footprints:[]});globalThis.indoor=indoorMap;globalThis.asset=corridorAssetMarkup;',context);
 assert.equal(api.defaults.height,40);

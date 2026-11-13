@@ -70,3 +70,11 @@ Các vị trí không binding được giữ trong dữ liệu/Inspector, không
 ## Atlas source integration
 
 Master nguồn là WZW_MAP2_ATLAS_GITHUB_MASTER.md; tools/atlas.py sinh index. Alias Fixed tiếng Anh chỉ trỏ anchor đã có; bảng room type đã chỉnh các nhầm lẫn hành lang/phòng tắm/văn phòng/kho. Compiler giữ đủ 348 anchor, 285 phòng cluster; registry World có công trình riêng, không gộp danh sách nhiều nhà thành một nhà. MIN tiếng Anh chỉ là Atlas; hướng dẫn MAP_DATA/ribbon/icon/loader để ở /map instruction cuối P8.
+
+## Indoor H40 placement update
+
+Khung H40 giữ nguyên core. Recipe w/h/minW/minH điều chỉnh frontage/depth qua overrides nguồn; size small/large chỉ là gợi ý tương đối, không prefab bắt buộc. Đồ extras đặt theo zone, tránh footprint/cửa và mặt tường chiếu; hết chỗ giữ biểu tượng tổng + số lượng/nội dung trong Inspector. Unknown giữ biểu tượng trung tính có title, không ép thành rương hoặc bàn.
+
+Prop optional: mount floor/wall/surface và parentId (ID instance mẹ). Surface cần parent có metadata surface; không tìm được thì ghi diagnostic và giữ đại diện/Inspector, không tự chọn bàn khác. Source group không tách được đồ con vẫn là một instance; chưa khẳng định sửa đúng mọi thành phần trong cụm.
+
+Actor optional tương thích 2.0.0: posture standing/sitting/lying/hidden; placement normal/on_furniture/in_wall; supportId nhắm đúng instance khi RP xác nhận đứng/ngồi trên vật. Không suy ngoại lệ từ NLP activity. Thiếu support thì giữ anchor thông tin, ẩn chân; không giả đã đặt đúng trên đồ. Inside vẫn ẩn chân, không tự X-Ray. Điểm actor tránh tường và nội thất lớn bằng footprint ước lượng; ribbon có thể dịch riêng để dễ đọc. Actor chưa binding vẫn giữ trong Inspector.

@@ -6,6 +6,16 @@ README này là tài liệu chỉ đạo hiện hành, viết lại theo các qu
 
 **Trạng thái:** đã có tài nguyên và runtime một phần; chưa hoàn thiện cơ chế, chưa nghiệm thu AI Studio Preview. Việc khóa tài liệu không chứng nhận code đã thực hiện đúng mọi mục dưới đây. Trạng thái từng lượt nằm ở checkpoint dưới; đã có thay đổi contract/routing/Atlas, chưa hoàn thiện renderer hoặc nghiệm thu runtime.
 
+### Checkpoint Indoor và PC/NPC trên H40 — 14/11/2026
+
+Base `6748844`: giữ core H40; room proportions thích nghi qua overrides source theo recipe, không đổi projection. Extras không còn xếp hàng dưới artwork: đặt floor/wall/parent-surface theo zone, tránh cửa/footprint và giữ summary khi thiếu chỗ. Count có hình từng món trong khoảng trống khả dụng, số còn lại vẫn ở Inspector. State đánh dấu cùng instance; không thêm bản hỏng cạnh bản nguyên. Inspector đọc inventory sau compose.
+
+Actor Generated Indoor dùng zone và vùng sàn, tránh tường chiếu/đồ lớn theo ước lượng, tách các điểm đứng. posture/placement/supportId biểu diễn ngoại lệ RP tường/bàn/ngồi/nằm; không tìm được chỗ thì ribbon ở anchor, ẩn chân. Missing binding giữ trong Inspector. Không xây physics/pathfinding. Fixed/artwork không đổi.
+
+Kiểm tập trung 10 preset PASS (replace rỗng, actor tránh đồ lớn, sitting/support, vật lạ); regression 40 cấu hình khung/48 element PASS. Browser local 3 phòng desktop/mobile ready, H40, không pageerror; đã xem ảnh desktop. HTML: examples/p4-review.html; ảnh tests/indoor-h40-{desktop,mobile}.png. **Chưa duyệt thẩm mỹ nội thất mới, chưa nghiệm thu AI Studio.** Khung corridors đã được duyệt, không xin duyệt lại khung.
+
+Giới hạn: footprint ảnh là ước lượng; surface chưa có metadata không đoán; cụm đồ không có định danh con không tự tháo rời; geometry đặc biệt FINAL chưa được coi tái hiện chính xác mọi hình phòng. P5/P7 chưa đóng toàn mốc. Palette mới/visual compiler/Outdoor/icon mới không nằm trong thay đổi này.
+
 ### Checkpoint áp khung corridors đã duyệt H40 — 14/11/2026
 
 Base `857f0c6`; file user cấp lại `CHỐT_01_10_CORRIDORS_FINAL.html` có SHA-256 `e1fd37c355ec679b2d44b52fc0a669b8ea00d36f284a4da3f4ff9f837e1cd7e6`, khớp baseline cũ. Runtime giải nén **trùng nguyên byte** `assets/source/corridors.js`, không nhập renderer mới. User chốt khung/góc nhìn/10 công thức/hốc/khe, chiều cao **40**, không cần thiết kế hay duyệt lại khung.
@@ -295,13 +305,13 @@ Trạng thái mặc định **TODO** là chưa hoàn tất theo cơ chế mới,
 | M2-P03-04 | CODE — chờ QA | Alias/phòng–công năng–recipe, đủ cluster và phòng RP bổ sung | P03-01 | Không yêu cầu Gemini biết asset ID; không tự nhân phòng |
 | M2-P04-01 | SOURCE-APPROVED / CODE | Khóa khung corridors cùng góc nhìn 2.5D, height 40, kể cả hình mới | P02-03, P03-04 | Một khung dựng, size/vật liệu linh hoạt; Fixed không đổi |
 | M2-P04-02 | TODO | Mẫu Horizontal + Potions/Office/Storage/Classroom nếu có | P04-01 | Có props lạ, merge/replace và bố trí thích nghi, không ép nguyên layout |
-| M2-P04-03 | TODO | Placement actor nhẹ: zone/sàn, tránh tường/đồ lớn, ngoại lệ RP, anchor khi chật | P02-01, P04-02 | Không solver/game physics; actor không đổi địa điểm hoặc biến mất |
+| M2-P04-03 | CODE — chờ QA/duyệt hình | Placement actor nhẹ: zone/sàn, tránh tường/đồ lớn, ngoại lệ RP, anchor khi chật | P02-01, P04-02 | Không solver/game physics; actor không đổi địa điểm hoặc biến mất |
 | M2-P04-04 | SOURCE-APPROVED / CODE | Giữ decor/hốc/khe nguồn H40, bỏ đề xuất 3 recipe thay thế | P04-01 | Không thêm decor ngoài source, catalog tham chiếu cùng lõi |
 | M2-P04-05 | TODO | Mẫu ?/! chung nét/vùng bấm/hover/reduced-motion | P02-02 | HTML/ảnh có tương tác, chưa tự coi đã duyệt hình |
 | M2-P04-06 | WAIT-VISUAL | Chỉ gửi nội thất mới và ?/! nếu cần duyệt; khung corridors đã duyệt | P04-02–05 | Không mở lại cổng duyệt khung hành lang. Nội thất mới/?/! vẫn cần bản cụ thể |
-| M2-P05-01 | TODO | Phòng đơn/10 preset; size/vị trí phòng, vật liệu từ layout/asset/RP | P04-06 | Cùng khung 2.5D; không làm mọi phòng thành span vuông cố định |
+| M2-P05-01 | CODE — chờ QA/duyệt hình | Phòng đơn/10 preset; size/vị trí phòng, vật liệu từ layout/asset/RP | P04-06 | Cùng khung 2.5D; không làm mọi phòng thành span vuông cố định |
 | M2-P05-02 | TODO | Hoàn thiện compose/merge/replace/ensure/add/state, định danh ổn định | P02-01, P04-02 | Không thêm trùng; phòng rỗng; sửa/xóa đúng món hoặc nêu giới hạn cụm |
-| M2-P05-03 | TODO | Placement props: floor/wall/surface, cửa/lối đi và fallback khi chật | P05-01–02 | Đồ thêm không thành hàng dưới art; không bỏ đồ RP nhường decor |
+| M2-P05-03 | CODE — chờ QA/duyệt hình | Placement props: floor/wall/surface, cửa/lối đi và fallback khi chật | P05-01–02 | Đồ thêm không thành hàng dưới art; không bỏ đồ RP nhường decor |
 | M2-P06-01 | TODO | Áp 8 Outdoor thành nguyên liệu trong builder hiện có | P02-03, P03-02, P04-06 | Cảnh đơn/nhiều khu theo RP, không vòng 7 vị trí cố định |
 | M2-P06-02 | TODO | Nhà/công trình AU, nền/nước/props/hình mới, vùng đứng ước lượng | P06-01 | Không tự thêm canon; thiếu hình fallback riêng món |
 | M2-P06-03 | WAIT-VISUAL | Mẫu Outdoor gồm công trình AU H1/H2 | P06-02 | User duyệt hình trước nhân rộng style mới |

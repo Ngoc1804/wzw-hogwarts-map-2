@@ -15,6 +15,14 @@ function indoorMap(scene,d){
  const cfg=structuredClone(CORRIDORS.defaults);Object.assign(cfg,{type,count:places.length,height:40,seed:0,selected:null,decor:true,overrides:{}});
  // Source formulas own room proportions, gaps and alcoves. RP sizing adaptation
  // may supply internal overrides in later placement work, without changing projection.
+ // Adapt proportions through the approved core's overrides, never change its projection.
+ for(const [i,place]of places.entries()){
+  const recipe=RECIPES[recipeId(place.type)],factor=({small:.8,large:1.3})[place.size]||1;
+  if(recipe&&layouts[i].objects?.length||factor!==1){
+   const w=recipe?.w||layouts[i].width,h=recipe?.h||layouts[i].height;
+   cfg.overrides[i]={fw:Math.max(recipe?.minW||180,w*.8*factor),depth:Math.max(recipe?.minH||160,h*.8*factor)};
+  }
+ }
  const plan=CORRIDORS.build(cfg),single=places.length===1;
  if(single){
   plan.halls=[];plan.passages=[];plan.special=null;plan.yard=null;
@@ -35,6 +43,7 @@ function indoorMap(scene,d){
  }
  for(const [i,p]of passages.entries()){
   const hall=plan.halls.find(h=>!h.passage);if(!hall)continue;p.bounds=[hall.x,hall.y,hall.w,hall.h];p.geometry={hall};
+  const props=placeExtraProps(p,'hall'+i+'-',{...hall},(p.inventory?.objects||[]).filter(o=>o.source==='rp'),null,[]);furnishings+=props.svg;footprints.push(...props.footprints.map(f=>({...f,placeId:p.id})));
   selection+=`<g data-id="${escapeXML(p.id)}" role="button" tabindex="0" aria-label="${escapeXML(p.name)}"><rect x="${hall.x}" y="${hall.y}" width="${hall.w}" height="${hall.h}" fill="transparent" data-floor="corridor"/></g>`;
  }
  // Keep the source floor, wall projection, material graph and door/window drawing intact.
@@ -95,7 +104,7 @@ function styleIndoor(markup,plan,places){
  return new XMLSerializer().serializeToString(root);
 }
 function buildMap(scene,d){return (d.mapMode||scene.mapMode)==='outdoor'?outdoorMap(scene,d):indoorMap(scene,d);}
-function generatedActorPoint(map,place,spot){
+function generatedActorPoint(map,place,spot,actor={}){
  if(!place.bounds||!spot)return null;
  const [x,y,w,h]=place.bounds;
  if(map.kind==='outdoor'){
@@ -105,8 +114,7 @@ function generatedActorPoint(map,place,spot){
   const p=candidates.find(([x,y])=>map.safeFloor(x,y,7));return p?{x:p[0],y:p[1]}:null;
  }
  const room=place.geometry?.room,hall=place.geometry?.hall;
- if(hall)return {x:x+w/2,y:y+h/2};
- if(spot==='inside')return{x:x+w/2,y:y+h/2};
+ if(hall||spot==='inside')return indoorActorPoint(map,place,actor);
  const door=place.geometry?.door;
  if(!door){
   if(room?.circular&&map.geometry.special?.type==='tower'){const s=map.geometry.special;return{x:s.stemEnd-12,y:s.cy};}
@@ -123,4 +131,26 @@ function generatedActorPoint(map,place,spot){
  }
  if(spot==='outdoor'&&map.geometry.yard){const yard=map.geometry.yard;return{x:yard.x+yard.w/2,y:yard.y+yard.h/2};}
  return null;
+}
+
+// Approximate display placement only: no game physics or route finding.
+function zonePoint(bounds,zone='center'){
+ const [x,y,w,h]=bounds,offset={center:[.5,.5],entrance:[.5,.85],wall_north:[.5,.15],wall_south:[.5,.85],wall_west:[.15,.5],wall_east:[.85,.5],left:[.25,.5],right:[.75,.5],end:[.5,.15]};
+ const [u,v]=offset[zone]||offset.center;return{x:x+w*u,y:y+h*v};
+}
+function indoorActorPoint(map,place,actor){
+ const bounds=place.bounds,room=place.geometry?.room;
+ const obstacles=(map.footprints||[]).filter(f=>f.placeId===place.id&&f.blocksActor);
+ const desired=zonePoint(bounds,actor.zone);
+ if(actor.placement==='in_wall')return{x:bounds[0]+bounds[2]/2,y:bounds[1],noFeet:true};
+ if(actor.placement==='on_furniture'){
+  const support=obstacles.find(f=>f.id===actor.supportId);
+  return support?{...zonePoint(support.bounds),noFeet:true}:{...desired,anchorOnly:true,noFeet:true};
+ }
+ const inside=p=>room?.circular?Math.hypot(p.x-room.x-room.w/2,p.y-room.y-room.h/2)+7<room.w/2:p.x>=bounds[0]+26&&p.x<=bounds[0]+bounds[2]-9&&p.y>=bounds[1]+9&&p.y<=bounds[1]+bounds[3]-46;
+ const points=[desired];for(const u of [.15,.3,.5,.7,.85])for(const v of [.15,.3,.5,.7,.85])points.push({x:bounds[0]+bounds[2]*u,y:bounds[1]+bounds[3]*v});
+ points.sort((a,b)=>Math.hypot(a.x-desired.x,a.y-desired.y)-Math.hypot(b.x-desired.x,b.y-desired.y));
+ const point=points.find(p=>inside(p)&&map.safeFloor(p.x,p.y,6)&&!obstacles.some(f=>{const [x,y,w,h]=f.bounds;return p.x>x-6&&p.x<x+w+6&&p.y>y-6&&p.y<y+h+6;})&&!(map.actorPoints||[]).some(q=>Math.hypot(q.x-p.x,q.y-p.y)<14));
+ if(!point)return{...desired,anchorOnly:true,noFeet:true};
+ (map.actorPoints||(map.actorPoints=[])).push(point);return{...point,noFeet:['sitting','lying','hidden'].includes(actor.posture)};
 }
