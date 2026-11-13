@@ -1,9 +1,9 @@
 {
   "report": [
     {
-      "nodes": 1568,
-      "renderMs": 91,
-      "heapBytes": 68380593,
+      "nodes": 1620,
+      "renderMs": 82.80000000074506,
+      "heapBytes": 70184053,
       "kind": "indoor",
       "layout": "horizontal",
       "roomCount": 4,
@@ -29,12 +29,12 @@
         "HÓNG HỚT TÁM PHƯƠNG"
       ],
       "id": "horizontal",
-      "elapsedMs": 230
+      "elapsedMs": 242
     },
     {
-      "nodes": 1563,
-      "renderMs": 61.5,
-      "heapBytes": 91265406,
+      "nodes": 1559,
+      "renderMs": 62.599999997764826,
+      "heapBytes": 91584606,
       "kind": "indoor",
       "layout": "vertical",
       "roomCount": 4,
@@ -60,12 +60,12 @@
         "HÓNG HỚT TÁM PHƯƠNG"
       ],
       "id": "vertical",
-      "elapsedMs": 143
+      "elapsedMs": 131
     },
     {
-      "nodes": 1676,
-      "renderMs": 69.5,
-      "heapBytes": 74812467,
+      "nodes": 1811,
+      "renderMs": 69.19999999925494,
+      "heapBytes": 57148720,
       "kind": "indoor",
       "layout": "windows",
       "roomCount": 4,
@@ -91,12 +91,12 @@
         "HÓNG HỚT TÁM PHƯƠNG"
       ],
       "id": "windows",
-      "elapsedMs": 178
+      "elapsedMs": 150
     },
     {
-      "nodes": 1446,
-      "renderMs": 56.09999999962747,
-      "heapBytes": 52527368,
+      "nodes": 1479,
+      "renderMs": 60.19999999925494,
+      "heapBytes": 44803608,
       "kind": "indoor",
       "layout": "ell",
       "roomCount": 4,
@@ -122,12 +122,12 @@
         "HÓNG HỚT TÁM PHƯƠNG"
       ],
       "id": "ell",
-      "elapsedMs": 132
+      "elapsedMs": 154
     },
     {
-      "nodes": 1600,
-      "renderMs": 67.30000000074506,
-      "heapBytes": 71247929,
+      "nodes": 1688,
+      "renderMs": 55.400000002235174,
+      "heapBytes": 64102975,
       "kind": "indoor",
       "layout": "tee",
       "roomCount": 4,
@@ -153,12 +153,12 @@
         "HÓNG HỚT TÁM PHƯƠNG"
       ],
       "id": "tee",
-      "elapsedMs": 131
+      "elapsedMs": 162
     },
     {
-      "nodes": 2365,
-      "renderMs": 63.700000000186265,
-      "heapBytes": 46612349,
+      "nodes": 2423,
+      "renderMs": 74.19999999925494,
+      "heapBytes": 54807664,
       "kind": "indoor",
       "layout": "cross",
       "roomCount": 6,
@@ -184,12 +184,12 @@
         "HÓNG HỚT TÁM PHƯƠNG"
       ],
       "id": "cross",
-      "elapsedMs": 160
+      "elapsedMs": 180
     },
     {
-      "nodes": 2541,
-      "renderMs": 116.70000000018626,
-      "heapBytes": 72062876,
+      "nodes": 2619,
+      "renderMs": 84.30000000074506,
+      "heapBytes": 30760143,
       "kind": "indoor",
       "layout": "court",
       "roomCount": 6,
@@ -215,12 +215,12 @@
         "HÓNG HỚT TÁM PHƯƠNG"
       ],
       "id": "court",
-      "elapsedMs": 203
+      "elapsedMs": 217
     },
     {
-      "nodes": 3251,
-      "renderMs": 102.09999999962747,
-      "heapBytes": 65009675,
+      "nodes": 3392,
+      "renderMs": 92.39999999850988,
+      "heapBytes": 45982779,
       "kind": "indoor",
       "layout": "cloister",
       "roomCount": 8,
@@ -246,12 +246,12 @@
         "HÓNG HỚT TÁM PHƯƠNG"
       ],
       "id": "cloister",
-      "elapsedMs": 202
+      "elapsedMs": 195
     },
     {
-      "nodes": 1823,
-      "renderMs": 63.299999999813735,
-      "heapBytes": 50187998,
+      "nodes": 1841,
+      "renderMs": 72.39999999850988,
+      "heapBytes": 54459181,
       "kind": "indoor",
       "layout": "curved",
       "roomCount": 4,
@@ -277,12 +277,12 @@
         "HÓNG HỚT TÁM PHƯƠNG"
       ],
       "id": "curved",
-      "elapsedMs": 148
+      "elapsedMs": 149
     },
     {
-      "nodes": 1809,
-      "renderMs": 62.799999999813735,
-      "heapBytes": 77299557,
+      "nodes": 1852,
+      "renderMs": 66,
+      "heapBytes": 43702048,
       "kind": "indoor",
       "layout": "tower",
       "roomCount": 4,
@@ -308,12 +308,12 @@
         "HÓNG HỚT TÁM PHƯƠNG"
       ],
       "id": "tower",
-      "elapsedMs": 148
+      "elapsedMs": 146
     },
     {
-      "nodes": 43,
-      "renderMs": 40.90000000037253,
-      "heapBytes": 55722715,
+      "nodes": 2777,
+      "renderMs": 233.69999999925494,
+      "heapBytes": 62883754,
       "kind": "outdoor",
       "roomCount": 0,
       "walls": 0,
@@ -338,12 +338,12 @@
         "HÓNG HỚT TÁM PHƯƠNG"
       ],
       "id": "outdoor-yard",
-      "elapsedMs": 138
+      "elapsedMs": 367
     },
     {
-      "nodes": 42,
-      "renderMs": 41.40000000037253,
-      "heapBytes": 68799277,
+      "nodes": 2812,
+      "renderMs": 252.40000000223517,
+      "heapBytes": 81186497,
       "kind": "outdoor",
       "roomCount": 0,
       "walls": 0,
@@ -368,7 +368,37 @@
         "HÓNG HỚT TÁM PHƯƠNG"
       ],
       "id": "outdoor-lake",
-      "elapsedMs": 116
+      "elapsedMs": 380
+    },
+    {
+      "nodes": 4055,
+      "renderMs": 511,
+      "heapBytes": 37806398,
+      "kind": "outdoor",
+      "roomCount": 0,
+      "walls": 0,
+      "wallPattern": false,
+      "slatePattern": false,
+      "instances": 0,
+      "actorTags": 1,
+      "expectedActors": 1,
+      "footsteps": 1,
+      "missingRefs": [],
+      "duplicateIds": 0,
+      "geometryFailures": [],
+      "doorCollisions": [],
+      "actualBoundsMismatch": [],
+      "wallHeightFailures": 0,
+      "unresolvedActors": [],
+      "inspectorHeadings": [
+        "VỊ TRÍ",
+        "NGHE HÓNG",
+        "QUAN SÁT",
+        "AI ĐÓ",
+        "HÓNG HỚT TÁM PHƯƠNG"
+      ],
+      "id": "outdoor-hamlet",
+      "elapsedMs": 606
     }
   ],
   "errors": [],

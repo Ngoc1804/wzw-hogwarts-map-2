@@ -25,8 +25,8 @@ body.motion-off #mapmount *{animation-play-state:paused!important}#mapmount .tre
 .qa-tags{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .qa-tags>button{position:absolute;transform:translate(-50%,-100%);pointer-events:auto}
 .npc-tag:is(:hover,:focus-visible){filter:brightness(1.12) drop-shadow(0 0 3px #d2a64d80)}
-.event-marker{width:29px;height:29px;border:1px solid #8c2939;border-radius:50%;background:#f6d789;color:#8c2939;box-shadow:0 1px 4px #49362b55;padding:5px}
-.event-marker svg{width:100%;height:100%}.hidden-marker{background:#d5e2d8;color:#315878;border-color:#315878}
+.event-marker{width:32px;height:36px;border:0;border-radius:0;background:transparent;color:#873c38;box-shadow:none;padding:5px;filter:drop-shadow(0 1px 1px #f9edcf) drop-shadow(0 0 2px #fff5df)}
+.event-marker svg{width:100%;height:100%;overflow:visible;stroke-linejoin:round}.hidden-marker{background:transparent;color:#315878}.event-marker svg path{paint-order:stroke fill;stroke:#f8ecd1;stroke-width:2px}
 .event-marker:is(:hover,:focus-visible,.chosen){animation:clue-pulse 1.6s ease-in-out infinite}
 .event-row{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:8px 0;color:var(--ink)}
 @keyframes clue-pulse{50%{filter:brightness(1.16) drop-shadow(0 0 3px #d2a64d88)}}
@@ -600,7 +600,7 @@ async function prepareTemplateUI(){
  function mountEvents(events=[]){for(const e of eventItems)e.element.remove();eventItems=[];$('#quests').replaceChildren();put('#hintcount',String(events.length));
   for(const event of events){const place=(DATA.maps[activeId].places||[]).find(p=>p.id===event.placeId||p.name===event.placeName);if(!place)continue;const node=[...svg.querySelectorAll('[data-id]')].find(e=>e.dataset.id===place.id);if(!node)continue;const b=worldBox(node);let point={x:b.x+b.w/2,y:b.y+b.h/2};if(place.geometry?.room){const r=place.geometry.room;point={x:r.x+r.w*(r.circular?.65:.82),y:r.y+r.h*.25};const door=place.geometry.door;if(event.target?.kind==='door'&&door)point=door.ln.axis==='H'?{x:door.at,y:door.ln.at}:{x:door.ln.at,y:door.at};}else if(place.geometry?.outdoor){const[x,y,w,h]=place.bounds;point={x:x+w*.8,y:y+h*.25};}
    const button=document.createElement('button');button.className='event-marker '+(event.hidden?'hidden-marker':'');button.setAttribute('aria-label',event.title||'Đầu mối');button.title=event.title||'Đầu mối';
-   const v=uiElement('svg',{viewBox:'0 0 24 24','aria-hidden':'true'});if(event.hidden)uiElement('path',{d:'M9 8a3 3 0 1 1 5 2c-2 1-2 2-2 4M12 18h.01',fill:'none',stroke:'currentColor','stroke-width':2,'stroke-linecap':'round'},v);else{uiElement('circle',{cx:10,cy:10,r:6,fill:'none',stroke:'currentColor','stroke-width':2},v);uiElement('path',{d:'m15 15 6 6',stroke:'currentColor','stroke-width':2,'stroke-linecap':'round'},v)}button.append(v);
+   const v=uiElement('svg',{viewBox:'0 0 24 24','aria-hidden':'true'});uiElement('path',{d:event.hidden?'M8 6Q9 2 13 2Q19 2 19 8Q19 11 15 14L14 17H10V14Q10 12 13 10Q15 9 15 7Q15 5 13 5Q11 5 11 7ZM10 20H14V24H10Z':'M10 2H15L14 17H11ZM10 20H15V24H10Z',fill:'currentColor'},v);button.append(v);
    button.onclick=()=>{layer.querySelectorAll('.event-marker').forEach(b=>b.classList.remove('chosen'));button.classList.add('chosen');put('#place-title',event.title||'Đầu mối');put('#observation',event.detail||'');};layer.append(button);eventItems.push({point,element:button});const row=document.createElement('button');row.className='event-row';row.textContent=event.title||'Đầu mối';row.onclick=button.onclick;$('#quests').append(row);
   }renderPositions();
  }

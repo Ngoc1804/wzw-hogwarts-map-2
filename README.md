@@ -1,3 +1,22 @@
+# C1–C5 — cải thiện theo duyệt phần 1 và 2 (2026-11-13)
+
+Người dùng duyệt triển khai Indoor/marker và các mẫu Outdoor; chưa giao bước 3 kiểm toàn bộ Fixed/X-Ray và chưa duyệt hình bản cải thiện. Nhánh giữ `M2-P01-baseline-loader`, base `16818bf`. Lịch tự động vẫn tắt.
+
+- [x] Bỏ tên phòng/địa điểm Generated trên hình, giữ binding click/tap/Enter và sidebar.
+- [x] Đổi sàn/tường theo công năng bằng pattern nguồn; nhận architecture.floor/wall trong whitelist, giữ H36 và geometry.
+- [x] Bật decor hành lang ngang nguồn, thêm nến đứng ở tường dọc đủ khoảng trống, tránh cửa/cửa sổ; không kéo méo đồ.
+- [x] Marker `?` và `!` không badge tròn: glyph mực xanh/burgundy, keyline giấy sáng, vùng bấm vô hình 32×36; reduced-motion giữ cơ chế cũ.
+- [x] Outdoor dùng nền giấy/mảng đất+cỏ, asset catalog nhà/cây/bụi/đá/ghế; trích thêm hình nhà/quán/tháp/cây từ đúng H1 hiện có (không lấy repo khác). Bỏ tên canon/chữ và vùng click trước khi compile; không sửa artwork Fixed.
+- [x] 3 Outdoor mẫu: sân+nhà kho, bờ hồ+tháp, cụm nhà/quán. Không tự tạo đường nối canon. Geometry nguồn của nhà được giữ, chưa phải toàn bộ khả năng dựng Outdoor P6.
+- [ ] Người dùng duyệt hình Indoor/marker/Outdoor mới.
+- [ ] Bước 3: kiểm 13 Fixed và ma trận X-Ray trên template theo kế hoạch đã đề xuất; chưa báo nghiệm thu lại phần đó trong mốc này.
+
+Build: `node tools/import-outdoor.cjs` khi đổi artwork trích H1; `python tools/build.py`; `python tools/review-fixtures.py`; `python tools/review.py`. Kiểm mới: `node tests/visual-refinement.cjs`, `node tests/repair-review.cjs` (tự mở server). 10 Indoor+3 Outdoor, desktop/mobile, không trùng IDs/thiếu refs; footprint/cửa và tương tác trong fixtures được kiểm. HTML: examples/p4-review.html. Ảnh: tests/repair-overview.png, tests/marker-review.png và repair-*.png. PASS 13 cảnh desktop/mobile, 13 kiểm tra style mới và 16 ca chức năng. Cảnh sân sau dùng chung symbol giảm 13.408 → 2.777 node; bundle gzip 119.464 byte (tăng do artwork H1/catalog được tái dùng). Google AI Studio Preview chưa thử.
+
+Lưu ý: stage này đổi style/asset và chuẩn bị các mẫu để duyệt; các số đo và duyệt cũ trong nhật ký dưới đây thuộc mốc trước. Prompt CDN hiện pin bản cũ 392a468 cho tới mốc đồng bộ loader; HTML offline chứa đúng bundle mới và là bản kiểm của mốc này.
+
+---
+
 # M2-P04 — checkpoint sửa theo phản hồi (2026-11-13)
 
 Repo duy nhất `Ngoc1804/wzw-hogwarts-map-2`; nhánh `M2-P01-baseline-loader`. Base đã fetch/xác minh: `10d2c37`, working tree sạch trước sửa. Không có AGENTS.md trong checkout. Plan người dùng cấp được đọc đầy đủ, hash khớp bản đã kiểm kê; bản chỉ đạo nguyên văn nằm ở phụ lục cuối README, không tạo một plan/contract cạnh tranh. [Baseline mới](docs/repair-baseline.json).
