@@ -44,30 +44,34 @@ for(const room of _t){
 }
 let REVIEW_SIZE='M';
 const REVIEW_WALLS={HEADMASTER_OFFICE:'panel',DIVINATION_CLASSROOM:'dark',ASTRONOMY_OBSERVATORY:'stone',PREFECTS_BATHROOM:'plaster',CHAMBER_OF_SECRETS:'dark',TOWER_CLOCKWORK:'ashlar',BALLROOM:'limestone',TROPHY_ROOM:'panel',OFFICE:'wainscot',STUDY_ROOM:'timber',LIBRARY:'panel',ARCHIVE:'ashlar',STORAGE:'rubble',WORKSHOP:'brick',BEDROOM:'wainscot',KITCHEN:'brick',BATHROOM:'plaster',LAUNDRY:'plaster',HOSPITAL_WARD:'plaster',DETENTION_CELL:'dark',SECURE_VAULT:'ashlar'};
-// Warm parchment / limestone / natural timber; small muted textile accents.
-// Room families select materials deliberately; no rotating saturated room colors.
-const REVIEW_COLORS={
- study:{floor:'#e5dccb',line:'#cbbda7',wall:'#d6cbb6',wood:'#b29a7b'},
- stone:{floor:'#e3e0d6',line:'#c7c1b2',wall:'#d1ccbf',wood:'#b39a7d'},
- domestic:{floor:'#e7dccb',line:'#ccbaa0',wall:'#ddd3c2',wood:'#b69a78'},
- work:{floor:'#e0d8c9',line:'#c5b8a2',wall:'#d3c8b5',wood:'#ad9376'},
- wet:{floor:'#e1e8e3',line:'#bdcbc3',wall:'#d7e0d9',wood:'#b09a80'}
-};
-const REVIEW_PALETTES={};
-for(const room of _t)if(!room.special&&!room.id.startsWith('OUT_')){
- let family=/BATH|LAUNDRY|HOSPITAL/.test(room.id)?'wet':/WORKSHOP|KITCHEN|STORAGE|ARCHIVE/.test(room.id)?'work':/BEDROOM|LOUNGE|DINING|CLOAK/.test(room.id)?'domestic':/CELL|VAULT|GUARD|ENTRANCE|CEREMONY/.test(room.id)?'stone':'study';
- REVIEW_PALETTES[room.id]=REVIEW_COLORS[family];
-}
-// Ballroom keeps the source floor, wall, textiles and small details. Only timber changes.
-const REVIEW_WALNUT='#9a8068';
+// C2 colour gate: seven representative rooms only. Every value comes from the
+// source's parchment/stone/oak/walnut/sage/brass vocabulary; no RGB sweep and
+// no rotating palette. Rooms outside this table retain their FINAL source colour.
+const MATERIAL_TOKENS=Object.freeze({
+ paper:'#f1e6d0',stone:'#d5cdbc',oak:'#aa8b65',walnut:'#8c7258',
+ sage:'#929c85',blue:'#91a4ad',linen:'#d6cbb5',brass:'#bca373',
+ silver:'#b5b6ac',glass:'#bad1cf',ink:'#685e50',burgundy:'#875b60'
+});
+const ROOM_COLOR_RECIPES=Object.freeze({
+ LIBRARY:{surface:['#baa588','#9b8568','#cbbb9f'],materials:{wood:'#76563f',fabric:'#77836e',metal:'#ad9564'}},
+ POTIONS_LAB:{surface:['#bdb9a7','#999989','#c6c8b9'],materials:{wood:'#705948',fabric:'#75806f',metal:'#9e8a5e',glass:'#9bb9b3'}},
+ ART_CARTOGRAPHY_STUDIO:{surface:['#d5c7ae','#b9aa90','#d9d0bd'],materials:{wood:'#967456',fabric:'#7f918b',metal:'#b39a6b'}},
+ LOUNGE:{surface:['#c5af93','#9f896e','#d8c8b5'],materials:{wood:'#765341',fabric:MATERIAL_TOKENS.burgundy,metal:'#b29a6b'}},
+ BATHROOM:{surface:['#d3d8d1','#abbcb4','#e1e2d8'],materials:{wood:'#977f69',fabric:'#92a89f',metal:'#b6a174',ceramic:'#e7e3d7',glass:MATERIAL_TOKENS.glass}},
+ HEADMASTER_OFFICE:{surface:['#c7af90','#a88d6e','#d5c5ae'],materials:{wood:'#76543f',fabric:'#7f8a76',metal:'#b39a62'}},
+ // Keep the complete source Ballroom palette; change timber slots only.
+ BALLROOM:{materials:{wood:MATERIAL_TOKENS.walnut}}
+});
 const originalNt=Nt;
 Nt=function(id,options={}){
+ const priorHeight=h.height,priorWall=h.materials.wall,priorMaterials=Kt,priorSurface=fe[id];
+ const recipe=ROOM_COLOR_RECIPES[id];
  h.height=40;h.materials.wall=REVIEW_WALLS[id]||'stone';
- const palette=REVIEW_PALETTES[id],priorMaterials=Kt;
- if(palette){fe[id]=[palette.floor,palette.line,palette.wall];Kt={wood:palette.wood,...priorMaterials};}
- if(id==='BALLROOM')Kt={wood:REVIEW_WALNUT,...priorMaterials};
- const result=originalNt(id,options);Kt=priorMaterials;
- if(!id.startsWith('OUT_'))s('wood-color').value=priorMaterials.wood||(id==='BALLROOM'?REVIEW_WALNUT:palette?.wood||Q.wood);
+ if(recipe?.surface)fe[id]=recipe.surface;
+ if(recipe)Kt={...recipe.materials,...priorMaterials};
+ const result=originalNt(id,options);
+ Kt=priorMaterials;fe[id]=priorSurface;h.height=priorHeight;h.materials.wall=priorWall;
+ if(!id.startsWith('OUT_'))s('wood-color').value=priorMaterials.wood||recipe?.materials?.wood||Q.wood;
 
  const parsed=new DOMParser().parseFromString(result.svg,'image/svg+xml');
  if(parsed.querySelector('parsererror'))throw Error('Invalid source SVG '+id);
@@ -77,10 +81,10 @@ Nt=function(id,options={}){
   const factor=Math.min(result.report.width/900,result.report.height/630),tx=(result.report.width-900*factor)/2,ty=(result.report.height-630*factor)/2;
   const door=parsed.createElementNS('http://www.w3.org/2000/svg','g');door.setAttribute('data-element-id','review.entry-door');door.setAttribute('data-object','Cửa vào · hướng Bắc');door.setAttribute('transform',`translate(${tx} ${ty}) scale(${factor})`);door.innerHTML='<g transform="matrix(1 0 .42 -1 450 50)"><path d="M-26 0H26V33.6H-26Z" fill="#9a734f" stroke="#5f4e3b" stroke-width="2.7"/><path d="M-22 2V26M22 2V26M0 1V30M-24 9H24M-24 23H24" fill="none" stroke="#d5b58a"/><circle cx="7" cy="16" r="1.6" fill="#dec28a"/></g>';root.append(door);result.report.door={side:'north',width:52};
  }
- if(palette){
+ if(recipe?.surface){
   for(const pattern of root.querySelectorAll('pattern[id^="wall-"]')){
-   const base=pattern.querySelector('rect');if(base)base.setAttribute('fill',palette.wall);
-   pattern.querySelectorAll('path,line').forEach(n=>{if(n.getAttribute('stroke')!=='none')n.setAttribute('stroke',palette.line);});
+   const base=pattern.querySelector('rect');if(base)base.setAttribute('fill',recipe.surface[2]);
+   pattern.querySelectorAll('path,line').forEach(n=>{if(n.getAttribute('stroke')!=='none')n.setAttribute('stroke',recipe.surface[1]);});
   }
   root.setAttribute('data-color-theme','warm-natural-materials');
  }
@@ -98,7 +102,7 @@ s('review-size').onchange=e=>chooseReviewSize(e.target.value);
 s('size-small').onclick=()=>chooseReviewSize('S');s('size-default').onclick=()=>chooseReviewSize('M');s('size-large').onclick=()=>chooseReviewSize('L');
 s('wall-height').value=40;s('wall-height').onchange=()=>{h.height=40;s('wall-height').value=40;re()};
 s('mount').addEventListener('click',event=>{const target=event.target.closest('[data-element-id]');const room=Ct(Qt),profile=REVIEW_SIZE_PROFILES[Qt][REVIEW_SIZE];s('selection').textContent=(target?(I[target.dataset.elementId]?.name||target.dataset.object||target.dataset.elementId)+' · '+target.dataset.elementId:room.name+' · '+room.id)+' · Size '+REVIEW_SIZE+' · '+profile.width+' × '+profile.height+' · H40';});
-window.WIZAMAP_PACK.sizeProfiles=REVIEW_SIZE_PROFILES;for(const room of _t){room.sizeProfiles=REVIEW_SIZE_PROFILES[room.id];room.wallHeight=40;room.wall=REVIEW_WALLS[room.id]||'stone';if(room.id==='HEADMASTER_OFFICE')room.door={side:'north',width:52};}
+window.WIZAMAP_PACK.sizeProfiles=REVIEW_SIZE_PROFILES;window.WIZAMAP_PACK.materialTokens=MATERIAL_TOKENS;window.WIZAMAP_PACK.colorRecipes=ROOM_COLOR_RECIPES;for(const room of _t){room.sizeProfiles=REVIEW_SIZE_PROFILES[room.id];room.wallHeight=40;room.wall=REVIEW_WALLS[room.id]||'stone';if(room.id==='HEADMASTER_OFFICE')room.door={side:'north',width:52};}
 window.WIZAMAP_REVIEW={select:ee,size:chooseReviewSize,render(id,size='M'){REVIEW_SIZE=size;const p=REVIEW_SIZE_PROFILES[id][size];return Nt(id,{width:p.width,height:p.height,variant:Ct(id).variants[0]||''});}};
 '''
 # Install overrides after source definitions/handlers but before initial selection/export binding.

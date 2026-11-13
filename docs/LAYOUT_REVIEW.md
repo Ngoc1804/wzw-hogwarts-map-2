@@ -1,5 +1,11 @@
 # Layout H40 / S–M–L — chờ người dùng duyệt
 
+## C2 — Bảy mẫu màu Hogwarts Vintage
+
+Đã áp dụng recipe vật liệu cho Library, Potions Lab, Art/Cartography Studio, Lounge, Bathroom, Headmaster Office và Ballroom. Các phòng khác giữ màu source trong lượt duyệt này. Ballroom giữ nền và chi tiết source, chỉ đặt slot gỗ óc chó. [Ảnh Library](layout-review/sample-library.png) · [Potions](layout-review/sample-potions.png) · [Art Studio](layout-review/sample-art-studio.png) · [Lounge](layout-review/sample-lounge.png) · [Bathroom](layout-review/sample-bathroom.png) · [Headmaster](layout-review/sample-headmaster.png) · [Ballroom](layout-review/sample-ballroom.png).
+
+Kiểm Chromium local 168 tổ hợp PASS; Office giữ màu ổn định sau khi render Library. Chờ duyệt hình ảnh trước khi nhân rộng 41 phòng. AI Studio Preview ở bước cuối.
+
 Bản duyệt riêng trên **ATLAS_CAN_DUYET**, base `84f9f82`. Chưa gộp vào nhánh triển khai hoặc main; không thay HTML source FINAL nguyên bản hoặc runtime Map 2.
 
 ## Mở bản duyệt
