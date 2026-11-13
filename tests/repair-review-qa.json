@@ -1,16 +1,16 @@
 {
   "report": [
     {
-      "nodes": 1620,
-      "renderMs": 82.80000000074506,
-      "heapBytes": 70184053,
+      "nodes": 1338,
+      "renderMs": 143.29999999701977,
+      "heapBytes": 77596977,
       "kind": "indoor",
       "layout": "horizontal",
       "roomCount": 4,
-      "walls": 22,
+      "walls": 23,
       "wallPattern": true,
       "slatePattern": true,
-      "instances": 97,
+      "instances": 58,
       "actorTags": 4,
       "expectedActors": 4,
       "footsteps": 1,
@@ -29,19 +29,19 @@
         "HÓNG HỚT TÁM PHƯƠNG"
       ],
       "id": "horizontal",
-      "elapsedMs": 242
+      "elapsedMs": 280
     },
     {
-      "nodes": 1559,
-      "renderMs": 62.599999997764826,
-      "heapBytes": 91584606,
+      "nodes": 1276,
+      "renderMs": 67.59999999403954,
+      "heapBytes": 100040118,
       "kind": "indoor",
       "layout": "vertical",
       "roomCount": 4,
-      "walls": 22,
+      "walls": 23,
       "wallPattern": true,
       "slatePattern": true,
-      "instances": 97,
+      "instances": 58,
       "actorTags": 4,
       "expectedActors": 4,
       "footsteps": 2,
@@ -60,19 +60,19 @@
         "HÓNG HỚT TÁM PHƯƠNG"
       ],
       "id": "vertical",
-      "elapsedMs": 131
+      "elapsedMs": 174
     },
     {
-      "nodes": 1811,
-      "renderMs": 69.19999999925494,
-      "heapBytes": 57148720,
+      "nodes": 1528,
+      "renderMs": 54.5,
+      "heapBytes": 53672904,
       "kind": "indoor",
       "layout": "windows",
       "roomCount": 4,
-      "walls": 23,
+      "walls": 24,
       "wallPattern": true,
       "slatePattern": true,
-      "instances": 97,
+      "instances": 58,
       "actorTags": 4,
       "expectedActors": 4,
       "footsteps": 2,
@@ -91,19 +91,19 @@
         "HÓNG HỚT TÁM PHƯƠNG"
       ],
       "id": "windows",
-      "elapsedMs": 150
+      "elapsedMs": 158
     },
     {
-      "nodes": 1479,
-      "renderMs": 60.19999999925494,
-      "heapBytes": 44803608,
+      "nodes": 1266,
+      "renderMs": 55.20000000298023,
+      "heapBytes": 80353950,
       "kind": "indoor",
       "layout": "ell",
       "roomCount": 4,
       "walls": 21,
       "wallPattern": true,
       "slatePattern": true,
-      "instances": 82,
+      "instances": 50,
       "actorTags": 4,
       "expectedActors": 4,
       "footsteps": 1,
@@ -122,19 +122,19 @@
         "HÓNG HỚT TÁM PHƯƠNG"
       ],
       "id": "ell",
-      "elapsedMs": 154
+      "elapsedMs": 137
     },
     {
-      "nodes": 1688,
-      "renderMs": 55.400000002235174,
-      "heapBytes": 64102975,
+      "nodes": 1402,
+      "renderMs": 59.70000000298023,
+      "heapBytes": 98873779,
       "kind": "indoor",
       "layout": "tee",
       "roomCount": 4,
       "walls": 22,
       "wallPattern": true,
       "slatePattern": true,
-      "instances": 97,
+      "instances": 58,
       "actorTags": 4,
       "expectedActors": 4,
       "footsteps": 2,
@@ -153,19 +153,19 @@
         "HÓNG HỚT TÁM PHƯƠNG"
       ],
       "id": "tee",
-      "elapsedMs": 162
+      "elapsedMs": 123
     },
     {
-      "nodes": 2423,
-      "renderMs": 74.19999999925494,
-      "heapBytes": 54807664,
+      "nodes": 2046,
+      "renderMs": 69,
+      "heapBytes": 63319410,
       "kind": "indoor",
       "layout": "cross",
       "roomCount": 6,
       "walls": 35,
       "wallPattern": true,
       "slatePattern": true,
-      "instances": 139,
+      "instances": 87,
       "actorTags": 4,
       "expectedActors": 4,
       "footsteps": 2,
@@ -184,19 +184,19 @@
         "HÓNG HỚT TÁM PHƯƠNG"
       ],
       "id": "cross",
-      "elapsedMs": 180
+      "elapsedMs": 147
     },
     {
-      "nodes": 2619,
-      "renderMs": 84.30000000074506,
-      "heapBytes": 30760143,
+      "nodes": 2228,
+      "renderMs": 72.20000000298023,
+      "heapBytes": 51124052,
       "kind": "indoor",
       "layout": "court",
       "roomCount": 6,
       "walls": 36,
       "wallPattern": true,
       "slatePattern": true,
-      "instances": 139,
+      "instances": 87,
       "actorTags": 4,
       "expectedActors": 4,
       "footsteps": 2,
@@ -215,19 +215,19 @@
         "HÓNG HỚT TÁM PHƯƠNG"
       ],
       "id": "court",
-      "elapsedMs": 217
+      "elapsedMs": 157
     },
     {
-      "nodes": 3392,
-      "renderMs": 92.39999999850988,
-      "heapBytes": 45982779,
+      "nodes": 2781,
+      "renderMs": 90.90000000596046,
+      "heapBytes": 39890778,
       "kind": "indoor",
       "layout": "cloister",
       "roomCount": 8,
       "walls": 42,
       "wallPattern": true,
       "slatePattern": true,
-      "instances": 194,
+      "instances": 116,
       "actorTags": 10,
       "expectedActors": 10,
       "footsteps": 1,
@@ -246,19 +246,19 @@
         "HÓNG HỚT TÁM PHƯƠNG"
       ],
       "id": "cloister",
-      "elapsedMs": 195
+      "elapsedMs": 186
     },
     {
-      "nodes": 1841,
-      "renderMs": 72.39999999850988,
-      "heapBytes": 54459181,
+      "nodes": 1553,
+      "renderMs": 63.20000000298023,
+      "heapBytes": 62409855,
       "kind": "indoor",
       "layout": "curved",
       "roomCount": 4,
       "walls": 18,
       "wallPattern": true,
       "slatePattern": true,
-      "instances": 97,
+      "instances": 58,
       "actorTags": 4,
       "expectedActors": 4,
       "footsteps": 2,
@@ -277,19 +277,19 @@
         "HÓNG HỚT TÁM PHƯƠNG"
       ],
       "id": "curved",
-      "elapsedMs": 149
+      "elapsedMs": 140
     },
     {
-      "nodes": 1852,
-      "renderMs": 66,
-      "heapBytes": 43702048,
+      "nodes": 1570,
+      "renderMs": 59.5,
+      "heapBytes": 51397327,
       "kind": "indoor",
       "layout": "tower",
       "roomCount": 4,
-      "walls": 16,
+      "walls": 17,
       "wallPattern": true,
       "slatePattern": true,
-      "instances": 97,
+      "instances": 58,
       "actorTags": 4,
       "expectedActors": 4,
       "footsteps": 2,
@@ -308,12 +308,12 @@
         "HÓNG HỚT TÁM PHƯƠNG"
       ],
       "id": "tower",
-      "elapsedMs": 146
+      "elapsedMs": 148
     },
     {
-      "nodes": 2777,
-      "renderMs": 233.69999999925494,
-      "heapBytes": 62883754,
+      "nodes": 2898,
+      "renderMs": 240.59999999403954,
+      "heapBytes": 71103867,
       "kind": "outdoor",
       "roomCount": 0,
       "walls": 0,
@@ -338,12 +338,12 @@
         "HÓNG HỚT TÁM PHƯƠNG"
       ],
       "id": "outdoor-yard",
-      "elapsedMs": 367
+      "elapsedMs": 343
     },
     {
-      "nodes": 2812,
-      "renderMs": 252.40000000223517,
-      "heapBytes": 81186497,
+      "nodes": 2762,
+      "renderMs": 259.70000000298023,
+      "heapBytes": 89368561,
       "kind": "outdoor",
       "roomCount": 0,
       "walls": 0,
@@ -368,12 +368,12 @@
         "HÓNG HỚT TÁM PHƯƠNG"
       ],
       "id": "outdoor-lake",
-      "elapsedMs": 380
+      "elapsedMs": 343
     },
     {
-      "nodes": 4055,
-      "renderMs": 511,
-      "heapBytes": 37806398,
+      "nodes": 4187,
+      "renderMs": 513.2999999970198,
+      "heapBytes": 60269177,
       "kind": "outdoor",
       "roomCount": 0,
       "walls": 0,
@@ -398,7 +398,7 @@
         "HÓNG HỚT TÁM PHƯƠNG"
       ],
       "id": "outdoor-hamlet",
-      "elapsedMs": 606
+      "elapsedMs": 616
     }
   ],
   "errors": [],

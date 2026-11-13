@@ -1,3 +1,13 @@
+# Bước 2 — FINAL đã vào catalog/recipe chính (2026-11-14)
+
+Đã giao bước 2 từ base e676a3d: assets/catalog.json 450 ID (423 nguồn + 26 layout riêng + 1 hình trích nguyên), 49 recipe, 509 instance. Compiler tools/import-p4.cjs chuyển sang source FINAL, build dùng cùng pipeline; source cũ/candidate 432 chỉ còn là reference lịch sử. Asset-review.html sinh từ catalog chính. Không thay shell, pack 13 Fixed hoặc Atlas.
+
+Báo cáo/mapping/giới hạn: [docs/FINAL_INTEGRATION.md](docs/FINAL_INTEGRATION.md), docs/final-integration/. ID instance có :final: để không gán nhầm ordinal cũ; legacy unresolved giữ RP. PASS kỹ thuật local catalog/merge/replace/ensure/add/Atlas; bộ 13 fixture desktop/mobile kiểm footprint/cửa/refs và bounds thực. Không đồng nghĩa đã duyệt hình hay hoàn thiện P5/P6.
+
+Còn lại: bố trí PASSAGE_PROPS vào hall; geometry/size adaptation của 40 phòng, bố cục đặc biệt, ma trận va chạm; áp 8 layout Outdoor vào RP; audit 13 Fixed/X-Ray và loader SHA CDN/AI Studio. HTML offline: examples/asset-review.html và examples/p4-review.html. AI Studio chưa thử; prompt CDN vẫn pin 392a468, không dùng để nghiệm thu build mới. Lịch tự động tắt. Bước tiếp: P5 theo kế hoạch, chưa tự nhân rộng/duyệt thẩm mỹ.
+
+---
+
 # Bước 1 — đã tiếp nhận bộ FINAL (2026-11-14)
 
 Người dùng xác nhận full asset/layout đã hoàn thiện và giao **chỉ bước 1**. Source nguyên byte: assets/intake/final-2026-11-14/. Báo cáo: [docs/final-intake/README.md](docs/final-intake/README.md). 423 asset; 49 layout (41 Indoor + 8 Outdoor); 235 asset layout hiệu lực, 26 ID riêng cần bảo toàn. Scan 658 SVG không phát hiện lỗi XML/ID nội bộ/local refs/viewBox; render mặc định 49 layout PASS local. Mapping candidate cũ: 125 geometry match / 179 ID-only khác hình / 128 chưa khớp tự động. Không xóa/gộp các trường hợp chưa xác nhận.

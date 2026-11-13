@@ -72,7 +72,7 @@ function outdoorMap(scene,d){
    art=`<ellipse cx="${x+w/2}" cy="${y+h/2}" rx="${w/2}" ry="${h/2}" fill="#c9caa5" opacity=".45"/>`;
    art+=sceneryAsset('landscape.garden-bench',x+35,y+130,65,40,'o'+i+'bench-');
   }else{
-   const id=/tower|tháp/.test(semantic)?'architecture.owlery':/storage|shed|kho/.test(semantic)?'house.shed':/shop|tiệm/.test(semantic)?'architecture.shop':/inn|quán/.test(semantic)?'architecture.inn':i%2?'house.timber':'architecture.cottage';
+   const id=/tower|tháp/.test(semantic)?'architecture.owlery':/storage|shed|kho/.test(semantic)?'house.wood.barn':/shop|tiệm/.test(semantic)?'architecture.shop':/inn|quán/.test(semantic)?'architecture.inn':i%2?'house.wood.gable':'architecture.cottage';
    art=`<ellipse cx="${x+w/2}" cy="${y+h-8}" rx="${w*.48}" ry="18" fill="#8d9774" opacity=".16"/>`+`<g data-forbidden="building" data-occluder="building" data-depth="${y+h}">${sceneryAsset(id,x,y,w,h,'o'+i+'-')}</g>`;
    blockers.push({x:x+12,y:y+20,w:w-24,h:h-20});
   }
@@ -82,7 +82,7 @@ function outdoorMap(scene,d){
  for(let i=0;i<44;i++){
   const x=55+(i*239%990),y=65+(i*173%(height-130)),w=32+(i%4)*13,h=w*1.25;
   if(places.some(p=>{const[a,b,c,e]=p.bounds;return x+w>a-20&&x<a+c+20&&y+h>b-20&&y<b+e+35}))continue;
-  const id=i%6===0?'terrain.boulder':['architecture.tree','tree.pine','tree.umbrella','tree.bare','plant.bush'][i%5];
+  const id=i%6===0?'terrain.boulder':['architecture.tree','tree.pine','tree.spreading','tree.bare','plant.bush'][i%5];
   objects.push({depth:y+h,svg:sceneryAsset(id,x,y,w,h,'land'+i+'-')});
  }
  const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}"><defs>${[...sceneryDefs.values()].join('')}</defs><g data-layer="terrain">${terrain}</g><g data-layer="architecture">${objects.sort((a,b)=>a.depth-b.depth).map(o=>o.svg).join('')}</g></svg>`;

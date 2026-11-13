@@ -26,10 +26,11 @@ corridors=(r/'assets/source/corridors.js').read_text()
 corridors=corridors[:corridors.index('function Q(')]
 corridors=re.sub(r'try\{const t=JSON.parse\(e\("saved-state"\).textContent\);.*?\}catch\{\}', '', corridors)
 architecture='const CORRIDORS=(()=>{'+corridors+';return {build:V,draw:q,defaults:s,templates:t,decor:Z,decorate:A};})();\n'
-catalog=json.loads(gzip.decompress((r/'assets/source/catalog.json.gz').read_bytes()))['data']['assets']
-scenery={k:{'svg':v['svg'],'bounds':v['occupancy']} for k,v in catalog.items() if k.startswith(('house.','tree.','terrain.','plant.','landscape.'))}
-scenery.update(json.loads((r/'assets/outdoor-extra.json').read_text()))
-entry='const SCENERY='+json.dumps(scenery,ensure_ascii=False,separators=(',',':'))+';\n'+architecture+'const P4_ART='+(r/'assets/p4-art.json').read_text()+';\nconst VOCAB='+(r/'assets/vocabulary.json').read_text()+';\nconst RECIPES='+json.dumps(compact_recipes,ensure_ascii=False,separators=(',',':'))+';\nconst ATLAS='+json.dumps(atlas,ensure_ascii=False,separators=(',',':'))+';\n'+'\n'.join((r/'src'/name).read_text() for name in ['contract.js','props.js','resolver.js','draw.js','build.js','index.js'])
+catalog=json.loads((r/'assets/catalog.json').read_text())
+scenery={k:{'svg':v['svg'],'bounds':v.get('occupancy',{'x':0,'y':0,'width':256,'height':256})} for k,v in catalog.items() if k.startswith(('house.','tree.','terrain.','plant.','landscape.','architecture.','wm.tree-','wm.house-'))}
+# FINAL catalog owns scenery; previous H1 extract is retained as reference only.
+runtime_art={rid:{k:v for k,v in a.items() if k!='sceneSvg'} for rid,a in json.loads((r/'assets/p4-art.json').read_text()).items() if not rid.startswith('OUT_')}
+entry='const CATALOG='+json.dumps(catalog,ensure_ascii=False,separators=(',',':'))+';\n'+'const SCENERY=Object.fromEntries('+json.dumps(list(scenery))+'.map(id=>[id,{svg:CATALOG[id].svg,bounds:CATALOG[id].occupancy}]));\n'+architecture+'const P4_ART='+json.dumps(runtime_art,ensure_ascii=False,separators=(',',':'))+';\nconst VOCAB='+(r/'assets/vocabulary.json').read_text()+';\nconst RECIPES='+json.dumps(compact_recipes,ensure_ascii=False,separators=(',',':'))+';\nconst ATLAS='+json.dumps(atlas,ensure_ascii=False,separators=(',',':'))+';\n'+'\n'.join((r/'src'/name).read_text() for name in ['contract.js','props.js','resolver.js','draw.js','build.js','index.js'])
 bundle='(()=>{\nif(window.WZW_BOOT)return;\n'+"const root=document.getElementById('wzw-map');if(!root)throw Error('Missing wzw-map root');root.innerHTML="+json.dumps(body,ensure_ascii=False)+';\n'+code+'\n'+entry+'\n})();\n'
 for name,content in [('shell.css',css),('templates-pack.js',pack),('bundle.js',bundle)]: (r/'dist'/name).write_text(content)
 report={p.name:{'bytes':len(p.read_bytes()),'gzipBytes':len(gzip.compress(p.read_bytes(),mtime=0)),'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in [r/'examples/template-review.html',*sorted((r/'dist').glob('*'))]}
