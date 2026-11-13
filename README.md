@@ -1,3 +1,13 @@
+# Style V2 và gỡ motif nơ — chờ duyệt redesign
+
+Đã đọc plan V2 mới (người dùng cấp 2026-11-13): khung phòng 2.5D; nội thất SVG 2D phẳng, nhiều góc nhìn theo món; không ép isometric/45°/mặt hông hoặc khay oval. V2 thay các chỉ dẫn góc front bắt buộc trước đây.
+
+Xác nhận 32/432 design có 51 nơ lỗi (bao gồm path gộp nhiều nơ). Đã gỡ đúng subpath này ở candidate, catalog/interiors source và P4 definitions rồi build lại bundle/review. Fixed pack/CSS/Atlas không đổi. Không vẽ thêm SVG hoặc cài thư viện ở mốc lập plan.
+
+Bảng toàn bộ 432 design: docs/STYLE_AUDIT.csv. Danh sách 32 design đã sửa: docs/BOW_AFFECTED_DESIGNS.csv. Plan và phạm vi: docs/STYLE_REDESIGN_V2.md. Kiểm: python tests/bow-cleanup.py; node tests/style-audit.cjs. HTML đầy đủ đã gỡ nơ: examples/asset-review.html. Lịch tự động vẫn tắt. Chờ người dùng duyệt redesign/giao diện V2.
+
+---
+
 # Các cụm mới đã bị bác bỏ và xóa
 
 Catalog review hiện giữ 432 design nguồn, không có cụm mới hoặc demo đặt thử. Xem docs/CLUSTER_REDESIGN_PLAN.md: nghiên cứu mẫu, công cụ Figma đã kết nối và danh sách cụm cần vẽ. Chờ duyệt trước tạo SVG thay thế.

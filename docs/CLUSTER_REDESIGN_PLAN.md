@@ -1,3 +1,5 @@
+> Đã được thay bằng STYLE_REDESIGN_V2.md. Không áp quy tắc bắt buộc mọi cụm phải front hoặc khay ellipse trong bản cũ dưới đây.
+
 # Vẽ lại SVG cụm để bàn — chờ duyệt
 
 Đã xóa 6 cụm top và 2 cụm cây mới khỏi candidate, xóa preview đặt thử và generator bị bác bỏ. Catalog còn 432 design nguồn. Runtime chưa thay.
