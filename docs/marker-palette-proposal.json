@@ -1,5 +1,5 @@
 {
-  "status": "PENDING USER APPROVAL",
+  "status": "REJECTED / SUPERSEDED: one palette; binoculars/search icons",
   "target": "Generated only; Fixed and actor palettes unchanged",
   "seed": "canonical scope + canonical place ID; stable hash modulo 3; default index 0",
   "palettes": [

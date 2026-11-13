@@ -1,0 +1,499 @@
+id,name,status,shapes,fill_unspecified,explicit_black,fill_none,color_slots
+seat.dining,Ghế ăn,EXPLICIT_PAINT,3,0,0,0,2
+seat.stool,Ghế đẩu,EXPLICIT_PAINT,2,0,0,0,2
+seat.armchair,Ghế bành,EXPLICIT_PAINT,5,0,0,0,2
+seat.lounge,Ghế thư giãn,EXPLICIT_PAINT,6,0,0,1,0
+seat.bench,Ghế dài,EXPLICIT_PAINT,3,0,0,0,2
+seat.sofa,Sofa hai chỗ,EXPLICIT_PAINT,6,0,0,1,2
+seat.corner,Sofa góc,EXPLICIT_PAINT,4,0,0,2,0
+table.study,Bàn học,EXPLICIT_PAINT,3,0,0,2,1
+table.coffee,Bàn trà,EXPLICIT_PAINT,3,0,0,2,1
+table.bedside,Bàn đầu giường,EXPLICIT_PAINT,5,0,0,3,1
+table.prep,Bàn sơ chế,EXPLICIT_PAINT,5,0,0,3,1
+table.long,Bàn dài ghép đoạn,EXPLICIT_PAINT,3,0,0,2,1
+table.oval,Bàn oval,EXPLICIT_PAINT,2,0,0,1,1
+storage.bookcase,Kệ sách,EXPLICIT_PAINT,35,0,0,3,2
+storage.double,Kệ sách hai mặt,EXPLICIT_PAINT,50,0,0,4,0
+storage.drawers,Tủ ngăn kéo,EXPLICIT_PAINT,3,0,0,1,0
+storage.open,Kệ mở,EXPLICIT_PAINT,3,0,0,1,1
+storage.wall,Kệ treo tường,EXPLICIT_PAINT,14,0,0,1,0
+storage.wine,Giá chai,EXPLICIT_PAINT,14,0,0,3,0
+bed.single,Giường đơn,EXPLICIT_PAINT,5,0,0,1,2
+bed.double,Giường đôi,EXPLICIT_PAINT,6,0,0,1,0
+bed.canopy,Giường có màn,EXPLICIT_PAINT,12,0,0,1,2
+bed.bunk,Giường tầng · mặt bên,EXPLICIT_PAINT,7,0,0,1,0
+bed.screen,Bình phong,EXPLICIT_PAINT,6,0,0,3,0
+fixture.fireplace,Lò sưởi đá,EXPLICIT_PAINT,5,0,0,1,2
+fixture.stove,Bếp củi,EXPLICIT_PAINT,5,0,0,0,0
+fixture.sink,Chậu rửa,EXPLICIT_PAINT,4,0,0,1,1
+fixture.bathtub,Bồn tắm,EXPLICIT_PAINT,4,0,0,1,1
+fixture.toilet,Toilet,EXPLICIT_PAINT,4,0,0,0,1
+fixture.range,Bếp nấu,EXPLICIT_PAINT,9,0,0,0,2
+object.counter,Quầy bán hàng,EXPLICIT_PAINT,3,0,0,1,1
+object.counter-corner,Quầy góc,EXPLICIT_PAINT,2,0,0,0,0
+object.rug.base,Thảm chữ nhật,EXPLICIT_PAINT,3,0,0,1,0
+object.rug-round.base,Thảm tròn,EXPLICIT_PAINT,3,0,0,1,0
+object.mirror.base,Gương đứng,EXPLICIT_PAINT,3,0,0,1,0
+object.portrait.base,Khung tranh trống,EXPLICIT_PAINT,3,0,0,0,0
+object.clock.base,Đồng hồ,EXPLICIT_PAINT,3,0,0,1,0
+object.chest,Rương gỗ,EXPLICIT_PAINT,5,0,0,1,2
+object.crate,Thùng gỗ,EXPLICIT_PAINT,3,0,0,2,1
+object.barrel,Thùng tròn,EXPLICIT_PAINT,3,0,0,2,1
+object.cart,Xe đẩy hàng,EXPLICIT_PAINT,4,0,0,1,0
+object.sack,Bao tải,EXPLICIT_PAINT,2,0,0,1,0
+object.basket,Giỏ đan,EXPLICIT_PAINT,3,0,0,1,2
+accessory.book,Sách đóng,EXPLICIT_PAINT,3,0,0,1,1
+accessory.book-open,Sách mở,EXPLICIT_PAINT,2,0,0,1,1
+accessory.scroll,Cuộn giấy,EXPLICIT_PAINT,3,0,0,0,2
+accessory.ink,Lọ mực & bút,EXPLICIT_PAINT,4,0,0,1,2
+accessory.mug,Cốc,EXPLICIT_PAINT,3,0,0,1,1
+accessory.plate,Đĩa,EXPLICIT_PAINT,2,0,0,1,1
+accessory.teapot,Ấm trà,EXPLICIT_PAINT,4,0,0,1,1
+accessory.pot,Nồi,EXPLICIT_PAINT,4,0,0,0,2
+accessory.pan,Chảo,EXPLICIT_PAINT,3,0,0,0,0
+accessory.bottle,Chai thủy tinh,EXPLICIT_PAINT,3,0,0,0,1
+accessory.candle,Nến,EXPLICIT_PAINT,3,0,0,0,0
+accessory.lamp,Đèn bàn,EXPLICIT_PAINT,3,0,0,0,2
+accessory.chandelier,Đèn chùm,EXPLICIT_PAINT,14,0,0,7,2
+storage.bookcase-top,Kệ sách · mặt bằng,EXPLICIT_PAINT,15,0,0,0,2
+fixture.fireplace-top,Lò sưởi · mặt bằng,EXPLICIT_PAINT,4,0,0,1,2
+extra.curtain,Rèm cửa,EXPLICIT_PAINT,3,0,0,1,0
+extra.lamp-floor,Đèn đứng,EXPLICIT_PAINT,3,0,0,0,0
+extra.sconce,Đèn tường,EXPLICIT_PAINT,5,0,0,1,0
+extra.torch,Đuốc,EXPLICIT_PAINT,2,0,0,0,2
+extra.globe,Quả địa cầu,EXPLICIT_PAINT,5,0,0,3,0
+extra.books-stack,Chồng sách,EXPLICIT_PAINT,4,0,0,1,0
+extra.blackboard,Bảng đen dài · chuẩn,EXPLICIT_PAINT,15,0,0,7,2
+extra.towel,Giá khăn,EXPLICIT_PAINT,3,0,0,1,1
+extra.bucket,Xô nước,EXPLICIT_PAINT,3,0,0,1,2
+extra.shower,Vòi sen,EXPLICIT_PAINT,5,0,0,1,0
+extra.safe,Két sắt,EXPLICIT_PAINT,5,0,0,1,3
+wizard.fireplace-stone,Lò sưởi đá lớn,EXPLICIT_PAINT,9,0,0,4,0
+wizard.fireplace-carved,Lò sưởi gỗ chạm,EXPLICIT_PAINT,8,0,0,3,0
+wizard.fireplace-gothic,Lò sưởi Gothic,EXPLICIT_PAINT,12,0,0,3,0
+wizard.fireplace-floo,Lò Floo,EXPLICIT_PAINT,8,0,0,3,0
+wizard.fireguard,Chắn lò và giá củi,EXPLICIT_PAINT,3,0,0,1,0
+wizard.potions-cabinet,Tủ độc dược,EXPLICIT_PAINT,69,0,0,2,3
+wizard.library-ladder,Kệ sách cổ có thang,EXPLICIT_PAINT,92,0,0,43,0
+wizard.library-curved,Kệ sách cong theo tháp,EXPLICIT_PAINT,90,0,0,45,0
+wizard.display,Tủ kính chạm cổ,EXPLICIT_PAINT,10,0,0,3,4
+wizard.archive,Tủ hồ sơ cổ,EXPLICIT_PAINT,20,0,0,2,2
+wizard.broom-rack,Giá chổi bay đứng,EXPLICIT_PAINT,11,0,0,6,0
+wizard.broom-wall,Giá chổi bay treo,EXPLICIT_PAINT,8,0,0,4,0
+wizard.cauldron,Vạc học sinh,EXPLICIT_PAINT,7,0,0,2,1
+wizard.cauldron-large,Vạc lớn có bệ đun,EXPLICIT_PAINT,9,0,0,2,0
+wizard.potions-bench,Bàn thực hành có vạc,EXPLICIT_PAINT,13,0,0,2,0
+wizard.telescope,Kính thiên văn đồng,EXPLICIT_PAINT,6,0,0,2,0
+wizard.orrery,Mô hình thiên thể,EXPLICIT_PAINT,9,0,0,3,1
+wizard.lectern,Bục đọc và sách lớn,EXPLICIT_PAINT,5,0,0,1,2
+cluster.divination,Cụm Tiên tri,EXPLICIT_PAINT,7,0,0,1,0
+cluster.research,Cụm nghiên cứu phép,EXPLICIT_PAINT,11,0,0,3,0
+cluster.headmaster,Cụm bàn hiệu trưởng,EXPLICIT_PAINT,13,0,0,0,0
+cluster.astronomy,Cụm thiên văn,EXPLICIT_PAINT,8,0,0,3,0
+cluster.books,Cụm sách và giấy da,EXPLICIT_PAINT,9,0,0,0,0
+cluster.tea,Cụm trà phòng sinh hoạt,EXPLICIT_PAINT,12,0,0,1,0
+cluster.candelabrum,Cụm chân nến nhiều nhánh,EXPLICIT_PAINT,14,0,0,1,0
+decor.portrait,Chân dung phù thủy,EXPLICIT_PAINT,7,0,0,2,0
+decor.portrait-wall,Cụm tường chân dung,EXPLICIT_PAINT,21,0,0,6,0
+decor.landscape,Tranh lâu đài và hồ,EXPLICIT_PAINT,10,0,0,2,0
+decor.armour,Bộ giáp đứng,EXPLICIT_PAINT,8,0,0,2,2
+decor.bust,Tượng bán thân trên bệ,EXPLICIT_PAINT,5,0,0,0,2
+decor.statue,Tượng phù thủy toàn thân,EXPLICIT_PAINT,5,0,0,1,0
+decor.grandfather-clock,Đồng hồ đứng cổ,EXPLICIT_PAINT,8,0,0,2,0
+decor.mirror,Gương lớn chạm cổ,EXPLICIT_PAINT,4,0,0,2,2
+decor.noticeboard,Bảng thông báo lớn,EXPLICIT_PAINT,10,0,0,2,2
+decor.planter-floor,Chậu sàn lớn,EXPLICIT_PAINT,8,0,0,2,0
+decor.curtain-tall,Rèm cửa sổ cao,EXPLICIT_PAINT,4,0,0,2,2
+decor.curtain-partition,Rèm phân khu,EXPLICIT_PAINT,6,0,0,3,0
+decor.curtain-bed,Rèm giường,EXPLICIT_PAINT,5,0,0,2,0
+unique.pensieve,Pensieve,EXPLICIT_PAINT,6,0,0,1,3
+unique.memory-cabinet,Tủ ký ức,EXPLICIT_PAINT,131,0,0,2,0
+unique.sorting-hat,Sorting Hat trên đôn,EXPLICIT_PAINT,6,0,0,1,1
+unique.goblet-fire,Goblet of Fire,EXPLICIT_PAINT,6,0,0,1,0
+unique.triwizard-cup,Triwizard Cup,EXPLICIT_PAINT,7,0,0,1,0
+unique.weasley-clock,Đồng hồ gia đình Weasley,EXPLICIT_PAINT,17,0,0,1,0
+unique.vanishing-cabinet,Tủ Biến mất,EXPLICIT_PAINT,8,0,0,2,3
+wizard.astronomy-cabinet,Tủ dụng cụ thiên văn,EXPLICIT_PAINT,15,0,0,4,3
+wizard.storage-top,Tủ cổ · mặt bằng,EXPLICIT_PAINT,5,0,0,1,3
+wizard.display-top,Tủ kính · mặt bằng,EXPLICIT_PAINT,4,0,0,1,3
+decor.rug-runner,Thảm dài cổ,EXPLICIT_PAINT,4,0,0,2,0
+decor.chandelier,Đèn chùm nến lớn,EXPLICIT_PAINT,14,0,0,2,0
+crest.gryffindor.base,Huy hiệu Gryffindor,REVIEW_INHERITANCE,11,1,0,3,0
+crest.ravenclaw.base,Huy hiệu Ravenclaw,REVIEW_INHERITANCE,11,1,0,3,0
+crest.hufflepuff.base,Huy hiệu Hufflepuff,REVIEW_INHERITANCE,11,1,0,3,0
+crest.slytherin.base,Huy hiệu Slytherin,REVIEW_INHERITANCE,11,1,0,3,0
+crest.beauxbatons.base,Huy hiệu Beauxbatons,REVIEW_INHERITANCE,19,1,0,6,0
+crest.durmstrang.base,Huy hiệu Durmstrang,REVIEW_INHERITANCE,28,1,0,5,0
+banner.vertical,Cờ treo dọc,EXPLICIT_PAINT,2,0,0,0,0
+banner.forked,Cờ đuôi chẻ,EXPLICIT_PAINT,2,0,0,0,0
+banner.pole,Cờ trên cán,EXPLICIT_PAINT,3,0,0,0,0
+banner.plaque,Tấm huy hiệu treo tường,EXPLICIT_PAINT,4,0,0,2,0
+banner.tapestry,Thảm treo mang huy hiệu,EXPLICIT_PAINT,5,0,0,3,0
+flag.gryffindor.base,Cờ thêu Gryffindor,REVIEW_INHERITANCE,53,1,0,40,0
+flag.ravenclaw.base,Cờ thêu Ravenclaw,REVIEW_INHERITANCE,53,1,0,40,0
+flag.hufflepuff.base,Cờ thêu Hufflepuff,REVIEW_INHERITANCE,53,1,0,40,0
+flag.slytherin.base,Cờ thêu Slytherin,REVIEW_INHERITANCE,53,1,0,40,0
+flag.beauxbatons.base,Cờ thêu Beauxbatons,REVIEW_INHERITANCE,61,1,0,43,0
+flag.durmstrang.base,Cờ thêu Durmstrang,REVIEW_INHERITANCE,70,1,0,42,0
+object.rug.detail,Thảm chữ nhật,EXPLICIT_PAINT,3,0,0,1,0
+object.rug-round.detail,Thảm tròn,EXPLICIT_PAINT,3,0,0,1,0
+object.mirror.detail,Gương đứng,EXPLICIT_PAINT,3,0,0,1,0
+object.portrait.detail,Khung tranh trống,EXPLICIT_PAINT,3,0,0,0,0
+object.clock.detail,Đồng hồ,EXPLICIT_PAINT,3,0,0,1,0
+object.chest.detail,Rương gỗ,EXPLICIT_PAINT,5,0,0,1,0
+wizard.fireguard.detail,Chắn lò và giá củi,EXPLICIT_PAINT,3,0,0,1,0
+wizard.potions-cabinet.detail,Tủ độc dược,EXPLICIT_PAINT,69,0,0,2,0
+wizard.library-ladder.detail,Kệ sách cổ có thang,EXPLICIT_PAINT,92,0,0,43,0
+wizard.display.detail,Tủ kính chạm cổ,EXPLICIT_PAINT,10,0,0,3,0
+wizard.archive.detail,Tủ hồ sơ cổ,EXPLICIT_PAINT,20,0,0,2,0
+decor.portrait.detail,Chân dung phù thủy,EXPLICIT_PAINT,7,0,0,2,0
+unique.pensieve.detail,Pensieve,EXPLICIT_PAINT,6,0,0,1,0
+unique.memory-cabinet.detail,Tủ ký ức,EXPLICIT_PAINT,131,0,0,2,0
+unique.vanishing-cabinet.detail,Tủ Biến mất,EXPLICIT_PAINT,8,0,0,2,0
+wizard.astronomy-cabinet.detail,Tủ dụng cụ thiên văn,EXPLICIT_PAINT,15,0,0,4,0
+architecture.owl-tower,Kiến trúc · Tháp cú,EXPLICIT_PAINT,39,0,0,25,0
+architecture.boathouse,Kiến trúc · Nhà thuyền,EXPLICIT_PAINT,29,0,0,9,0
+map.h1.flying-lawn,h1.flying-lawn,REVIEW_INHERITANCE,17,3,0,7,0
+architecture.greenhouses,Kiến trúc · Nhà kính,EXPLICIT_PAINT,66,0,0,6,0
+map.r2-pitch,r2-pitch,EXPLICIT_PAINT,151,0,0,117,0
+map.r2-dock,r2-dock,EXPLICIT_PAINT,61,0,0,52,0
+architecture.castle,Kiến trúc · Lâu đài,EXPLICIT_PAINT,604,0,0,508,0
+map.r2-lake,r2-lake,EXPLICIT_PAINT,49,0,0,42,0
+tree.ancient,Cây · Cổ thụ đặc biệt,EXPLICIT_PAINT,134,0,0,92,0
+map.hogwarts-wooden-bridge,hogwarts-wooden-bridge,EXPLICIT_PAINT,376,0,0,315,0
+tree.willow,Cây · Liễu Roi đặc biệt,EXPLICIT_PAINT,1322,0,0,310,0
+house.wood.gable,Nhà gỗ · Mái dốc,REVIEW_INHERITANCE,127,1,0,105,0
+house.wood.hip,Nhà gỗ · Mái chóp,REVIEW_INHERITANCE,124,1,0,102,0
+house.wood.wide,Nhà gỗ · Khối rộng,REVIEW_INHERITANCE,140,1,0,118,0
+house.wood.barn,Nhà gỗ · Mái gãy / nhà kho,REVIEW_INHERITANCE,179,1,0,157,0
+house.wood.l,Nhà gỗ · Khối chữ L,REVIEW_INHERITANCE,192,2,0,159,0
+house.wood.double,Nhà gỗ · Hai đầu hồi,REVIEW_INHERITANCE,159,1,0,137,0
+house.brick.low,Nhà tường · Một tầng mái lệch,REVIEW_INHERITANCE,206,1,0,192,0
+house.brick.tall,Nhà tường · Nhà phố cao,REVIEW_INHERITANCE,240,1,0,220,0
+house.brick.wide,Nhà tường · Khối rộng,REVIEW_INHERITANCE,283,1,0,263,0
+house.brick.mansard,Nhà tường · Mái mansard,REVIEW_INHERITANCE,321,1,0,295,0
+house.brick.l,Nhà tường · Khối chữ L,REVIEW_INHERITANCE,352,2,0,323,0
+house.brick.arcade,Nhà tường · Dãy vòm,REVIEW_INHERITANCE,230,1,0,218,0
+tree.oak,Cây · Tán sồi nhiều nhánh,EXPLICIT_PAINT,7,0,0,0,0
+tree.beech,Cây · Tán bầu dục cao,EXPLICIT_PAINT,5,0,0,1,0
+tree.birch,Cây · Bạch dương ba thân,EXPLICIT_PAINT,26,0,0,18,0
+tree.pine,Cây · Thông tán dù,EXPLICIT_PAINT,7,0,0,1,0
+tree.spruce,Cây · Lá kim hình tháp,EXPLICIT_PAINT,9,0,0,0,0
+tree.alder,Cây · Nhiều thân tán thấp,EXPLICIT_PAINT,7,0,0,3,0
+tree.rowan,Cây · Tán chùm quả,EXPLICIT_PAINT,20,0,0,1,0
+tree.spreading,Cây · Nghiêng theo gió,EXPLICIT_PAINT,6,0,0,1,0
+tree.slender,Cây · Tán cột hẹp,EXPLICIT_PAINT,4,0,0,0,0
+tree.weeping,Cây · Tán rủ,EXPLICIT_PAINT,16,0,0,13,0
+tree.bare,Cây · Cành trụi,EXPLICIT_PAINT,3,0,0,2,0
+tree.fruit,Cây · Cây ăn quả thấp,EXPLICIT_PAINT,9,0,0,0,0
+object.rug,Thảm chữ nhật,EXPLICIT_PAINT,3,0,0,1,0
+object.rug-round,Thảm tròn,EXPLICIT_PAINT,3,0,0,1,0
+object.mirror,Gương đứng,EXPLICIT_PAINT,3,0,0,1,0
+object.portrait,Khung tranh trống,EXPLICIT_PAINT,3,0,0,0,0
+object.clock,Đồng hồ,EXPLICIT_PAINT,3,0,0,1,0
+object.chest.runtime,Rương gỗ,EXPLICIT_PAINT,5,0,0,1,0
+extra.blackboard.library,Bảng đen dài · chuẩn,EXPLICIT_PAINT,8,0,0,3,0
+crest.gryffindor,Huy hiệu Gryffindor,REVIEW_INHERITANCE,8,1,0,2,0
+crest.ravenclaw,Huy hiệu Ravenclaw,REVIEW_INHERITANCE,8,1,0,2,0
+crest.hufflepuff,Huy hiệu Hufflepuff,REVIEW_INHERITANCE,8,1,0,2,0
+crest.slytherin,Huy hiệu Slytherin,REVIEW_INHERITANCE,8,1,0,2,0
+crest.beauxbatons,Huy hiệu Beauxbatons,REVIEW_INHERITANCE,11,1,0,5,0
+crest.durmstrang,Huy hiệu Durmstrang,REVIEW_INHERITANCE,24,1,0,4,0
+flag.gryffindor,Cờ thêu Gryffindor,REVIEW_INHERITANCE,19,1,0,8,0
+flag.ravenclaw,Cờ thêu Ravenclaw,REVIEW_INHERITANCE,19,1,0,8,0
+flag.hufflepuff,Cờ thêu Hufflepuff,REVIEW_INHERITANCE,19,1,0,8,0
+flag.slytherin,Cờ thêu Slytherin,REVIEW_INHERITANCE,19,1,0,8,0
+flag.beauxbatons,Cờ thêu Beauxbatons,REVIEW_INHERITANCE,22,1,0,11,0
+flag.durmstrang,Cờ thêu Durmstrang,REVIEW_INHERITANCE,35,1,0,10,0
+atelier.decor.portrait,Tranh chân dung,EXPLICIT_PAINT,5,0,0,0,0
+atelier.decor.gallery,Cụm ba tranh,EXPLICIT_PAINT,7,0,0,0,0
+atelier.decor.candle,Nến / đèn tường,REVIEW_INHERITANCE,5,1,0,1,0
+atelier.decor.armor,Bộ giáp,REVIEW_INHERITANCE,9,6,0,0,0
+atelier.decor.curtain,Màn nhung,REVIEW_INHERITANCE,4,3,0,0,0
+atelier.decor.banner,Cờ treo,REVIEW_INHERITANCE,4,1,0,1,0
+atelier.decor.crest,Khiên huy hiệu,REVIEW_INHERITANCE,3,1,0,0,0
+atelier.decor.bench,Ghế băng hẹp,REVIEW_INHERITANCE,4,2,0,0,0
+atelier.decor.console,Bàn console,REVIEW_INHERITANCE,5,1,0,0,0
+atelier.decor.vase,Bình cổ,REVIEW_INHERITANCE,4,2,0,0,0
+atelier.decor.niche,Hốc trưng bày,EXPLICIT_PAINT,5,0,0,0,0
+new.cup-0.library,Cúp cổ · kiểu 1,EXPLICIT_PAINT,6,0,0,3,0
+new.cup-1,Cúp cổ · kiểu 2,EXPLICIT_PAINT,5,0,0,1,2
+new.cup-2,Cúp cổ · kiểu 3,EXPLICIT_PAINT,4,0,0,0,2
+new.cup-3.library,Cúp cổ · kiểu 4,EXPLICIT_PAINT,5,0,0,1,0
+new.portrait-0.library,Chân dung cổ · khung 1,EXPLICIT_PAINT,8,0,0,1,0
+architecture.owlery,architecture.owlery,EXPLICIT_PAINT,47,0,0,26,0
+architecture.cottage,architecture.cottage,REVIEW_INHERITANCE,44,20,0,5,0
+architecture.shop,architecture.shop,REVIEW_INHERITANCE,322,226,0,47,0
+architecture.inn,architecture.inn,REVIEW_INHERITANCE,524,414,0,63,0
+architecture.tree,architecture.tree,EXPLICIT_PAINT,1260,0,0,93,0
+extra.blackboard.runtime,Bảng đen dài · chuẩn,EXPLICIT_PAINT,15,0,0,7,0
+new.cup-0,Cúp cổ · kiểu 1,EXPLICIT_PAINT,6,0,0,3,2
+new.cup-3,Cúp cổ · kiểu 4,EXPLICIT_PAINT,5,0,0,1,2
+new.portrait-0,Chân dung cổ · khung 1,EXPLICIT_PAINT,11,0,0,1,2
+new.desk-carved,Bàn Hiệu trưởng · gỗ chạm,EXPLICIT_PAINT,8,0,0,1,2
+new.headmaster-chair,Ghế Hiệu trưởng · lưng chạm,EXPLICIT_PAINT,14,0,0,0,2
+new.bookcase,Kệ sách ba tầng · nhiều màu bìa,EXPLICIT_PAINT,71,0,0,31,2
+new.bookcase-glass,Kệ sách kính chạm cổ,EXPLICIT_PAINT,73,0,0,32,2
+new.display-gothic,Tủ kính Gothic · cúp cổ,EXPLICIT_PAINT,47,0,0,9,2
+new.display-island,Tủ kính trưng bày thấp,EXPLICIT_PAINT,18,0,0,3,2
+new.memory-vials,Tủ ký ức · lọ và nhãn riêng,EXPLICIT_PAINT,184,0,0,10,2
+new.silver-device,Thiết bị bạc · vòng xoay / kính,EXPLICIT_PAINT,6,0,0,4,2
+new.medals,Tủ huy chương · ba dải vải,EXPLICIT_PAINT,15,0,0,1,2
+new.award-shield,Khiên thành tích,EXPLICIT_PAINT,3,0,0,0,2
+new.planter,Chậu cây lá sage,EXPLICIT_PAINT,8,0,0,0,0
+new.cushion,Đệm nhung · hoa văn cổ,EXPLICIT_PAINT,24,0,0,2,1
+new.crystal-ball,Quả cầu pha lê · đế đồng,EXPLICIT_PAINT,5,0,0,1,1
+new.harp,Đàn harp · gỗ chạm / dây đồng,EXPLICIT_PAINT,12,0,0,9,1
+new.grand-piano,Đại dương cầm · phím ngà,EXPLICIT_PAINT,31,0,0,17,1
+new.music-stand,Giá nhạc · bản nhạc,EXPLICIT_PAINT,14,0,0,8,2
+new.cello,Đàn cello cổ,EXPLICIT_PAINT,4,0,0,1,2
+new.telescope,Kính thiên văn đồng · khớp chỉnh,EXPLICIT_PAINT,9,0,0,4,1
+new.star-chart,Bản đồ sao · vòng chia độ,EXPLICIT_PAINT,27,0,0,14,0
+new.prefects-pool,Bể tắm xây · bậc đá / nước,EXPLICIT_PAINT,14,0,0,7,1
+new.brass-tap,Vòi bồn tắm · brass,EXPLICIT_PAINT,4,0,0,0,2
+new.mermaid-window,Tranh kính nàng tiên cá,EXPLICIT_PAINT,9,0,0,5,1
+new.changing-screen,Vách thay đồ · ba cánh,EXPLICIT_PAINT,21,0,0,3,2
+new.clock-gear,Bánh răng đồng · sáu nan,EXPLICIT_PAINT,10,0,0,6,2
+new.tower-bell,Chuông đồng · gông gỗ,EXPLICIT_PAINT,5,0,0,1,2
+new.pendulum,Quả lắc đồng,EXPLICIT_PAINT,4,0,0,0,2
+new.serpent-column,Cột rắn chạm đá,EXPLICIT_PAINT,6,0,0,1,1
+new.slytherin-statue,Tượng Slytherin · mặt đá / râu chạm,EXPLICIT_PAINT,6,0,0,3,0
+new.serpent-gate,Cửa rắn · bảy đường chạm,EXPLICIT_PAINT,9,0,0,7,0
+new.ice-centrepiece,Tượng băng trang trí Yule Ball,EXPLICIT_PAINT,3,0,0,1,0
+new.practice-dummy,Hình nộm tập phép,EXPLICIT_PAINT,8,0,0,4,2
+new.wand-rack,Giá đũa phép · năm ngăn,EXPLICIT_PAINT,16,0,0,6,2
+new.tool-board,Bảng dụng cụ · gỗ / kim loại,EXPLICIT_PAINT,16,0,0,6,2
+new.pipe-valve,Cụm ống đồng và van,EXPLICIT_PAINT,5,0,0,4,0
+new.boiler,Lò kỹ thuật · kim loại,EXPLICIT_PAINT,7,0,0,0,2
+decor.lamp-green,Đèn đọc chụp xanh,REVIEW_INHERITANCE,3,1,0,0,0
+decor.candle-pair,Chân nến đôi,REVIEW_INHERITANCE,3,1,0,1,0
+decor.files,Hộp hồ sơ và giấy cuộn,REVIEW_INHERITANCE,3,2,0,0,0
+decor.ladder,Thang kệ sách,EXPLICIT_PAINT,1,0,0,1,0
+decor.chess,Bàn cờ phù thủy,REVIEW_INHERITANCE,34,1,0,0,0
+decor.curtain,Rèm riêng tư,REVIEW_INHERITANCE,3,1,0,1,0
+decor.food,"Bánh mì, rau và nguyên liệu",REVIEW_INHERITANCE,4,1,0,0,0
+decor.basket-linen,Sọt vải và khăn,REVIEW_INHERITANCE,3,1,0,0,0
+decor.herbs,Thảo mộc treo,REVIEW_INHERITANCE,4,1,0,0,0
+decor.oven,Lò gạch cổ,REVIEW_INHERITANCE,4,1,0,0,0
+decor.perch,Giá đậu chim,REVIEW_INHERITANCE,2,2,0,0,0
+decor.pensieve,Chậu Tưởng Ký · bệ đá,EXPLICIT_PAINT,4,0,0,1,0
+decor.vault-door,Cửa hầm khóa cơ khí,REVIEW_INHERITANCE,4,1,0,0,0
+decor.worktools,Dụng cụ chế tác,REVIEW_INHERITANCE,2,1,0,0,0
+decor.flower,Bình hoa nhỏ,REVIEW_INHERITANCE,8,1,0,0,0
+detail.coat-stand,Giá áo và mũ,EXPLICIT_PAINT,3,0,0,1,0
+detail.locker,Tủ áo có chân,REVIEW_INHERITANCE,3,1,0,0,0
+detail.boots,Giá giày,EXPLICIT_PAINT,2,0,0,0,0
+detail.drafting,Bàn vẽ bản đồ,REVIEW_INHERITANCE,5,2,0,1,0
+detail.easel,Giá vẽ và tranh,REVIEW_INHERITANCE,4,1,0,0,0
+detail.scroll-rack,Giá cuộn bản đồ,REVIEW_INHERITANCE,17,8,0,0,0
+detail.games-table,Bàn chơi cờ có ngăn quân,REVIEW_INHERITANCE,35,1,0,0,0
+detail.gobstones,Sân Gobstones thu nhỏ,EXPLICIT_PAINT,9,0,0,1,0
+detail.directory,Bảng chỉ dẫn sảnh,REVIEW_INHERITANCE,3,2,0,0,0
+detail.medicine-cart,Xe thuốc và chai lọ,EXPLICIT_PAINT,10,0,0,1,0
+detail.specimen,Khay mẫu khoáng vật,REVIEW_INHERITANCE,8,1,0,0,0
+detail.violin-case,Violon trong hộp,REVIEW_INHERITANCE,3,1,0,0,0
+tabletop.classroom,Cụm để bàn · Lớp học thường,REVIEW_INHERITANCE,95,70,0,3,0
+tabletop.magic_practice,Cụm để bàn · Luyện phép,REVIEW_INHERITANCE,45,15,0,9,0
+tabletop.potions_lab,Cụm để bàn · Độc dược,REVIEW_INHERITANCE,56,20,0,2,0
+tabletop.research_lab,Cụm để bàn · Nghiên cứu phép,REVIEW_INHERITANCE,37,19,0,3,0
+tabletop.office,Cụm để bàn · Phòng làm việc,REVIEW_INHERITANCE,34,15,0,4,0
+tabletop.study_room,Cụm để bàn · Phòng tự học,REVIEW_INHERITANCE,71,52,0,2,0
+tabletop.meeting_club,Cụm để bàn · Họp / câu lạc bộ,REVIEW_INHERITANCE,55,29,0,6,0
+tabletop.library,Cụm để bàn · Thư viện,REVIEW_INHERITANCE,70,47,0,3,0
+tabletop.archive,Cụm để bàn · Kho hồ sơ,REVIEW_INHERITANCE,49,27,0,5,0
+tabletop.storage,Cụm để bàn · Kho đồ,REVIEW_INHERITANCE,49,27,0,5,0
+tabletop.workshop,Cụm để bàn · Xưởng chế tác,REVIEW_INHERITANCE,57,14,0,1,0
+tabletop.gallery,Cụm để bàn · Trưng bày,REVIEW_INHERITANCE,29,17,0,2,0
+tabletop.music_room,Cụm để bàn · Âm nhạc,REVIEW_INHERITANCE,71,42,0,2,0
+tabletop.lounge,Cụm để bàn · Phòng sinh hoạt,REVIEW_INHERITANCE,41,18,0,5,0
+tabletop.bedroom,Cụm để bàn · Phòng ngủ,REVIEW_INHERITANCE,44,24,0,2,0
+tabletop.kitchen,Cụm để bàn · Phòng bếp,REVIEW_INHERITANCE,32,11,0,2,0
+tabletop.dining_room,Cụm để bàn · Phòng ăn,REVIEW_INHERITANCE,31,9,0,6,0
+tabletop.bathroom,Cụm để bàn · Phòng tắm,REVIEW_INHERITANCE,30,17,0,2,0
+tabletop.laundry,Cụm để bàn · Phòng giặt,REVIEW_INHERITANCE,44,29,0,3,0
+tabletop.hospital_ward,Cụm để bàn · Bệnh xá,REVIEW_INHERITANCE,34,19,0,1,0
+tabletop.reception,Cụm để bàn · Tiếp tân,REVIEW_INHERITANCE,53,17,0,3,0
+tabletop.guardroom,Cụm để bàn · Phòng trực gác,REVIEW_INHERITANCE,57,39,0,2,0
+tabletop.passage_props,Cụm để bàn · Bàn hành lang,REVIEW_INHERITANCE,50,17,0,5,0
+tabletop.utility_room,Cụm để bàn · Phòng kỹ thuật,REVIEW_INHERITANCE,43,17,0,3,0
+tabletop.secure_vault,Cụm để bàn · Kho bảo mật,REVIEW_INHERITANCE,41,15,0,1,0
+tabletop.detention_cell,Cụm để bàn · Buồng giam,REVIEW_INHERITANCE,16,1,0,5,0
+tabletop.public_counter,Cụm để bàn · Quầy dịch vụ,REVIEW_INHERITANCE,52,22,0,3,0
+tabletop.ceremony_hall,Cụm để bàn · Nghi lễ,REVIEW_INHERITANCE,28,8,0,1,0
+tabletop.entrance_vestibule,Cụm để bàn · Tiền sảnh,REVIEW_INHERITANCE,56,30,0,6,0
+tabletop.cloakroom_lockers,Cụm để bàn · Tủ áo / gửi đồ,REVIEW_INHERITANCE,45,33,0,4,0
+tabletop.art_cartography,Cụm để bàn · Xưởng bản đồ,REVIEW_INHERITANCE,58,38,0,2,0
+tabletop.art_painting,Cụm để bàn · Xưởng mỹ thuật,REVIEW_INHERITANCE,41,18,0,2,0
+tabletop.games_chess,Cụm để bàn · Phòng cờ,REVIEW_INHERITANCE,71,13,0,2,0
+tabletop.games_gobstones,Cụm để bàn · Phòng Gobstones,REVIEW_INHERITANCE,41,22,0,4,0
+tabletop.divination_classroom,Cụm để bàn · Tiên tri,REVIEW_INHERITANCE,35,9,0,9,0
+tabletop.astronomy_observatory,Cụm để bàn · Thiên văn,REVIEW_INHERITANCE,59,31,0,4,0
+tabletop.prefects_bathroom,Cụm để bàn · Tắm Huynh trưởng,REVIEW_INHERITANCE,51,18,0,2,0
+tabletop.requirement_practice,Cụm để bàn · Yêu cầu · luyện tập,REVIEW_INHERITANCE,34,7,0,8,0
+tabletop.requirement_meeting,Cụm để bàn · Yêu cầu · họp,REVIEW_INHERITANCE,54,29,0,4,0
+tabletop.requirement_refuge,Cụm để bàn · Yêu cầu · trú ẩn,REVIEW_INHERITANCE,31,11,0,5,0
+tabletop.requirement_storage,Cụm để bàn · Yêu cầu · kho đồ,REVIEW_INHERITANCE,48,25,0,5,0
+tabletop.chamber_of_secrets,Cụm để bàn · Phòng chứa Bí mật,REVIEW_INHERITANCE,27,9,0,4,0
+tabletop.tower_clockwork,Cụm để bàn · Tháp đồng hồ,REVIEW_INHERITANCE,70,24,0,1,0
+tabletop.tower_bells,Cụm để bàn · Tháp chuông,REVIEW_INHERITANCE,89,38,0,0,0
+tabletop.ballroom,Cụm để bàn · Phòng khiêu vũ,REVIEW_INHERITANCE,49,9,0,4,0
+tabletop.trophy_room,Cụm để bàn · Phòng chiến tích,REVIEW_INHERITANCE,36,18,0,2,0
+tabletop.headmaster_office,Cụm để bàn · Bàn Hiệu trưởng,REVIEW_INHERITANCE,44,21,0,4,0
+tabletop.out_courtyard,Cụm để bàn · Sân vườn,REVIEW_INHERITANCE,24,4,0,1,0
+tabletop.out_lawn,Cụm để bàn · Sân cỏ / picnic,REVIEW_INHERITANCE,39,16,0,8,0
+tabletop.out_building_yard,Cụm để bàn · Sân công trình,REVIEW_INHERITANCE,29,14,0,5,0
+tabletop.out_waterside,Cụm để bàn · Ven nước,REVIEW_INHERITANCE,44,23,0,6,0
+tabletop.out_woodland,Cụm để bàn · Rừng / khảo sát,REVIEW_INHERITANCE,46,27,0,3,0
+tabletop.out_camp,Cụm để bàn · Khu cắm trại,REVIEW_INHERITANCE,28,3,0,8,0
+tabletop.out_garden,Cụm để bàn · Sân nhà / thu hoạch,REVIEW_INHERITANCE,38,21,0,1,0
+tabletop.out_service_garden,Cụm để bàn · Vườn sản xuất,REVIEW_INHERITANCE,38,16,0,4,0
+table.dining,Bàn ăn,EXPLICIT_PAINT,3,0,0,2,1
+table.round,Bàn tròn,EXPLICIT_PAINT,3,0,0,2,1
+storage.cabinet,Tủ hai cánh,EXPLICIT_PAINT,5,0,0,1,1
+architecture.stairs,Cầu thang thẳng,EXPLICIT_PAINT,2,0,0,1,4
+architecture.stairs-spiral,Cầu thang xoắn,EXPLICIT_PAINT,3,0,0,1,4
+plant.pot-top,Chậu cây · mặt bằng,EXPLICIT_PAINT,9,0,0,0,7
+new.portrait-1,Chân dung cổ · khung 2,EXPLICIT_PAINT,11,0,0,1,1
+new.blackboard-long,Bảng đen dài 5:1 · phấn ngà,EXPLICIT_PAINT,15,0,0,7,2
+new.portrait-2,Chân dung cổ · khung 3,EXPLICIT_PAINT,11,0,0,1,2
+new.portrait-3,Chân dung cổ · khung 4,EXPLICIT_PAINT,11,0,0,1,1
+layout.privacy-screen,Rèm bệnh xá · nhìn mặt bằng,EXPLICIT_PAINT,4,0,0,1,0
+layout.clock-machine,"Bộ truyền đồng hồ · khung, trục và quả lắc",EXPLICIT_PAINT,46,0,0,25,0
+layout.bell-frame,Tháp chuông · dầm gông và dây kéo,EXPLICIT_PAINT,17,0,0,5,0
+cluster.layout-classroom,Lớp học thường · chọn lọc,REVIEW_INHERITANCE,20,10,0,0,0
+cluster.layout-classroom_teacher,Lớp học thường · chọn lọc,REVIEW_INHERITANCE,35,26,0,2,0
+cluster.layout-magic_practice,Luyện phép · chọn lọc,REVIEW_INHERITANCE,18,1,0,7,0
+cluster.layout-potions_lab,Độc dược · chọn lọc,EXPLICIT_PAINT,21,0,0,1,0
+cluster.layout-potions_notes,Độc dược · chọn lọc,REVIEW_INHERITANCE,25,15,0,1,0
+cluster.layout-research_lab,Nghiên cứu phép · chọn lọc,REVIEW_INHERITANCE,25,14,0,2,0
+cluster.layout-research_notes,Nghiên cứu phép · chọn lọc,REVIEW_INHERITANCE,12,10,0,0,0
+cluster.layout-office,Phòng làm việc · chọn lọc,REVIEW_INHERITANCE,30,15,0,4,0
+cluster.layout-study_room,Phòng tự học · chọn lọc,REVIEW_INHERITANCE,33,24,0,0,0
+cluster.layout-study_writing,Phòng tự học · chọn lọc,REVIEW_INHERITANCE,13,5,0,2,0
+cluster.layout-meeting_club,Họp / câu lạc bộ · chọn lọc,REVIEW_INHERITANCE,32,17,0,1,0
+cluster.layout-library,Thư viện · chọn lọc,REVIEW_INHERITANCE,38,27,0,3,0
+cluster.layout-library_stack,Thư viện · chọn lọc,REVIEW_INHERITANCE,31,21,0,3,0
+cluster.layout-archive,Kho hồ sơ · chọn lọc,REVIEW_INHERITANCE,40,27,0,3,0
+cluster.layout-workshop,Xưởng chế tác · chọn lọc,REVIEW_INHERITANCE,46,10,0,0,0
+cluster.layout-lounge,Phòng sinh hoạt · chọn lọc,REVIEW_INHERITANCE,21,3,0,5,0
+cluster.layout-bedroom,Phòng ngủ · chọn lọc,REVIEW_INHERITANCE,32,23,0,0,0
+cluster.layout-kitchen,Phòng bếp · chọn lọc,REVIEW_INHERITANCE,22,11,0,1,0
+cluster.layout-dining_room,Phòng ăn · chọn lọc,REVIEW_INHERITANCE,10,1,0,5,0
+cluster.layout-bathroom,Phòng tắm · chọn lọc,EXPLICIT_PAINT,4,0,0,1,0
+cluster.layout-laundry,Phòng giặt · chọn lọc,REVIEW_INHERITANCE,26,17,0,1,0
+cluster.layout-hospital_ward,Bệnh xá · chọn lọc,REVIEW_INHERITANCE,18,9,0,1,0
+cluster.layout-reception,Tiếp tân · chọn lọc,REVIEW_INHERITANCE,17,9,0,0,0
+cluster.layout-guardroom,Phòng trực gác · chọn lọc,REVIEW_INHERITANCE,26,15,0,2,0
+cluster.layout-utility_room,Phòng kỹ thuật · chọn lọc,REVIEW_INHERITANCE,18,10,0,0,0
+cluster.layout-detention_cell,Buồng giam · chọn lọc,EXPLICIT_PAINT,11,0,0,2,0
+cluster.layout-public_counter,Quầy dịch vụ · chọn lọc,REVIEW_INHERITANCE,30,10,0,0,0
+cluster.layout-ceremony_hall,Nghi lễ · chọn lọc,REVIEW_INHERITANCE,9,6,0,0,0
+cluster.layout-art_cartography,Xưởng bản đồ · chọn lọc,REVIEW_INHERITANCE,32,28,0,0,0
+cluster.layout-art_scroll,Xưởng bản đồ · chọn lọc,REVIEW_INHERITANCE,9,6,0,0,0
+cluster.layout-art_painting,Xưởng mỹ thuật · chọn lọc,REVIEW_INHERITANCE,24,8,0,1,0
+cluster.layout-divination_classroom,Tiên tri · chọn lọc,EXPLICIT_PAINT,5,0,0,1,0
+cluster.layout-divination_cards,Tiên tri · chọn lọc,EXPLICIT_PAINT,17,0,0,8,0
+cluster.layout-divination_notes,Tiên tri · chọn lọc,REVIEW_INHERITANCE,18,9,0,2,0
+cluster.layout-astronomy_observatory,Thiên văn · chọn lọc,REVIEW_INHERITANCE,45,26,0,1,0
+cluster.layout-prefects_bathroom,Tắm Huynh trưởng · chọn lọc,EXPLICIT_PAINT,9,0,0,2,0
+cluster.layout-requirement_practice,Yêu cầu · luyện tập · chọn lọc,REVIEW_INHERITANCE,14,4,0,2,0
+cluster.layout-requirement_meeting,Yêu cầu · họp · chọn lọc,REVIEW_INHERITANCE,38,19,0,4,0
+cluster.layout-requirement_refuge,Yêu cầu · trú ẩn · chọn lọc,REVIEW_INHERITANCE,19,8,0,4,0
+cluster.layout-tower_clockwork,Tháp đồng hồ · chọn lọc,EXPLICIT_PAINT,34,0,0,0,0
+cluster.layout-tower_bells,Tháp chuông · chọn lọc,REVIEW_INHERITANCE,15,11,0,0,0
+cluster.layout-ballroom,Phòng khiêu vũ · chọn lọc,REVIEW_INHERITANCE,15,3,0,3,0
+cluster.layout-ballroom_flowers,Phòng khiêu vũ · chọn lọc,REVIEW_INHERITANCE,23,3,0,0,0
+cluster.layout-trophy_room,Phòng chiến tích · chọn lọc,EXPLICIT_PAINT,5,0,0,1,0
+cluster.layout-headmaster_office,Bàn Hiệu trưởng · chọn lọc,REVIEW_INHERITANCE,17,5,0,3,0
+cluster.layout-out_garden,Sân cỏ / picnic · chọn lọc,REVIEW_INHERITANCE,39,16,0,8,0
+cluster.layout-out_woodland,Sân cỏ / picnic · chọn lọc,REVIEW_INHERITANCE,34,16,0,7,0
+cluster.layout-out_building_yard,Sân vườn · chọn lọc,REVIEW_INHERITANCE,24,4,0,1,0
+cluster.layout-out_waterside,Ven nước · chọn lọc,REVIEW_INHERITANCE,38,23,0,3,0
+cluster.layout-out_camp,Khu cắm trại · chọn lọc,REVIEW_INHERITANCE,28,3,0,8,0
+cluster.layout-out_service_garden,Vườn sản xuất · chọn lọc,REVIEW_INHERITANCE,33,16,0,3,0
+layout.chair-0,layout.chair-0,REVIEW_INHERITANCE,6,1,0,0,0
+layout.chair-1,layout.chair-1,REVIEW_INHERITANCE,8,1,0,0,0
+layout.chair-2,layout.chair-2,REVIEW_INHERITANCE,6,1,0,0,0
+layout.bench-0,layout.bench-0,REVIEW_INHERITANCE,7,2,0,0,0
+layout.bench-1,layout.bench-1,REVIEW_INHERITANCE,7,2,0,0,0
+layout.bench-2,layout.bench-2,REVIEW_INHERITANCE,5,1,0,0,0
+layout.sofa-0,layout.sofa-0,EXPLICIT_PAINT,8,0,0,0,0
+layout.sofa-1,layout.sofa-1,EXPLICIT_PAINT,8,0,0,0,0
+table.layout-school,table.layout-school,EXPLICIT_PAINT,4,0,0,0,0
+table.layout-meeting,table.layout-meeting,EXPLICIT_PAINT,4,0,0,0,0
+table.layout-oval,table.layout-oval,EXPLICIT_PAINT,4,0,0,0,0
+wm.tree-ancient.44fd9b11,Cây · Cổ thụ đặc biệt,EXPLICIT_PAINT,145,0,0,94,0
+wm.tree-willow.73cadf0c,Cây · Liễu Roi đặc biệt,EXPLICIT_PAINT,1322,0,0,310,0
+wm.house-wood-gable.ab6b565f,Nhà gỗ · Mái dốc,REVIEW_INHERITANCE,127,1,0,105,0
+wm.house-wood-hip.7925847a,Nhà gỗ · Mái chóp,REVIEW_INHERITANCE,124,1,0,102,0
+wm.house-wood-wide.6ed44df0,Nhà gỗ · Khối rộng,REVIEW_INHERITANCE,140,1,0,118,0
+wm.house-wood-barn.c63274f6,Nhà gỗ · Mái gãy / nhà kho,REVIEW_INHERITANCE,179,1,0,157,0
+wm.house-wood-l.d1dd5725,Nhà gỗ · Khối chữ L,REVIEW_INHERITANCE,192,2,0,159,0
+wm.house-wood-double.e2e2a04b,Nhà gỗ · Hai đầu hồi,REVIEW_INHERITANCE,159,1,0,137,0
+wm.house-brick-low.42c9b412,Nhà tường · Một tầng mái lệch,REVIEW_INHERITANCE,206,1,0,192,0
+wm.house-brick-tall.9a94368a,Nhà tường · Nhà phố cao,REVIEW_INHERITANCE,240,1,0,220,0
+wm.house-brick-wide.fa260215,Nhà tường · Khối rộng,REVIEW_INHERITANCE,283,1,0,263,0
+wm.house-brick-mansard.71b5c7eb,Nhà tường · Mái mansard,REVIEW_INHERITANCE,321,1,0,295,0
+wm.house-brick-l.5ff7c771,Nhà tường · Khối chữ L,REVIEW_INHERITANCE,352,2,0,323,0
+wm.house-brick-arcade.8c27d78c,Nhà tường · Dãy vòm,REVIEW_INHERITANCE,230,1,0,218,0
+wm.tree-oak.4595a4d3,Cây · Tán sồi nhiều nhánh,EXPLICIT_PAINT,7,0,0,0,0
+wm.tree-beech.afd8458e,Cây · Tán bầu dục cao,EXPLICIT_PAINT,5,0,0,1,0
+wm.tree-birch.33c31da8,Cây · Bạch dương ba thân,EXPLICIT_PAINT,26,0,0,18,0
+wm.tree-pine.8b1af022,Cây · Thông tán dù,EXPLICIT_PAINT,7,0,0,1,0
+wm.tree-spruce.d22e24fe,Cây · Lá kim hình tháp,EXPLICIT_PAINT,9,0,0,0,0
+wm.tree-alder.d544f1db,Cây · Nhiều thân tán thấp,EXPLICIT_PAINT,7,0,0,3,0
+wm.tree-rowan.08832739,Cây · Tán chùm quả,EXPLICIT_PAINT,20,0,0,1,0
+wm.tree-spreading.8c65c4b7,Cây · Nghiêng theo gió,EXPLICIT_PAINT,6,0,0,1,0
+wm.tree-slender.0448a23a,Cây · Tán cột hẹp,EXPLICIT_PAINT,4,0,0,0,0
+wm.tree-weeping.2a15a03c,Cây · Tán rủ,EXPLICIT_PAINT,16,0,0,13,0
+wm.tree-bare.79622059,Cây · Cành trụi,EXPLICIT_PAINT,3,0,0,2,0
+wm.tree-fruit.401cc5dc,Cây · Cây ăn quả thấp,EXPLICIT_PAINT,9,0,0,0,0
+layout.picnic-mat,layout.picnic-mat,EXPLICIT_PAINT,16,0,0,15,0
+corridor.decor.portrait,Tranh chân dung,EXPLICIT_PAINT,5,0,0,0,0
+corridor.decor.gallery,Cụm ba tranh,EXPLICIT_PAINT,7,0,0,0,0
+corridor.decor.candle,Nến / đèn tường,REVIEW_INHERITANCE,5,1,0,1,0
+corridor.decor.armor,Bộ giáp,REVIEW_INHERITANCE,9,6,0,0,0
+corridor.decor.curtain,Màn nhung,REVIEW_INHERITANCE,4,3,0,0,0
+corridor.decor.banner,Cờ treo,REVIEW_INHERITANCE,4,1,0,1,0
+corridor.decor.crest,Khiên huy hiệu,REVIEW_INHERITANCE,3,1,0,0,0
+corridor.decor.bench,Ghế băng hẹp,REVIEW_INHERITANCE,4,2,0,0,0
+corridor.decor.console,Bàn console,REVIEW_INHERITANCE,5,1,0,0,0
+corridor.decor.vase,Bình cổ,REVIEW_INHERITANCE,4,2,0,0,0
+corridor.decor.niche,Hốc trưng bày,EXPLICIT_PAINT,5,0,0,0,0
+corridor.material.floor-tile,floor-tile,EXPLICIT_PAINT,3,0,0,1,0
+corridor.material.floor-slate,floor-slate,EXPLICIT_PAINT,3,0,0,1,0
+corridor.material.floor-brick,floor-brick,EXPLICIT_PAINT,3,0,0,1,0
+corridor.material.floor-wood,floor-wood,EXPLICIT_PAINT,3,0,0,1,0
+corridor.material.floor-mosaic,floor-mosaic,EXPLICIT_PAINT,3,0,0,0,0
+corridor.material.floor-octagon,floor-octagon,EXPLICIT_PAINT,3,0,0,1,0
+corridor.material.floor-herringbone,floor-herringbone,EXPLICIT_PAINT,3,0,0,1,0
+corridor.material.floor-diamond,floor-diamond,EXPLICIT_PAINT,3,0,0,1,0
+corridor.material.floor-cobble,floor-cobble,EXPLICIT_PAINT,3,0,0,1,0
+corridor.material.yard-paving,yard-paving,EXPLICIT_PAINT,3,0,0,1,0
+corridor.material.yard-grass,yard-grass,REVIEW_INHERITANCE,3,1,0,0,0
+corridor.material.wall-stone,wall-stone,EXPLICIT_PAINT,3,0,0,1,0
+corridor.material.wall-dark,wall-dark,EXPLICIT_PAINT,3,0,0,1,0
+corridor.material.wall-timber,wall-timber,EXPLICIT_PAINT,3,0,0,1,0
+corridor.material.wall-wainscot,wall-wainscot,EXPLICIT_PAINT,4,0,0,1,0
+corridor.material.wall-plaster,wall-plaster,EXPLICIT_PAINT,3,0,0,1,0
+corridor.material.wall-brick,wall-brick,EXPLICIT_PAINT,3,0,0,1,0
+corridor.material.wall-ashlar,wall-ashlar,EXPLICIT_PAINT,3,0,0,1,0
+corridor.material.wall-panel,wall-panel,EXPLICIT_PAINT,3,0,0,1,0
+corridor.material.wall-limestone,wall-limestone,EXPLICIT_PAINT,3,0,0,1,0
+corridor.material.wall-rubble,wall-rubble,EXPLICIT_PAINT,3,0,0,1,0
+corridor.door.oak,door · Gỗ sồi,REVIEW_INHERITANCE,5,3,0,0,0
+corridor.door.arch,door · Vòm Gothic,REVIEW_INHERITANCE,5,3,0,0,0
+corridor.door.iron,door · Gỗ & sắt rèn,REVIEW_INHERITANCE,5,3,0,0,0
+corridor.door.double,door · Cửa đôi,REVIEW_INHERITANCE,7,4,0,0,0
+corridor.main-door.oak,main-door · Gỗ sồi,REVIEW_INHERITANCE,7,4,0,0,0
+corridor.main-door.arch,main-door · Vòm Gothic,REVIEW_INHERITANCE,7,4,0,0,0
+corridor.main-door.iron,main-door · Gỗ & sắt rèn,REVIEW_INHERITANCE,7,4,0,0,0
+corridor.main-door.double,main-door · Cửa đôi,REVIEW_INHERITANCE,7,4,0,0,0
+corridor.window.leaded,window · Kính chì,REVIEW_INHERITANCE,5,3,0,1,0
+corridor.window.clear,window · Kính sáng,REVIEW_INHERITANCE,4,3,0,0,0
+corridor.window.amber,window · Kính hổ phách,REVIEW_INHERITANCE,4,3,0,0,0
+corridor.window.gothic,window · Kính Gothic,REVIEW_INHERITANCE,4,3,0,0,0
+corridor.yard.garden,Sân · Vườn xanh,REVIEW_INHERITANCE,19,5,0,2,0
+corridor.yard.paving,Sân · Sân lát đá,EXPLICIT_PAINT,5,0,0,3,0
+corridor.yard.pond,Sân · Sân & hồ,REVIEW_INHERITANCE,19,5,0,3,0
+corridor.material.floor-runner,Đá & thảm đỏ,EXPLICIT_PAINT,4,0,0,1,0

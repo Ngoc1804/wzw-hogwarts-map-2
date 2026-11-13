@@ -424,3 +424,7 @@ Sau mỗi mốc báo ngắn: đã làm/chưa làm, file sửa, interface nếu �
 Review-only: [HTML](examples/marker-palette-review.html), [ảnh](tests/marker-palette-review.png), [token đề xuất](docs/marker-palette-proposal.json). Ba palette: default Giấy & gỗ, Rêu & đá, Mận & đồng. Glyph !/? cùng nét/vùng bấm 44px, hover/focus/selected; không thực hiện hành động RP. Đề xuất seed canonical scope + place ID chọn palette ổn định cho Generated; không đổi màu theo giờ/NPC. Chỉ dùng token cho hình mới/vùng cho phép, không tô lại artwork đã có màu, không đổi Fixed hoặc palette actor/Nhà.
 
 Đã kiểm click và không tràn ngang ở viewport 390px; đã xem ảnh desktop 1440px. Lượt đầu mở HTTP local lỗi ERR_EMPTY_RESPONSE; render lại bằng HTML self-contained thành công. Chưa kiểm AI Studio. **Chưa được user duyệt; chưa áp token/seed vào runtime.** Hình hành lang trong review là nguồn H40 giữ nguyên; bảng swatch là đề xuất token, không phải bằng chứng đã recolor runtime. Chờ user duyệt !/? và ba palette trước triển khai.
+
+### Điều chỉnh theo user — một palette và icon ống nhòm/kính lúp
+
+Bác mẫu !/? cũ và bỏ ba palette/seed chọn palette. Chỉ một bảng màu vật liệu; giữ Fixed. Đã lập [plan](docs/ASSET_COLOR_PLAN.md), [bảng 498 SVG](docs/ASSET_COLOR_AUDIT.csv), tạo [mẫu icon](examples/event-icon-review.html). 208 SVG cần kiểm inheritance, 290 có paint tường minh; chưa kết luận asset nào đủ màu chỉ bằng scan. Chưa tô hàng loạt hoặc áp icon runtime.
