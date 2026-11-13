@@ -14,6 +14,38 @@ function corridorAssetMarkup(asset){
 }
 const escapeXML=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function namespaceArt(markup,prefix){return markup.replace(/(?:^|\s)id="([^"]+)"/g,(_,id)=>` id="${prefix}${id}"`).replace(/url\(#([^)]+)\)/g,(_,id)=>`url(#${prefix}${id})`).replace(/href="#([^"]+)"/g,(_,id)=>`href="#${prefix}${id}"`);}
+const VISUAL_MATERIALS={wood:'#916849',stone:'#A9A394',metal:'#A68A53',fabric:'#DCC9A5',paper:'#DACAA5',glass:'#88AAA5',plant:'#82966B',ink:'#68503A'};
+function visualAsset(prop){
+ const v=prop.visual;if(!v)return null;
+ const num=n=>typeof n==='number'&&Number.isFinite(n)&&Math.abs(n)<=1000;
+ if(!Array.isArray(v.shapes)||!v.shapes.length||v.shapes.length>32)return null;
+ let body='';
+ for(const s of v.shapes){
+  if(!s||!Object.hasOwn(VISUAL_MATERIALS,s.material||'wood'))return null;
+  const fill=VISUAL_MATERIALS[s.material||'wood'];let tag='';
+  if(s.kind==='rect'&&[s.x,s.y,s.width,s.height].every(num)&&s.width>0&&s.height>0)tag=`<rect x="${s.x}" y="${s.y}" width="${s.width}" height="${s.height}" rx="2"`;
+  else if(s.kind==='ellipse'&&[s.cx,s.cy,s.rx,s.ry].every(num)&&s.rx>0&&s.ry>0)tag=`<ellipse cx="${s.cx}" cy="${s.cy}" rx="${s.rx}" ry="${s.ry}"`;
+  else if(s.kind==='path'&&typeof s.d==='string'&&s.d.length<=2000&&/^[MmLlHhVvCcSsQqTtAaZz0-9.,+\s-]+$/.test(s.d))tag=`<path d="${escapeXML(s.d)}"`;
+  else return null;
+  body+=tag+` fill="${fill}" stroke="#68503A" stroke-width="1.5" stroke-linejoin="round"/>`;
+ }
+ return {id:'rp-visual',svg:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">${body}</svg>`,viewBox:[0,0,100,100],mount:'floor'};
+}
+function editedArtwork(markup,item,diagnostics){
+ if(!item.childChanges?.length)return markup;
+ const doc=new DOMParser().parseFromString('<svg xmlns="http://www.w3.org/2000/svg">'+markup+'</svg>','image/svg+xml');
+ for(const p of item.childChanges){
+  const ref=markup.match(/<use\b[^>]*href="#([^"]+)"/);const target=ref?doc.getElementById(ref[1])||doc:doc;
+  const nodes=[...target.querySelectorAll('[data-prop],[data-piece]')].filter(n=>n.getAttribute('data-prop')===p.childId||n.getAttribute('data-piece')===p.childId);
+  const outer=nodes.filter(n=>!nodes.some(other=>other!==n&&other.contains(n)));
+  if(outer.length!==1){diagnostics.push('unresolved-child:'+item.id+':'+p.childId);continue;}
+  const node=outer[0];
+  if(p.count>1){for(let i=1;i<Math.min(p.count,32);i++){const clone=node.cloneNode(true);clone.setAttribute('transform',`translate(${i*12} 0) `+(node.getAttribute('transform')||''));const descendants=[clone,...clone.querySelectorAll('*')];for(const e of descendants.filter(e=>e.id)){const old=e.id,next=old+'-child-'+i;e.id=next;for(const n of descendants)for(const attr of [...n.attributes])if(attr.name!=='id')n.setAttribute(attr.name,attr.value.replaceAll('url(#'+old+')','url(#'+next+')').replace(/^#.*$/,v=>v==='#'+old?'#'+next:v));}if(p.state&&p.state!=='intact')clone.setAttribute('opacity','.55');node.parentNode.append(clone);}if(p.count>32)diagnostics.push('child-count-summary:'+p.childId+':'+p.count);}
+  if(p.count===0||['removed','missing','destroyed'].includes(p.state))node.remove();
+  else {node.setAttribute('data-state',p.state||'intact');if(p.state&&p.state!=='intact'){node.setAttribute('opacity','.55');const t=doc.createElementNS('http://www.w3.org/2000/svg','title');t.textContent=p.name+' · '+p.state;node.append(t);}}
+ }
+ return doc.documentElement.innerHTML;
+}
 // Furniture stays upright. Only uniform scale/translation is used; no wall shear.
 function furnitureLayout(place){
  const inventory=place.inventory||composeRoom(place),art=P4_ART[inventory.recipeId];
@@ -23,6 +55,7 @@ function furnitureLayout(place){
  for(const item of inventory.objects){
   const node=nodes.get(item.id);
   if(!node){extra.push(item);continue;}
+  if(item.count>1)extra.push({...item,id:item.id+':remaining',count:item.count-1});
   const [x,y,w,h]=node.bounds;let magnify=1,dx=0,dy=band;
   if(north.includes(node)){
    // Front-view storage was incorrectly squeezed to the wall height in the reference.
@@ -54,7 +87,7 @@ function drawFurniture(place,prefix,room,layout,door){
   const [bx,by,bw,bh]=o.bounds;const box=[x+bx*scale,y+by*scale,bw*scale,bh*scale];
   const asset=CATALOG[o.node.item];
   footprints.push({id:o.item.id,name:o.item.name,item:o.node.item,bounds:box,blocksActor:largeFurniture(o.node.item,o.item.name,asset),surface:asset?.surface});
-  markup+=`<g data-instance="${escapeXML(o.item.id)}" data-state="${escapeXML(o.item.state||'intact')}" data-footprint="${box.join(' ')}" pointer-events="none" transform="translate(${x} ${y}) scale(${scale})"><g transform="translate(${o.dx} ${o.dy}) scale(${o.magnify})">${namespaceArt(o.node.svg,prefix)}</g></g>`;
+  markup+=`<g data-instance="${escapeXML(o.item.id)}" data-state="${escapeXML(o.item.state||'intact')}" data-footprint="${box.join(' ')}" pointer-events="none" transform="translate(${x} ${y}) scale(${scale})"><g transform="translate(${o.dx} ${o.dy}) scale(${o.magnify})">${o.item.childChanges?.length?namespaceArt(editedArtwork(layout.art.defs+o.node.svg,o.item,place.inventory.diagnostics),prefix+o.item.id.replace(/[^a-z0-9]/gi,'-')+'-'):namespaceArt(o.node.svg,prefix)}</g></g>`;
  }
  for(const o of layout.objects)if(o.item.state&&o.item.state!=='intact'){const b=footprints.find(f=>f.id===o.item.id)?.bounds;if(b)markup+=`<g pointer-events="none"><title>${escapeXML(o.item.name+' · '+o.item.state)}</title><path d="M${b[0]} ${b[1]}l8 8m-8 0l8 -8" stroke="#783d45" stroke-width="2"/></g>`;}
  const placed=placeExtraProps(place,prefix,room,layout.extra,door,footprints);
@@ -73,7 +106,8 @@ function placeExtraProps(place,prefix,room,props,door,base){
  const valid=box=>box[0]>=room.x+26&&box[1]>=room.y+8&&box[0]+box[2]<=room.x+room.w-8&&box[1]+box[3]<=room.y+room.h-46&&(!room.circular||[[0,0],[1,0],[0,1],[1,1]].every(([u,v])=>Math.hypot(box[0]+box[2]*u-room.x-room.w/2,box[1]+box[3]*v-room.y-room.h/2)<room.w/2-8))&&(!door||!overlap(box,door.ln.axis==='H'?[door.at-door.width/2-8,door.ln.at-26,door.width+16,52]:[door.ln.at-26,door.at-door.width/2-8,52,door.width+16]));
  for(const [i,prop]of props.entries()){
   const matches=Object.values(CATALOG).filter(a=>key(a.name)===key(prop.name)||a.aliases?.some(n=>key(n)===key(prop.name)));
-  const asset=CATALOG[prop.item||propAliases[key(prop.name)]]||(matches.length===1?matches[0]:null);
+  const asset=CATALOG[prop.item||propAliases[key(prop.name)]]||(matches.length===1?matches[0]:null)||visualAsset(prop);
+  if(prop.visual&&!visualAsset(prop))diagnostics.push('invalid-visual:'+prop.name);
   const ref=asset?.occupancy,vb=ref?[ref.x,ref.y,ref.width,ref.height]:asset?.viewBox||[0,0,40,40];
   const mount=prop.mount||(prop.zone==='surface'?'surface':asset?.mount)||'floor';const surfaces=base.filter(f=>f.surface&&/table|desk|counter|bàn/.test(key(f.item+' '+f.name)));const parent=prop.parentId?base.find(f=>f.id===prop.parentId):surfaces.length===1?surfaces[0]:null;
   const desired=zonePoint([room.x,room.y,room.w,room.h],prop.zone);

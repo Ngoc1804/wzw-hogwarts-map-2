@@ -78,14 +78,15 @@ function outdoorMap(scene,d){
    body=doc.documentElement.innerHTML;
    for(const item of p.inventory.objects){
     const node=art.objects.find(n=>n.id===item.id);
-    if(node){body+=`<g data-instance="${escapeXML(item.id)}">${node.svg}</g>`;
+    if(node){body+=`<g data-instance="${escapeXML(item.id)}">${editedArtwork(art.defs+node.svg,item,p.inventory.diagnostics)}</g>`;
      const [bx,by,w,h]=node.bounds;footprints.push({placeId:p.id,id:item.id,bounds:[x+bx,y+by,w,h]});
     }
    }
   }else body+='<ellipse cx="500" cy="380" rx="420" ry="280" fill="#c7cba9" opacity=".3"/>';
-  const extras=p.inventory.objects.filter(item=>!art?.objects.some(n=>n.id===item.id));
+  const extras=p.inventory.objects.flatMap(item=>{const base=art?.objects.some(n=>n.id===item.id);const n=Math.max(0,(item.count??1)-(base?1:0));return Array.from({length:Math.min(n,64)},(_,i)=>({...item,id:item.id+':extra:'+i,count:1}));});
+  for(const item of p.inventory.objects)if(item.count>64)p.inventory.diagnostics.push('outdoor-count-summary:'+item.name+':'+item.count);
   for(const [j,item]of extras.entries()){
-   const asset=CATALOG[item.item||propAliases[key(item.name)]],px=40+j%10*92,py=560+Math.floor(j/10)*75;
+   const asset=CATALOG[item.item||propAliases[key(item.name)]]||visualAsset(item),px=40+j%10*92,py=560+Math.floor(j/10)*75;
    body+=asset&&!item.informationOnly?`<svg x="${px}" y="${py}" width="80" height="65" viewBox="${(asset.viewBox||[0,0,256,256]).join(' ')}">${namespaceArt(asset.svg.replace(/^<svg\b[^>]*>/,'').replace(/<\/svg>\s*$/,''),'extra'+j+'-')}</svg>`:`<g data-prop-fallback="true"><path d="M${px} ${py}l18 -12 18 12 -18 12Z" fill="#d8c6a6" stroke="#8d7658"/><title>${escapeXML(item.name)} × ${item.count}</title></g>`;
   }
   markup+=`<g data-id="${escapeXML(p.id)}" data-recipe="${escapeXML(rid||'custom')}" tabindex="0" role="button" aria-label="${escapeXML(p.name)}" transform="translate(${x} ${y})">${namespaceArt(body,prefix)}</g>`;

@@ -556,14 +556,20 @@ async function paintedMask(node){
 }
 function alphaAt(mask,x,y){if(!mask)return 0;const{box,w,h,pixels}=mask,ix=Math.floor((x-box.x)/box.w*w),iy=Math.floor((y-box.y)/box.h*h);return ix<0||iy<0||ix>=w||iy>=h?0:pixels[(iy*w+ix)*4+3]}
 function maskOverlaps(mask,b){if(!mask)return false;const{box,w,h,pixels}=mask;const x0=Math.max(0,Math.floor((b.x-box.x)/box.w*w)),x1=Math.min(w,Math.ceil((b.x+b.w-box.x)/box.w*w)),y0=Math.max(0,Math.floor((b.y-box.y)/box.h*h)),y1=Math.min(h,Math.ceil((b.y+b.h-box.y)/box.h*h));for(let y=y0;y<y1;y++)for(let x=x0;x<x1;x++)if(pixels[(y*w+x)*4+3]>24)return true;return false}
+function occludesActor(record,actor,region){
+ if(record.node.dataset.occluder!=='building'||record.depth===null||record.depth<=actor.point.y+.1)return false;
+ if((record.layer??0)<(actor.layer??0))return false;
+ if(record.owner===actor.placeId&&actor.inside)return false;
+ return maskOverlaps(record.mask,region);
+}
 async function prepareTemplateUI(){
  if(presentation)presentation.dispose();
  const scene=svg,layer=document.createElement('div');layer.className='qa-tags';$('#mapmount').append(layer);
  const linkLayer=uiElement('g',{'data-layer':'actor-links','pointer-events':'none',stroke:'#a58c6a','stroke-width':'.7',opacity:'.65'},svg);
  const footLayer=uiElement('g',{'data-layer':'actor-feet','pointer-events':'none'},svg);
  const zones=[...svg.querySelectorAll('[data-forbidden]')].filter(e=>!e.closest('defs'));
- const records=zones.map(node=>{const box=worldBox(node);return{node,box,depth:Number.isFinite(+node.dataset.depth)?+node.dataset.depth:box.y+box.h,mask:null,promise:null}});let actorItems=[],eventItems=[],generation=0;
- const maskFor=async r=>{if(!r.promise)r.promise=paintedMask(r.node).then(m=>r.mask=m);await r.promise;return r.mask};
+ const records=zones.map(node=>{const box=worldBox(node);return{node,box,owner:node.closest('[data-id]')?.dataset.id,layer:Number(node.dataset.layer)||0,depth:node.hasAttribute('data-depth')&&Number.isFinite(+node.dataset.depth)?+node.dataset.depth:null,mask:null,promise:null}});let actorItems=[],eventItems=[],generation=0;
+ const maskFor=async r=>{if(!r.promise)r.promise=paintedMask(r.node).then(m=>{r.mask=m;if(r.depth===null&&m){let bottom=-1;for(let y=m.h-1;y>=0&&bottom<0;y--)for(let x=0;x<m.w;x++)if(m.pixels[(y*m.w+x)*4+3]>24){bottom=y;break;}if(bottom>=0)r.depth=m.box.y+(bottom+.5)/m.h*m.box.h;}return m}).catch(()=>null);await r.promise;return r.mask};
  function pointSafe(x,y,pad=0){if(!inMap(x,y,pad)||DATA.maps[activeId].safeFloor&&!DATA.maps[activeId].safeFloor(x,y,pad))return false;for(const r of records){if(x+pad<r.box.x||x-pad>r.box.x+r.box.w||y+pad<r.box.y||y-pad>r.box.y+r.box.h)continue;if(!r.mask)return false;if(maskOverlaps(r.mask,{x:x-pad,y:y-pad,w:Math.max(.1,pad*2),h:Math.max(.1,pad*2)}))return false;}return true}
  async function readyMasks(){await Promise.all(records.map(maskFor))}
  function localPoint(place,inside,actor){if(actor?.scenePoint&&Number.isFinite(actor.scenePoint.x)&&Number.isFinite(actor.scenePoint.y))return actor.scenePoint;const node=[...svg.querySelectorAll('[data-id]')].find(e=>e.dataset.id===place.id&&!e.closest('defs'));if(!node)return null;const b=worldBox(node),center={x:b.x+b.w/2,y:b.y+b.h/2};if(inside)return center;const min=Math.min(originalVB[2],originalVB[3]),step=min/110;
@@ -577,8 +583,10 @@ async function prepareTemplateUI(){
    if(collides(x,y)){let found=false;for(let ring=1;ring<=8&&!found;ring++)for(const [dx,dy]of [[0,-ring],[0,ring],[-ring,0],[ring,0],[-ring,-ring],[ring,ring]]){const nx=x+dx*(rect.width+5),ny=y+dy*(rect.height+5);if(nx-rect.width/2<a.x||nx+rect.width/2>b.x||ny-rect.height<a.y||ny>b.y||collides(nx,ny))continue;x=nx;y=ny;found=true;break;}}
    if(Math.hypot(x-screen.x,y-screen.y)>20){const target=new DOMPoint(x,y).matrixTransform(inverse);uiElement('line',{x1:item.point.x,y1:item.point.y,x2:target.x,y2:target.y},linkLayer);}
    placed.push({x:x-rect.width/2,y:y-rect.height,w:rect.width,h:rect.height});item.element.style.left=(x-base.left)+'px';item.element.style.top=(y-base.top)+'px'}
-  const faded=new Set();for(const a of actorItems){const r=a.element.getBoundingClientRect(),corners=[[r.left,r.top],[r.right,r.bottom]].map(([x,y])=>new DOMPoint(x,y).matrixTransform(inverse)),b={x:corners[0].x,y:corners[0].y,w:corners[1].x-corners[0].x,h:corners[1].y-corners[0].y};
-   for(const record of records)if(record.node.dataset.occluder==='building'&&record.depth>a.point.y+.1&&maskOverlaps(record.mask,b))faded.add(record.node);
+  const faded=new Set();for(const a of actorItems){
+   // Test the character's anchored silhouette, independently of a relocated ribbon.
+   const scale=Math.hypot(inverse.a,inverse.b),region={x:a.point.x-4*scale,y:a.point.y-18*scale,w:8*scale,h:20*scale};
+   for(const record of records)if(occludesActor(record,a,region))faded.add(record.node);
   }
   for(const r of records)r.node.classList.toggle('occluded',faded.has(r.node));
  }

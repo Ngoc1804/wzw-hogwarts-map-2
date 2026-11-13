@@ -484,3 +484,9 @@ PASS tests/catalog-editor.cjs: chỉnh màu, undo, xuất HTML, mở lại giữ
 Giữ vải beige, không dùng lại burgundy mới. Hoàn thiện 20 asset: nhịp gáy sách kem/sage/xám lam/da nâu, vạc sắt tối, giáp bạc cũ, gương kính xanh khói; bổ sung token base/surface/detail/ink trên các SVG detail trước đó có fallback none. Màu được ghi vào catalog và object art cùng nguồn; assets/finish-paint.json + tools/finish-paint.py là các quyết định paint cụ thể, importer gọi lại để không mất khi rebuild. Không đổi geometry, cờ Nhà hoặc pack Fixed.
 
 Đã xem contact sheet tests/asset-finished-contact.png; catalog HTML sinh lại từ source chính và vẫn có editor offline. PASS catalog-editor (đổi/undo/export/mở lại/mobile), H40 40 cấu hình/48 reference, browser 8 Outdoor/lifecycle. Chưa nghiệm thu AI Studio. Không yêu cầu user tự chỉnh màu để hoàn thành lượt này.
+
+### M2-P02/P05/P07 — inventory, minimal visual và X-Ray
+
+Trên base 94306ab: add id mới/chống lặp, replace id mới, ensure đếm tổng count; child edits parentId/childId, không sửa nhầm sibling; metadata child không xác định thì diagnostic và giữ nguyên. Visual tối thiểu rect/ellipse/path qua token vật liệu, kiểm cấu trúc và fallback riêng món. X-Ray xét vùng actor tại anchor độc lập ribbon, layer/depth + alpha silhouette; không dùng bbox-only, giữ opacity .3/cleanup hiện hành. Depth thiếu còn ước lượng theo silhouette; chưa chứng nhận semantic depth mọi công trình Fixed. Asset/màu đã duyệt giữ nguyên.
+
+PASS tests/inventory-visual.cjs (9 ca: replace/add/count/id/remove/visual/child), tests/xray-occlusion.cjs (shape/hole/depth/layer/inside/unknown), hồi quy current-scope, indoor-placement, corridor-source. Review mới examples/mechanism-review.html. Chưa kiểm hình mới/visual full matrix 13 Fixed, restoration stress hoặc AI Studio; không tick DONE toàn P5/P7. Child số lượng lớn dùng hình giới hạn + summary Inspector; cụm không có part ID không tự tách đoán.
