@@ -9,7 +9,7 @@ function composeRoom(place){const rid=recipeId(place.type),recipe=RECIPES[rid];c
  if(p.id&&!matches.length&&p.op!=='add'&&place.propsMode!=='replace'){diagnostics.push('unknown-prop-id:'+p.id);out.push({...p,id:'rp:'+index,unresolved:true,informationOnly:true,source:'rp'});return;}
  const removed=['removed','missing','destroyed'].includes(p.state)||p.count===0;
  if(p.op==='add'){if(p.id&&matches.length){diagnostics.push('duplicate-add-id:'+p.id);return;}if(!removed)out.push({...p,id:p.id||'rp:add:'+index,source:'rp'});return;}
- if(matches.length){out=out.filter(x=>!matches.includes(x));if(!removed){let remaining=p.count??1;for(const m of matches){const take=Math.min(remaining,m.count??1);if(take>0)out.push({...m,...p,id:m.id,item:m.item,count:take,source:'rp'});remaining-=take;}if(remaining>0)out.push({...p,id:'rp:ensure:'+index,item:matches[0].item,count:remaining,source:'rp'});}}
+ if(matches.length){out=out.filter(x=>!matches.includes(x));if(!removed){let remaining=p.state&&(p.countProvided===false||p.count===undefined)?matches.reduce((n,m)=>n+(m.count??1),0):(p.count??1);for(const m of matches){const take=Math.min(remaining,m.count??1);if(take>0)out.push({...m,...p,id:m.id,item:m.item,count:take,source:'rp'});remaining-=take;}if(remaining>0)out.push({...p,id:'rp:ensure:'+index,item:matches[0].item,count:remaining,source:'rp'});}}
  else if(!removed)out.push({...p,id:p.id||'rp:ensure:'+index,source:'rp'});
  });
  return {recipeId:rid,objects:out,diagnostics,illustrative:true};}

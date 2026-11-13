@@ -15,6 +15,26 @@ function corridorAssetMarkup(asset){
 const escapeXML=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function namespaceArt(markup,prefix){return markup.replace(/(?:^|\s)id="([^"]+)"/g,(_,id)=>` id="${prefix}${id}"`).replace(/url\(#([^)]+)\)/g,(_,id)=>`url(#${prefix}${id})`).replace(/href="#([^"]+)"/g,(_,id)=>`href="#${prefix}${id}"`);}
 const VISUAL_MATERIALS={wood:'#916849',stone:'#A9A394',metal:'#A68A53',fabric:'#DCC9A5',paper:'#DACAA5',glass:'#88AAA5',plant:'#82966B',ink:'#68503A'};
+function validVisualPath(d){
+ if(typeof d!=='string'||!d.trim()||d.length>2000)return false;
+ const tokens=d.match(/[a-zA-Z]|[-+]?(?:\d*\.\d+|\d+\.?\d*)(?:[eE][-+]?\d+)?/g)||[];
+ if(d.replace(/[a-zA-Z]|[-+]?(?:\d*\.\d+|\d+\.?\d*)(?:[eE][-+]?\d+)?|[\s,]/g,''))return false;
+ const arity={M:2,L:2,H:1,V:1,C:6,S:4,Q:4,T:2,A:7,Z:0};let i=0,command=null;
+ if(!/^[Mm]$/.test(tokens[0]||''))return false;
+ while(i<tokens.length){if(/^[a-z]$/i.test(tokens[i])){command=tokens[i++];if(!Object.hasOwn(arity,command.toUpperCase()))return false;if(command.toUpperCase()==='Z'){command=null;continue;}}
+  if(!command)return false;const n=arity[command.toUpperCase()];if(i+n>tokens.length)return false;
+  const values=tokens.slice(i,i+n).map(Number);if(values.some(v=>!Number.isFinite(v)||Math.abs(v)>1000))return false;
+  if(command.toUpperCase()==='A'&&(values[0]<0||values[1]<0||![0,1].includes(values[3])||![0,1].includes(values[4])))return false;
+  i+=n;if(command==='M')command='L';else if(command==='m')command='l';
+ }
+ return true;
+}
+function visibleVisualShape(shape){
+ const c=document.createElement('canvas'),ctx=c.getContext('2d');ctx.lineWidth=1.5;let p;
+ try{p=shape.kind==='path'?new Path2D(shape.d):new Path2D();if(shape.kind==='rect')p.rect(shape.x,shape.y,shape.width,shape.height);if(shape.kind==='ellipse')p.ellipse(shape.cx,shape.cy,shape.rx,shape.ry,0,0,Math.PI*2);
+ for(let y=.5;y<100;y++)for(let x=.5;x<100;x++)if(ctx.isPointInPath(p,x,y)||ctx.isPointInStroke(p,x,y))return true;
+ }catch{}return false;
+}
 function visualAsset(prop){
  const v=prop.visual;if(!v)return null;
  const num=n=>typeof n==='number'&&Number.isFinite(n)&&Math.abs(n)<=1000;
@@ -25,8 +45,9 @@ function visualAsset(prop){
   const fill=VISUAL_MATERIALS[s.material||'wood'];let tag='';
   if(s.kind==='rect'&&[s.x,s.y,s.width,s.height].every(num)&&s.width>0&&s.height>0)tag=`<rect x="${s.x}" y="${s.y}" width="${s.width}" height="${s.height}" rx="2"`;
   else if(s.kind==='ellipse'&&[s.cx,s.cy,s.rx,s.ry].every(num)&&s.rx>0&&s.ry>0)tag=`<ellipse cx="${s.cx}" cy="${s.cy}" rx="${s.rx}" ry="${s.ry}"`;
-  else if(s.kind==='path'&&typeof s.d==='string'&&s.d.length<=2000&&/^[MmLlHhVvCcSsQqTtAaZz0-9.,+\s-]+$/.test(s.d))tag=`<path d="${escapeXML(s.d)}"`;
+  else if(s.kind==='path'&&validVisualPath(s.d))tag=`<path d="${escapeXML(s.d)}"`;
   else return null;
+  if(!visibleVisualShape(s))return null;
   body+=tag+` fill="${fill}" stroke="#68503A" stroke-width="1.5" stroke-linejoin="round"/>`;
  }
  return {id:'rp-visual',svg:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">${body}</svg>`,viewBox:[0,0,100,100],mount:'floor'};

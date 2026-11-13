@@ -6,6 +6,17 @@ README này là tài liệu chỉ đạo hiện hành, viết lại theo các qu
 
 **Trạng thái:** đã có tài nguyên và runtime một phần; chưa hoàn thiện cơ chế, chưa nghiệm thu AI Studio Preview. Việc khóa tài liệu không chứng nhận code đã thực hiện đúng mọi mục dưới đây. Trạng thái từng lượt nằm ở checkpoint dưới; đã có thay đổi contract/routing/Atlas, chưa hoàn thiện renderer hoặc nghiệm thu runtime.
 
+### Đóng 4 lỗi audit — regression mới
+
+Base 2cf5a9b. Đã sửa nguyên nhân và kiểm browser:
+
+1. CountProvided được normalize theo count hợp lệ; state-only giữ tổng hiện có, count gửi tường minh mới thay số; missing/removed/count0 vẫn xóa.
+2. Outdoor lập kế hoạch extras trước geometry, tính chiều cao từng vùng và từng hàng; không giới hạn 64 rồi cắt hình. 182 vật ở 3 vùng đều trong viewBox. Count cực lớn có summary mang đúng số còn lại sau 2000 hình/vùng để tránh treo browser, inventory không mất RP.
+3. Nhà nguồn/nhà thêm Outdoor được đánh dấu occluder/forbidden với layer và depth theo ground bounds, namespace riêng. Browser chứng minh alpha mask thật, che → opacity .3; inside của chính nhà không mờ; đi khỏi/xóa actor → phục hồi.
+4. Visual path được kiểm toàn bộ lệnh/số/arity/arc flags, giới hạn hữu hạn; shape phải có phần hình thật trong viewport 100×100. Hình ngoài khung/path hỏng/vô hình fallback riêng món, visual tốt vẫn vẽ.
+
+[QA](docs/FOUR_FIXES_QA.json), tests/four-fixes.cjs có 15 kiểm browser; tái chạy tools/audit-runtime.cjs hết 4 lỗi cũ. Hồi quy inventory-visual, indoor-placement, routing-current, corridor-source và current-scope PASS. Review examples/mechanism-review.html đã thay smoke cũ bằng 4 ca có nút thao tác và kết quả, tự chứa, khóa thao tác khi đang render. Chưa nghiệm thu AI Studio hoặc đóng toàn bộ semantic X-Ray 13 Fixed. Không thay asset/màu đã duyệt.
+
 ### Rà soát hiện hành tại 8d2bade — lỗi và việc còn lại
 
 7 bộ test hiện có PASS (routing-current, inventory-visual, xray-occlusion, corridor-source, indoor-placement, catalog-editor, current-scope), nhưng không đủ chứng nhận dự án hoàn tất. Rà source cả 6 module, build/loader/compiler, baseline dữ liệu và prompt; đã tái hiện thêm lỗi browser. [Bằng chứng](docs/PROJECT_AUDIT_CURRENT.json); tools/audit-runtime.cjs tái hiện các ca quan sát. Không sửa runtime trong lượt audit.

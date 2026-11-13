@@ -92,3 +92,7 @@ Generated props: add accepts a new stable id, repeated add id is diagnosed; repl
 Optional visual: {shapes:[{kind:"rect",x:10,y:10,width:70,height:50,material:"wood"}]} on a named prop. Coordinate space 0..100, up to 32 shapes; rect/ellipse/path only, finite bounded numbers and restricted path characters. Materials: wood/stone/metal/fabric/paper/glass/plant/ink. No raw SVG/HTML/scripts/URLs accepted. Invalid visual uses normal fallback. Typical payloads need no visual.
 
 X-Ray now tests anchored actor region independently of label shifts; requires building occluder, layer/depth ordering and alpha shape overlap. Own inside building does not fade. Explicit depth is preferred; missing depth derives approximate ground contact from opaque silhouette, not bbox alone. Unknown/unrenderable masks never conclude occlusion. 13-Fixed semantic depth and visual acceptance still require full matrix, not inferred from unit PASS.
+
+### Four audit corrections
+
+Omitted/invalid count on state-only updates preserves existing total; explicit valid count is applied. Outdoor map grows to contain extras and multi-zone rows. Extreme counts retain complete inventory plus a counted summary after 2000 individually drawn extras per zone. Outdoor buildings now participate in layer/depth/shape occlusion. Visuals require valid complete SVG path commands and a visible filled/stroked shape in the 100×100 viewport; otherwise the named RP object falls back.

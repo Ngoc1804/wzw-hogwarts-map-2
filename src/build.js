@@ -63,38 +63,44 @@ function sceneryAsset(id,x,y,w,h,prefix){
  return `<g data-asset="${id}"><use href="#${symbolId}" x="${x}" y="${y}" width="${w}" height="${h}"/></g>`;
 }
 function outdoorMap(scene,d){
- const places=scene.places,columns=Math.max(1,Math.ceil(Math.sqrt(places.length))),cellW=1000,cellH=760;
- const rows=Math.max(1,Math.ceil(places.length/columns)),footprints=[],zones=[],water=[];let markup='';
- for(const [i,p]of places.entries()){
-  const x=i%columns*cellW,y=Math.floor(i/columns)*cellH;
-  const rid=recipeId(p.type),art=P4_ART[rid],prefix='out'+i+'-';
-  p.bounds=[x,y,cellW,cellH];p.geometry={outdoor:true,open:true};
-  let body='<rect width="1000" height="760" fill="#f1e5ca"/>';
+ const columns=Math.max(1,Math.ceil(Math.sqrt(scene.places.length))),cellW=1000,footprints=[],water=[];
+ const isBuilding=id=>/^(wm\.house-|house\.|architecture\.(?:cottage|shop|inn|owlery))/.test(id||'');
+ const plans=scene.places.map(p=>{const rid=recipeId(p.type),art=P4_ART[rid],extras=[];let budget=2000;
+  for(const item of p.inventory.objects){const count=Math.max(0,(item.count??1)-(art?.objects.some(n=>n.id===item.id)?1:0)),drawn=Math.min(count,budget);budget-=drawn;
+   for(let i=0;i<drawn;i++)extras.push({...item,id:item.id+':extra:'+i,count:1});
+   if(count>drawn){extras.push({...item,id:item.id+':summary',count:count-drawn,summary:true});p.inventory.diagnostics.push('outdoor-count-summary:'+item.name+':'+(count-drawn));}
+  }
+  return{p,rid,art,extras,height:extras.length?800+Math.ceil(extras.length/10)*88+24:760};
+ });
+ const rowHeights=[];for(const[i,z]of plans.entries()){const row=Math.floor(i/columns);rowHeights[row]=Math.max(rowHeights[row]||0,z.height);}
+ const rowY=row=>rowHeights.slice(0,row).reduce((a,b)=>a+b,0);let markup='';
+ for(const[i,z]of plans.entries()){
+  const{p,rid,art,extras}=z,x=i%columns*cellW,y=rowY(Math.floor(i/columns)),prefix='out'+i+'-';
+  p.bounds=[x,y,cellW,z.height];p.geometry={outdoor:true,open:true};
+  let body=`<rect width="1000" height="${z.height}" fill="#f1e5ca"/>`;
   if(art?.sceneSvg&&rid.startsWith('OUT_')){
-   const doc=new DOMParser().parseFromString(art.sceneSvg,'image/svg+xml');
-   // Keep source terrain/layout, draw inventory once from the same compiled instances.
-   doc.querySelectorAll('[data-element-id],text,title').forEach(n=>n.remove());
+   const doc=new DOMParser().parseFromString(art.sceneSvg,'image/svg+xml');doc.querySelectorAll('[data-element-id],text,title').forEach(n=>n.remove());
    for(const n of doc.querySelectorAll('path[fill="#88b3b6"]'))water.push({x,y,path:new Path2D(n.getAttribute('d'))});
-   body=doc.documentElement.innerHTML;
-   for(const item of p.inventory.objects){
-    const node=art.objects.find(n=>n.id===item.id);
-    if(node){body+=`<g data-instance="${escapeXML(item.id)}">${editedArtwork(art.defs+node.svg,item,p.inventory.diagnostics)}</g>`;
-     const [bx,by,w,h]=node.bounds;footprints.push({placeId:p.id,id:item.id,bounds:[x+bx,y+by,w,h]});
-    }
+   body+=doc.documentElement.innerHTML;
+   for(const item of p.inventory.objects){const node=art.objects.find(n=>n.id===item.id);if(!node)continue;
+    const[bx,by,w,h]=node.bounds,building=isBuilding(node.item);const occlusion=building?`data-forbidden="building" data-occluder="building" data-layer="1" data-depth="${y+by+h}"`:'';
+    body+=`<g data-instance="${escapeXML(item.id)}" ${occlusion}>${namespaceArt(editedArtwork(art.defs+node.svg,item,p.inventory.diagnostics),'instance'+i+'-'+art.objects.indexOf(node)+'-')}</g>`;
+    footprints.push({placeId:p.id,id:item.id,bounds:[x+bx,y+by,w,h]});
    }
   }else body+='<ellipse cx="500" cy="380" rx="420" ry="280" fill="#c7cba9" opacity=".3"/>';
-  const extras=p.inventory.objects.flatMap(item=>{const base=art?.objects.some(n=>n.id===item.id);const n=Math.max(0,(item.count??1)-(base?1:0));return Array.from({length:Math.min(n,64)},(_,i)=>({...item,id:item.id+':extra:'+i,count:1}));});
-  for(const item of p.inventory.objects)if(item.count>64)p.inventory.diagnostics.push('outdoor-count-summary:'+item.name+':'+item.count);
-  for(const [j,item]of extras.entries()){
-   const asset=CATALOG[item.item||propAliases[key(item.name)]]||visualAsset(item),px=40+j%10*92,py=560+Math.floor(j/10)*75;
-   body+=asset&&!item.informationOnly?`<svg x="${px}" y="${py}" width="80" height="65" viewBox="${(asset.viewBox||[0,0,256,256]).join(' ')}">${namespaceArt(asset.svg.replace(/^<svg\b[^>]*>/,'').replace(/<\/svg>\s*$/,''),'extra'+j+'-')}</svg>`:`<g data-prop-fallback="true"><path d="M${px} ${py}l18 -12 18 12 -18 12Z" fill="#d8c6a6" stroke="#8d7658"/><title>${escapeXML(item.name)} × ${item.count}</title></g>`;
+  for(const[j,item]of extras.entries()){
+   const asset=CATALOG[item.item||propAliases[key(item.name)]]||visualAsset(item),px=40+j%10*92,py=800+Math.floor(j/10)*88,building=isBuilding(item.item);
+   if(item.visual&&!asset)p.inventory.diagnostics.push('invalid-visual:'+item.name);
+   const occupancy=asset?.occupancy,vb=occupancy?[occupancy.x,occupancy.y,occupancy.width,occupancy.height]:asset?.viewBox||[0,0,100,100];
+   const occlusion=building?`data-forbidden="building" data-occluder="building" data-layer="1" data-depth="${y+py+65}"`:'';
+   body+=`<g data-rp-instance="${escapeXML(item.id)}" data-count="${item.count}" ${occlusion}>`;
+   body+=asset&&!item.informationOnly&&!item.summary?`<svg x="${px}" y="${py}" width="80" height="65" viewBox="${vb.join(' ')}">${namespaceArt(asset.svg.replace(/^<svg\b[^>]*>/,'').replace(/<\/svg>\s*$/,''),'extra'+j+'-')}</svg>`:`<g data-prop-fallback="true"><path d="M${px} ${py}l18 -12 18 12 -18 12Z" fill="#d8c6a6" stroke="#8d7658"/><title>${escapeXML(item.name)} × ${item.count}${item.summary?' — résumé Inspector':''}</title></g>`;
+   body+='</g>';footprints.push({placeId:p.id,id:item.id,bounds:[x+px,y+py,80,65]});
   }
   markup+=`<g data-id="${escapeXML(p.id)}" data-recipe="${escapeXML(rid||'custom')}" tabindex="0" role="button" aria-label="${escapeXML(p.name)}" transform="translate(${x} ${y})">${namespaceArt(body,prefix)}</g>`;
-  zones.push({p,x,y,rid});
  }
- const width=columns*cellW,height=rows*cellH,ctx=document.createElement('canvas').getContext('2d');
- const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}">${markup}</svg>`;
- return {kind:'outdoor',title:d.meta.areaName||d.pcPlace,bounds:[0,0,width,height],places,svg,footprints,
+ const width=columns*cellW,height=rowHeights.reduce((a,b)=>a+b,0)||760,ctx=document.createElement('canvas').getContext('2d');
+ return{kind:'outdoor',title:d.meta.areaName||d.pcPlace,bounds:[0,0,width,height],places:scene.places,svg:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}">${markup}</svg>`,footprints,
  safeFloor:(x,y,pad=0)=>x-pad>=0&&y-pad>=0&&x+pad<=width&&y+pad<=height&&!footprints.some(f=>{const[a,b,w,h]=f.bounds;return x+pad>=a&&x-pad<=a+w&&y+pad>=b&&y-pad<=b+h})&&!water.some(z=>[[x,y],[x-pad,y-pad],[x+pad,y+pad],[x-pad,y+pad],[x+pad,y-pad]].some(([px,py])=>ctx.isPointInPath(z.path,px-z.x,py-z.y)))};
 }
 function styleIndoor(markup,plan,places){
