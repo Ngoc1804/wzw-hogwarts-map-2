@@ -55,13 +55,18 @@ function visualAsset(prop){
 function editedArtwork(markup,item,diagnostics){
  if(!item.childChanges?.length)return markup;
  const doc=new DOMParser().parseFromString('<svg xmlns="http://www.w3.org/2000/svg">'+markup+'</svg>','image/svg+xml');
- for(const p of item.childChanges){
+ for(const p of finalChildChanges(item.childChanges)){
   const ref=markup.match(/<use\b[^>]*href="#([^"]+)"/);const target=ref?doc.getElementById(ref[1])||doc:doc;
   const nodes=[...target.querySelectorAll('[data-prop],[data-piece]')].filter(n=>n.getAttribute('data-prop')===p.childId||n.getAttribute('data-piece')===p.childId);
   const outer=nodes.filter(n=>!nodes.some(other=>other!==n&&other.contains(n)));
   if(outer.length!==1){diagnostics.push('unresolved-child:'+item.id+':'+p.childId);continue;}
   const node=outer[0];
-  if(p.count>1){for(let i=1;i<Math.min(p.count,32);i++){const clone=node.cloneNode(true);clone.setAttribute('transform',`translate(${i*12} 0) `+(node.getAttribute('transform')||''));const descendants=[clone,...clone.querySelectorAll('*')];for(const e of descendants.filter(e=>e.id)){const old=e.id,next=old+'-child-'+i;e.id=next;for(const n of descendants)for(const attr of [...n.attributes])if(attr.name!=='id')n.setAttribute(attr.name,attr.value.replaceAll('url(#'+old+')','url(#'+next+')').replace(/^#.*$/,v=>v==='#'+old?'#'+next:v));}if(p.state&&p.state!=='intact')clone.setAttribute('opacity','.55');node.parentNode.append(clone);}if(p.count>32)diagnostics.push('child-count-summary:'+p.childId+':'+p.count);}
+  if(p.count>1){
+   const shown=Math.min(p.count,32),columns=Math.ceil(Math.sqrt(shown));
+   const localId=node.getAttribute('id')||'child-'+item.id.replace(/[^a-zA-Z0-9_-]/g,'-')+'-'+p.childId.replace(/[^a-zA-Z0-9_-]/g,'-');node.setAttribute('id',localId);
+   for(let i=1;i<shown;i++){const use=doc.createElementNS('http://www.w3.org/2000/svg','use');use.setAttribute('href','#'+localId);use.setAttribute('data-prop',p.childId);use.setAttribute('data-child-copy',String(i));use.setAttribute('transform',`translate(${i%columns*12} ${Math.floor(i/columns)*12})`);node.parentNode.append(use);}
+   if(p.count>shown)diagnostics.push('child-count-summary:'+p.childId+':'+(p.count-shown)+' additional; total '+p.count);
+  }
   if(p.count===0||['removed','missing','destroyed'].includes(p.state))node.remove();
   else {node.setAttribute('data-state',p.state||'intact');if(p.state&&p.state!=='intact'){node.setAttribute('opacity','.55');const t=doc.createElementNS('http://www.w3.org/2000/svg','title');t.textContent=p.name+' · '+p.state;node.append(t);}}
  }

@@ -100,3 +100,7 @@ Omitted/invalid count on state-only updates preserves existing total; explicit v
 ### X-Ray interaction correction
 
 X-Ray requires user interaction: hover the occluding building or actor ribbon for a temporary preview; click/tap either to pin/unpin. Leaving hover restores unless pinned; background click or Escape clears. Touch pointer hover is ignored. Occlusion shape/layer/depth checks still apply; no automatic fade when merely overlapping. Actor/scene cleanup clears interaction state.
+
+### Child quantities and group detail
+
+Child edits are reconciled by childId into a final state before rendering. ensure count sets a total, add increments it, state-only preserves it, removed/missing/destroyed or count 0 removes it. Very large counts use up to 32 shared SVG use instances plus explicit count/remainder information. No duplicate member ribbons are created: clicking the single group ribbon opens members AND summary in the sidebar. Fixed places with source x/y but no artwork data-id receive invisible presentation anchors using those exact coordinates; RP merge cannot replace Fixed x/y.

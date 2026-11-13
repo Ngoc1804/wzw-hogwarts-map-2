@@ -1,8 +1,8 @@
-import json,re,base64,gzip,collections,xml.etree.ElementTree as E,hashlib
+import math,json,re,base64,gzip,collections,xml.etree.ElementTree as E,hashlib
 from pathlib import Path
 load=lambda p:json.loads(Path(p).read_text())
 c=load('assets/catalog.json');r=load('assets/recipes.json');a=load('assets/atlas.json');art=load('assets/p4-art.json');v=load('assets/vocabulary.json');s=Path('examples/template-review.html').read_text();pack=json.loads(gzip.decompress(base64.b64decode(re.search(r'id="wzw-embedded-atlas"[^>]*>(.*?)</script>',s,re.S)[1])))
-issues=[];counts={};checks={}
+issues=[];counts={};checks={};coordinateAnchors=[]
 def issue(kind,owner,ref):issues.append({'kind':kind,'owner':owner,'ref':ref})
 for rid,recipe in r.items():
  ids=[i['id'] for i in recipe['instances']]
@@ -35,7 +35,9 @@ for fid,z in a['fixed'].items():
  for p in z['places']:
   if p['id'] not in actual:issue('fixed-place-binding',fid,p['id'])
  for p in pack['maps'][fid]['places']:
-  if p['id'] not in svgids:issue('fixed-svg-anchor',fid,p['id'])
+  if p['id'] not in svgids:
+   if all(isinstance(p.get(k),(int,float)) and math.isfinite(p[k]) for k in ['x','y']):coordinateAnchors.append({'map':fid,'id':p['id'],'x':p['x'],'y':p['y'],'binding':'presentation anchor from source coordinates'})
+   else:issue('fixed-svg-anchor',fid,p['id'])
 for id,data in c.items():
  try:root=E.fromstring(data['svg'])
  except Exception as e:issue('svg-parse',id,str(e));continue
@@ -48,5 +50,5 @@ for name,obj in [('CATALOG',c),('RECIPES',r),('P4_ART',art),('ATLAS',a)]:
  runtime=decoder.raw_decode(bundle.split('const '+name+'=',1)[1])[0]
  checks['runtime-'+name+'-keys']=set(runtime)==set(obj)
 counts.update(catalog=len(c),recipes=len(r),instances=sum(len(x['instances']) for x in r.values()),clusters=len(a['clusters']),fixed=len(a['fixed']),atlasRoomsIncludingWorld=len(allrooms))
-result={'counts':counts,'checks':checks,'issues':issues,'issueCounts':dict(collections.Counter(i['kind'] for i in issues))}
+result={'counts':counts,'checks':checks,'issues':issues,'issueCounts':dict(collections.Counter(i['kind'] for i in issues)),'coordinatePresentationAnchors':coordinateAnchors}
 Path('work/id-audit.json').write_text(json.dumps(result,ensure_ascii=False,indent=2));print(json.dumps({**counts,'checks':checks,'issueCounts':result['issueCounts'],'examples':issues[:12]},ensure_ascii=False,indent=2))

@@ -54,7 +54,7 @@ function resolve(d){
    const pool=places.filter(x=>/^Nhà dân(?:\b|\s|$)/i.test(x.name)&&!used.has(x.id)&&(fixedId==='village-static'||region==='diagon'&&x.id.startsWith('da-')||region==='knockturn'&&x.id.startsWith('ka-'))).sort((a,b)=>a.id.localeCompare(b.id));
    if(pool.length){match=pool[0];used.add(match.id);}else diagnostics.push('no-empty-house-binding:'+p.name);
   }
-  if(match){bindings[p.name]=match.id;if(p.id)bindings[p.id]=match.id;Object.assign(match,p,{id:match.id,desc:p.description||match.desc});}
+  if(match){bindings[p.name]=match.id;if(p.id)bindings[p.id]=match.id;Object.assign(match,p,{id:match.id,desc:p.description||match.desc,...(source?{x:match.x,y:match.y}:{})});}
   else if(source){unresolved.push(p);diagnostics.push('unresolved-fixed-place:'+p.name);}
   else{
    const duplicate=places.some(x=>key(x.name)===key(p.name));

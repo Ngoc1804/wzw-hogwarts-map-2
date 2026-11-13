@@ -511,6 +511,12 @@ function paintVB(){if(svg&&vb)svg.setAttribute('viewBox',vb.join(' '));presentat
 function fit(){if(!svg)return;vb=[...originalVB];paintVB()}
 function zoom(f){if(!vb)return;vb=[vb[0]+vb[2]*(1-f)/2,vb[1]+vb[3]*(1-f)/2,vb[2]*f,vb[3]*f];paintVB()}
 function getPoint(){if(!svg)return null;const r=svg.getBoundingClientRect();if(!r.width||!r.height)return null;const ratio=Math.min(r.width/vb[2],r.height/vb[3]);const w=vb[2]*ratio,h=vb[3]*ratio;return {r,left:r.left+(r.width-w)/2,top:r.top+(r.height-h)/2,k:ratio}}
+function showActorDetails(actor,place){
+ put('#place-title',actor.name||'Chưa rõ');put('#drawer-name',actor.name||'Chưa rõ');
+ put('#activity',actor.hearingText||place?.overhear||'');
+ put('#observation',[actor.activity,actor.observation||place?.desc,actor.summary,actor.members?.length?'Thành viên: '+actor.members.join(', '):''].filter(Boolean).join('\n'));
+ const layout=$('.layout'),toggle=$('#drawer-toggle');if(matchMedia('(max-width:720px)').matches&&layout){layout.classList.add('drawer-open');toggle?.setAttribute('aria-expanded','true');}
+}
 function eventClick(e){if(svg.dataset.dragged==='true'){svg.dataset.dragged='false';return}const node=e.target.closest('[data-id]');if(!node)return;
  const id=node.dataset.id||'',place=(DATA.maps[activeId].places||[]).find(p=>p.id===id),label=place?.name||node.getAttribute('aria-label')||node.dataset.name||node.dataset.label||id;
  put('#place-title',label.replace(/[-_]/g,' '));put('#drawer-name',label.replace(/[-_]/g,' '));
@@ -521,6 +527,11 @@ async function setTemplate(id){if(!DATA?.maps[id])return;activeId=id;stopScene()
  const doc=new DOMParser().parseFromString(DATA.maps[id].svg,'image/svg+xml');svg=document.importNode(doc.documentElement,true);
  const refs=new Set(),stack=[svg.outerHTML];while(stack.length){const s=stack.pop();for(const m of s.matchAll(/(?:href=["']#|url\(#)([^"') ]+)/g)){if(!refs.has(m[1])&&DATA.vectors[m[1]]){refs.add(m[1]);stack.push(DATA.vectors[m[1]])}}}
  const defs=document.createElementNS('http://www.w3.org/2000/svg','defs');defs.innerHTML=[...refs].map(x=>DATA.vectors[x]).join('');svg.prepend(defs);
+ const presentIds=new Set([...svg.querySelectorAll('[data-id]')].map(n=>n.dataset.id));
+ for(const place of DATA.maps[id].places||[])if(!presentIds.has(place.id)&&Number.isFinite(place.x)&&Number.isFinite(place.y)){
+  const anchor=uiElement('g',{'data-id':place.id,'data-presentation-anchor':'metadata',tabindex:'0',role:'button','aria-label':place.name},svg);
+  uiElement('circle',{cx:place.x,cy:place.y,r:12,fill:'transparent','pointer-events':'all'},anchor);
+ }
  originalVB=DATA.maps[id].bounds||getVB(svg);if(!Array.isArray(originalVB)||originalVB.length!==4)originalVB=getVB(svg);vb=[...originalVB];svg.setAttribute('viewBox',vb.join(' '));
  $('#mapmount').replaceChildren(svg);if(id==='h1')stopScene=mountH1Motion(svg,()=>moving&&!matchMedia('(prefers-reduced-motion: reduce)').matches);svg.addEventListener('click',eventClick);
  svg.addEventListener('wheel',e=>{e.preventDefault();zoom(e.deltaY<0?.88:1.14)},{passive:false});
@@ -604,7 +615,7 @@ async function prepareTemplateUI(){
   for(const actor of actors){const place=(DATA.maps[activeId].places||[]).find(p=>p.id===actor.placeId||p.name===actor.placeName);if(!place)continue;const inside=actor.inside===true||actor.pcSpot==='inside',point=localPoint(place,inside,actor);if(!point)continue;
    const element=actorTag(actor);element.classList.add('npc-tag');element.title=actor.activity||place.name;layer.append(element);
    element.onpointerenter=e=>{if(e.pointerType!=='touch'){hovered=element;renderPositions()}};element.onpointerleave=()=>{if(hovered===element){hovered=null;renderPositions()}};element.onfocus=()=>{hovered=element;renderPositions()};element.onblur=()=>{if(hovered===element){hovered=null;renderPositions()}};
-   element.onclick=()=>{toggleXray(element);put('#place-title',actor.name||'Chưa rõ');put('#drawer-name',actor.name||'Chưa rõ');put('#activity',actor.hearingText||'');put('#observation',[actor.activity,actor.observation||place.desc].filter(Boolean).join('\n'))};
+   element.onclick=()=>{toggleXray(element);showActorDetails(actor,place)};
    const stance=inside?'hidden':(['walk','idle','hidden'].includes(actor.footstep)?actor.footstep:'idle');let feet=null,stop=null;
    if(stance!=='hidden'){
     feet=uiElement('g',{class:'footstep',transform:`translate(${point.x} ${point.y}) scale(.6)`},footLayer);stop=mountFeet(feet,stance);

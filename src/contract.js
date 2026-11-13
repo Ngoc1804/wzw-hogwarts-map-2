@@ -12,7 +12,7 @@ function normalize(input){
    if(typeof p==='string')return{name:p,count:1,op:'ensure'};
    const valid=Number.isInteger(p?.count)&&Number.isFinite(p?.count)&&p.count>=0;
    if(p?.count!==undefined&&!valid)diagnostics.push('invalid-prop-count:'+index+':'+i);
-   return {...p,item:VOCAB.itemAliases?.[p?.item]||p?.item,name:text(p?.name),count:valid?p.count:1,countProvided:valid,op:p?.op==='add'?'add':'ensure'};
+   return {...p,item:VOCAB.itemAliases?.[p?.item]||p?.item,name:text(p?.name),childId:text(p?.childId),parentId:text(p?.parentId),count:valid?p.count:1,countProvided:valid,op:p?.op==='add'?'add':'ensure'};
   }).filter(p=>p.name);
   return {...p,id,name:text(p.name),type:text(p.type),description:text(p.description),isNewConstruction:p.isNewConstruction===true,propsMode:p.propsMode==='replace'?'replace':'merge',props};
  });

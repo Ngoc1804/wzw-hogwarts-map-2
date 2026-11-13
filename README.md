@@ -6,6 +6,16 @@ README này là tài liệu chỉ đạo hiện hành, viết lại theo các qu
 
 **Trạng thái:** đã có tài nguyên và runtime một phần; chưa hoàn thiện cơ chế, chưa nghiệm thu AI Studio Preview. Việc khóa tài liệu không chứng nhận code đã thực hiện đúng mọi mục dưới đây. Trạng thái từng lượt nằm ở checkpoint dưới; đã có thay đổi contract/routing/Atlas, chưa hoàn thiện renderer hoặc nghiệm thu runtime.
 
+### Sửa lỗi ID/đồ con/ribbon trên base 1552760
+
+Đã đóng 3 lỗi xác nhận của audit trước, [bằng chứng mới](docs/LINK_CHILD_FIX_QA.json):
+
+- Hai ID da-brick-gateway/ka-stair có presentation anchor lấy đúng x/y metadata nguồn; không sửa pack/artwork Fixed, không đoán tọa độ. Resolver giữ tọa độ nguồn khi merge RP. Cả hai hiện 1 marker PC. 13 Fixed browser ready, không thiếu anchor/use ref hoặc pageerror trong audit.
+- Child changes reconcile về trạng thái cuối trước draw: 1→3→1 đúng 1; sửa state giữ count, remove không xóa sibling. Nhân bản dùng use tham chiếu chung thay vì clone toàn subtree/defs; tối đa 32 hình + số dư rõ trong Inspector cho count cực lớn. Không tăng DOM theo triệu đồ.
+- Một nhóm vẫn một ribbon, không đổi kiểu/hình/label ribbon. Click ribbon map hoặc chip sidebar dùng chung showActorDetails, hiển thị đồng thời summary/members/activity; mobile tự mở drawer. Diagnostic đồ con/surface được diễn giải rõ trong Inspector, không âm thầm báo đã sửa khi unresolved.
+
+PASS tests/link-child-ribbon.cjs, 26 kiểm four-fixes (X-Ray tương tác), routing-current, indoor-placement, corridor-source, current-scope, inventory-visual; static links source/runtime không còn issue trong tập kiểm; catalog/Fixed pack khớp hash duyệt. examples/mechanism-review.html rebuild tự chứa code mới. Chưa nghiệm thu AI Studio hoặc đóng toàn bộ các task plan khác (prompt/SHA cuối, đo tối ưu, ma trận nâng cao). Không dùng kết quả này thay nghiệm thu toàn dự án.
+
 ### Audit liên kết ID / plan tại 6fa8608 — 14/11/2026
 
 [Hồ sơ đầy đủ](docs/PROJECT_LINK_AUDIT.json). 8 bộ test hiện hành PASS, trong đó four-fixes có 26 kiểm; không suy thành PASS toàn dự án. Build tái lập không đổi dist. Catalog và Fixed pack khớp hash bản duyệt.
