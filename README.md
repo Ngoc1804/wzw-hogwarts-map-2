@@ -1,3 +1,11 @@
+# Bước 1 — đã tiếp nhận bộ FINAL (2026-11-14)
+
+Người dùng xác nhận full asset/layout đã hoàn thiện và giao **chỉ bước 1**. Source nguyên byte: assets/intake/final-2026-11-14/. Báo cáo: [docs/final-intake/README.md](docs/final-intake/README.md). 423 asset; 49 layout (41 Indoor + 8 Outdoor); 235 asset layout hiệu lực, 26 ID riêng cần bảo toàn. Scan 658 SVG không phát hiện lỗi XML/ID nội bộ/local refs/viewBox; render mặc định 49 layout PASS local. Mapping candidate cũ: 125 geometry match / 179 ID-only khác hình / 128 chưa khớp tự động. Không xóa/gộp các trường hợp chưa xác nhận.
+
+Đã chụp desktop/mobile hai viewer. Chưa tích hợp, chưa sửa thiết kế/layout, chưa chạy ma trận va chạm/size/variant và chưa thử AI Studio. Kế hoạch tự redesign cũ bên dưới là lịch sử, không phải task tiếp tục. Bước tiếp: tích hợp FINAL theo mapping sau khi được giao; lịch tự động tắt. Ba trạng thái: tiếp nhận đã làm; QA kỹ thuật giới hạn như báo cáo; không tự suy phê duyệt hình runtime.
+
+---
+
 # Style V2 và gỡ motif nơ — chờ duyệt redesign
 
 Đã đọc plan V2 mới (người dùng cấp 2026-11-13): khung phòng 2.5D; nội thất SVG 2D phẳng, nhiều góc nhìn theo món; không ép isometric/45°/mặt hông hoặc khay oval. V2 thay các chỉ dẫn góc front bắt buộc trước đây.

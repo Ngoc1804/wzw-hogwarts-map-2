@@ -1,0 +1,57 @@
+{
+  "baseCommit": "9213f03cea84910b7f96d9e272f7f4255666d373",
+  "files": [
+    {
+      "file": "WIZAMAP_ASSETS_FINAL.html",
+      "bytes": 298842,
+      "sha256": "17228d044eea77df4354b703e89d5106d3196c4b61b2c853ff7a6aa07c1afb8a"
+    },
+    {
+      "file": "WIZAMAP_LAYOUTS_FINAL.html",
+      "bytes": 212575,
+      "sha256": "2d7b484dcf8be8bd9a5cbe5fe43af3cc915d484270eff9168ce71851d2ccdcb9"
+    }
+  ],
+  "finalAssets": 423,
+  "layoutInitialDataAssets": 136,
+  "layoutEffectiveAssets": 235,
+  "layouts": 49,
+  "issues": 0,
+  "geometryGroupsWithMultipleRecords": 221,
+  "mapping": {
+    "ID_ONLY_REVIEW_CHANGED_DRAWING": 179,
+    "NO_AUTOMATIC_MATCH": 128,
+    "GEOMETRY_MATCH": 125
+  },
+  "initialCollisionNotReady": 65,
+  "effectiveCollisionUnspecified": 235,
+  "layoutOnlyIds": [
+    "wm.house-brick-arcade.8c27d78c",
+    "wm.house-brick-l.5ff7c771",
+    "wm.house-brick-low.42c9b412",
+    "wm.house-brick-mansard.71b5c7eb",
+    "wm.house-brick-tall.9a94368a",
+    "wm.house-brick-wide.fa260215",
+    "wm.house-wood-barn.c63274f6",
+    "wm.house-wood-double.e2e2a04b",
+    "wm.house-wood-gable.ab6b565f",
+    "wm.house-wood-hip.7925847a",
+    "wm.house-wood-l.d1dd5725",
+    "wm.house-wood-wide.6ed44df0",
+    "wm.tree-alder.d544f1db",
+    "wm.tree-ancient.44fd9b11",
+    "wm.tree-bare.79622059",
+    "wm.tree-beech.afd8458e",
+    "wm.tree-birch.33c31da8",
+    "wm.tree-fruit.401cc5dc",
+    "wm.tree-oak.4595a4d3",
+    "wm.tree-pine.8b1af022",
+    "wm.tree-rowan.08832739",
+    "wm.tree-slender.0448a23a",
+    "wm.tree-spreading.8c65c4b7",
+    "wm.tree-spruce.d22e24fe",
+    "wm.tree-weeping.2a15a03c",
+    "wm.tree-willow.73cadf0c"
+  ],
+  "scope": "intake only; no artwork/layout/runtime changes"
+}
