@@ -44,25 +44,30 @@ for(const room of _t){
 }
 let REVIEW_SIZE='M';
 const REVIEW_WALLS={HEADMASTER_OFFICE:'panel',DIVINATION_CLASSROOM:'dark',ASTRONOMY_OBSERVATORY:'stone',PREFECTS_BATHROOM:'plaster',CHAMBER_OF_SECRETS:'dark',TOWER_CLOCKWORK:'ashlar',BALLROOM:'limestone',TROPHY_ROOM:'panel',OFFICE:'wainscot',STUDY_ROOM:'timber',LIBRARY:'panel',ARCHIVE:'ashlar',STORAGE:'rubble',WORKSHOP:'brick',BEDROOM:'wainscot',KITCHEN:'brick',BATHROOM:'plaster',LAUNDRY:'plaster',HOSPITAL_WARD:'plaster',DETENTION_CELL:'dark',SECURE_VAULT:'ashlar'};
-const REVIEW_COLORS=[
- {floor:'#eee7d8',line:'#c5bba8',wall:'#c9d9e0',wood:'#805238',fabric:'#426e90'},
- {floor:'#e5ece8',line:'#b4c5bd',wall:'#d8d0e3',wood:'#67503e',fabric:'#96566a'},
- {floor:'#ece4dc',line:'#c7b5a6',wall:'#c3d8cf',wood:'#436c64',fabric:'#be8d3e'},
- {floor:'#e9edf2',line:'#bbc5d2',wall:'#ddd1bb',wood:'#665278',fabric:'#4f8996'},
- {floor:'#f0e8d6',line:'#c8baa0',wall:'#c4d1df',wood:'#854b40',fabric:'#5e8167'},
- {floor:'#e4ece4',line:'#b5c5b4',wall:'#e2cbd0',wood:'#47677b',fabric:'#a5643e'},
- {floor:'#ede7ef',line:'#c6b9c8',wall:'#cbdadd',wood:'#806139',fabric:'#62518c'},
- {floor:'#e9e6dd',line:'#bdb7a8',wall:'#d5dfc4',wood:'#59516e',fabric:'#ab5664'}
-];
-const REVIEW_PALETTES={};let colorIndex=0;
-for(const room of _t)if(!room.special&&!room.id.startsWith('OUT_'))REVIEW_PALETTES[room.id]=REVIEW_COLORS[colorIndex++%REVIEW_COLORS.length];
-REVIEW_PALETTES.BALLROOM={floor:'#edf7ff',line:'#b5cfdf',wall:'#cde3f1',wood:'#739db8',fabric:'#a6d1eb'};
+// Warm parchment / limestone / natural timber; small muted textile accents.
+// Room families select materials deliberately; no rotating saturated room colors.
+const REVIEW_COLORS={
+ study:{floor:'#e5dccb',line:'#cbbda7',wall:'#d6cbb6',wood:'#b29a7b'},
+ stone:{floor:'#e3e0d6',line:'#c7c1b2',wall:'#d1ccbf',wood:'#b39a7d'},
+ domestic:{floor:'#e7dccb',line:'#ccbaa0',wall:'#ddd3c2',wood:'#b69a78'},
+ work:{floor:'#e0d8c9',line:'#c5b8a2',wall:'#d3c8b5',wood:'#ad9376'},
+ wet:{floor:'#e1e8e3',line:'#bdcbc3',wall:'#d7e0d9',wood:'#b09a80'}
+};
+const REVIEW_PALETTES={};
+for(const room of _t)if(!room.special&&!room.id.startsWith('OUT_')){
+ let family=/BATH|LAUNDRY|HOSPITAL/.test(room.id)?'wet':/WORKSHOP|KITCHEN|STORAGE|ARCHIVE/.test(room.id)?'work':/BEDROOM|LOUNGE|DINING|CLOAK/.test(room.id)?'domestic':/CELL|VAULT|GUARD|ENTRANCE|CEREMONY/.test(room.id)?'stone':'study';
+ REVIEW_PALETTES[room.id]=REVIEW_COLORS[family];
+}
+// Ballroom keeps the source floor, wall, textiles and small details. Only timber changes.
+const REVIEW_WALNUT='#9a8068';
 const originalNt=Nt;
 Nt=function(id,options={}){
  h.height=40;h.materials.wall=REVIEW_WALLS[id]||'stone';
  const palette=REVIEW_PALETTES[id],priorMaterials=Kt;
- if(palette){fe[id]=[palette.floor,palette.line,palette.wall];Kt={wood:palette.wood,fabric:palette.fabric,...priorMaterials};}
+ if(palette){fe[id]=[palette.floor,palette.line,palette.wall];Kt={wood:palette.wood,...priorMaterials};}
+ if(id==='BALLROOM')Kt={wood:REVIEW_WALNUT,...priorMaterials};
  const result=originalNt(id,options);Kt=priorMaterials;
+ if(!id.startsWith('OUT_'))s('wood-color').value=priorMaterials.wood||(id==='BALLROOM'?REVIEW_WALNUT:palette?.wood||Q.wood);
 
  const parsed=new DOMParser().parseFromString(result.svg,'image/svg+xml');
  if(parsed.querySelector('parsererror'))throw Error('Invalid source SVG '+id);
@@ -77,12 +82,7 @@ Nt=function(id,options={}){
    const base=pattern.querySelector('rect');if(base)base.setAttribute('fill',palette.wall);
    pattern.querySelectorAll('path,line').forEach(n=>{if(n.getAttribute('stroke')!=='none')n.setAttribute('stroke',palette.line);});
   }
-  root.setAttribute('data-color-theme',id==='BALLROOM'?'snow-ice-blue':'contrasting-materials');
-  if(id==='BALLROOM')for(const n of root.querySelectorAll('[fill],[stroke]'))for(const attr of ['fill','stroke']){
-   const value=n.getAttribute(attr);if(!/^#[0-9a-f]{6}$/i.test(value||''))continue;
-   const rgb=[1,3,5].map(i=>parseInt(value.slice(i,i+2),16)/255),[r,g,b]=rgb,light=(Math.max(...rgb)+Math.min(...rgb))/2;
-   if(r>b*1.15&&r>g&&light>.25&&light<.87)n.setAttribute(attr,light>.65?'#d5e7f1':light>.45?'#9fbfd2':'#647f94');
-  }
+  root.setAttribute('data-color-theme','warm-natural-materials');
  }
  root.setAttribute('data-layout',id);root.setAttribute('data-size',REVIEW_SIZE);root.setAttribute('data-wall-height','40');
  root.setAttribute('tabindex','0');root.setAttribute('aria-label',Ct(id).name+' — '+REVIEW_SIZE);

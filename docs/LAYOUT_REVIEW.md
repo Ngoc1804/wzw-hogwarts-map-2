@@ -30,9 +30,15 @@ python tools/build-layout-review.py
 
 Chỉ sinh HTML review. Chờ user duyệt trước tích hợp template size vào source chính; không coi bản review là renderer thứ hai của runtime.
 
-## Cập nhật màu — chờ duyệt
+## Sửa màu sau khi người dùng từ chối bản 326ab8f
 
-- Đổ màu lại toàn bộ 32 phòng Indoor công năng bằng tám bảng phối: sàn sáng, tường pastel, nội thất đậm hơn và vải có màu nhấn. Giữ chi tiết, số đồ và hình học H40/S–M–L.
-- Phòng khiêu vũ: sàn trắng xanh tuyết, tường xanh nhạt, nội thất xanh lam đậm hơn để tách hình.
-- Chạy lại kiểm 168 tổ hợp: PASS; không lỗi JavaScript, không mất đồ do capacity, không chữ SVG hay ID trùng. Đã xem ảnh Thư viện, Xưởng chế tác và Phòng khiêu vũ; vẫn chờ người dùng duyệt thẩm mỹ. Chưa thử AI Studio Preview.
-- Ảnh màu mới: [Thư viện](layout-review/library-color.png) · [Xưởng chế tác](layout-review/workshop-color.png) · [Phòng khiêu vũ](layout-review/ballroom-color.png). Ảnh Office phía trên thuộc bản trước đổi màu.
+Bản phối tám màu đậm và Ballroom xanh tuyết **không được duyệt**, đã thay thế trong HTML hiện tại.
+
+- Tone dự án: giấy kem ấm, đá vôi/đá xám sáng, gỗ tự nhiên, kim loại đồng cũ; vải xanh sage, xanh xám và đỏ đất dịu làm điểm nhấn nhỏ.
+- 32 phòng công năng chọn bảng vật liệu theo nhóm công năng (học tập, sinh hoạt, chế tác, đá, khu ướt). Nền sáng hơn đồ; không quay vòng màu xanh/tím cho gỗ.
+- Giữ màu riêng của sách, giấy, vải, kính, kim loại và chi tiết nguồn. Chỉ đổi slot gỗ; không quét đổi mọi màu SVG theo RGB.
+- Ballroom khôi phục sàn/tường/vải/chi tiết gốc; chỉ đổi slot gỗ sang óc chó dịu `#9a8068`.
+- Giữ nguyên H40, S/M/L, bố cục và số đồ. Phòng đặc biệt khác cùng outdoor giữ bảng màu nguồn.
+- Kiểm lại 168 tổ hợp PASS: không lỗi JavaScript, không chữ SVG, không ID trùng, không món bị source báo dropped, không dải sàn thừa. Đã xem ảnh Thư viện và Ballroom. Chưa nghiệm thu AI Studio Preview; **chờ người dùng duyệt thẩm mỹ**.
+
+Ảnh hiện tại: [Thư viện](layout-review/library-color.png) · [Xưởng chế tác](layout-review/workshop-color.png) · [Phòng khiêu vũ](layout-review/ballroom-color.png) · [Office](layout-review/office-M.png).
