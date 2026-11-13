@@ -29,3 +29,10 @@ python tools/build-layout-review.py
 ```
 
 Chỉ sinh HTML review. Chờ user duyệt trước tích hợp template size vào source chính; không coi bản review là renderer thứ hai của runtime.
+
+## Cập nhật màu — chờ duyệt
+
+- Đổ màu lại toàn bộ 32 phòng Indoor công năng bằng tám bảng phối: sàn sáng, tường pastel, nội thất đậm hơn và vải có màu nhấn. Giữ chi tiết, số đồ và hình học H40/S–M–L.
+- Phòng khiêu vũ: sàn trắng xanh tuyết, tường xanh nhạt, nội thất xanh lam đậm hơn để tách hình.
+- Chạy lại kiểm 168 tổ hợp: PASS; không lỗi JavaScript, không mất đồ do capacity, không chữ SVG hay ID trùng. Đã xem ảnh Thư viện, Xưởng chế tác và Phòng khiêu vũ; vẫn chờ người dùng duyệt thẩm mỹ. Chưa thử AI Studio Preview.
+- Ảnh màu mới: [Thư viện](layout-review/library-color.png) · [Xưởng chế tác](layout-review/workshop-color.png) · [Phòng khiêu vũ](layout-review/ballroom-color.png). Ảnh Office phía trên thuộc bản trước đổi màu.

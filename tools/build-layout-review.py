@@ -44,10 +44,26 @@ for(const room of _t){
 }
 let REVIEW_SIZE='M';
 const REVIEW_WALLS={HEADMASTER_OFFICE:'panel',DIVINATION_CLASSROOM:'dark',ASTRONOMY_OBSERVATORY:'stone',PREFECTS_BATHROOM:'plaster',CHAMBER_OF_SECRETS:'dark',TOWER_CLOCKWORK:'ashlar',BALLROOM:'limestone',TROPHY_ROOM:'panel',OFFICE:'wainscot',STUDY_ROOM:'timber',LIBRARY:'panel',ARCHIVE:'ashlar',STORAGE:'rubble',WORKSHOP:'brick',BEDROOM:'wainscot',KITCHEN:'brick',BATHROOM:'plaster',LAUNDRY:'plaster',HOSPITAL_WARD:'plaster',DETENTION_CELL:'dark',SECURE_VAULT:'ashlar'};
+const REVIEW_COLORS=[
+ {floor:'#eee7d8',line:'#c5bba8',wall:'#c9d9e0',wood:'#805238',fabric:'#426e90'},
+ {floor:'#e5ece8',line:'#b4c5bd',wall:'#d8d0e3',wood:'#67503e',fabric:'#96566a'},
+ {floor:'#ece4dc',line:'#c7b5a6',wall:'#c3d8cf',wood:'#436c64',fabric:'#be8d3e'},
+ {floor:'#e9edf2',line:'#bbc5d2',wall:'#ddd1bb',wood:'#665278',fabric:'#4f8996'},
+ {floor:'#f0e8d6',line:'#c8baa0',wall:'#c4d1df',wood:'#854b40',fabric:'#5e8167'},
+ {floor:'#e4ece4',line:'#b5c5b4',wall:'#e2cbd0',wood:'#47677b',fabric:'#a5643e'},
+ {floor:'#ede7ef',line:'#c6b9c8',wall:'#cbdadd',wood:'#806139',fabric:'#62518c'},
+ {floor:'#e9e6dd',line:'#bdb7a8',wall:'#d5dfc4',wood:'#59516e',fabric:'#ab5664'}
+];
+const REVIEW_PALETTES={};let colorIndex=0;
+for(const room of _t)if(!room.special&&!room.id.startsWith('OUT_'))REVIEW_PALETTES[room.id]=REVIEW_COLORS[colorIndex++%REVIEW_COLORS.length];
+REVIEW_PALETTES.BALLROOM={floor:'#edf7ff',line:'#b5cfdf',wall:'#cde3f1',wood:'#739db8',fabric:'#a6d1eb'};
 const originalNt=Nt;
 Nt=function(id,options={}){
  h.height=40;h.materials.wall=REVIEW_WALLS[id]||'stone';
- const result=originalNt(id,options);
+ const palette=REVIEW_PALETTES[id],priorMaterials=Kt;
+ if(palette){fe[id]=[palette.floor,palette.line,palette.wall];Kt={wood:palette.wood,fabric:palette.fabric,...priorMaterials};}
+ const result=originalNt(id,options);Kt=priorMaterials;
+
  const parsed=new DOMParser().parseFromString(result.svg,'image/svg+xml');
  if(parsed.querySelector('parsererror'))throw Error('Invalid source SVG '+id);
  const root=parsed.documentElement;
@@ -55,6 +71,18 @@ Nt=function(id,options={}){
  if(id==='HEADMASTER_OFFICE'){
   const factor=Math.min(result.report.width/900,result.report.height/630),tx=(result.report.width-900*factor)/2,ty=(result.report.height-630*factor)/2;
   const door=parsed.createElementNS('http://www.w3.org/2000/svg','g');door.setAttribute('data-element-id','review.entry-door');door.setAttribute('data-object','Cửa vào · hướng Bắc');door.setAttribute('transform',`translate(${tx} ${ty}) scale(${factor})`);door.innerHTML='<g transform="matrix(1 0 .42 -1 450 50)"><path d="M-26 0H26V33.6H-26Z" fill="#9a734f" stroke="#5f4e3b" stroke-width="2.7"/><path d="M-22 2V26M22 2V26M0 1V30M-24 9H24M-24 23H24" fill="none" stroke="#d5b58a"/><circle cx="7" cy="16" r="1.6" fill="#dec28a"/></g>';root.append(door);result.report.door={side:'north',width:52};
+ }
+ if(palette){
+  for(const pattern of root.querySelectorAll('pattern[id^="wall-"]')){
+   const base=pattern.querySelector('rect');if(base)base.setAttribute('fill',palette.wall);
+   pattern.querySelectorAll('path,line').forEach(n=>{if(n.getAttribute('stroke')!=='none')n.setAttribute('stroke',palette.line);});
+  }
+  root.setAttribute('data-color-theme',id==='BALLROOM'?'snow-ice-blue':'contrasting-materials');
+  if(id==='BALLROOM')for(const n of root.querySelectorAll('[fill],[stroke]'))for(const attr of ['fill','stroke']){
+   const value=n.getAttribute(attr);if(!/^#[0-9a-f]{6}$/i.test(value||''))continue;
+   const rgb=[1,3,5].map(i=>parseInt(value.slice(i,i+2),16)/255),[r,g,b]=rgb,light=(Math.max(...rgb)+Math.min(...rgb))/2;
+   if(r>b*1.15&&r>g&&light>.25&&light<.87)n.setAttribute(attr,light>.65?'#d5e7f1':light>.45?'#9fbfd2':'#647f94');
+  }
  }
  root.setAttribute('data-layout',id);root.setAttribute('data-size',REVIEW_SIZE);root.setAttribute('data-wall-height','40');
  root.setAttribute('tabindex','0');root.setAttribute('aria-label',Ct(id).name+' — '+REVIEW_SIZE);
