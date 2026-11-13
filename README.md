@@ -1,3 +1,7 @@
+# Các cụm mới đã bị bác bỏ và xóa
+
+Catalog review hiện giữ 432 design nguồn, không có cụm mới hoặc demo đặt thử. Xem docs/CLUSTER_REDESIGN_PLAN.md: nghiên cứu mẫu, công cụ Figma đã kết nối và danh sách cụm cần vẽ. Chờ duyệt trước tạo SVG thay thế.
+
 # Catalog màu đã lọc — bộ dự kiến chờ duyệt
 
 Người dùng yêu cầu lọc theo nét vẽ, ưu tiên bản màu và ghép thêm cụm để bàn. Đã tạo **440 design dự kiến**: 432 design nguồn + 6 cụm top mới + 2 cụm cây 259. Bảng đầy đủ 1.376 dòng nguồn ghi 911 bản sao gộp, 33 bản ghi cây thường cũ loại khỏi candidate. Giữ các design khác nét/view dù cùng tên và hai cây đặc biệt; chưa thay catalog/trees/layout/dist runtime.
