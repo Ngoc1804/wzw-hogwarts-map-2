@@ -1,3 +1,11 @@
+# Catalog màu đã lọc — bộ dự kiến chờ duyệt
+
+Người dùng yêu cầu lọc theo nét vẽ, ưu tiên bản màu và ghép thêm cụm để bàn. Đã tạo **440 design dự kiến**: 432 design nguồn + 6 cụm top mới + 2 cụm cây 259. Bảng đầy đủ 1.376 dòng nguồn ghi 911 bản sao gộp, 33 bản ghi cây thường cũ loại khỏi candidate. Giữ các design khác nét/view dù cùng tên và hai cây đặc biệt; chưa thay catalog/trees/layout/dist runtime.
+
+Mở **examples/asset-review.html** (offline, đầy đủ SVG màu, tìm kiếm/tải từng SVG, tab giữ/gộp/bỏ). Nguồn candidate: examples/asset-review-data.json. Bảng: docs/ASSET_SELECTION.csv; báo cáo: [ASSET_CANDIDATE.md](docs/ASSET_CANDIDATE.md). PASS 440 SVG và kiểm thành phần 6 cụm top/2 cụm cây; xem tests/asset-candidate-qa.json và ảnh asset-*.png. Chờ người dùng duyệt bản cụ thể trước tích hợp production; lịch vẫn tắt.
+
+---
+
 # C1–C5 — cải thiện theo duyệt phần 1 và 2 (2026-11-13)
 
 Người dùng duyệt triển khai Indoor/marker và các mẫu Outdoor; chưa giao bước 3 kiểm toàn bộ Fixed/X-Ray và chưa duyệt hình bản cải thiện. Nhánh giữ `M2-P01-baseline-loader`, base `16818bf`. Lịch tự động vẫn tắt.
