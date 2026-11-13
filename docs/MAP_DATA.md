@@ -9,7 +9,7 @@ Cập nhật cho cơ chế README mới. Đây là contract code hiện nhận; 
 - `atlasAnchor`: một ID Fixed, cluster Atlas, scope World hoặc `custom`; tên alias scope từ vocabulary được normalize một điểm.
 - `pcPlace`: canonical ID hoặc tên rõ trong scope. `pcSpot`: inside/corridor/threshold/outdoor. Alias outside chỉ normalize thành outdoor.
 - `forceSandbox: true` (optional): user yêu cầu tự dựng. `mapMode`: indoor/outdoor; template hoặc bỏ trống giữ định tuyến Fixed/Atlas. Dựng Generated Outdoor hiện cần mapMode outdoor rõ ràng.
-- `layoutType` optional: horizontal/vertical/windows/ell/tee/cross/court/cloister/curved/tower. Khung Generated Indoor giữ góc nhìn nguồn, không đổi bằng payload.
+- `layoutType` optional: horizontal/vertical/windows/ell/tee/cross/court/cloister/curved/tower. Khung Generated Indoor giữ góc nhìn source đã duyệt và tường H40; payload không đổi hệ chiếu/chiều cao khung. Số phòng theo scope RP, không khóa số phòng của viewer.
 - `region` optional: diagon/knockturn, bắt buộc khi gán nhà/tiệm mới trong diagon-knockturn; cũng nhận ở từng place.
 
 ## Places

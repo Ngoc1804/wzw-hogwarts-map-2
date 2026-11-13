@@ -6,6 +6,16 @@ README này là tài liệu chỉ đạo hiện hành, viết lại theo các qu
 
 **Trạng thái:** đã có tài nguyên và runtime một phần; chưa hoàn thiện cơ chế, chưa nghiệm thu AI Studio Preview. Việc khóa tài liệu không chứng nhận code đã thực hiện đúng mọi mục dưới đây. Trạng thái từng lượt nằm ở checkpoint dưới; đã có thay đổi contract/routing/Atlas, chưa hoàn thiện renderer hoặc nghiệm thu runtime.
 
+### Checkpoint áp khung corridors đã duyệt H40 — 14/11/2026
+
+Base `857f0c6`; file user cấp lại `CHỐT_01_10_CORRIDORS_FINAL.html` có SHA-256 `e1fd37c355ec679b2d44b52fc0a669b8ea00d36f284a4da3f4ff9f837e1cd7e6`, khớp baseline cũ. Runtime giải nén **trùng nguyên byte** `assets/source/corridors.js`, không nhập renderer mới. User chốt khung/góc nhìn/10 công thức/hốc/khe, chiều cao **40**, không cần thiết kế hay duyệt lại khung.
+
+Code bỏ ép H36, bỏ nến dọc ngoài nguồn, bỏ span vuông mặc định theo artwork; giữ tỷ lệ phòng và công thức nguồn. Catalog thêm **48 element** (11 decor, 21 pattern, 12 cửa/cửa sổ, 3 sân, 1 sàn thảm), tổng **498 ID**. Lọc trùng chính xác bảo toàn màu/transform/viewBox: không thấy trùng chính xác với catalog cũ; không gộp theo tên/hình gần giống. Bundle tái tạo SVG corridors từ cùng lõi qua source reference, không nhúng thêm 48 chuỗi SVG. Compiler FINAL gọi importer corridors để rebuild không làm mất element.
+
+Kiểm tích hợp tập trung: 40 cấu hình (10 preset × 1/4/12/20 phòng), geometry/hốc/khe nguồn và H40; 48 source reference tái tạo SVG nguyên dạng; XML/IDs/refs PASS. Test geometry cô lập furniture/style, không thay chứng nhận hình runtime. Chưa chạy browser/ảnh/AI Studio; giữ nguồn đã được user duyệt. [Báo cáo](docs/CORRIDORS_H40.md) · [catalog offline](examples/asset-review.html).
+
+P5 size/placement/nội thất Generated vẫn có phần việc riêng; không coi đã xong toàn Indoor. Palette mới/?/! chưa được thay đổi ở mốc này.
+
 ### Checkpoint tích hợp Atlas và bản Gemini tiếng Anh — 14/11/2026
 
 Tích hợp nhánh `ATLAS_CAN_DUYET` (`84f9f82`) vào nhánh triển khai trên base `3ea860a`, không merge main. Nguồn chính: [GitHub Atlas Master](docs/WZW_MAP2_ATLAS_GITHUB_MASTER.md); bản cho Gemini: [Atlas-only English](docs/WZW_MAP2_ATLAS_GEMINI_MIN.md). ATLAS_W4/W4_1 chỉ còn redirect, không giữ hai Atlas cạnh tranh. Hướng dẫn /map/contract/loader không nhét vào Atlas MIN, sẽ hợp nhất ở P8.
@@ -116,7 +126,7 @@ Phạm vi cụ thể lấy từ Atlas nguồn và được chốt thành bảng 
 | `docs/WZW_MAP2_ATLAS_GITHUB_MASTER.md` → `tools/atlas.py` → `assets/atlas.json` | Atlas dễ đọc và index runtime từ cùng nguồn; cần đồng bộ routing mới |
 | `assets/intake/final-2026-11-14/WIZAMAP_ASSETS_FINAL.html` | Thư viện FINAL nguyên bản: 423 asset |
 | `assets/intake/final-2026-11-14/WIZAMAP_LAYOUTS_FINAL.html` | Layout FINAL nguyên bản: 41 Indoor + 8 Outdoor |
-| `assets/catalog.json` | Catalog runtime hiện có: 450 ID, gồm alias/bổ sung từ layout |
+| `assets/catalog.json` | Catalog runtime: 498 ID = 450 ID FINAL/layout + 48 element corridors đã chốt |
 | `assets/recipes.json`, `assets/p4-art.json` | 49 recipe và artwork/metadata biên dịch; không phải 49 cảnh bất biến |
 | `assets/source/corridors.js` | Hình học/hành lang nguồn với 10 preset |
 | `examples/template-review.html` | Source Fixed/UI hiện hành và viewer đủ 13 mẫu |
@@ -166,7 +176,7 @@ Không phát hành prompt trước khi runtime nhận đúng những field đó.
 
 Layout là mẫu tổ chức không gian; recipe là cụm nền theo công năng; asset là hình nguyên liệu. Code tự đối chiếu tên/công năng phòng với recipe, Gemini không phải biết ID từng món. Được đổi số cụm, bố trí và kích thước phòng theo RP, không kéo méo artwork hoặc ép mọi phòng thành cùng một mẫu.
 
-**Ưu tiên trong prompt:** Fixed phù hợp → layout/asset sẵn có → xây mới khi cần. **Code khóa một khung dựng hành lang Generated Indoor và cùng góc nhìn 2.5D xuyên suốt dự án**, dùng lõi corridors nguồn (tường cao 36 hiện có). Không để nhánh Gemini tạo mới đổi khung thành mặt bằng phẳng. Size/vị trí phòng, sàn/tường và nội–ngoại thất được tùy biến; hình đồ vật phẳng theo source không làm đổi góc nhìn khung. Fixed giữ nguyên góc nhìn artwork đã duyệt.
+**Ưu tiên trong prompt:** Fixed phù hợp → layout/asset sẵn có → xây mới khi cần. **Code khóa một khung dựng hành lang Generated Indoor và cùng góc nhìn 2.5D xuyên suốt dự án**, dùng lõi corridors nguồn (tường cao 40 theo source đã chốt). Không để nhánh Gemini tạo mới đổi khung thành mặt bằng phẳng. Size/vị trí phòng, sàn/tường và nội–ngoại thất được tùy biến; hình đồ vật phẳng theo source không làm đổi góc nhìn khung. Fixed giữ nguyên góc nhìn artwork đã duyệt.
 
 Indoor giữ 10 preset `horizontal`, `vertical`, `windows`, `ell`, `tee`, `cross`, `court`, `cloister`, `curved`, `tower`; phòng đơn không buộc có hành lang. Outdoor dùng nền/đường/nước/công trình/cảnh quan, cảnh đơn không buộc có đường. Không tự thêm kết nối canon hoặc đồ vật RP.
 
@@ -202,7 +212,7 @@ Giữ cửa/lối đi, scale đồng đều, đồ trên bàn là surface child,
 
 ### Hành lang và chuyển cảnh tối giản
 
-Tái sử dụng decor nguồn, tạo **3 cấu hình nhẹ**: tối giản; đèn/nến; tranh–cây. Chọn bằng seed scope ổn định, không random lại mỗi lần /map, không nhân bản SVG chỉ để có recipe mới. Chỉ đặt khi đủ chỗ, tránh cửa; thiếu asset phù hợp thì giữ tối giản. Nội thất hành lang là decor hỗ trợ, không phải dependency phức tạp của Indoor.
+Dùng **đúng decor/phân bố/hốc/khe của lõi corridors được cấp**, không tự thêm nến lên tường dọc hoặc dựng lại khung. Quyết định source H40 mới thay đề xuất cũ về 3 recipe decor độc lập. Giữ seed ổn định; số phòng/size/material có thể tùy biến theo RP qua công thức nguồn, không khóa 12 phòng hoặc một kích thước cố định. Element được đưa vào catalog bằng cùng artwork nguồn, không nhân đôi SVG trong bundle.
 
 Bỏ đường **tự mở detail từ Fixed** đang có trong code cũ sau khi kiểm dependency. Chọn Fixed hoặc sandbox ngay từ routing. User yêu cầu xem riêng nội thất thì dựng một scene sandbox mới qua entry/pipeline hiện có; actor lấy geometry của scene đang active, không giữ cách đặt từ Fixed trước đó.
 
@@ -283,12 +293,12 @@ Trạng thái mặc định **TODO** là chưa hoàn tất theo cơ chế mới,
 | M2-P03-02 | TODO | H1/H2 công trình AU mới/user yêu cầu → sandbox; bỏ auto-detail Fixed | P03-01, P01-01 | Chọn nhánh trước dựng, actor theo geometry active |
 | M2-P03-03 | TODO | Auto-fill “Nhà dân số…” đúng làng/Diagon/Knockturn | P03-01 | Binding ổn định, không chiếm canon/trùng nhà; ca hết chỗ ghi rõ |
 | M2-P03-04 | CODE — chờ QA | Alias/phòng–công năng–recipe, đủ cluster và phòng RP bổ sung | P03-01 | Không yêu cầu Gemini biết asset ID; không tự nhân phòng |
-| M2-P04-01 | TODO | Khóa khung corridors cùng góc nhìn 2.5D, height 36, kể cả hình mới | P02-03, P03-04 | Một khung dựng, size/vật liệu linh hoạt; Fixed không đổi |
+| M2-P04-01 | SOURCE-APPROVED / CODE | Khóa khung corridors cùng góc nhìn 2.5D, height 40, kể cả hình mới | P02-03, P03-04 | Một khung dựng, size/vật liệu linh hoạt; Fixed không đổi |
 | M2-P04-02 | TODO | Mẫu Horizontal + Potions/Office/Storage/Classroom nếu có | P04-01 | Có props lạ, merge/replace và bố trí thích nghi, không ép nguyên layout |
 | M2-P04-03 | TODO | Placement actor nhẹ: zone/sàn, tránh tường/đồ lớn, ngoại lệ RP, anchor khi chật | P02-01, P04-02 | Không solver/game physics; actor không đổi địa điểm hoặc biến mất |
-| M2-P04-04 | TODO | Ba cấu hình decor hành lang, seed ổn định, dùng asset nguồn | P04-01 | Trang trí tối giản, không chắn cửa/nhúng thêm asset trùng |
+| M2-P04-04 | SOURCE-APPROVED / CODE | Giữ decor/hốc/khe nguồn H40, bỏ đề xuất 3 recipe thay thế | P04-01 | Không thêm decor ngoài source, catalog tham chiếu cùng lõi |
 | M2-P04-05 | TODO | Mẫu ?/! chung nét/vùng bấm/hover/reduced-motion | P02-02 | HTML/ảnh có tương tác, chưa tự coi đã duyệt hình |
-| M2-P04-06 | WAIT-VISUAL | Gửi Indoor và ?/! cụ thể cho user | P04-02–05 | User duyệt bản cụ thể trước nhân rộng; hiện chưa có bản mới để duyệt |
+| M2-P04-06 | WAIT-VISUAL | Chỉ gửi nội thất mới và ?/! nếu cần duyệt; khung corridors đã duyệt | P04-02–05 | Không mở lại cổng duyệt khung hành lang. Nội thất mới/?/! vẫn cần bản cụ thể |
 | M2-P05-01 | TODO | Phòng đơn/10 preset; size/vị trí phòng, vật liệu từ layout/asset/RP | P04-06 | Cùng khung 2.5D; không làm mọi phòng thành span vuông cố định |
 | M2-P05-02 | TODO | Hoàn thiện compose/merge/replace/ensure/add/state, định danh ổn định | P02-01, P04-02 | Không thêm trùng; phòng rỗng; sửa/xóa đúng món hoặc nêu giới hạn cụm |
 | M2-P05-03 | TODO | Placement props: floor/wall/surface, cửa/lối đi và fallback khi chật | P05-01–02 | Đồ thêm không thành hàng dưới art; không bỏ đồ RP nhường decor |

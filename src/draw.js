@@ -1,3 +1,17 @@
+// Standalone catalog view from the one approved source: no duplicated corridor SVG in bundle.
+function corridorAssetMarkup(asset){
+ const ref=asset.corridorSource,view=asset.viewBox;let body='';
+ if(ref.kind==='decor')body=CORRIDORS.decorate(ref.key);
+ else if(ref.kind==='pattern'||ref.kind==='yard'||ref.kind==='runner'){
+  const id=ref.kind==='pattern'?ref.key:ref.kind==='runner'?'floor-slate':ref.key==='paving'?'yard-paving':'yard-grass';
+  const pattern=[...CORRIDORS.patterns().matchAll(/<pattern\b[^>]*\bid="([^"]+)"[^>]*>[\s\S]*?<\/pattern>/g)].find(m=>m[1]===id)?.[0]||'';
+  body='<defs>'+pattern+'</defs>'+(ref.kind==='runner'?'<rect width="360" height="120" fill="url(#floor-slate)"/><rect x="4" y="33.6" width="352" height="52.8" fill="#975b58" stroke="#c6a568" stroke-width="2"/>':ref.kind==='pattern'?`<rect width="${ref.w}" height="${ref.h}" fill="url(#${id})"/>`:CORRIDORS.yard({x:0,y:0,w:360,h:280},ref.key));
+ }else{
+  const cfg=structuredClone(CORRIDORS.defaults);cfg.height=40;cfg.materials[ref.kind==='window'?'window':'door']=ref.key;
+  body=CORRIDORS.opening({kind:ref.kind==='window'?'window':'door',main:ref.kind==='main-door',width:ref.kind==='main-door'?64:44,ln:{axis:'H'}},40,cfg);
+ }
+ return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${view.join(' ')}">${body}</svg>`;
+}
 const escapeXML=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function namespaceArt(markup,prefix){return markup.replace(/(?:^|\s)id="([^"]+)"/g,(_,id)=>` id="${prefix}${id}"`).replace(/url\(#([^)]+)\)/g,(_,id)=>`url(#${prefix}${id})`).replace(/href="#([^"]+)"/g,(_,id)=>`href="#${prefix}${id}"`);}
 // Furniture stays upright. Only uniform scale/translation is used; no wall shear.

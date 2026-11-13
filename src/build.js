@@ -12,11 +12,9 @@ function indoorMap(scene,d){
  if(!places.length)places.push({id:'context',name:d.meta.areaName||'Không gian RP',props:[],inventory:composeRoom({props:[]})});
  const layouts=places.map(furnitureLayout),requested=d.layoutType||scene.cluster?.layout||'horizontal';
  const type=CORRIDORS.templates.some(t=>t.id===requested)?requested:'horizontal';
- const cfg=structuredClone(CORRIDORS.defaults);Object.assign(cfg,{type,count:places.length,height:36,seed:0,selected:null,decor:true,overrides:{}});
- for(const [i,f]of layouts.entries()){
-  const span=Math.max(f.width*.67+32,f.height*.67+32,200);
-  cfg.overrides[i]={fw:Math.round(span),depth:Math.round(span)};
- }
+ const cfg=structuredClone(CORRIDORS.defaults);Object.assign(cfg,{type,count:places.length,height:40,seed:0,selected:null,decor:true,overrides:{}});
+ // Source formulas own room proportions, gaps and alcoves. RP sizing adaptation
+ // may supply internal overrides in later placement work, without changing projection.
  const plan=CORRIDORS.build(cfg),single=places.length===1;
  if(single){
   plan.halls=[];plan.passages=[];plan.special=null;plan.yard=null;
@@ -90,17 +88,10 @@ function outdoorMap(scene,d){
 }
 function styleIndoor(markup,plan,places){
  const doc=new DOMParser().parseFromString(markup,'image/svg+xml'),root=doc.documentElement;
- const finishes={POTIONS_LAB:['octagon','dark'],OFFICE:['wood','limestone'],STORAGE:['brick','stone'],CLASSROOM:['tile','plaster']};
- const finish=r=>{const p=places[r.index],base=finishes[recipeId(p?.type)]||['mosaic','wainscot'],a=p?.architecture||{};return [['tile','wood','brick','octagon','mosaic','herringbone','diamond','cobble'].includes(a.floor)?a.floor:base[0],['stone','dark','timber','wainscot','plaster','brick','ashlar','panel','limestone','rubble'].includes(a.wall)?a.wall:base[1]];};
+ const finish=r=>{const p=places[r.index],base=['tile','stone'],a=p?.architecture||{};return [['tile','wood','brick','octagon','mosaic','herringbone','diamond','cobble'].includes(a.floor)?a.floor:base[0],['stone','dark','timber','wainscot','plaster','brick','ashlar','panel','limestone','rubble'].includes(a.wall)?a.wall:base[1]];};
  for(const r of plan.rooms){const[floor]=finish(r);for(const n of root.querySelectorAll('[data-layer="floors"] rect'))if(Math.abs(+n.getAttribute('x')-r.x)<.1&&Math.abs(+n.getAttribute('y')-r.y)<.1)n.setAttribute('fill',`url(#floor-${floor})`);}
  const walls=[...plan.walls].sort((a,b)=>(a.axis==='H'?a.at:a.b)-(b.axis==='H'?b.at:b.b)||a.at-b.at);
  [...root.querySelectorAll('[data-wall]')].forEach((n,i)=>{const wall=walls[i];if(!wall)return;const r=plan.rooms.find(r=>r.id===(wall.A?.kind==='room'?wall.A.id:wall.B?.id));if(r)n.querySelector('path').setAttribute('fill',`url(#wall-${finish(r)[1]})`);});
- const layer=root.querySelector('[data-layer="architecture"]');
- for(const w of plan.walls.filter(w=>w.axis==='V'&&(w.A?.kind==='hall'||w.B?.kind==='hall')&&w.b-w.a>100)){
-  const at=(w.a+w.b)/2;
-  if([...plan.openings.doors,...plan.openings.windows].some(o=>o.ln===w&&Math.abs(o.at-at)<o.width/2+25))continue;
-  const g=doc.createElementNS('http://www.w3.org/2000/svg','g');g.setAttribute('data-corridor-decor','vertical');g.setAttribute('transform',`translate(${w.at+3} ${at-18}) scale(.55)`);g.innerHTML=CORRIDORS.decorate('candle');layer.append(g);
- }
  return new XMLSerializer().serializeToString(root);
 }
 function buildMap(scene,d){return (d.mapMode||scene.mapMode)==='outdoor'?outdoorMap(scene,d):indoorMap(scene,d);}

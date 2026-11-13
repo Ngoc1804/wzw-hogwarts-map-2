@@ -81,7 +81,7 @@ Bảng Fixed/phòng/World là dữ liệu nguồn; đoạn `atlas-cluster` giữ
 
 ### 1.4. Vật liệu và ngôn ngữ hình chung
 
-**Khóa một khung hành lang Generated Indoor cùng góc nhìn 2.5D, chiều cao tường nguồn 36.** Layout thay topology/size, không thay hệ chiếu; hình đồ vật phẳng không biến khung thành mặt bằng phẳng. Giữ màu artwork đã duyệt; hình mới/asset thiếu màu dùng token vật liệu. Actor tránh tường/đồ lớn bằng footprint ước lượng, ngoại lệ RP được giữ, không mô phỏng va chạm game. Hành lang chỉ 3 cấu hình decor nhẹ, chọn seed ổn định theo README.
+**Khóa một khung hành lang Generated Indoor cùng góc nhìn 2.5D, chiều cao tường nguồn **40** (source corridors user đã chốt).** Layout thay topology/size, không thay hệ chiếu; hình đồ vật phẳng không biến khung thành mặt bằng phẳng. Giữ màu artwork đã duyệt; hình mới/asset thiếu màu dùng token vật liệu. Actor tránh tường/đồ lớn bằng footprint ước lượng, ngoại lệ RP được giữ, không mô phỏng va chạm game. Giữ decor, hộc/khe và công thức của source H40; không tạo 3 recipe thay thế hoặc yêu cầu duyệt lại khung.
 
 Generated dùng màu giấy beige cũ, mực nâu, đường viền/texture dịu, vật liệu gỗ/đá/gạch/cỏ/nước theo vùng; không áp trang trí tùy tiện lên Fixed. SVG catalog được chuẩn hoá viewBox/namespace ID, giữ tỷ lệ không shear, bố trí đồ trên mặt bàn/tường theo quan hệ parent–surface thay vì xếp hàng rời; dấu chân burgundy, sáu nhịp theo UI đã duyệt. Sàn, tường, cửa, nước, công trình tạo **vùng đặt hợp lệ tối giản** (không phải solver/game collision). X-Ray chỉ làm mờ nhóm công trình thực sự che marker khi kiểm depth/layer, khôi phục khi hết che; `inside` không tự bật X-Ray.
 

@@ -41,6 +41,6 @@ const {chromium}=require('playwright'),fs=require('fs'),zlib=require('zlib'),htt
  const catalog=Object.fromEntries(supplied.map(a=>[a.id,a]));for(const [id,a]of Object.entries(result.catalog))catalog[id]={...catalog[id],...a};
  const measured=await p.evaluate(catalog=>{document.querySelectorAll('svg').forEach(n=>n.remove());const host=document.createElement('div');document.body.append(host);const out={};for(const [id,a]of Object.entries(catalog)){host.innerHTML=a.svg;const svg=host.querySelector('svg');const b=svg.getBBox();out[id]={x:b.x,y:b.y,width:b.width,height:b.height};}host.remove();return out;},catalog);
  for(const [id,bounds]of Object.entries(measured))if(bounds.width>0&&bounds.height>0)catalog[id].occupancy={...bounds,type:'geometry-bbox',collisionReady:false};
- fs.writeFileSync('assets/catalog.json',JSON.stringify(catalog));console.log('FINAL recipes',Object.keys(result.recipes).length,'catalog',Object.keys(catalog).length,'objects',Object.values(result.art).reduce((n,a)=>n+a.objects.length,0));
+ fs.writeFileSync('assets/catalog.json',JSON.stringify(catalog));require('./import-corridors.cjs');console.log('FINAL recipes',Object.keys(result.recipes).length,'catalog',Object.keys(catalog).length,'objects',Object.values(result.art).reduce((n,a)=>n+a.objects.length,0));
  await b.close();await new Promise(r=>server.close(r));
 })().catch(e=>{console.error(e);process.exit(1)});
