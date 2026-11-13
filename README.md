@@ -1,3 +1,13 @@
+# Audit toàn dự án trước AI Studio Preview — 2026-11-14
+
+Đã đối chiếu source/plan/checkpoint tại runtime HEAD a869be2. **Cơ chế chưa hoàn thiện**; file asset/layout FINAL đã đủ, phần thiếu là code. Báo cáo hiện hành: [docs/PROJECT_READINESS.md](docs/PROJECT_READINESS.md), R01–R13. Không chạy test/browser/render local mới theo yêu cầu người dùng.
+
+Cần đóng: contract/semantic merge + resolver; layout/placement Indoor/hành lang; áp 8 Outdoor vào RP; Fixed props; PC/NPC/zone/detail; semantic X-Ray; loader/prompt cùng SHA và tài liệu. Loader hiện pin 392a468 nên chưa tải build FINAL khi dán prompt cũ. Không coi dữ liệu 49 recipe đã có là cơ chế 49 layout runtime hoàn chỉnh.
+
+Không cần cấp lại assets/layout hay API key. Khi nghiệm thu cần phiên/link AI Studio Preview dùng được hoặc người dùng mở bản bàn giao tại đích. Chưa có link đích (page_id=null), chưa thử. Tiếp tục code từ danh sách R01–R13 khi triển khai, không mở vòng local hoặc automation. Các checkpoint dưới là lịch sử, không phải chứng nhận hoàn thành.
+
+---
+
 # Bước 2 — FINAL đã vào catalog/recipe chính (2026-11-14)
 
 Đã giao bước 2 từ base e676a3d: assets/catalog.json 450 ID (423 nguồn + 26 layout riêng + 1 hình trích nguyên), 49 recipe, 509 instance. Compiler tools/import-p4.cjs chuyển sang source FINAL, build dùng cùng pipeline; source cũ/candidate 432 chỉ còn là reference lịch sử. Asset-review.html sinh từ catalog chính. Không thay shell, pack 13 Fixed hoặc Atlas.
