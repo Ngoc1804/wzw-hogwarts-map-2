@@ -41,7 +41,7 @@ Visual mới tối thiểu, palette, placement, semantic merge đầy đủ thu�
 
 1. forceSandbox → Generated. H1/H2 + place isNewConstruction → Generated. Không dùng artwork H1/H2 cho scene đó.
 2. Anchor Fixed/pointer-only Fixed → giữ nguyên artwork, không auto-detail.
-3. Atlas cluster → giữ đủ rooms của cluster, thêm nơi RP mới; không mở mọi scope từ pointer.
+3. Atlas cluster → giữ đủ rooms của cluster, thêm nơi RP mới; không mở mọi scope từ pointer. World macro-region dùng sites: pcPlace dạng “Malfoy Manor / Drawing Room” hoặc “St Mungo’s Hospital / F4 / Spell Damage”; chọn một công trình và mức focus phù hợp, không dựng cả vùng. ID site/room do compiler sinh chỉ là khóa nội bộ, không phải atlasAnchor mới. Nếu xác định được phòng World ngoài trời, builder nhận mode outdoor; mapMode tường minh vẫn ưu tiên.
 4. custom/World → Generated trong scope RP.
 
 ID hợp lệ ưu tiên tên; ID hỏng có thể tìm theo tên duy nhất và diagnostic. Binding AU giữ alias tên/ID input tới canonical house ID. Nhà dân được chọn ổn định theo danh sách input sắp thứ tự, không phụ thuộc thứ tự khai báo; không phải bộ nhớ RP lâu dài. Các nhà được places gọi rõ được giữ trước, không ghi đè nhà canon; không gán hai nơi vào cùng nhà. Không tìm thấy nhà/khu thì giữ unresolved + diagnostic, không tự mở detail hoặc ghi đè nhà khác.
@@ -66,3 +66,7 @@ Các vị trí không binding được giữ trong dữ liệu/Inspector, không
 ## Trạng thái
 
 Đã sửa normalize/resolver và nối sidebar members/summary. Chưa chạy test tổng/browser theo yêu cầu hoàn thiện cơ chế trước. P4/P5 placement/merge, visual mới, P7 icon/X-Ray và P8 prompt/SHA vẫn mở. Không dùng báo cáo test cũ để chứng nhận version này. Khi kiểm cuối cần ma trận Fixed bất biến, H1/H2 AU, binding nhà/region/overflow/order, đủ cluster, tham chiếu lỗi/mơ hồ, nhóm/10 ribbon và target.
+
+## Atlas source integration
+
+Master nguồn là WZW_MAP2_ATLAS_GITHUB_MASTER.md; tools/atlas.py sinh index. Alias Fixed tiếng Anh chỉ trỏ anchor đã có; bảng room type đã chỉnh các nhầm lẫn hành lang/phòng tắm/văn phòng/kho. Compiler giữ đủ 348 anchor, 285 phòng cluster; registry World có công trình riêng, không gộp danh sách nhiều nhà thành một nhà. MIN tiếng Anh chỉ là Atlas; hướng dẫn MAP_DATA/ribbon/icon/loader để ở /map instruction cuối P8.

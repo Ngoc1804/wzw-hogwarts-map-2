@@ -1,13 +1,7 @@
-# Copy/paste — bản gọn
+# Prompt handoff status
 
-1. Thay toàn bộ **R14.6** cũ, từ tiêu đề `/MAP` đến hết `END R14.6 /MAP.`, bằng toàn bộ **MAP_PROMPT.md**.
-2. Thay toàn bộ **W4.1**, từ tiêu đề W4.1 đến ngay trước W4.2 đầu tiên, bằng toàn bộ **W4_1.md**. Không dán ATLAS_W4.md dài vào system prompt nữa.
-3. Nếu chưa gộp các mục W4.2/W4.3 lặp: thay từ W4.2 đầu tiên đến trước W5 bằng **W4_TAIL.md**; chỉ giữ một tiêu đề W4.
-
-Giữ nguyên R14.7 /INVENTORY, R14.8 /TASK và các phần RP khác. Loader cũ/iframe/repo cũ phải được thay, không dán nối thêm. __MAP_DATA_JSON__ là chỗ Gemini điền JSON RP thật, escape `<` thành `\u003c`.
-
-W4_1.md là bản định tuyến ngắn cùng nguồn với Atlas đầy đủ trong GitHub. Không dán 348 anchor, danh sách phòng nền, recipe instance hoặc catalog 363 element. R14.6 đã có từ công năng và loại NPC; runtime tự tra đúng recipe. Tên phòng mới được dùng tự do. P4 sửa đang chờ duyệt hình ảnh: 10 preset dùng geometry hành lang nguồn; 4 công năng có artwork, công năng khác giữ đại diện tên và chưa được coi là hoàn thiện nội thất. Google AI Studio Preview CHƯA THỬ.
-
-Bản mới: W4.1 khoảng 4,7 KB, R14.6 khoảng 4,8 KB UTF-8. Atlas chi tiết 48,8 KB chỉ nằm ở GitHub. Loader sẽ được ghim cùng SHA của code/vocabulary đã kiểm; không thay riêng một URL.
-
-Runtime bản sửa dùng đồng SHA `392a4682fd550c1f8cdbe199856db6b84660c41c` (bản kiểm local, chưa nghiệm thu AI Studio/duyệt hình). HTML tổng hợp: examples/p4-review.html. Không lấy bản 10d2c37 đã bị bác bỏ để kiểm lại.
+- Atlas-only English fragment: [WZW_MAP2_ATLAS_GEMINI_MIN.md](WZW_MAP2_ATLAS_GEMINI_MIN.md). It contains locations and short routing rules only.
+- Detailed GitHub source: [WZW_MAP2_ATLAS_GITHUB_MASTER.md](WZW_MAP2_ATLAS_GITHUB_MASTER.md). Do not paste it or attach it to Gemini.
+- Contract: [MAP_DATA.md](MAP_DATA.md), version 2.0.0.
+- At P8, combine the Atlas fragment and the revised /map instruction/loader into **one system instruction**. No attached files and no user-side assembly of legacy W4/R14 blocks.
+- MAP_PROMPT.md and its CDN SHA are still legacy. This handoff is an Atlas deliverable, not the completed /map prompt or AI Studio acceptance.

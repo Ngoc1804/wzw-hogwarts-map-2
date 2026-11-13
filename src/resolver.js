@@ -7,12 +7,35 @@ function resolve(d){
  const source=sandbox?null:fixedId?DATA.maps[fixedId]:null;
  let places=source?source.places.map(p=>({...p})):!sandbox&&cluster?cluster.rooms.map(p=>({...p})):[];
  const bindings={},used=new Set(),unresolved=[];
- const aliases={'great hall':'đại sảnh','honeydukes':'tiệm công tước mật','three broomsticks':'quán ba cây chổi thần','borgin & burkes':'tiệm borgin và burkes'};
+ // World registry selects one focus building, never every site in a macro region.
+ let worldSite=null,worldMode=null;
+ const fold=v=>key(v).replace(/[’']/g,'').replace(/[^\p{L}\p{N}]+/gu,' ').trim();
+ const worldRef=ref=>{let label=fold(ref);for(const alias of [...(worldSite?.aliases||[])].sort((a,b)=>b.length-a.length)){const a=fold(alias);if(label.startsWith(a+' ')){label=label.slice(a.length+1);break;}}const level=label.match(/^(g|f\d+)(?: |$)/)?.[1]?.toUpperCase();return{label:level?label.replace(/^(g|f\d+) ?/,''):label,level};};
+ if(!source&&!sandbox&&cluster?.rpScope&&cluster.sites){
+  const pcInput=d.places.find(p=>p.id===d.pcPlace||key(p.name)===key(d.pcPlace));
+  const refs=[d.pcPlace,text(d.meta.areaName),pcInput?.name].filter(Boolean);
+  for(const ref of refs){
+   const label=fold(ref);
+   const candidates=cluster.sites.filter(site=>site.aliases.some(alias=>{const a=fold(alias);return label===a||label.startsWith(a+' ')||label.endsWith(' '+a);}));
+   if(candidates.length===1){worldSite=candidates[0];break;}
+   if(candidates.length>1){diagnostics.push('ambiguous-world-site:'+ref);break;}
+  }
+  if(worldSite){
+   const {label:roomLabel,level:explicitLevel}=worldRef(d.pcPlace);
+   const focus=worldSite.rooms.filter(room=>fold(room.name)===roomLabel&&(!explicitLevel||room.level===explicitLevel));
+   const level=explicitLevel||(focus.length===1?focus[0].level:null);
+   if(focus.length===1)worldMode=focus[0].type?.startsWith('OUT_')?'outdoor':'indoor';
+   places=worldSite.rooms.filter(room=>(!room.conditional||focus.includes(room))&&(!level||room.level===level)).map(room=>({...room}));
+   if(focus.length===1)bindings[d.pcPlace]=focus[0].id;
+   if(!places.length)places=[{id:worldSite.id,name:worldSite.name,desc:'',type:''}];
+  }
+ }
  const exact=ref=>{
   if(!ref)return null;
   const bound=bindings[ref];if(bound)return places.find(p=>p.id===bound)||null;
+  if(worldSite){const r=worldRef(ref),hits=places.filter(p=>fold(p.name)===r.label&&(!r.level||p.level===r.level));if(hits.length===1)return hits[0];}
   const byId=places.filter(p=>p.id===ref);if(byId.length===1)return byId[0];
-  const canonical=aliases[key(ref)]||key(ref),hits=places.filter(p=>key(p.name)===canonical);
+  const canonical=key(ref),hits=places.filter(p=>key(p.name)===canonical||p.aliases?.some(a=>key(a)===canonical)||ATLAS.fixed[fixedId]?.places.find(x=>x.id===p.id)?.aliases?.some(a=>key(a)===canonical));
   return hits.length===1?hits[0]:null;
  };
  const locate=p=>{
@@ -51,5 +74,5 @@ function resolve(d){
  }
  for(const place of places)place.inventory=source?{objects:[],diagnostics:[],illustrative:false}:composeRoom(place);
  if(!places.length)places.push({id:'context',name:d.meta.areaName||'Không gian RP',desc:''});
- return {source,fixedId:source?fixedId:null,cluster:sandbox?null:cluster,places,bindings,unresolved,diagnostics,detail:false,route:source?'fixed':cluster&&!sandbox?'atlas':'sandbox',exact};
+ return {worldSite,mapMode:worldMode,source,fixedId:source?fixedId:null,cluster:sandbox?null:cluster,places,bindings,unresolved,diagnostics,detail:false,route:source?'fixed':cluster&&!sandbox?'atlas':'sandbox',exact};
 }

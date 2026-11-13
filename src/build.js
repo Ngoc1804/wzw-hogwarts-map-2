@@ -103,7 +103,7 @@ function styleIndoor(markup,plan,places){
  }
  return new XMLSerializer().serializeToString(root);
 }
-function buildMap(scene,d){return d.mapMode==='outdoor'?outdoorMap(scene,d):indoorMap(scene,d);}
+function buildMap(scene,d){return (d.mapMode||scene.mapMode)==='outdoor'?outdoorMap(scene,d):indoorMap(scene,d);}
 function generatedActorPoint(map,place,spot){
  if(!place.bounds||!spot)return null;
  const [x,y,w,h]=place.bounds;

@@ -19,7 +19,7 @@ pack='window.WZW_TEMPLATE_PACK='+json.dumps(payload)+';\n'
 # Runtime consumes recipe identities/inventory only; reference transforms/descriptions stay in source.
 recipes=json.loads((r/'assets/recipes.json').read_text())
 compact_recipes={rid:{'instances':[{k:x[k] for k in ['id','name','item','count'] if k in x} for x in recipe['instances']]} for rid,recipe in recipes.items()}
-atlas=json.loads((r/'assets/atlas.json').read_text());atlas.pop('fixed',None) # Fixed metadata already packed once.
+atlas=json.loads((r/'assets/atlas.json').read_text());atlas['fixed']={fid:{'places':[{'id':p['id'],'aliases':p['aliases']} for p in f['places'] if p.get('aliases')]} for fid,f in atlas['fixed'].items()} # Artwork already packed; only lookup aliases belong here.
 # Reuse the supplied architecture core, excluding the reference editor UI/startup.
 # Patterns, wall projection and openings have one active implementation.
 corridors=(r/'assets/source/corridors.js').read_text()

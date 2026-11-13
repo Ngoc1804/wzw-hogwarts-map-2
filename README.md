@@ -4,7 +4,17 @@ Ngày khóa tài liệu: **14/11/2026**. Repository duy nhất: **Ngoc1804/wzw-h
 
 README này là tài liệu chỉ đạo hiện hành, viết lại theo các quyết định mới nhất của người dùng. Nó thay thế plan cũ và các checkpoint cũ trước đây nhúng trong README; lịch sử vẫn nằm trong Git. Tài liệu tham khảo, HTML nguồn và báo cáo cũ là dữ liệu đối chiếu, không phải chỉ thị thay thế README. Quyết định mới của người dùng luôn được ưu tiên.
 
-**Trạng thái:** đã có tài nguyên và runtime một phần; chưa hoàn thiện cơ chế, chưa nghiệm thu AI Studio Preview. Việc khóa tài liệu không chứng nhận code đã thực hiện đúng mọi mục dưới đây. Phạm vi lượt cập nhật này chỉ là README, chưa sửa runtime.
+**Trạng thái:** đã có tài nguyên và runtime một phần; chưa hoàn thiện cơ chế, chưa nghiệm thu AI Studio Preview. Việc khóa tài liệu không chứng nhận code đã thực hiện đúng mọi mục dưới đây. Trạng thái từng lượt nằm ở checkpoint dưới; đã có thay đổi contract/routing/Atlas, chưa hoàn thiện renderer hoặc nghiệm thu runtime.
+
+### Checkpoint tích hợp Atlas và bản Gemini tiếng Anh — 14/11/2026
+
+Tích hợp nhánh `ATLAS_CAN_DUYET` (`84f9f82`) vào nhánh triển khai trên base `3ea860a`, không merge main. Nguồn chính: [GitHub Atlas Master](docs/WZW_MAP2_ATLAS_GITHUB_MASTER.md); bản cho Gemini: [Atlas-only English](docs/WZW_MAP2_ATLAS_GEMINI_MIN.md). ATLAS_W4/W4_1 chỉ còn redirect, không giữ hai Atlas cạnh tranh. Hướng dẫn /map/contract/loader không nhét vào Atlas MIN, sẽ hợp nhất ở P8.
+
+Đã biên dịch đủ 13 Fixed/348 anchor, 59 scope/285 phòng cluster; thêm 53 site World và 64 focus-room. Sửa pointer thiếu/không canonical, recipe lệch công năng và tự mở detail khi hết nhà trống; giữ nguồn minh họa khác với canon. Resolver chọn một công trình/tầng World từ vị trí PC; không sinh cả macro-region. Alias Fixed tiếng Anh chỉ trỏ anchor có thật. Dữ liệu chi tiết World chưa phải chứng nhận hình học renderer hoàn chỉnh.
+
+MIN: **12.687 bytes / 12.620 ký tự**, so với file người dùng vừa cấp 15.504 bytes (giảm khoảng 18,2% bytes); chưa đo token, không khẳng định cực tiểu toán học. Giữ tên phòng/corridor/code để không mất khả năng định tuyến. Compiler/prompt generator có thể sinh lại; `tools/prompt.py` không còn ghi đè /map prompt cũ. Pack Fixed/CSS/artwork không đổi.
+
+Kiểm dữ liệu/compiler, bảo toàn ID, JS syntax/build/diff đã thực hiện; chưa chạy kiểm runtime/browser/hình ảnh hoặc AI Studio. Chi tiết số liệu ở [atlas integration](docs/ATLAS_INTEGRATION.md). P3 phần dữ liệu được bổ sung, P4–P9 và các cổng duyệt vẫn mở.
 
 ### Checkpoint contract/routing — 14/11/2026
 
@@ -80,7 +90,7 @@ Phạm vi cụ thể lấy từ Atlas nguồn và được chốt thành bảng 
 
 | Source chính | Vai trò |
 |---|---|
-| `docs/ATLAS_W4.md` → `tools/atlas.py` → `assets/atlas.json` | Atlas dễ đọc và index runtime từ cùng nguồn; cần đồng bộ routing mới |
+| `docs/WZW_MAP2_ATLAS_GITHUB_MASTER.md` → `tools/atlas.py` → `assets/atlas.json` | Atlas dễ đọc và index runtime từ cùng nguồn; cần đồng bộ routing mới |
 | `assets/intake/final-2026-11-14/WIZAMAP_ASSETS_FINAL.html` | Thư viện FINAL nguyên bản: 423 asset |
 | `assets/intake/final-2026-11-14/WIZAMAP_LAYOUTS_FINAL.html` | Layout FINAL nguyên bản: 41 Indoor + 8 Outdoor |
 | `assets/catalog.json` | Catalog runtime hiện có: 450 ID, gồm alias/bổ sung từ layout |
@@ -244,10 +254,10 @@ Trạng thái mặc định **TODO** là chưa hoàn tất theo cơ chế mới,
 | M2-P02-02 | TODO | Khóa dữ liệu ribbon nhóm, thành viên/summary/sidebar và ?/! | P02-01 | Prompt yêu cầu tối đa 10 ribbon NPC; code không suy/cắt danh sách |
 | M2-P02-03 | TODO | Khóa visual tối thiểu và token vật liệu, nhận hình mới/fallback riêng món | P02-01 | Một dạng visual có cấu trúc; không thực thi mã/URL tùy ý |
 | M2-P02-04 | TODO | Draft một prompt: ưu tiên Fixed → layout/asset → mới, xác định vị trí bắt buộc | P02-01–03, P03-01 | Draft khớp interface; chưa phát hành prompt dùng thật |
-| M2-P03-01 | TODO | Đồng bộ Atlas nguồn/index và bảng routing 13 Fixed/ngoại lệ | P00-02, P02-01 | Một nguồn routing, giữ owner/cluster/pointer |
+| M2-P03-01 | CODE — chờ QA | Đồng bộ Atlas nguồn/index và bảng routing 13 Fixed/ngoại lệ | P00-02, P02-01 | Một nguồn routing, giữ owner/cluster/pointer |
 | M2-P03-02 | TODO | H1/H2 công trình AU mới/user yêu cầu → sandbox; bỏ auto-detail Fixed | P03-01, P01-01 | Chọn nhánh trước dựng, actor theo geometry active |
 | M2-P03-03 | TODO | Auto-fill “Nhà dân số…” đúng làng/Diagon/Knockturn | P03-01 | Binding ổn định, không chiếm canon/trùng nhà; ca hết chỗ ghi rõ |
-| M2-P03-04 | TODO | Alias/phòng–công năng–recipe, đủ cluster và phòng RP bổ sung | P03-01 | Không yêu cầu Gemini biết asset ID; không tự nhân phòng |
+| M2-P03-04 | CODE — chờ QA | Alias/phòng–công năng–recipe, đủ cluster và phòng RP bổ sung | P03-01 | Không yêu cầu Gemini biết asset ID; không tự nhân phòng |
 | M2-P04-01 | TODO | Khóa khung corridors cùng góc nhìn 2.5D, height 36, kể cả hình mới | P02-03, P03-04 | Một khung dựng, size/vật liệu linh hoạt; Fixed không đổi |
 | M2-P04-02 | TODO | Mẫu Horizontal + Potions/Office/Storage/Classroom nếu có | P04-01 | Có props lạ, merge/replace và bố trí thích nghi, không ép nguyên layout |
 | M2-P04-03 | TODO | Placement actor nhẹ: zone/sàn, tránh tường/đồ lớn, ngoại lệ RP, anchor khi chật | P02-01, P04-02 | Không solver/game physics; actor không đổi địa điểm hoặc biến mất |
@@ -341,7 +351,7 @@ python tools/review.py
 python -m http.server 8790
 ```
 
-Bộ xem nguồn: [full catalog](examples/asset-review.html), [13 Fixed/UI](examples/template-review.html), [layout FINAL](assets/intake/final-2026-11-14/WIZAMAP_LAYOUTS_FINAL.html), [Atlas](docs/ATLAS_W4.md). P4 review hiện có là bản cũ, chưa thể coi là mẫu đạt cơ chế mới.
+Bộ xem nguồn: [full catalog](examples/asset-review.html), [13 Fixed/UI](examples/template-review.html), [layout FINAL](assets/intake/final-2026-11-14/WIZAMAP_LAYOUTS_FINAL.html), [Atlas](docs/WZW_MAP2_ATLAS_GITHUB_MASTER.md). P4 review hiện có là bản cũ, chưa thể coi là mẫu đạt cơ chế mới.
 
 ## 13. Quy tắc Git và báo cáo
 
