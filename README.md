@@ -6,6 +6,30 @@ README này là tài liệu chỉ đạo hiện hành, viết lại theo các qu
 
 **Trạng thái:** đã có tài nguyên và runtime một phần; chưa hoàn thiện cơ chế, chưa nghiệm thu AI Studio Preview. Việc khóa tài liệu không chứng nhận code đã thực hiện đúng mọi mục dưới đây. Trạng thái từng lượt nằm ở checkpoint dưới; đã có thay đổi contract/routing/Atlas, chưa hoàn thiện renderer hoặc nghiệm thu runtime.
 
+### Bảng trạng thái hiện hành — kiểm tại 48596a9
+
+Bảng ngắn này ưu tiên hơn trạng thái lịch sử ở các checkpoint cũ. Lượt này đối chiếu README/source/hồ sơ duyệt, không chạy lại toàn bộ test.
+
+| Mục | Trạng thái |
+|---|---|
+| Baseline repo, hash và kiểm kê nguồn | Xong; audit toàn ngoại lệ Atlas còn riêng bên dưới |
+| Giữ 13 Fixed/UI, viewer 13 mẫu | Xong phần bảo toàn; kiểm tổng Fixed còn mở |
+| Khung hành lang H40 + 10 preset/decor | Xong, đã duyệt |
+| Catalog 443 asset, màu, bỏ Cụm để bàn, icon ống nhòm/kính lúp | Xong, đã duyệt và push |
+| HTML catalog chỉnh màu/xuất HTML, SVG | Xong, đã kiểm xuất/mở lại |
+| JSON hỏng không dựng cảnh; render xếp hàng/phục hồi | Xong, test tập trung PASS |
+| Loader lỗi tải CSS/pack/bundle, cleanup/stress đầy đủ | Còn kiểm/bổ sung |
+| Contract/nhóm/validation đầy đủ; visual mới tối thiểu | Có nền; chưa hoàn tất, visual compiler còn thiếu |
+| Atlas/routing sandbox/binding nhà AU | Có code, ca nền PASS; còn audit phạm vi/alias và ma trận đầy đủ |
+| Indoor/placement props và actor | Có code/test tập trung; còn ca đặc biệt và duyệt hình nội thất |
+| Merge/replace/ensure/add/state, định danh đồ con | Có nền; semantic merge chưa hoàn tất |
+| 8 Outdoor vào runtime | Xong tích hợp; nhiều vùng/props nâng cao và duyệt bố trí còn mở |
+| Nhóm/ribbon/Inspector/footsteps trên mọi scene | Có nền; chưa kiểm/chốt đồng bộ đầy đủ |
+| X-Ray semantic và phục hồi | Chưa hoàn tất |
+| Tối ưu SVG/bundle và đo thực | Có baseline; chưa hoàn tất |
+| Một prompt cuối + CSS/pack/bundle cùng SHA | Chưa xong, provenance còn SHA cũ |
+| Kiểm tổng desktop/mobile và AI Studio Preview | Chưa xong; AI Studio chưa nghiệm thu |
+
 ### Checkpoint Indoor và PC/NPC trên H40 — 14/11/2026
 
 Base `6748844`: giữ core H40; room proportions thích nghi qua overrides source theo recipe, không đổi projection. Extras không còn xếp hàng dưới artwork: đặt floor/wall/parent-surface theo zone, tránh cửa/footprint và giữ summary khi thiếu chỗ. Count có hình từng món trong khoảng trống khả dụng, số còn lại vẫn ở Inspector. State đánh dấu cùng instance; không thêm bản hỏng cạnh bản nguyên. Inspector đọc inventory sau compose.
