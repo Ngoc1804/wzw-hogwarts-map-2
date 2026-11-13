@@ -34,3 +34,5 @@ console.log('Corridor elements',records.length,'exact aliases',report.filter(r=>
 require("child_process").execFileSync("python",["tools/apply-paint.py"],{stdio:"inherit"});
 
 require("child_process").execFileSync("python",["tools/style-catalog.py"],{stdio:"inherit"});
+
+require("child_process").execFileSync("python",["tools/finish-paint.py"],{stdio:"inherit"});

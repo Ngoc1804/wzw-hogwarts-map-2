@@ -1,0 +1,190 @@
+{
+  "storage.bookcase": [
+    [
+      "<rect width=\"10\" height=\"25.667\" x=\"49\" y=\"79.5\" fill=\"#f1dfb6\" data-material=\"paper\" rx=\"0\"/>",
+      "<rect width=\"10\" height=\"25.667\" x=\"49\" y=\"79.5\" fill=\"#D9C9A8\" data-material=\"paper\" rx=\"0\"/>"
+    ],
+    [
+      "<rect width=\"10\" height=\"25.667\" x=\"81\" y=\"79.5\" fill=\"#f1dfb6\" data-material=\"paper\" rx=\"0\"/>",
+      "<rect width=\"10\" height=\"25.667\" x=\"81\" y=\"79.5\" fill=\"#768779\" data-material=\"paper\" rx=\"0\"/>"
+    ],
+    [
+      "<rect width=\"10\" height=\"25.667\" x=\"113\" y=\"79.5\" fill=\"#f1dfb6\" data-material=\"paper\" rx=\"0\"/>",
+      "<rect width=\"10\" height=\"25.667\" x=\"113\" y=\"79.5\" fill=\"#9F845F\" data-material=\"paper\" rx=\"0\"/>"
+    ],
+    [
+      "<rect width=\"10\" height=\"25.667\" x=\"145\" y=\"79.5\" fill=\"#f1dfb6\" data-material=\"paper\" rx=\"0\"/>",
+      "<rect width=\"10\" height=\"25.667\" x=\"145\" y=\"79.5\" fill=\"#647783\" data-material=\"paper\" rx=\"0\"/>"
+    ],
+    [
+      "<rect width=\"10\" height=\"25.667\" x=\"177\" y=\"79.5\" fill=\"#f1dfb6\" data-material=\"paper\" rx=\"0\"/>",
+      "<rect width=\"10\" height=\"25.667\" x=\"177\" y=\"79.5\" fill=\"#B4A17D\" data-material=\"paper\" rx=\"0\"/>"
+    ],
+    [
+      "<rect width=\"10\" height=\"25.667\" x=\"49\" y=\"115.167\" fill=\"#f1dfb6\" data-material=\"paper\" rx=\"0\"/>",
+      "<rect width=\"10\" height=\"25.667\" x=\"49\" y=\"115.167\" fill=\"#D9C9A8\" data-material=\"paper\" rx=\"0\"/>"
+    ],
+    [
+      "<rect width=\"10\" height=\"25.667\" x=\"81\" y=\"115.167\" fill=\"#f1dfb6\" data-material=\"paper\" rx=\"0\"/>",
+      "<rect width=\"10\" height=\"25.667\" x=\"81\" y=\"115.167\" fill=\"#768779\" data-material=\"paper\" rx=\"0\"/>"
+    ],
+    [
+      "<rect width=\"10\" height=\"25.667\" x=\"113\" y=\"115.167\" fill=\"#f1dfb6\" data-material=\"paper\" rx=\"0\"/>",
+      "<rect width=\"10\" height=\"25.667\" x=\"113\" y=\"115.167\" fill=\"#9F845F\" data-material=\"paper\" rx=\"0\"/>"
+    ],
+    [
+      "<rect width=\"10\" height=\"25.667\" x=\"145\" y=\"115.167\" fill=\"#f1dfb6\" data-material=\"paper\" rx=\"0\"/>",
+      "<rect width=\"10\" height=\"25.667\" x=\"145\" y=\"115.167\" fill=\"#647783\" data-material=\"paper\" rx=\"0\"/>"
+    ],
+    [
+      "<rect width=\"10\" height=\"25.667\" x=\"177\" y=\"115.167\" fill=\"#f1dfb6\" data-material=\"paper\" rx=\"0\"/>",
+      "<rect width=\"10\" height=\"25.667\" x=\"177\" y=\"115.167\" fill=\"#B4A17D\" data-material=\"paper\" rx=\"0\"/>"
+    ],
+    [
+      "<rect width=\"10\" height=\"25.667\" x=\"49\" y=\"150.833\" fill=\"#f1dfb6\" data-material=\"paper\" rx=\"0\"/>",
+      "<rect width=\"10\" height=\"25.667\" x=\"49\" y=\"150.833\" fill=\"#D9C9A8\" data-material=\"paper\" rx=\"0\"/>"
+    ],
+    [
+      "<rect width=\"10\" height=\"25.667\" x=\"81\" y=\"150.833\" fill=\"#f1dfb6\" data-material=\"paper\" rx=\"0\"/>",
+      "<rect width=\"10\" height=\"25.667\" x=\"81\" y=\"150.833\" fill=\"#768779\" data-material=\"paper\" rx=\"0\"/>"
+    ],
+    [
+      "<rect width=\"10\" height=\"25.667\" x=\"113\" y=\"150.833\" fill=\"#f1dfb6\" data-material=\"paper\" rx=\"0\"/>",
+      "<rect width=\"10\" height=\"25.667\" x=\"113\" y=\"150.833\" fill=\"#9F845F\" data-material=\"paper\" rx=\"0\"/>"
+    ],
+    [
+      "<rect width=\"10\" height=\"25.667\" x=\"145\" y=\"150.833\" fill=\"#f1dfb6\" data-material=\"paper\" rx=\"0\"/>",
+      "<rect width=\"10\" height=\"25.667\" x=\"145\" y=\"150.833\" fill=\"#647783\" data-material=\"paper\" rx=\"0\"/>"
+    ],
+    [
+      "<rect width=\"10\" height=\"25.667\" x=\"177\" y=\"150.833\" fill=\"#f1dfb6\" data-material=\"paper\" rx=\"0\"/>",
+      "<rect width=\"10\" height=\"25.667\" x=\"177\" y=\"150.833\" fill=\"#B4A17D\" data-material=\"paper\" rx=\"0\"/>"
+    ]
+  ],
+  "wizard.cauldron": [
+    [
+      "<ellipse cx=\"128\" cy=\"149\" fill=\"#947b4a\" data-material=\"metal\" rx=\"65\" ry=\"57\"/>",
+      "<ellipse cx=\"128\" cy=\"149\" fill=\"#56645E\" data-material=\"metal\" rx=\"65\" ry=\"57\"/>"
+    ],
+    [
+      "<ellipse cx=\"128\" cy=\"117\" fill=\"#9f844f\" data-material=\"metal\" rx=\"50\" ry=\"13\"/>",
+      "<ellipse cx=\"128\" cy=\"117\" fill=\"#839A87\" data-material=\"metal\" rx=\"50\" ry=\"13\"/>"
+    ]
+  ],
+  "decor.armour": [
+    [
+      "<stop data-material=\"metal\" stop-color=\"#b8995c\"/>",
+      "<stop data-material=\"metal\" stop-color=\"#B1B6AC\"/>"
+    ],
+    [
+      "<stop data-material=\"metal\" offset=\"1\" stop-color=\"#9c824e\"/>",
+      "<stop data-material=\"metal\" offset=\"1\" stop-color=\"#767F76\"/>"
+    ]
+  ],
+  "decor.mirror": [
+    [
+      "<stop data-material=\"metal\" stop-color=\"#b8995c\"/>",
+      "<stop data-material=\"metal\" stop-color=\"#CAD6CE\"/>"
+    ],
+    [
+      "<stop data-material=\"metal\" offset=\"1\" stop-color=\"#9c824e\"/>",
+      "<stop data-material=\"metal\" offset=\"1\" stop-color=\"#8DA7A5\"/>"
+    ]
+  ],
+  "object.rug.detail": [
+    [
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w3s_0\" style=\"--base:#bea27b;--ink:#68553e\">",
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w3s_0\" style=\"--base:#997B56;--ink:#66513D;--surface:#DDCBA8;--detail:#AE925C;\">"
+    ]
+  ],
+  "object.rug-round.detail": [
+    [
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w3t_0\" style=\"--base:#bea27b;--ink:#68553e\">",
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w3t_0\" style=\"--base:#997B56;--ink:#66513D;--surface:#DDCBA8;--detail:#AE925C;\">"
+    ]
+  ],
+  "object.mirror.detail": [
+    [
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w3u_0\" style=\"--base:#bea27b;--surface:#e7d9b9;--ink:#68553e\">",
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w3u_0\" style=\"--base:#997B56;--surface:#AAC2BA;--ink:#66513D;--detail:#AE925C;\">"
+    ]
+  ],
+  "object.portrait.detail": [
+    [
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w3v_0\" style=\"--base:#bea27b;--surface:#e7d9b9;--ink:#68553e\">",
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w3v_0\" style=\"--base:#997B56;--surface:#6E8173;--ink:#66513D;--detail:#AE925C;\">"
+    ]
+  ],
+  "object.clock.detail": [
+    [
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w3w_0\" style=\"--base:#bea27b;--surface:#e7d9b9;--ink:#68553e\">",
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w3w_0\" style=\"--base:#997B56;--surface:#DDCBA8;--ink:#66513D;--detail:#AE925C;\">"
+    ]
+  ],
+  "object.chest.detail": [
+    [
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w3x_0\" style=\"--base:#bea27b;--surface:#e7d9b9;--ink:#68553e\">",
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w3x_0\" style=\"--base:#997B56;--surface:#DDCBA8;--ink:#66513D;--detail:#AE925C;\">"
+    ]
+  ],
+  "wizard.fireguard.detail": [
+    [
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w3y_0\" style=\"--base:#bea27b;--roof:#657e72;--ink:#68553e\">",
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w3y_0\" style=\"--base:#4E5D57;--roof:#657e72;--ink:#66513D;--surface:#69766E;--detail:#A78C59;\">"
+    ]
+  ],
+  "wizard.potions-cabinet.detail": [
+    [
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w3z_0\" style=\"--base:#bea27b;--surface:#e7d9b9;--ink:#68553e\">",
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w3z_0\" style=\"--base:#997B56;--surface:#DDCBA8;--ink:#66513D;--detail:#AE925C;\">"
+    ]
+  ],
+  "wizard.library-ladder.detail": [
+    [
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w40_0\" style=\"--base:#bea27b;--surface:#e7d9b9;--roof:#657e72;--ink:#68553e\">",
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w40_0\" style=\"--base:#997B56;--surface:#DDCBA8;--roof:#657e72;--ink:#66513D;--detail:#AE925C;\">"
+    ]
+  ],
+  "wizard.display.detail": [
+    [
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w41_0\" style=\"--base:#bea27b;--surface:#e7d9b9;--ink:#68553e\">",
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w41_0\" style=\"--base:#997B56;--surface:#AAC2BA;--ink:#66513D;--detail:#AE925C;\">"
+    ]
+  ],
+  "wizard.archive.detail": [
+    [
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w42_0\" style=\"--base:#bea27b;--surface:#e7d9b9;--ink:#68553e\">",
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w42_0\" style=\"--base:#997B56;--surface:#DDCBA8;--ink:#66513D;--detail:#AE925C;\">"
+    ]
+  ],
+  "decor.portrait.detail": [
+    [
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w43_0\" style=\"--base:#bea27b;--surface:#e7d9b9;--roof:#657e72;--ink:#68553e\">",
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w43_0\" style=\"--base:#997B56;--surface:#6E8173;--roof:#657e72;--ink:#66513D;--detail:#AE925C;\">"
+    ]
+  ],
+  "unique.pensieve.detail": [
+    [
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w44_0\" style=\"--surface:#e7d9b9;--ink:#68553e\">",
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w44_0\" style=\"--surface:#BBC3B8;--ink:#66513D;--base:#B5B3A2;--detail:#78A9AA;\">"
+    ]
+  ],
+  "unique.memory-cabinet.detail": [
+    [
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w45_0\" style=\"--base:#bea27b;--surface:#e7d9b9;--ink:#68553e\">",
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w45_0\" style=\"--base:#997B56;--surface:#DDCBA8;--ink:#66513D;--detail:#AE925C;\">"
+    ]
+  ],
+  "unique.vanishing-cabinet.detail": [
+    [
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w46_0\" style=\"--base:#bea27b;--surface:#e7d9b9;--ink:#68553e\">",
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w46_0\" style=\"--base:#997B56;--surface:#DDCBA8;--ink:#66513D;--detail:#AE925C;\">"
+    ]
+  ],
+  "wizard.astronomy-cabinet.detail": [
+    [
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w47_0\" style=\"--base:#bea27b;--surface:#e7d9b9;--roof:#657e72;--ink:#68553e\">",
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" id=\"w47_0\" style=\"--base:#997B56;--surface:#AAC2BA;--roof:#657e72;--ink:#66513D;--detail:#AE925C;\">"
+    ]
+  ]
+}

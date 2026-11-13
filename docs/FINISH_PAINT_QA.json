@@ -1,0 +1,32 @@
+{
+  "finishedAssets": [
+    "storage.bookcase",
+    "wizard.cauldron",
+    "decor.armour",
+    "decor.mirror",
+    "object.rug.detail",
+    "object.rug-round.detail",
+    "object.mirror.detail",
+    "object.portrait.detail",
+    "object.clock.detail",
+    "object.chest.detail",
+    "wizard.fireguard.detail",
+    "wizard.potions-cabinet.detail",
+    "wizard.library-ladder.detail",
+    "wizard.display.detail",
+    "wizard.archive.detail",
+    "decor.portrait.detail",
+    "unique.pensieve.detail",
+    "unique.memory-cabinet.detail",
+    "unique.vanishing-cabinet.detail",
+    "wizard.astronomy-cabinet.detail"
+  ],
+  "fabric": "beige retained",
+  "flagsAndFixed": "unchanged",
+  "tests": [
+    "catalog editor PASS",
+    "corridor 40 configurations / 48 source references PASS",
+    "8 Outdoor and lifecycle browser PASS"
+  ],
+  "targetPreview": "NOT RUN"
+}

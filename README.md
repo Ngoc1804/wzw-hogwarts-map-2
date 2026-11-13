@@ -448,3 +448,9 @@ Theo user bác burgundy: đưa phần fabric mới recolor của 17 asset về b
 HTML chính examples/asset-review.html có editor màu trong nút “Xem / chỉnh màu / tải SVG”. Cho đổi từng mã màu fill/stroke/gradient, cập nhật ảnh trực tiếp, hoàn tác, về màu lúc mở file, tải SVG/JSON và **Tải HTML đã chỉnh**. Chỉ sửa màu cùng mã trong asset đang chọn; không thay ID/ref hoặc geometry. Không tự lưu vào file đang mở hoặc ghi vào GitHub; muốn giữ thay đổi phải xuất HTML/JSON. Editor nhúng offline từ tools/catalog-editor.js, không thêm renderer runtime.
 
 PASS tests/catalog-editor.cjs: chỉnh màu, undo, xuất HTML, mở lại giữ màu, editor sau mở lại, reset và mobile không tràn ngang. Corridor-source 40 cấu hình/48 reference và Indoor placement PASS. Ảnh tests/catalog-color-editor.png. Chưa kiểm AI Studio; chưa coi user đã duyệt màu mới.
+
+### Hoàn thiện màu theo vật liệu — user giao tự xử lý
+
+Giữ vải beige, không dùng lại burgundy mới. Hoàn thiện 20 asset: nhịp gáy sách kem/sage/xám lam/da nâu, vạc sắt tối, giáp bạc cũ, gương kính xanh khói; bổ sung token base/surface/detail/ink trên các SVG detail trước đó có fallback none. Màu được ghi vào catalog và object art cùng nguồn; assets/finish-paint.json + tools/finish-paint.py là các quyết định paint cụ thể, importer gọi lại để không mất khi rebuild. Không đổi geometry, cờ Nhà hoặc pack Fixed.
+
+Đã xem contact sheet tests/asset-finished-contact.png; catalog HTML sinh lại từ source chính và vẫn có editor offline. PASS catalog-editor (đổi/undo/export/mở lại/mobile), H40 40 cấu hình/48 reference, browser 8 Outdoor/lifecycle. Chưa nghiệm thu AI Studio. Không yêu cầu user tự chỉnh màu để hoàn thành lượt này.
