@@ -22,5 +22,7 @@ $('#tabs').onclick=e=>{const b=e.target.closest('[data-tab]');if(!b)return;tab=b
 summary=review['summary']
 html=html.replace('__CORRIDOR_COUNT__',str(sum(bool(a.get('corridorSource'))for a in records)))
 html=html.replace('__TOTAL__',str(summary['totalCandidateDesigns'])).replace('__BASE__',str(summary['keptDesigns'])).replace('__COPIES__',str(summary['sharedCopies']))
+icons=''.join('<div style="display:inline-flex;align-items:center;gap:10px;margin-right:32px">'+(r/'assets/icons'/file).read_text().replace('<svg ','<svg width="36" height="36" ')+label+'</div>' for file,label in [('activity-binoculars.svg','! → Ống nhòm · Hoạt động'),('clue-search.svg','? → Kính lúp · Dấu hiệu đã biết')])
+html=html.replace('<nav id="tabs">','<section style="padding:20px 24px;background:#eee4d1">'+icons+'<p>Một bảng màu nguồn · 498 asset có sẵn màu · Nét mở ghi rõ fill none · Fixed giữ nguyên.</p></section><nav id="tabs">')
 (r/'examples/asset-review.html').write_text(html)
 print('Offline catalog bytes',len(html.encode()))

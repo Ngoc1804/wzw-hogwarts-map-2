@@ -10,7 +10,7 @@ function corridorAssetMarkup(asset){
   const cfg=structuredClone(CORRIDORS.defaults);cfg.height=40;cfg.materials[ref.kind==='window'?'window':'door']=ref.key;
   body=CORRIDORS.opening({kind:ref.kind==='window'?'window':'door',main:ref.kind==='main-door',width:ref.kind==='main-door'?64:44,ln:{axis:'H'}},40,cfg);
  }
- return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${view.join(' ')}">${body}</svg>`;
+ let markup=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${view.join(' ')}">${body}</svg>`;for(const [old,next]of asset.paintEdits||[])markup=markup.replaceAll(old,next);return markup;
 }
 const escapeXML=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function namespaceArt(markup,prefix){return markup.replace(/(?:^|\s)id="([^"]+)"/g,(_,id)=>` id="${prefix}${id}"`).replace(/url\(#([^)]+)\)/g,(_,id)=>`url(#${prefix}${id})`).replace(/href="#([^"]+)"/g,(_,id)=>`href="#${prefix}${id}"`);}

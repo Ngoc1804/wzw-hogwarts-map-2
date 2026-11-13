@@ -428,3 +428,9 @@ Review-only: [HTML](examples/marker-palette-review.html), [ảnh](tests/marker-p
 ### Điều chỉnh theo user — một palette và icon ống nhòm/kính lúp
 
 Bác mẫu !/? cũ và bỏ ba palette/seed chọn palette. Chỉ một bảng màu vật liệu; giữ Fixed. Đã lập [plan](docs/ASSET_COLOR_PLAN.md), [bảng 498 SVG](docs/ASSET_COLOR_AUDIT.csv), tạo [mẫu icon](examples/event-icon-review.html). 208 SVG cần kiểm inheritance, 290 có paint tường minh; chưa kết luận asset nào đủ màu chỉ bằng scan. Chưa tô hàng loạt hoặc áp icon runtime.
+
+### M2-P04 — HTML asset có màu và icon mới — 14/11/2026
+
+User yêu cầu thực hiện: đã thay glyph marker bằng ống nhòm (!)/kính lúp (?) và nhúng cả hai trong [catalog offline](examples/asset-review.html), cùng 498 SVG có màu nguồn. Giữ một palette; không seed đổi bảng màu. Kiểm computed paint phân biệt inheritance/nét mở: 51 asset có nét mở thiếu fill tường minh, đã ghi fill none theo từng path trong assets/paint-edits.json; không tùy tiện phủ màu lên nét. Không phát hiện mặt khối rơi về fill đen mặc định trong phép scan này; không tuyên bố kiểm thẩm mỹ từng bộ phận bằng scan. Compiler tái áp quyết định bằng tools/apply-paint.py; corridor factory dùng cùng quyết định, không tạo renderer khác.
+
+Ảnh [asset-color-review](tests/asset-color-review.png), kết quả [paint QA](docs/ASSET_PAINT_RESULT.json). PASS browser catalog trang đầu/icon/mobile, H40 40 cấu hình/48 reference, Indoor placement, 8 Outdoor/lifecycle. Chưa nghiệm thu AI Studio. Pack 13 Fixed không đổi; CSS chỉ thay nét icon event để không tô đặc icon stroke. Hình mới chờ user xem.

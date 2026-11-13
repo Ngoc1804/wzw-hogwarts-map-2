@@ -207,14 +207,14 @@ flag.beauxbatons,Cờ thêu Beauxbatons,REVIEW_INHERITANCE,22,1,0,11,0
 flag.durmstrang,Cờ thêu Durmstrang,REVIEW_INHERITANCE,35,1,0,10,0
 atelier.decor.portrait,Tranh chân dung,EXPLICIT_PAINT,5,0,0,0,0
 atelier.decor.gallery,Cụm ba tranh,EXPLICIT_PAINT,7,0,0,0,0
-atelier.decor.candle,Nến / đèn tường,REVIEW_INHERITANCE,5,1,0,1,0
-atelier.decor.armor,Bộ giáp,REVIEW_INHERITANCE,9,6,0,0,0
-atelier.decor.curtain,Màn nhung,REVIEW_INHERITANCE,4,3,0,0,0
-atelier.decor.banner,Cờ treo,REVIEW_INHERITANCE,4,1,0,1,0
-atelier.decor.crest,Khiên huy hiệu,REVIEW_INHERITANCE,3,1,0,0,0
-atelier.decor.bench,Ghế băng hẹp,REVIEW_INHERITANCE,4,2,0,0,0
-atelier.decor.console,Bàn console,REVIEW_INHERITANCE,5,1,0,0,0
-atelier.decor.vase,Bình cổ,REVIEW_INHERITANCE,4,2,0,0,0
+atelier.decor.candle,Nến / đèn tường,EXPLICIT_PAINT,5,0,0,2,0
+atelier.decor.armor,Bộ giáp,EXPLICIT_PAINT,9,0,0,6,0
+atelier.decor.curtain,Màn nhung,EXPLICIT_PAINT,4,0,0,3,0
+atelier.decor.banner,Cờ treo,EXPLICIT_PAINT,4,0,0,2,0
+atelier.decor.crest,Khiên huy hiệu,EXPLICIT_PAINT,3,0,0,1,0
+atelier.decor.bench,Ghế băng hẹp,EXPLICIT_PAINT,4,0,0,2,0
+atelier.decor.console,Bàn console,EXPLICIT_PAINT,5,0,0,1,0
+atelier.decor.vase,Bình cổ,EXPLICIT_PAINT,4,0,0,2,0
 atelier.decor.niche,Hốc trưng bày,EXPLICIT_PAINT,5,0,0,0,0
 new.cup-0.library,Cúp cổ · kiểu 1,EXPLICIT_PAINT,6,0,0,3,0
 new.cup-1,Cúp cổ · kiểu 2,EXPLICIT_PAINT,5,0,0,1,2
@@ -265,33 +265,33 @@ new.wand-rack,Giá đũa phép · năm ngăn,EXPLICIT_PAINT,16,0,0,6,2
 new.tool-board,Bảng dụng cụ · gỗ / kim loại,EXPLICIT_PAINT,16,0,0,6,2
 new.pipe-valve,Cụm ống đồng và van,EXPLICIT_PAINT,5,0,0,4,0
 new.boiler,Lò kỹ thuật · kim loại,EXPLICIT_PAINT,7,0,0,0,2
-decor.lamp-green,Đèn đọc chụp xanh,REVIEW_INHERITANCE,3,1,0,0,0
-decor.candle-pair,Chân nến đôi,REVIEW_INHERITANCE,3,1,0,1,0
-decor.files,Hộp hồ sơ và giấy cuộn,REVIEW_INHERITANCE,3,2,0,0,0
+decor.lamp-green,Đèn đọc chụp xanh,EXPLICIT_PAINT,3,0,0,1,0
+decor.candle-pair,Chân nến đôi,EXPLICIT_PAINT,3,0,0,2,0
+decor.files,Hộp hồ sơ và giấy cuộn,EXPLICIT_PAINT,3,0,0,2,0
 decor.ladder,Thang kệ sách,EXPLICIT_PAINT,1,0,0,1,0
-decor.chess,Bàn cờ phù thủy,REVIEW_INHERITANCE,34,1,0,0,0
-decor.curtain,Rèm riêng tư,REVIEW_INHERITANCE,3,1,0,1,0
-decor.food,"Bánh mì, rau và nguyên liệu",REVIEW_INHERITANCE,4,1,0,0,0
-decor.basket-linen,Sọt vải và khăn,REVIEW_INHERITANCE,3,1,0,0,0
-decor.herbs,Thảo mộc treo,REVIEW_INHERITANCE,4,1,0,0,0
-decor.oven,Lò gạch cổ,REVIEW_INHERITANCE,4,1,0,0,0
-decor.perch,Giá đậu chim,REVIEW_INHERITANCE,2,2,0,0,0
+decor.chess,Bàn cờ phù thủy,EXPLICIT_PAINT,34,0,0,1,0
+decor.curtain,Rèm riêng tư,EXPLICIT_PAINT,3,0,0,2,0
+decor.food,"Bánh mì, rau và nguyên liệu",EXPLICIT_PAINT,4,0,0,1,0
+decor.basket-linen,Sọt vải và khăn,EXPLICIT_PAINT,3,0,0,1,0
+decor.herbs,Thảo mộc treo,EXPLICIT_PAINT,4,0,0,1,0
+decor.oven,Lò gạch cổ,EXPLICIT_PAINT,4,0,0,1,0
+decor.perch,Giá đậu chim,EXPLICIT_PAINT,2,0,0,2,0
 decor.pensieve,Chậu Tưởng Ký · bệ đá,EXPLICIT_PAINT,4,0,0,1,0
-decor.vault-door,Cửa hầm khóa cơ khí,REVIEW_INHERITANCE,4,1,0,0,0
-decor.worktools,Dụng cụ chế tác,REVIEW_INHERITANCE,2,1,0,0,0
-decor.flower,Bình hoa nhỏ,REVIEW_INHERITANCE,8,1,0,0,0
+decor.vault-door,Cửa hầm khóa cơ khí,EXPLICIT_PAINT,4,0,0,1,0
+decor.worktools,Dụng cụ chế tác,EXPLICIT_PAINT,2,0,0,1,0
+decor.flower,Bình hoa nhỏ,EXPLICIT_PAINT,8,0,0,1,0
 detail.coat-stand,Giá áo và mũ,EXPLICIT_PAINT,3,0,0,1,0
-detail.locker,Tủ áo có chân,REVIEW_INHERITANCE,3,1,0,0,0
+detail.locker,Tủ áo có chân,EXPLICIT_PAINT,3,0,0,1,0
 detail.boots,Giá giày,EXPLICIT_PAINT,2,0,0,0,0
-detail.drafting,Bàn vẽ bản đồ,REVIEW_INHERITANCE,5,2,0,1,0
-detail.easel,Giá vẽ và tranh,REVIEW_INHERITANCE,4,1,0,0,0
-detail.scroll-rack,Giá cuộn bản đồ,REVIEW_INHERITANCE,17,8,0,0,0
-detail.games-table,Bàn chơi cờ có ngăn quân,REVIEW_INHERITANCE,35,1,0,0,0
+detail.drafting,Bàn vẽ bản đồ,EXPLICIT_PAINT,5,0,0,3,0
+detail.easel,Giá vẽ và tranh,EXPLICIT_PAINT,4,0,0,1,0
+detail.scroll-rack,Giá cuộn bản đồ,EXPLICIT_PAINT,17,0,0,8,0
+detail.games-table,Bàn chơi cờ có ngăn quân,EXPLICIT_PAINT,35,0,0,1,0
 detail.gobstones,Sân Gobstones thu nhỏ,EXPLICIT_PAINT,9,0,0,1,0
-detail.directory,Bảng chỉ dẫn sảnh,REVIEW_INHERITANCE,3,2,0,0,0
+detail.directory,Bảng chỉ dẫn sảnh,EXPLICIT_PAINT,3,0,0,2,0
 detail.medicine-cart,Xe thuốc và chai lọ,EXPLICIT_PAINT,10,0,0,1,0
-detail.specimen,Khay mẫu khoáng vật,REVIEW_INHERITANCE,8,1,0,0,0
-detail.violin-case,Violon trong hộp,REVIEW_INHERITANCE,3,1,0,0,0
+detail.specimen,Khay mẫu khoáng vật,EXPLICIT_PAINT,8,0,0,1,0
+detail.violin-case,Violon trong hộp,EXPLICIT_PAINT,3,0,0,1,0
 tabletop.classroom,Cụm để bàn · Lớp học thường,REVIEW_INHERITANCE,95,70,0,3,0
 tabletop.magic_practice,Cụm để bàn · Luyện phép,REVIEW_INHERITANCE,45,15,0,9,0
 tabletop.potions_lab,Cụm để bàn · Độc dược,REVIEW_INHERITANCE,56,20,0,2,0
@@ -451,14 +451,14 @@ wm.tree-fruit.401cc5dc,Cây · Cây ăn quả thấp,EXPLICIT_PAINT,9,0,0,0,0
 layout.picnic-mat,layout.picnic-mat,EXPLICIT_PAINT,16,0,0,15,0
 corridor.decor.portrait,Tranh chân dung,EXPLICIT_PAINT,5,0,0,0,0
 corridor.decor.gallery,Cụm ba tranh,EXPLICIT_PAINT,7,0,0,0,0
-corridor.decor.candle,Nến / đèn tường,REVIEW_INHERITANCE,5,1,0,1,0
-corridor.decor.armor,Bộ giáp,REVIEW_INHERITANCE,9,6,0,0,0
-corridor.decor.curtain,Màn nhung,REVIEW_INHERITANCE,4,3,0,0,0
-corridor.decor.banner,Cờ treo,REVIEW_INHERITANCE,4,1,0,1,0
-corridor.decor.crest,Khiên huy hiệu,REVIEW_INHERITANCE,3,1,0,0,0
-corridor.decor.bench,Ghế băng hẹp,REVIEW_INHERITANCE,4,2,0,0,0
-corridor.decor.console,Bàn console,REVIEW_INHERITANCE,5,1,0,0,0
-corridor.decor.vase,Bình cổ,REVIEW_INHERITANCE,4,2,0,0,0
+corridor.decor.candle,Nến / đèn tường,EXPLICIT_PAINT,5,0,0,2,0
+corridor.decor.armor,Bộ giáp,EXPLICIT_PAINT,9,0,0,6,0
+corridor.decor.curtain,Màn nhung,EXPLICIT_PAINT,4,0,0,3,0
+corridor.decor.banner,Cờ treo,EXPLICIT_PAINT,4,0,0,2,0
+corridor.decor.crest,Khiên huy hiệu,EXPLICIT_PAINT,3,0,0,1,0
+corridor.decor.bench,Ghế băng hẹp,EXPLICIT_PAINT,4,0,0,2,0
+corridor.decor.console,Bàn console,EXPLICIT_PAINT,5,0,0,1,0
+corridor.decor.vase,Bình cổ,EXPLICIT_PAINT,4,0,0,2,0
 corridor.decor.niche,Hốc trưng bày,EXPLICIT_PAINT,5,0,0,0,0
 corridor.material.floor-tile,floor-tile,EXPLICIT_PAINT,3,0,0,1,0
 corridor.material.floor-slate,floor-slate,EXPLICIT_PAINT,3,0,0,1,0
@@ -481,19 +481,19 @@ corridor.material.wall-ashlar,wall-ashlar,EXPLICIT_PAINT,3,0,0,1,0
 corridor.material.wall-panel,wall-panel,EXPLICIT_PAINT,3,0,0,1,0
 corridor.material.wall-limestone,wall-limestone,EXPLICIT_PAINT,3,0,0,1,0
 corridor.material.wall-rubble,wall-rubble,EXPLICIT_PAINT,3,0,0,1,0
-corridor.door.oak,door · Gỗ sồi,REVIEW_INHERITANCE,5,3,0,0,0
-corridor.door.arch,door · Vòm Gothic,REVIEW_INHERITANCE,5,3,0,0,0
-corridor.door.iron,door · Gỗ & sắt rèn,REVIEW_INHERITANCE,5,3,0,0,0
-corridor.door.double,door · Cửa đôi,REVIEW_INHERITANCE,7,4,0,0,0
-corridor.main-door.oak,main-door · Gỗ sồi,REVIEW_INHERITANCE,7,4,0,0,0
-corridor.main-door.arch,main-door · Vòm Gothic,REVIEW_INHERITANCE,7,4,0,0,0
-corridor.main-door.iron,main-door · Gỗ & sắt rèn,REVIEW_INHERITANCE,7,4,0,0,0
-corridor.main-door.double,main-door · Cửa đôi,REVIEW_INHERITANCE,7,4,0,0,0
-corridor.window.leaded,window · Kính chì,REVIEW_INHERITANCE,5,3,0,1,0
-corridor.window.clear,window · Kính sáng,REVIEW_INHERITANCE,4,3,0,0,0
-corridor.window.amber,window · Kính hổ phách,REVIEW_INHERITANCE,4,3,0,0,0
-corridor.window.gothic,window · Kính Gothic,REVIEW_INHERITANCE,4,3,0,0,0
-corridor.yard.garden,Sân · Vườn xanh,REVIEW_INHERITANCE,19,5,0,2,0
+corridor.door.oak,door · Gỗ sồi,EXPLICIT_PAINT,5,0,0,3,0
+corridor.door.arch,door · Vòm Gothic,EXPLICIT_PAINT,5,0,0,3,0
+corridor.door.iron,door · Gỗ & sắt rèn,EXPLICIT_PAINT,5,0,0,3,0
+corridor.door.double,door · Cửa đôi,EXPLICIT_PAINT,7,0,0,4,0
+corridor.main-door.oak,main-door · Gỗ sồi,EXPLICIT_PAINT,7,0,0,4,0
+corridor.main-door.arch,main-door · Vòm Gothic,EXPLICIT_PAINT,7,0,0,4,0
+corridor.main-door.iron,main-door · Gỗ & sắt rèn,EXPLICIT_PAINT,7,0,0,4,0
+corridor.main-door.double,main-door · Cửa đôi,EXPLICIT_PAINT,7,0,0,4,0
+corridor.window.leaded,window · Kính chì,EXPLICIT_PAINT,5,0,0,4,0
+corridor.window.clear,window · Kính sáng,EXPLICIT_PAINT,4,0,0,3,0
+corridor.window.amber,window · Kính hổ phách,EXPLICIT_PAINT,4,0,0,3,0
+corridor.window.gothic,window · Kính Gothic,EXPLICIT_PAINT,4,0,0,3,0
+corridor.yard.garden,Sân · Vườn xanh,REVIEW_INHERITANCE,19,1,0,6,0
 corridor.yard.paving,Sân · Sân lát đá,EXPLICIT_PAINT,5,0,0,3,0
-corridor.yard.pond,Sân · Sân & hồ,REVIEW_INHERITANCE,19,5,0,3,0
+corridor.yard.pond,Sân · Sân & hồ,REVIEW_INHERITANCE,19,1,0,7,0
 corridor.material.floor-runner,Đá & thảm đỏ,EXPLICIT_PAINT,4,0,0,1,0

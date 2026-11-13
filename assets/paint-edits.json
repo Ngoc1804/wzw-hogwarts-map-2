@@ -1,0 +1,564 @@
+{
+  "atelier.decor.candle": [
+    [
+      "<path stroke=\"#fff0bc\" d=\"M4 12V9m12 2V8\"/>",
+      "<path fill=\"none\" stroke=\"#fff0bc\" d=\"M4 12V9m12 2V8\"/>"
+    ]
+  ],
+  "atelier.decor.armor": [
+    [
+      "<path stroke=\"#6e7470\" stroke-width=\"4\" d=\"m7 30 1-9m8 9-1-9M5 13l-3 9m17-9 2 9\"/>",
+      "<path fill=\"none\" stroke=\"#6e7470\" stroke-width=\"4\" d=\"m7 30 1-9m8 9-1-9M5 13l-3 9m17-9 2 9\"/>"
+    ],
+    [
+      "<path stroke=\"#d8d8be\" d=\"M12 9v13m-5-9h10\"/>",
+      "<path fill=\"none\" stroke=\"#d8d8be\" d=\"M12 9v13m-5-9h10\"/>"
+    ],
+    [
+      "<path stroke=\"#434c43\" d=\"M8 5h8\"/>",
+      "<path fill=\"none\" stroke=\"#434c43\" d=\"M8 5h8\"/>"
+    ],
+    [
+      "<path stroke=\"#596257\" stroke-width=\"3\" d=\"M1 31h7m7 0h7\"/>",
+      "<path fill=\"none\" stroke=\"#596257\" stroke-width=\"3\" d=\"M1 31h7m7 0h7\"/>"
+    ],
+    [
+      "<path stroke=\"#7a6648\" stroke-width=\"1.2\" d=\"M21 7v25\"/>",
+      "<path fill=\"none\" stroke=\"#7a6648\" stroke-width=\"1.2\" d=\"M21 7v25\"/>"
+    ],
+    [
+      "<path stroke=\"#8e8267\" d=\"M18 8h6\"/>",
+      "<path fill=\"none\" stroke=\"#8e8267\" d=\"M18 8h6\"/>"
+    ]
+  ],
+  "atelier.decor.curtain": [
+    [
+      "<path stroke=\"#806341\" stroke-width=\"2.2\" d=\"M6 7h38\"/>",
+      "<path fill=\"none\" stroke=\"#806341\" stroke-width=\"2.2\" d=\"M6 7h38\"/>"
+    ],
+    [
+      "<path stroke=\"#b07b6d\" d=\"M11 9 9 25m7-16-4 17M34 9l4 17m1-17 2 17\"/>",
+      "<path fill=\"none\" stroke=\"#b07b6d\" d=\"M11 9 9 25m7-16-4 17M34 9l4 17m1-17 2 17\"/>"
+    ],
+    [
+      "<path stroke=\"#d0aa65\" stroke-width=\"2\" d=\"M7 27h6m24 0h6\"/>",
+      "<path fill=\"none\" stroke=\"#d0aa65\" stroke-width=\"2\" d=\"M7 27h6m24 0h6\"/>"
+    ]
+  ],
+  "atelier.decor.banner": [
+    [
+      "<path stroke=\"#775a3a\" stroke-width=\"2\" d=\"M4 6h21\"/>",
+      "<path fill=\"none\" stroke=\"#775a3a\" stroke-width=\"2\" d=\"M4 6h21\"/>"
+    ]
+  ],
+  "atelier.decor.crest": [
+    [
+      "<path stroke=\"#d3be88\" stroke-width=\"1.5\" d=\"M16 11v14m-4-10 8 7m0-7-8 7\"/>",
+      "<path fill=\"none\" stroke=\"#d3be88\" stroke-width=\"1.5\" d=\"M16 11v14m-4-10 8 7m0-7-8 7\"/>"
+    ]
+  ],
+  "atelier.decor.bench": [
+    [
+      "<path stroke=\"#72583d\" stroke-width=\"3\" d=\"M10 19v4m33-4v4\"/>",
+      "<path fill=\"none\" stroke=\"#72583d\" stroke-width=\"3\" d=\"M10 19v4m33-4v4\"/>"
+    ],
+    [
+      "<path stroke=\"#d3af78\" d=\"M11 10h32m-31 6h30\"/>",
+      "<path fill=\"none\" stroke=\"#d3af78\" d=\"M11 10h32m-31 6h30\"/>"
+    ]
+  ],
+  "atelier.decor.console": [
+    [
+      "<path stroke=\"#75583b\" stroke-width=\"2.5\" d=\"M7 17 5 27m27-10 2 10\"/>",
+      "<path fill=\"none\" stroke=\"#75583b\" stroke-width=\"2.5\" d=\"M7 17 5 27m27-10 2 10\"/>"
+    ]
+  ],
+  "atelier.decor.vase": [
+    [
+      "<path stroke=\"#7c8264\" stroke-width=\"1.5\" d=\"M4 13h13M4 17h13M6 22h8\"/>",
+      "<path fill=\"none\" stroke=\"#7c8264\" stroke-width=\"1.5\" d=\"M4 13h13M4 17h13M6 22h8\"/>"
+    ],
+    [
+      "<path stroke=\"#efe0b8\" d=\"M7 2h5\"/>",
+      "<path fill=\"none\" stroke=\"#efe0b8\" d=\"M7 2h5\"/>"
+    ]
+  ],
+  "decor.lamp-green": [
+    [
+      "<path d=\"M0 -10V20M-14 22H14\" stroke=\"#b69854\" stroke-width=\"4\"/>",
+      "<path fill=\"none\" d=\"M0 -10V20M-14 22H14\" stroke=\"#b69854\" stroke-width=\"4\"/>"
+    ]
+  ],
+  "decor.candle-pair": [
+    [
+      "<path d=\"M-13 -13V-24M13 -13V-24\" stroke=\"#eee3c3\" stroke-width=\"6\"/>",
+      "<path fill=\"none\" d=\"M-13 -13V-24M13 -13V-24\" stroke=\"#eee3c3\" stroke-width=\"6\"/>"
+    ]
+  ],
+  "decor.files": [
+    [
+      "<path d=\"M-22 -10H22M-22 0H22M-22 10H22\" stroke=\"#bdac88\" stroke-width=\"6\"/>",
+      "<path fill=\"none\" d=\"M-22 -10H22M-22 0H22M-22 10H22\" stroke=\"#bdac88\" stroke-width=\"6\"/>"
+    ],
+    [
+      "<path d=\"M-13 -11v3M8 -1v3M-3 9v3\" stroke=\"#514b40\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M-13 -11v3M8 -1v3M-3 9v3\" stroke=\"#514b40\" stroke-width=\"3\"/>"
+    ]
+  ],
+  "decor.chess": [
+    [
+      "<path d=\"M-20 -10v-9M-4 15V5M13 -6v-10\" stroke=\"#eee2c2\" stroke-width=\"5\"/>",
+      "<path fill=\"none\" d=\"M-20 -10v-9M-4 15V5M13 -6v-10\" stroke=\"#eee2c2\" stroke-width=\"5\"/>"
+    ]
+  ],
+  "decor.curtain": [
+    [
+      "<path d=\"M-35 -34H35M-32 -34V34M32 -34V34\" stroke=\"#a48a55\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M-35 -34H35M-32 -34V34M32 -34V34\" stroke=\"#a48a55\" stroke-width=\"3\"/>"
+    ]
+  ],
+  "decor.food": [
+    [
+      "<path d=\"M-24 -1l7 9M-13 -5l7 9\" stroke=\"#e5c895\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M-24 -1l7 9M-13 -5l7 9\" stroke=\"#e5c895\" stroke-width=\"3\"/>"
+    ]
+  ],
+  "decor.basket-linen": [
+    [
+      "<path d=\"M-18 -4L-14 24M-6 -4v28M6 -4v28M18 -4l-4 28M-22 7h44M-21 17h42\" stroke=\"#d3b58b\"/>",
+      "<path fill=\"none\" d=\"M-18 -4L-14 24M-6 -4v28M6 -4v28M18 -4l-4 28M-22 7h44M-21 17h42\" stroke=\"#d3b58b\"/>"
+    ]
+  ],
+  "decor.herbs": [
+    [
+      "<path d=\"M-26 -27H26M-15 -27V10M0 -27V15M15 -27V8\" stroke=\"#8d704d\" stroke-width=\"2\"/>",
+      "<path fill=\"none\" d=\"M-26 -27H26M-15 -27V10M0 -27V15M15 -27V8\" stroke=\"#8d704d\" stroke-width=\"2\"/>"
+    ]
+  ],
+  "decor.oven": [
+    [
+      "<path d=\"M-38 -16H38M-38 1H38M-38 18H38M0 -32V-16M-20 -16V1M20 -16V1\" stroke=\"#c4a181\"/>",
+      "<path fill=\"none\" d=\"M-38 -16H38M-38 1H38M-38 18H38M0 -32V-16M-20 -16V1M20 -16V1\" stroke=\"#c4a181\"/>"
+    ]
+  ],
+  "decor.perch": [
+    [
+      "<path d=\"M0 28V-23M-24 -23H24M-20 30H20\" stroke=\"#9a7a45\" stroke-width=\"5\"/>",
+      "<path fill=\"none\" d=\"M0 28V-23M-24 -23H24M-20 30H20\" stroke=\"#9a7a45\" stroke-width=\"5\"/>"
+    ],
+    [
+      "<path d=\"M-18 -23v10M18 -23v10\" stroke=\"#c1a366\" stroke-width=\"2\"/>",
+      "<path fill=\"none\" d=\"M-18 -23v10M18 -23v10\" stroke=\"#c1a366\" stroke-width=\"2\"/>"
+    ]
+  ],
+  "decor.vault-door": [
+    [
+      "<path d=\"M-17 0H17M0 -17V17M-12 -12L12 12M12 -12L-12 12\" stroke=\"#c2b388\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M-17 0H17M0 -17V17M-12 -12L12 12M12 -12L-12 12\" stroke=\"#c2b388\" stroke-width=\"3\"/>"
+    ]
+  ],
+  "decor.worktools": [
+    [
+      "<path d=\"M-25 23L16 -22M-24 -20L23 21\" stroke=\"#71583e\" stroke-width=\"6\"/>",
+      "<path fill=\"none\" d=\"M-25 23L16 -22M-24 -20L23 21\" stroke=\"#71583e\" stroke-width=\"6\"/>"
+    ]
+  ],
+  "decor.flower": [
+    [
+      "<path d=\"M0 11V-20M0 1L-16 -10M0 -4L17 -17\" stroke=\"#637b51\" stroke-width=\"2\"/>",
+      "<path fill=\"none\" d=\"M0 11V-20M0 1L-16 -10M0 -4L17 -17\" stroke=\"#637b51\" stroke-width=\"2\"/>"
+    ]
+  ],
+  "detail.locker": [
+    [
+      "<path d=\"M-22 29V35M22 29V35M-7 -2V5M7 -2V5\" stroke=\"#bca568\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M-22 29V35M22 29V35M-7 -2V5M7 -2V5\" stroke=\"#bca568\" stroke-width=\"3\"/>"
+    ]
+  ],
+  "detail.drafting": [
+    [
+      "<path d=\"M-32 23V34M32 23V34\" stroke=\"#64503d\" stroke-width=\"5\"/>",
+      "<path fill=\"none\" d=\"M-32 23V34M32 23V34\" stroke=\"#64503d\" stroke-width=\"5\"/>"
+    ],
+    [
+      "<path d=\"M-32 22L33 -22\" stroke=\"#967a49\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M-32 22L33 -22\" stroke=\"#967a49\" stroke-width=\"3\"/>"
+    ]
+  ],
+  "detail.easel": [
+    [
+      "<path d=\"M0 -37L-25 34M0 -37L25 34M-25 20H25\" stroke=\"#795c3d\" stroke-width=\"4\"/>",
+      "<path fill=\"none\" d=\"M0 -37L-25 34M0 -37L25 34M-25 20H25\" stroke=\"#795c3d\" stroke-width=\"4\"/>"
+    ]
+  ],
+  "detail.scroll-rack": [
+    [
+      "<path d=\"M-26 -14v20\" stroke=\"#ac9066\"/>",
+      "<path fill=\"none\" d=\"M-26 -14v20\" stroke=\"#ac9066\"/>"
+    ],
+    [
+      "<path d=\"M-19 -14v20\" stroke=\"#ac9066\"/>",
+      "<path fill=\"none\" d=\"M-19 -14v20\" stroke=\"#ac9066\"/>"
+    ],
+    [
+      "<path d=\"M-12 -14v20\" stroke=\"#ac9066\"/>",
+      "<path fill=\"none\" d=\"M-12 -14v20\" stroke=\"#ac9066\"/>"
+    ],
+    [
+      "<path d=\"M-5 -14v20\" stroke=\"#ac9066\"/>",
+      "<path fill=\"none\" d=\"M-5 -14v20\" stroke=\"#ac9066\"/>"
+    ],
+    [
+      "<path d=\"M2 -14v20\" stroke=\"#ac9066\"/>",
+      "<path fill=\"none\" d=\"M2 -14v20\" stroke=\"#ac9066\"/>"
+    ],
+    [
+      "<path d=\"M9 -14v20\" stroke=\"#ac9066\"/>",
+      "<path fill=\"none\" d=\"M9 -14v20\" stroke=\"#ac9066\"/>"
+    ],
+    [
+      "<path d=\"M16 -14v20\" stroke=\"#ac9066\"/>",
+      "<path fill=\"none\" d=\"M16 -14v20\" stroke=\"#ac9066\"/>"
+    ],
+    [
+      "<path d=\"M23 -14v20\" stroke=\"#ac9066\"/>",
+      "<path fill=\"none\" d=\"M23 -14v20\" stroke=\"#ac9066\"/>"
+    ]
+  ],
+  "detail.games-table": [
+    [
+      "<path d=\"M-34 32v5M34 32v5\" stroke=\"#514332\" stroke-width=\"5\"/>",
+      "<path fill=\"none\" d=\"M-34 32v5M34 32v5\" stroke=\"#514332\" stroke-width=\"5\"/>"
+    ]
+  ],
+  "detail.directory": [
+    [
+      "<path d=\"M-22 -23H22M-22 -10H22M-22 3H22M-22 16H22\" stroke=\"#d8c9a3\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M-22 -23H22M-22 -10H22M-22 3H22M-22 16H22\" stroke=\"#d8c9a3\" stroke-width=\"3\"/>"
+    ],
+    [
+      "<path d=\"M-24 31v5M24 31v5\" stroke=\"#574635\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M-24 31v5M24 31v5\" stroke=\"#574635\" stroke-width=\"3\"/>"
+    ]
+  ],
+  "detail.specimen": [
+    [
+      "<path d=\"M-12 -23v46M12 -23v46M-35 0h70\" stroke=\"#bc9e73\" stroke-width=\"2\"/>",
+      "<path fill=\"none\" d=\"M-12 -23v46M12 -23v46M-35 0h70\" stroke=\"#bc9e73\" stroke-width=\"2\"/>"
+    ]
+  ],
+  "detail.violin-case": [
+    [
+      "<path d=\"M-2 -32V22M2 -32V22M-8 11H8\" stroke=\"#dfc58c\" stroke-width=\"1\"/>",
+      "<path fill=\"none\" d=\"M-2 -32V22M2 -32V22M-8 11H8\" stroke=\"#dfc58c\" stroke-width=\"1\"/>"
+    ]
+  ],
+  "corridor.decor.candle": [
+    [
+      "<path d=\"M4 12V9M16 11V8\" stroke=\"#fff0bc\"/>",
+      "<path fill=\"none\" d=\"M4 12V9M16 11V8\" stroke=\"#fff0bc\"/>"
+    ]
+  ],
+  "corridor.decor.armor": [
+    [
+      "<path d=\"M7 30L8 21M16 30L15 21M5 13L2 22M19 13L21 22\" stroke=\"#6e7470\" stroke-width=\"4\"/>",
+      "<path fill=\"none\" d=\"M7 30L8 21M16 30L15 21M5 13L2 22M19 13L21 22\" stroke=\"#6e7470\" stroke-width=\"4\"/>"
+    ],
+    [
+      "<path d=\"M12 9V22M7 13H17\" stroke=\"#d8d8be\"/>",
+      "<path fill=\"none\" d=\"M12 9V22M7 13H17\" stroke=\"#d8d8be\"/>"
+    ],
+    [
+      "<path d=\"M8 5H16\" stroke=\"#434c43\"/>",
+      "<path fill=\"none\" d=\"M8 5H16\" stroke=\"#434c43\"/>"
+    ],
+    [
+      "<path d=\"M1 31H8M15 31H22\" stroke=\"#596257\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M1 31H8M15 31H22\" stroke=\"#596257\" stroke-width=\"3\"/>"
+    ],
+    [
+      "<path d=\"M21 7V32\" stroke=\"#7a6648\" stroke-width=\"1.2\"/>",
+      "<path fill=\"none\" d=\"M21 7V32\" stroke=\"#7a6648\" stroke-width=\"1.2\"/>"
+    ],
+    [
+      "<path d=\"M18 8H24\" stroke=\"#8e8267\"/>",
+      "<path fill=\"none\" d=\"M18 8H24\" stroke=\"#8e8267\"/>"
+    ]
+  ],
+  "corridor.decor.curtain": [
+    [
+      "<path d=\"M2 3H40\" stroke=\"#806341\" stroke-width=\"2.2\"/>",
+      "<path fill=\"none\" d=\"M2 3H40\" stroke=\"#806341\" stroke-width=\"2.2\"/>"
+    ],
+    [
+      "<path d=\"M7 5L5 21M12 5L8 22M30 5L34 22M35 5L37 22\" stroke=\"#b07b6d\" stroke-width=\"1\"/>",
+      "<path fill=\"none\" d=\"M7 5L5 21M12 5L8 22M30 5L34 22M35 5L37 22\" stroke=\"#b07b6d\" stroke-width=\"1\"/>"
+    ],
+    [
+      "<path d=\"M3 23H9M33 23H39\" stroke=\"#d0aa65\" stroke-width=\"2\"/>",
+      "<path fill=\"none\" d=\"M3 23H9M33 23H39\" stroke=\"#d0aa65\" stroke-width=\"2\"/>"
+    ]
+  ],
+  "corridor.decor.banner": [
+    [
+      "<path d=\"M0 2H21\" stroke=\"#775a3a\" stroke-width=\"2\"/>",
+      "<path fill=\"none\" d=\"M0 2H21\" stroke=\"#775a3a\" stroke-width=\"2\"/>"
+    ]
+  ],
+  "corridor.decor.crest": [
+    [
+      "<path d=\"M12 7V21M8 11L16 18M16 11L8 18\" stroke=\"#d3be88\" stroke-width=\"1.5\"/>",
+      "<path fill=\"none\" d=\"M12 7V21M8 11L16 18M16 11L8 18\" stroke=\"#d3be88\" stroke-width=\"1.5\"/>"
+    ]
+  ],
+  "corridor.decor.bench": [
+    [
+      "<path d=\"M6 15V19M39 15V19\" stroke=\"#72583d\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M6 15V19M39 15V19\" stroke=\"#72583d\" stroke-width=\"3\"/>"
+    ],
+    [
+      "<path d=\"M7 6H39M8 12H38\" stroke=\"#d3af78\"/>",
+      "<path fill=\"none\" d=\"M7 6H39M8 12H38\" stroke=\"#d3af78\"/>"
+    ]
+  ],
+  "corridor.decor.console": [
+    [
+      "<path d=\"M7 17L5 27M32 17L34 27\" stroke=\"#75583b\" stroke-width=\"2.5\"/>",
+      "<path fill=\"none\" d=\"M7 17L5 27M32 17L34 27\" stroke=\"#75583b\" stroke-width=\"2.5\"/>"
+    ]
+  ],
+  "corridor.decor.vase": [
+    [
+      "<path d=\"M4 13H17M4 17H17M6 22H14\" stroke=\"#7c8264\" stroke-width=\"1.5\"/>",
+      "<path fill=\"none\" d=\"M4 13H17M4 17H17M6 22H14\" stroke=\"#7c8264\" stroke-width=\"1.5\"/>"
+    ],
+    [
+      "<path d=\"M7 2H12\" stroke=\"#efe0b8\"/>",
+      "<path fill=\"none\" d=\"M7 2H12\" stroke=\"#efe0b8\"/>"
+    ]
+  ],
+  "corridor.door.oak": [
+    [
+      "<path d=\"M-18 2V24.192M18 2V24.192M0 1V30.240000000000002\" stroke=\"#d5b58a\" stroke-opacity=\".5\" stroke-width=\"1\"/>",
+      "<path fill=\"none\" d=\"M-18 2V24.192M18 2V24.192M0 1V30.240000000000002\" stroke=\"#d5b58a\" stroke-opacity=\".5\" stroke-width=\"1\"/>"
+    ],
+    [
+      "<path d=\"M-20 8.4H20M-20 21.840000000000003H20\" stroke=\"#775b3e\" stroke-width=\"2\"/>",
+      "<path fill=\"none\" d=\"M-20 8.4H20M-20 21.840000000000003H20\" stroke=\"#775b3e\" stroke-width=\"2\"/>"
+    ],
+    [
+      "<path d=\"M-25 0H25\" stroke=\"#bca17b\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M-25 0H25\" stroke=\"#bca17b\" stroke-width=\"3\"/>"
+    ]
+  ],
+  "corridor.door.arch": [
+    [
+      "<path d=\"M-18 2V24.192M18 2V24.192M0 1V30.240000000000002\" stroke=\"#d5b58a\" stroke-opacity=\".5\" stroke-width=\"1\"/>",
+      "<path fill=\"none\" d=\"M-18 2V24.192M18 2V24.192M0 1V30.240000000000002\" stroke=\"#d5b58a\" stroke-opacity=\".5\" stroke-width=\"1\"/>"
+    ],
+    [
+      "<path d=\"M-20 8.4H20M-20 21.840000000000003H20\" stroke=\"#775b3e\" stroke-width=\"2\"/>",
+      "<path fill=\"none\" d=\"M-20 8.4H20M-20 21.840000000000003H20\" stroke=\"#775b3e\" stroke-width=\"2\"/>"
+    ],
+    [
+      "<path d=\"M-25 0H25\" stroke=\"#bca17b\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M-25 0H25\" stroke=\"#bca17b\" stroke-width=\"3\"/>"
+    ]
+  ],
+  "corridor.door.iron": [
+    [
+      "<path d=\"M-18 2V24.192M18 2V24.192M0 1V30.240000000000002\" stroke=\"#d5b58a\" stroke-opacity=\".5\" stroke-width=\"1\"/>",
+      "<path fill=\"none\" d=\"M-18 2V24.192M18 2V24.192M0 1V30.240000000000002\" stroke=\"#d5b58a\" stroke-opacity=\".5\" stroke-width=\"1\"/>"
+    ],
+    [
+      "<path d=\"M-20 8.4H20M-20 21.840000000000003H20\" stroke=\"#4d5048\" stroke-width=\"2\"/>",
+      "<path fill=\"none\" d=\"M-20 8.4H20M-20 21.840000000000003H20\" stroke=\"#4d5048\" stroke-width=\"2\"/>"
+    ],
+    [
+      "<path d=\"M-25 0H25\" stroke=\"#bca17b\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M-25 0H25\" stroke=\"#bca17b\" stroke-width=\"3\"/>"
+    ]
+  ],
+  "corridor.door.double": [
+    [
+      "<path d=\"M-18 2V24.192M18 2V24.192M0 1V30.240000000000002\" stroke=\"#d5b58a\" stroke-opacity=\".5\" stroke-width=\"1\"/>",
+      "<path fill=\"none\" d=\"M-18 2V24.192M18 2V24.192M0 1V30.240000000000002\" stroke=\"#d5b58a\" stroke-opacity=\".5\" stroke-width=\"1\"/>"
+    ],
+    [
+      "<path d=\"M0 0V33.6\" stroke=\"#584a36\" stroke-width=\"1.5\"/>",
+      "<path fill=\"none\" d=\"M0 0V33.6\" stroke=\"#584a36\" stroke-width=\"1.5\"/>"
+    ],
+    [
+      "<path d=\"M-20 8.4H20M-20 21.840000000000003H20\" stroke=\"#775b3e\" stroke-width=\"2\"/>",
+      "<path fill=\"none\" d=\"M-20 8.4H20M-20 21.840000000000003H20\" stroke=\"#775b3e\" stroke-width=\"2\"/>"
+    ],
+    [
+      "<path d=\"M-25 0H25\" stroke=\"#bca17b\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M-25 0H25\" stroke=\"#bca17b\" stroke-width=\"3\"/>"
+    ]
+  ],
+  "corridor.main-door.oak": [
+    [
+      "<path d=\"M-28 2V24.192M28 2V24.192M0 1V30.240000000000002\" stroke=\"#d5b58a\" stroke-opacity=\".5\" stroke-width=\"1\"/>",
+      "<path fill=\"none\" d=\"M-28 2V24.192M28 2V24.192M0 1V30.240000000000002\" stroke=\"#d5b58a\" stroke-opacity=\".5\" stroke-width=\"1\"/>"
+    ],
+    [
+      "<path d=\"M0 0V33.6\" stroke=\"#584a36\" stroke-width=\"1.5\"/>",
+      "<path fill=\"none\" d=\"M0 0V33.6\" stroke=\"#584a36\" stroke-width=\"1.5\"/>"
+    ],
+    [
+      "<path d=\"M-30 8.4H30M-30 21.840000000000003H30\" stroke=\"#775b3e\" stroke-width=\"2\"/>",
+      "<path fill=\"none\" d=\"M-30 8.4H30M-30 21.840000000000003H30\" stroke=\"#775b3e\" stroke-width=\"2\"/>"
+    ],
+    [
+      "<path d=\"M-35 0H35\" stroke=\"#bca17b\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M-35 0H35\" stroke=\"#bca17b\" stroke-width=\"3\"/>"
+    ]
+  ],
+  "corridor.main-door.arch": [
+    [
+      "<path d=\"M-28 2V24.192M28 2V24.192M0 1V30.240000000000002\" stroke=\"#d5b58a\" stroke-opacity=\".5\" stroke-width=\"1\"/>",
+      "<path fill=\"none\" d=\"M-28 2V24.192M28 2V24.192M0 1V30.240000000000002\" stroke=\"#d5b58a\" stroke-opacity=\".5\" stroke-width=\"1\"/>"
+    ],
+    [
+      "<path d=\"M0 0V33.6\" stroke=\"#584a36\" stroke-width=\"1.5\"/>",
+      "<path fill=\"none\" d=\"M0 0V33.6\" stroke=\"#584a36\" stroke-width=\"1.5\"/>"
+    ],
+    [
+      "<path d=\"M-30 8.4H30M-30 21.840000000000003H30\" stroke=\"#775b3e\" stroke-width=\"2\"/>",
+      "<path fill=\"none\" d=\"M-30 8.4H30M-30 21.840000000000003H30\" stroke=\"#775b3e\" stroke-width=\"2\"/>"
+    ],
+    [
+      "<path d=\"M-35 0H35\" stroke=\"#bca17b\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M-35 0H35\" stroke=\"#bca17b\" stroke-width=\"3\"/>"
+    ]
+  ],
+  "corridor.main-door.iron": [
+    [
+      "<path d=\"M-28 2V24.192M28 2V24.192M0 1V30.240000000000002\" stroke=\"#d5b58a\" stroke-opacity=\".5\" stroke-width=\"1\"/>",
+      "<path fill=\"none\" d=\"M-28 2V24.192M28 2V24.192M0 1V30.240000000000002\" stroke=\"#d5b58a\" stroke-opacity=\".5\" stroke-width=\"1\"/>"
+    ],
+    [
+      "<path d=\"M0 0V33.6\" stroke=\"#584a36\" stroke-width=\"1.5\"/>",
+      "<path fill=\"none\" d=\"M0 0V33.6\" stroke=\"#584a36\" stroke-width=\"1.5\"/>"
+    ],
+    [
+      "<path d=\"M-30 8.4H30M-30 21.840000000000003H30\" stroke=\"#4d5048\" stroke-width=\"2\"/>",
+      "<path fill=\"none\" d=\"M-30 8.4H30M-30 21.840000000000003H30\" stroke=\"#4d5048\" stroke-width=\"2\"/>"
+    ],
+    [
+      "<path d=\"M-35 0H35\" stroke=\"#bca17b\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M-35 0H35\" stroke=\"#bca17b\" stroke-width=\"3\"/>"
+    ]
+  ],
+  "corridor.main-door.double": [
+    [
+      "<path d=\"M-28 2V24.192M28 2V24.192M0 1V30.240000000000002\" stroke=\"#d5b58a\" stroke-opacity=\".5\" stroke-width=\"1\"/>",
+      "<path fill=\"none\" d=\"M-28 2V24.192M28 2V24.192M0 1V30.240000000000002\" stroke=\"#d5b58a\" stroke-opacity=\".5\" stroke-width=\"1\"/>"
+    ],
+    [
+      "<path d=\"M0 0V33.6\" stroke=\"#584a36\" stroke-width=\"1.5\"/>",
+      "<path fill=\"none\" d=\"M0 0V33.6\" stroke=\"#584a36\" stroke-width=\"1.5\"/>"
+    ],
+    [
+      "<path d=\"M-30 8.4H30M-30 21.840000000000003H30\" stroke=\"#775b3e\" stroke-width=\"2\"/>",
+      "<path fill=\"none\" d=\"M-30 8.4H30M-30 21.840000000000003H30\" stroke=\"#775b3e\" stroke-width=\"2\"/>"
+    ],
+    [
+      "<path d=\"M-35 0H35\" stroke=\"#bca17b\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M-35 0H35\" stroke=\"#bca17b\" stroke-width=\"3\"/>"
+    ]
+  ],
+  "corridor.window.leaded": [
+    [
+      "<path d=\"M0 7.199999999999999V32M-22 19.104H22\" stroke=\"#e9dbb7\" stroke-width=\"1.8\"/>",
+      "<path fill=\"none\" d=\"M0 7.199999999999999V32M-22 19.104H22\" stroke=\"#e9dbb7\" stroke-width=\"1.8\"/>"
+    ],
+    [
+      "<path d=\"M-25 6.199999999999999H25\" stroke=\"#d7c6a3\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M-25 6.199999999999999H25\" stroke=\"#d7c6a3\" stroke-width=\"3\"/>"
+    ],
+    [
+      "<path d=\"M-19 24.56L-14 29.52\" stroke=\"#f3f0d9\" stroke-width=\"2\" opacity=\".8\"/>",
+      "<path fill=\"none\" d=\"M-19 24.56L-14 29.52\" stroke=\"#f3f0d9\" stroke-width=\"2\" opacity=\".8\"/>"
+    ]
+  ],
+  "corridor.window.clear": [
+    [
+      "<path d=\"M0 7.199999999999999V32M-22 19.104H22\" stroke=\"#e9dbb7\" stroke-width=\"1.8\"/>",
+      "<path fill=\"none\" d=\"M0 7.199999999999999V32M-22 19.104H22\" stroke=\"#e9dbb7\" stroke-width=\"1.8\"/>"
+    ],
+    [
+      "<path d=\"M-25 6.199999999999999H25\" stroke=\"#d7c6a3\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M-25 6.199999999999999H25\" stroke=\"#d7c6a3\" stroke-width=\"3\"/>"
+    ],
+    [
+      "<path d=\"M-19 24.56L-14 29.52\" stroke=\"#f3f0d9\" stroke-width=\"2\" opacity=\".8\"/>",
+      "<path fill=\"none\" d=\"M-19 24.56L-14 29.52\" stroke=\"#f3f0d9\" stroke-width=\"2\" opacity=\".8\"/>"
+    ]
+  ],
+  "corridor.window.amber": [
+    [
+      "<path d=\"M0 7.199999999999999V32M-22 19.104H22\" stroke=\"#e9dbb7\" stroke-width=\"1.8\"/>",
+      "<path fill=\"none\" d=\"M0 7.199999999999999V32M-22 19.104H22\" stroke=\"#e9dbb7\" stroke-width=\"1.8\"/>"
+    ],
+    [
+      "<path d=\"M-25 6.199999999999999H25\" stroke=\"#d7c6a3\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M-25 6.199999999999999H25\" stroke=\"#d7c6a3\" stroke-width=\"3\"/>"
+    ],
+    [
+      "<path d=\"M-19 24.56L-14 29.52\" stroke=\"#f3f0d9\" stroke-width=\"2\" opacity=\".8\"/>",
+      "<path fill=\"none\" d=\"M-19 24.56L-14 29.52\" stroke=\"#f3f0d9\" stroke-width=\"2\" opacity=\".8\"/>"
+    ]
+  ],
+  "corridor.window.gothic": [
+    [
+      "<path d=\"M0 7.199999999999999V32M-22 19.104H22\" stroke=\"#e9dbb7\" stroke-width=\"1.8\"/>",
+      "<path fill=\"none\" d=\"M0 7.199999999999999V32M-22 19.104H22\" stroke=\"#e9dbb7\" stroke-width=\"1.8\"/>"
+    ],
+    [
+      "<path d=\"M-25 6.199999999999999H25\" stroke=\"#d7c6a3\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M-25 6.199999999999999H25\" stroke=\"#d7c6a3\" stroke-width=\"3\"/>"
+    ],
+    [
+      "<path d=\"M-19 24.56L-14 29.52\" stroke=\"#f3f0d9\" stroke-width=\"2\" opacity=\".8\"/>",
+      "<path fill=\"none\" d=\"M-19 24.56L-14 29.52\" stroke=\"#f3f0d9\" stroke-width=\"2\" opacity=\".8\"/>"
+    ]
+  ],
+  "corridor.yard.garden": [
+    [
+      "<path d=\"M0 17V23\" stroke=\"#8a7759\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M0 17V23\" stroke=\"#8a7759\" stroke-width=\"3\"/>"
+    ],
+    [
+      "<path d=\"M0 17V23\" stroke=\"#8a7759\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M0 17V23\" stroke=\"#8a7759\" stroke-width=\"3\"/>"
+    ],
+    [
+      "<path d=\"M0 17V23\" stroke=\"#8a7759\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M0 17V23\" stroke=\"#8a7759\" stroke-width=\"3\"/>"
+    ],
+    [
+      "<path d=\"M0 17V23\" stroke=\"#8a7759\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M0 17V23\" stroke=\"#8a7759\" stroke-width=\"3\"/>"
+    ]
+  ],
+  "corridor.yard.pond": [
+    [
+      "<path d=\"M0 17V23\" stroke=\"#8a7759\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M0 17V23\" stroke=\"#8a7759\" stroke-width=\"3\"/>"
+    ],
+    [
+      "<path d=\"M0 17V23\" stroke=\"#8a7759\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M0 17V23\" stroke=\"#8a7759\" stroke-width=\"3\"/>"
+    ],
+    [
+      "<path d=\"M0 17V23\" stroke=\"#8a7759\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M0 17V23\" stroke=\"#8a7759\" stroke-width=\"3\"/>"
+    ],
+    [
+      "<path d=\"M0 17V23\" stroke=\"#8a7759\" stroke-width=\"3\"/>",
+      "<path fill=\"none\" d=\"M0 17V23\" stroke=\"#8a7759\" stroke-width=\"3\"/>"
+    ]
+  ]
+}

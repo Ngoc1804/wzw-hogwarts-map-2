@@ -30,3 +30,5 @@ for(const a of records){const signature=fingerprint(a.svg),existing=seen.get(sig
 fs.writeFileSync('assets/catalog.json',JSON.stringify(catalog));
 fs.writeFileSync('docs/CORRIDOR_ELEMENTS.json',JSON.stringify({source,sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(source)).digest('hex'),wallHeight:40,records:report,notes:'Only exact normalized SVGs deduplicated. Different drawing/colors remain separate. Patterns/decor/openings reuse the source core in runtime rather than embedding duplicate SVG strings.'},null,2));
 console.log('Corridor elements',records.length,'exact aliases',report.filter(r=>r.action==='EXACT_ALIAS').length,'catalog IDs',Object.keys(catalog).length);
+
+require("child_process").execFileSync("python",["tools/apply-paint.py"],{stdio:"inherit"});
