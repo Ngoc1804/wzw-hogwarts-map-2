@@ -32,3 +32,5 @@ fs.writeFileSync('docs/CORRIDOR_ELEMENTS.json',JSON.stringify({source,sourceSha2
 console.log('Corridor elements',records.length,'exact aliases',report.filter(r=>r.action==='EXACT_ALIAS').length,'catalog IDs',Object.keys(catalog).length);
 
 require("child_process").execFileSync("python",["tools/apply-paint.py"],{stdio:"inherit"});
+
+require("child_process").execFileSync("python",["tools/style-catalog.py"],{stdio:"inherit"});
