@@ -1,0 +1,56 @@
+{
+  "status": "USER_APPROVED",
+  "date": "2026-11-14",
+  "approvedSourceCommit": "8d3b30355bc9f0f9695acf6b941b78095edaec19",
+  "branch": "M2-P01-baseline-loader",
+  "userInstruction": "duyệt. đẩy lên và chốt đi",
+  "scope": "Current colored asset catalog and its binocular/search icons; 443 assets; tabletop removal; beige fabrics and semantic finishing colors. Offline editor retained.",
+  "notApprovedByThisCheckpoint": [
+    "Whole project completion",
+    "AI Studio Preview acceptance",
+    "Indoor/Outdoor layout acceptance beyond this catalog",
+    "Main merge or release"
+  ],
+  "files": {
+    "assets/catalog.json": {
+      "bytes": 3042478,
+      "sha256": "3c86aec07786f3dc623532979f1239140460851a6bf3671688efe1e4e2709acd"
+    },
+    "assets/finish-paint.json": {
+      "bytes": 10721,
+      "sha256": "30793919b3024a9fa418d3e77d50955d43bafbfc91adc640e2e8ad197ab0f1ce"
+    },
+    "assets/paint-edits.json": {
+      "bytes": 23606,
+      "sha256": "e6e110041fc35a25733915e449dc3e34fffcc26f8f8ece80b2ab3ff376a20df9"
+    },
+    "assets/icons/activity-binoculars.svg": {
+      "bytes": 304,
+      "sha256": "53f23ce1ff74519681afaf962a0b503ff48cd71f778d6c29dec4c87421240fcd"
+    },
+    "assets/icons/clue-search.svg": {
+      "bytes": 220,
+      "sha256": "43accef905fbad7ae88514fc1e8c1617afb0a9b43224250aab57745afe0cca07"
+    },
+    "examples/asset-review.html": {
+      "bytes": 3232432,
+      "sha256": "379fd0b6aa9b3a3fc23851f51bf78342a52c5db478a7b056afcf7ba96974c849"
+    },
+    "assets/p4-art.json": {
+      "bytes": 1515477,
+      "sha256": "52c0587b8817a4e84f6d86bc59c8d10beb9d44348a64aa8eaa7c3d4d26b7f95d"
+    },
+    "dist/bundle.js": {
+      "bytes": 4770132,
+      "sha256": "d60395fe25c07fd2372a8d4d31f90902d149d9ea182c801d93de2fabc1b5b567"
+    },
+    "dist/templates-pack.js": {
+      "bytes": 906641,
+      "sha256": "ab8d08a8aef10fc2a8dadaaa6247a26134deb949fcbb3054442ece0bf72583b5"
+    },
+    "dist/shell.css": {
+      "bytes": 11039,
+      "sha256": "e66f7789b5df099f588f9028d947607cc7e584e7170b4e6cc627419db9bb4f15"
+    }
+  }
+}

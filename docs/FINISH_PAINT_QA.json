@@ -28,5 +28,6 @@
     "corridor 40 configurations / 48 source references PASS",
     "8 Outdoor and lifecycle browser PASS"
   ],
-  "targetPreview": "NOT RUN"
+  "targetPreview": "NOT RUN",
+  "visualApproval": "USER_APPROVED 2026-11-14 for source 8d3b303; see ASSET_VISUAL_APPROVAL.json"
 }

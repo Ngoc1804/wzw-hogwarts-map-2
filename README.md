@@ -16,6 +16,12 @@ Kiểm tập trung 10 preset PASS (replace rỗng, actor tránh đồ lớn, sit
 
 Giới hạn: footprint ảnh là ước lượng; surface chưa có metadata không đoán; cụm đồ không có định danh con không tự tháo rời; geometry đặc biệt FINAL chưa được coi tái hiện chính xác mọi hình phòng. P5/P7 chưa đóng toàn mốc. Palette mới/visual compiler/Outdoor/icon mới không nằm trong thay đổi này.
 
+### CHỐT DUYỆT asset/màu/icon — 14/11/2026
+
+**USER-APPROVED**: người dùng xác nhận “duyệt. đẩy lên và chốt đi” cho bản `8d3b30355bc9f0f9695acf6b941b78095edaec19`. Chốt catalog 443 asset, bỏ 55 Cụm để bàn, vải beige, màu vật liệu hoàn thiện và icon ống nhòm (!)/kính lúp (?) trong bản HTML hiện hành. Editor offline giữ lại. Đây là quyết định hiện hành, thay các trạng thái chờ duyệt/bác màu của các bản trước trong lịch sử README.
+
+[Hồ sơ duyệt và SHA-256](docs/ASSET_VISUAL_APPROVAL.json) · [HTML đã duyệt](examples/asset-review.html). Giữ bản này làm baseline hình ảnh khi tiếp tục; không tự recolor/redesign. Chỉ cập nhật hồ sơ ở checkpoint này, không sửa artwork/runtime/build. Fixed giữ nguyên. Không tự tick DONE toàn P4/P5/P6/P7: duyệt catalog không chứng nhận bố trí Indoor/Outdoor, X-Ray hoặc toàn hệ thống. Google AI Studio Preview vẫn **chưa nghiệm thu**. Không merge main/phát hành.
+
 ### Checkpoint loader / Outdoor / routing — 14/11/2026
 
 Tích hợp trên `8a09e91` (giữ thay đổi nội thất/actor H40 của phiên khác). Không merge main. Sửa source chính và rebuild dist:
