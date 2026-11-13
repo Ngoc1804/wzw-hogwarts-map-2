@@ -6,6 +6,12 @@ README này là tài liệu chỉ đạo hiện hành, viết lại theo các qu
 
 **Trạng thái:** đã có tài nguyên và runtime một phần; chưa hoàn thiện cơ chế, chưa nghiệm thu AI Studio Preview. Việc khóa tài liệu không chứng nhận code đã thực hiện đúng mọi mục dưới đây. Trạng thái từng lượt nằm ở checkpoint dưới; đã có thay đổi contract/routing/Atlas, chưa hoàn thiện renderer hoặc nghiệm thu runtime.
 
+### Bản duyệt màu nội thất H40 — Hogwarts Materials V2 (14/11/2026)
+
+- **Bản preview/layout được duyệt trên nhánh này:** [WIZAMAP_LAYOUTS_REVIEW_H40_SML.html](examples/WIZAMAP_LAYOUTS_REVIEW_H40_SML.html). Bản H40/S–M–L này thay phiên bản review màu cũ: 41 Indoor được phối màu theo vật liệu/công năng, 8 Outdoor giữ nguyên. Không đổi hình học/đồ nội thất/13 Fixed.
+- **Phạm vi:** HTML preview offline. Đã lưu bản duyệt; chưa đồng nghĩa assets/recipes.json, assets/p4-art.json, dist hoặc runtime đang dùng palette V2. Cần tích hợp riêng và kiểm thử.
+- **Bảo tồn nguồn:** assets/intake/final-2026-11-14/WIZAMAP_LAYOUTS_FINAL.html giữ nguyên làm nguồn FINAL; không thay nguồn bằng HTML review, tránh làm hỏng pipeline.
+
 ### Sửa lỗi ID/đồ con/ribbon trên base 1552760
 
 Đã đóng 3 lỗi xác nhận của audit trước, [bằng chứng mới](docs/LINK_CHILD_FIX_QA.json):
