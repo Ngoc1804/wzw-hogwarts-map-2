@@ -6,6 +6,12 @@ README này là tài liệu chỉ đạo hiện hành, viết lại theo các qu
 
 **Trạng thái:** đã có tài nguyên và runtime một phần; chưa hoàn thiện cơ chế, chưa nghiệm thu AI Studio Preview. Việc khóa tài liệu không chứng nhận code đã thực hiện đúng mọi mục dưới đây. Trạng thái từng lượt nằm ở checkpoint dưới; đã có thay đổi contract/routing/Atlas, chưa hoàn thiện renderer hoặc nghiệm thu runtime.
 
+### Chốt cơ chế X-Ray tương tác — theo xác nhận user
+
+User yêu cầu hover/click cho laptop/phone, kích hoạt từ cả công trình và ribbon. Đã bỏ auto-fade: không tương tác thì giữ opacity 1; rê chuột xem tạm và rời chuột phục hồi; click/tap giữ, lần nữa hoặc nền/Escape xóa giữ. Touch pointer không kích hover dính. Pin/hover reset khi actor/scene bị thay hoặc cleanup. Chỉ nhóm thực sự che actor, đúng layer/depth và alpha mask mới opacity .3; inside không tự mờ. Ribbon click vẫn mở Inspector. Đây là cơ chế hiện hành, thay mô tả auto X-Ray trong các checkpoint/test lịch sử.
+
+tests/four-fixes.cjs PASS 26 kiểm, gồm hover cả hai target, click/tap giữ/tắt, không auto, nền/Escape, inside và native browser touch tap ribbon. Hồi quy current-scope/corridor-source PASS. HTML offline mechanism-review đã cập nhật nút 3 để user tự hover/tap công trình/ribbon; không còn trình diễn tự mờ. Chưa nghiệm thu AI Studio hoặc toàn bộ semantic depth 13 Fixed.
+
 ### Đóng 4 lỗi audit — regression mới
 
 Base 2cf5a9b. Đã sửa nguyên nhân và kiểm browser:

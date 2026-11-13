@@ -569,6 +569,15 @@ async function prepareTemplateUI(){
  const footLayer=uiElement('g',{'data-layer':'actor-feet','pointer-events':'none'},svg);
  const zones=[...svg.querySelectorAll('[data-forbidden]')].filter(e=>!e.closest('defs'));
  const records=zones.map(node=>{const box=worldBox(node);return{node,box,owner:node.closest('[data-id]')?.dataset.id,layer:Number(node.dataset.layer)||0,depth:node.hasAttribute('data-depth')&&Number.isFinite(+node.dataset.depth)?+node.dataset.depth:null,mask:null,promise:null}});let actorItems=[],eventItems=[],generation=0;
+ let hovered=null,pinned=null;
+ const buildingAt=target=>records.find(r=>r.node.dataset.occluder==='building'&&r.node.contains(target))?.node||null;
+ function toggleXray(target){pinned=pinned===target?null:target;hovered=null;renderPositions();}
+ function overXray(e){if(e.pointerType==='touch')return;const target=buildingAt(e.target);if(target&&(!e.relatedTarget||!target.contains(e.relatedTarget))){hovered=target;renderPositions();}}
+ function outXray(e){const target=buildingAt(e.target);if(target&&hovered===target&&(!e.relatedTarget||!target.contains(e.relatedTarget))){hovered=null;renderPositions();}}
+ function clickXray(e){if(scene.dataset.dragged==='true')return;const target=buildingAt(e.target);toggleXray(target);}
+ function keyXray(e){if(e.key==='Escape'){hovered=pinned=null;renderPositions();}else if(e.key==='Enter'||e.key===' '){const target=buildingAt(e.target);if(target)toggleXray(target);}}
+ scene.addEventListener('pointerover',overXray);scene.addEventListener('pointerout',outXray);scene.addEventListener('click',clickXray,true);scene.addEventListener('keydown',keyXray,true);
+
  const maskFor=async r=>{if(!r.promise)r.promise=paintedMask(r.node).then(m=>{r.mask=m;if(r.depth===null&&m){let bottom=-1;for(let y=m.h-1;y>=0&&bottom<0;y--)for(let x=0;x<m.w;x++)if(m.pixels[(y*m.w+x)*4+3]>24){bottom=y;break;}if(bottom>=0)r.depth=m.box.y+(bottom+.5)/m.h*m.box.h;}return m}).catch(()=>null);await r.promise;return r.mask};
  function pointSafe(x,y,pad=0){if(!inMap(x,y,pad)||DATA.maps[activeId].safeFloor&&!DATA.maps[activeId].safeFloor(x,y,pad))return false;for(const r of records){if(x+pad<r.box.x||x-pad>r.box.x+r.box.w||y+pad<r.box.y||y-pad>r.box.y+r.box.h)continue;if(!r.mask)return false;if(maskOverlaps(r.mask,{x:x-pad,y:y-pad,w:Math.max(.1,pad*2),h:Math.max(.1,pad*2)}))return false;}return true}
  async function readyMasks(){await Promise.all(records.map(maskFor))}
@@ -586,15 +595,16 @@ async function prepareTemplateUI(){
   const faded=new Set();for(const a of actorItems){
    // Test the character's anchored silhouette, independently of a relocated ribbon.
    const scale=Math.hypot(inverse.a,inverse.b),region={x:a.point.x-4*scale,y:a.point.y-18*scale,w:8*scale,h:20*scale};
-   for(const record of records)if(occludesActor(record,a,region))faded.add(record.node);
+   const active=hovered||pinned;for(const record of records)if(active&&(active===a.element||active===record.node)&&occludesActor(record,a,region))faded.add(record.node);
   }
   for(const r of records)r.node.classList.toggle('occluded',faded.has(r.node));
  }
- function clearActors(){for(const a of actorItems){a.stop?.();a.element.remove();a.feet?.remove()}actorItems=[];renderPositions()}
+ function clearActors(){hovered=pinned=null;for(const a of actorItems){a.stop?.();a.element.remove();a.feet?.remove()}actorItems=[];renderPositions()}
  async function mountActors(actors=[]){const version=++generation;await readyMasks();if(svg!==scene||version!==generation)return;clearActors();
   for(const actor of actors){const place=(DATA.maps[activeId].places||[]).find(p=>p.id===actor.placeId||p.name===actor.placeName);if(!place)continue;const inside=actor.inside===true||actor.pcSpot==='inside',point=localPoint(place,inside,actor);if(!point)continue;
    const element=actorTag(actor);element.classList.add('npc-tag');element.title=actor.activity||place.name;layer.append(element);
-   element.onclick=()=>{put('#place-title',actor.name||'Chưa rõ');put('#drawer-name',actor.name||'Chưa rõ');put('#activity',actor.hearingText||'');put('#observation',[actor.activity,actor.observation||place.desc].filter(Boolean).join('\n'))};
+   element.onpointerenter=e=>{if(e.pointerType!=='touch'){hovered=element;renderPositions()}};element.onpointerleave=()=>{if(hovered===element){hovered=null;renderPositions()}};element.onfocus=()=>{hovered=element;renderPositions()};element.onblur=()=>{if(hovered===element){hovered=null;renderPositions()}};
+   element.onclick=()=>{toggleXray(element);put('#place-title',actor.name||'Chưa rõ');put('#drawer-name',actor.name||'Chưa rõ');put('#activity',actor.hearingText||'');put('#observation',[actor.activity,actor.observation||place.desc].filter(Boolean).join('\n'))};
    const stance=inside?'hidden':(['walk','idle','hidden'].includes(actor.footstep)?actor.footstep:'idle');let feet=null,stop=null;
    if(stance!=='hidden'){
     feet=uiElement('g',{class:'footstep',transform:`translate(${point.x} ${point.y}) scale(.6)`},footLayer);stop=mountFeet(feet,stance);
@@ -612,7 +622,7 @@ async function prepareTemplateUI(){
    button.onclick=()=>{layer.querySelectorAll('.event-marker').forEach(b=>b.classList.remove('chosen'));button.classList.add('chosen');put('#place-title',event.title||'Đầu mối');put('#observation',event.detail||'');};layer.append(button);eventItems.push({point,element:button});const row=document.createElement('button');row.className='event-row';row.textContent=event.title||'Đầu mối';row.onclick=button.onclick;$('#quests').append(row);
   }renderPositions();
  }
- const resize=new ResizeObserver(renderPositions);resize.observe($('#mapmount'));presentation={mountActors,mountEvents,showPlaceActors,renderPositions,pointSafe,readyMasks,get records(){return records},dispose(){generation++;clearActors();resize.disconnect();layer.remove();linkLayer.remove();footLayer.remove();for(const r of records)r.node.classList.remove('occluded')}};
+ const resize=new ResizeObserver(renderPositions);resize.observe($('#mapmount'));presentation={mountActors,mountEvents,showPlaceActors,renderPositions,pointSafe,readyMasks,get records(){return records},dispose(){generation++;scene.removeEventListener('pointerover',overXray);scene.removeEventListener('pointerout',outXray);scene.removeEventListener('click',clickXray,true);scene.removeEventListener('keydown',keyXray,true);clearActors();resize.disconnect();layer.remove();linkLayer.remove();footLayer.remove();for(const r of records)r.node.classList.remove('occluded')}};
  // Accessibility uses the same selection path as mouse/touch.
  scene.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.closest('[data-id]')){e.preventDefault();eventClick(e)}});
  return presentation;

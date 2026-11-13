@@ -9,12 +9,23 @@
     "Outdoor building registered",
     "building shape mask exists",
     "opaque sample found",
+    "no automatic X-Ray",
     "real building fades .3 at anchored foreground overlap",
+    "ribbon mouseleave restores",
+    "building hover activates",
+    "building mouseout restores",
+    "touch has no sticky hover",
+    "building tap pins",
+    "second building tap restores",
+    "ribbon click pins through mouseleave",
+    "background click clears",
+    "Escape clears",
     "own inside does not fade",
     "moving beyond building restores",
     "clearing actor restores",
     "three invalid or invisible visuals fall back individually",
-    "valid visual still rendered"
+    "valid visual still rendered",
+    "native browser touch tap toggles ribbon on/off"
   ],
   "errors": [],
   "targetPreview": "NOT RUN",
@@ -43,5 +54,6 @@
   "limits": [
     "Extreme counts use an explicit counted summary after 2000 individually drawn extras per zone; inventory retains full count",
     "Full semantic depth/visual validation of all 13 Fixed and AI Studio acceptance are separate remaining tasks"
-  ]
+  ],
+  "xrayActivation": "USER-CONFIRMED: hover or click/tap either building or ribbon; no automatic fade"
 }

@@ -96,3 +96,7 @@ X-Ray now tests anchored actor region independently of label shifts; requires bu
 ### Four audit corrections
 
 Omitted/invalid count on state-only updates preserves existing total; explicit valid count is applied. Outdoor map grows to contain extras and multi-zone rows. Extreme counts retain complete inventory plus a counted summary after 2000 individually drawn extras per zone. Outdoor buildings now participate in layer/depth/shape occlusion. Visuals require valid complete SVG path commands and a visible filled/stroked shape in the 100×100 viewport; otherwise the named RP object falls back.
+
+### X-Ray interaction correction
+
+X-Ray requires user interaction: hover the occluding building or actor ribbon for a temporary preview; click/tap either to pin/unpin. Leaving hover restores unless pinned; background click or Escape clears. Touch pointer hover is ignored. Occlusion shape/layer/depth checks still apply; no automatic fade when merely overlapping. Actor/scene cleanup clears interaction state.
