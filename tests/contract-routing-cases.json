@@ -1,0 +1,15 @@
+{
+  "status":"prepared-not-executed",
+  "schemaVersion":"2.0.0",
+  "cases":[
+    {"name":"Fixed ignores legacy structural change", "input":{"atlasAnchor":"h1","pcPlace":"Hagrid","templateState":"structural_change"},"expect":{"route":"fixed","detail":false}},
+    {"name":"H1 new construction", "input":{"atlasAnchor":"h1","mapMode":"outdoor","pcPlace":"Nhà AU","places":[{"name":"Nhà AU","type":"house","isNewConstruction":true}]},"expect":{"route":"sandbox","source":null}},
+    {"name":"User forces sandbox", "input":{"atlasAnchor":"hall","forceSandbox":true,"pcPlace":"Phòng riêng","places":[{"name":"Phòng riêng","type":"office"}]},"expect":{"route":"sandbox"}},
+    {"name":"Village AU house", "input":{"atlasAnchor":"village-static","pcPlace":"Nhà AU","places":[{"name":"Nhà AU","type":"house"}]},"expect":{"route":"fixed","bindingPrefix":"v-home-"}},
+    {"name":"Knockturn shop", "input":{"atlasAnchor":"diagon-knockturn","region":"knockturn","pcPlace":"Tiệm AU","places":[{"name":"Tiệm AU","type":"shop"}]},"expect":{"bindingPrefix":"ka-"}},
+    {"name":"Missing alley", "input":{"atlasAnchor":"diagon-knockturn","pcPlace":"Tiệm AU","places":[{"name":"Tiệm AU","type":"shop"}]},"expect":{"unresolved":true,"detail":false}},
+    {"name":"Cluster preserved", "input":{"atlasAnchor":"DUNGEONS-N","pcPlace":"Phòng RP","places":[{"name":"Phòng RP","type":"office"}]},"expect":{"route":"atlas","allClusterRooms":true}},
+    {"name":"Group contract", "input":{"actors":[{"name":"Nhóm bạn","members":["A","B","C"],"summary":"Đang trò chuyện"}],"events":[{"title":"Dấu vết","hidden":true},{"title":"Hoạt động"}]},"expect":{"membersPreserved":true,"icons":["?","!"]}}
+  ],
+  "additionalMatrix":["reorder places preserves AU allocation", "canonical houses reserved", "no duplicate house assignment", "pool exhaustion preserves unresolved RP", "11 NPC tags retained with diagnostic", "invalid count", "duplicate place IDs and names", "ID/name conflict", "multiple PCs", "actor invalid ID with unique name fallback", "actor ID only never becomes room", "empty payload", "unsupported version", "re-render no source mutation"]
+}

@@ -6,6 +6,14 @@ README này là tài liệu chỉ đạo hiện hành, viết lại theo các qu
 
 **Trạng thái:** đã có tài nguyên và runtime một phần; chưa hoàn thiện cơ chế, chưa nghiệm thu AI Studio Preview. Việc khóa tài liệu không chứng nhận code đã thực hiện đúng mọi mục dưới đây. Phạm vi lượt cập nhật này chỉ là README, chưa sửa runtime.
 
+### Checkpoint contract/routing — 14/11/2026
+
+Base `342d833`; đã sửa `src/contract.js`, `src/resolver.js`, dependency entry/sidebar trong `src/index.js`, cập nhật `docs/MAP_DATA.md` và luật routing Atlas. Build lại bundle từ source chính, giữ nguyên pack 13 Fixed/CSS/artwork. Contract **2.0.0**: phiên bản rõ, spot/zone, members/summary, diagnostic vượt 10 ribbon (không cắt RP), event icon ?/!. Routing forceSandbox/H1–H2 công trình mới, Fixed không auto-detail, nhà/tiệm AU gán nhà dân đúng khu và giữ alias ID/tên. Generated giữ cluster và nơi RP; không dựng phòng từ actor/event chỉ có ID sai.
+
+**Chỉ đã triển khai, chưa chứng nhận đạt kiểm thử.** Đã kiểm cú pháp JS/build và diff whitespace; chưa chạy test logic/browser/ảnh/AI Studio theo thứ tự đã chốt. Fixtures chờ kiểm cuối ở `tests/contract-routing-cases.json`. MAP_PROMPT/loader CDN còn bản cũ, chưa chuyển sang schema này. Visual compiler, placement, semantic merge đầy đủ, giới hạn nhóm kiểm chi tiết và giao diện ?/! vẫn ở task sau. Phạm vi/ngoại lệ template chi tiết chưa chốt lại toàn bộ; routing không tự suy canon từ NLP.
+
+Task P02-01/P02-02/P03-02/P03-03 đã có triển khai nền, chờ kiểm cuối và các dependency trình bày; chưa tick DONE. P03-01 mới cập nhật quy tắc đầu Atlas, chưa đóng audit phạm vi; P03-04 giữ compile/bảng công năng hiện có, alias mơ hồ/toàn phạm vi còn mở. Bước kế tiếp là tiếp tục khung/mẫu P4 và các task còn thiếu theo bảng, không coi mốc này hoàn thiện P5–P7.
+
 ## 1. Sản phẩm và luồng duy nhất
 
 Đây là công cụ **visualize map cho sandbox roleplay AI trên Playground**, không phải game hoặc world simulator. User chơi gì thì minh họa cảnh đó. Template/layout/SVG giúp giảm lượng dữ liệu và code phải tạo; chúng không giới hạn nội dung RP.
