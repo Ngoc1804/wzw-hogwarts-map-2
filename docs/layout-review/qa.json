@@ -1,0 +1,2576 @@
+{
+  "cases": 168,
+  "errors": [],
+  "sidebar": "Phòng làm việc · OFFICE · Size M · 410 × 360 · H40",
+  "bad": [],
+  "results": [
+    {
+      "id": "HEADMASTER_OFFICE",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 58.43000411987305,
+        "y": 47.46564483642578,
+        "w": 745.7500610351562,
+        "h": 544.3843994140625
+      }
+    },
+    {
+      "id": "HEADMASTER_OFFICE",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 68.13999938964844,
+        "y": 54.9602165222168,
+        "w": 863.5,
+        "h": 630.3397827148438
+      }
+    },
+    {
+      "id": "HEADMASTER_OFFICE",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 75.70999908447266,
+        "y": 62.45479202270508,
+        "w": 981.2499389648438,
+        "h": 716.2952270507812
+      }
+    },
+    {
+      "id": "DIVINATION_CLASSROOM",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 590,
+        "h": 590
+      }
+    },
+    {
+      "id": "DIVINATION_CLASSROOM",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 680,
+        "h": 680
+      }
+    },
+    {
+      "id": "DIVINATION_CLASSROOM",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 780,
+        "h": 780
+      }
+    },
+    {
+      "id": "ASTRONOMY_OBSERVATORY",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 680,
+        "h": 630
+      }
+    },
+    {
+      "id": "ASTRONOMY_OBSERVATORY",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 790,
+        "h": 730
+      }
+    },
+    {
+      "id": "ASTRONOMY_OBSERVATORY",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 900,
+        "h": 830
+      }
+    },
+    {
+      "id": "PREFECTS_BATHROOM",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 780,
+        "h": 570
+      }
+    },
+    {
+      "id": "PREFECTS_BATHROOM",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 900,
+        "h": 660
+      }
+    },
+    {
+      "id": "PREFECTS_BATHROOM",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 1030,
+        "h": 750
+      }
+    },
+    {
+      "id": "ROOM_OF_REQUIREMENT",
+      "size": "S",
+      "variant": "Tập luyện",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 810,
+        "h": 620
+      }
+    },
+    {
+      "id": "ROOM_OF_REQUIREMENT",
+      "size": "S",
+      "variant": "Phòng họp",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 810,
+        "h": 620
+      }
+    },
+    {
+      "id": "ROOM_OF_REQUIREMENT",
+      "size": "S",
+      "variant": "Trú ẩn",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 810,
+        "h": 620
+      }
+    },
+    {
+      "id": "ROOM_OF_REQUIREMENT",
+      "size": "S",
+      "variant": "Kho đồ",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 810,
+        "h": 620
+      }
+    },
+    {
+      "id": "ROOM_OF_REQUIREMENT",
+      "size": "M",
+      "variant": "Tập luyện",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 940,
+        "h": 720
+      }
+    },
+    {
+      "id": "ROOM_OF_REQUIREMENT",
+      "size": "M",
+      "variant": "Phòng họp",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 940,
+        "h": 720
+      }
+    },
+    {
+      "id": "ROOM_OF_REQUIREMENT",
+      "size": "M",
+      "variant": "Trú ẩn",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 940,
+        "h": 720
+      }
+    },
+    {
+      "id": "ROOM_OF_REQUIREMENT",
+      "size": "M",
+      "variant": "Kho đồ",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 940,
+        "h": 720
+      }
+    },
+    {
+      "id": "ROOM_OF_REQUIREMENT",
+      "size": "L",
+      "variant": "Tập luyện",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 1060,
+        "h": 810
+      }
+    },
+    {
+      "id": "ROOM_OF_REQUIREMENT",
+      "size": "L",
+      "variant": "Phòng họp",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 1060,
+        "h": 810
+      }
+    },
+    {
+      "id": "ROOM_OF_REQUIREMENT",
+      "size": "L",
+      "variant": "Trú ẩn",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 1060,
+        "h": 810
+      }
+    },
+    {
+      "id": "ROOM_OF_REQUIREMENT",
+      "size": "L",
+      "variant": "Kho đồ",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 1060,
+        "h": 810
+      }
+    },
+    {
+      "id": "CHAMBER_OF_SECRETS",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 810,
+        "h": 1380
+      }
+    },
+    {
+      "id": "CHAMBER_OF_SECRETS",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 940,
+        "h": 1600
+      }
+    },
+    {
+      "id": "CHAMBER_OF_SECRETS",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 1060,
+        "h": 1810
+      }
+    },
+    {
+      "id": "TOWER_CLOCKWORK",
+      "size": "S",
+      "variant": "Bộ máy đồng hồ",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 670,
+        "h": 670
+      }
+    },
+    {
+      "id": "TOWER_CLOCKWORK",
+      "size": "S",
+      "variant": "Tháp chuông",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 670,
+        "h": 670
+      }
+    },
+    {
+      "id": "TOWER_CLOCKWORK",
+      "size": "M",
+      "variant": "Bộ máy đồng hồ",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 770,
+        "h": 770
+      }
+    },
+    {
+      "id": "TOWER_CLOCKWORK",
+      "size": "M",
+      "variant": "Tháp chuông",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 770,
+        "h": 770
+      }
+    },
+    {
+      "id": "TOWER_CLOCKWORK",
+      "size": "L",
+      "variant": "Bộ máy đồng hồ",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 880,
+        "h": 880
+      }
+    },
+    {
+      "id": "TOWER_CLOCKWORK",
+      "size": "L",
+      "variant": "Tháp chuông",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 880,
+        "h": 880
+      }
+    },
+    {
+      "id": "BALLROOM",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 1140,
+        "h": 810
+      }
+    },
+    {
+      "id": "BALLROOM",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 1320,
+        "h": 940
+      }
+    },
+    {
+      "id": "BALLROOM",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 1500,
+        "h": 1060
+      }
+    },
+    {
+      "id": "TROPHY_ROOM",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 620,
+        "h": 400
+      }
+    },
+    {
+      "id": "TROPHY_ROOM",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 720,
+        "h": 460
+      }
+    },
+    {
+      "id": "TROPHY_ROOM",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 810,
+        "h": 530
+      }
+    },
+    {
+      "id": "CLASSROOM",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 460
+      }
+    },
+    {
+      "id": "CLASSROOM",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 740,
+        "h": 520
+      }
+    },
+    {
+      "id": "CLASSROOM",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 830,
+        "h": 580
+      }
+    },
+    {
+      "id": "MAGIC_PRACTICE",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 480
+      }
+    },
+    {
+      "id": "MAGIC_PRACTICE",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 740,
+        "h": 540
+      }
+    },
+    {
+      "id": "MAGIC_PRACTICE",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 830,
+        "h": 600
+      }
+    },
+    {
+      "id": "POTIONS_LAB",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 480
+      }
+    },
+    {
+      "id": "POTIONS_LAB",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 740,
+        "h": 540
+      }
+    },
+    {
+      "id": "POTIONS_LAB",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 830,
+        "h": 600
+      }
+    },
+    {
+      "id": "RESEARCH_LAB",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 520,
+        "h": 400
+      }
+    },
+    {
+      "id": "RESEARCH_LAB",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 600,
+        "h": 450
+      }
+    },
+    {
+      "id": "RESEARCH_LAB",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 680,
+        "h": 500
+      }
+    },
+    {
+      "id": "OFFICE",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 320
+      }
+    },
+    {
+      "id": "OFFICE",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 410,
+        "h": 360
+      }
+    },
+    {
+      "id": "OFFICE",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 470,
+        "h": 400
+      }
+    },
+    {
+      "id": "STUDY_ROOM",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 440,
+        "h": 340
+      }
+    },
+    {
+      "id": "STUDY_ROOM",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 510,
+        "h": 380
+      }
+    },
+    {
+      "id": "STUDY_ROOM",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 570,
+        "h": 430
+      }
+    },
+    {
+      "id": "MEETING_CLUB",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 520,
+        "h": 400
+      }
+    },
+    {
+      "id": "MEETING_CLUB",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 600,
+        "h": 450
+      }
+    },
+    {
+      "id": "MEETING_CLUB",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 680,
+        "h": 500
+      }
+    },
+    {
+      "id": "LIBRARY",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 900,
+        "h": 640
+      }
+    },
+    {
+      "id": "LIBRARY",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 1040,
+        "h": 720
+      }
+    },
+    {
+      "id": "LIBRARY",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 1170,
+        "h": 810
+      }
+    },
+    {
+      "id": "ARCHIVE",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 460
+      }
+    },
+    {
+      "id": "ARCHIVE",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 740,
+        "h": 520
+      }
+    },
+    {
+      "id": "ARCHIVE",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 830,
+        "h": 580
+      }
+    },
+    {
+      "id": "STORAGE",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 320
+      }
+    },
+    {
+      "id": "STORAGE",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 410,
+        "h": 360
+      }
+    },
+    {
+      "id": "STORAGE",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 470,
+        "h": 400
+      }
+    },
+    {
+      "id": "WORKSHOP",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 520,
+        "h": 400
+      }
+    },
+    {
+      "id": "WORKSHOP",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 600,
+        "h": 450
+      }
+    },
+    {
+      "id": "WORKSHOP",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 680,
+        "h": 500
+      }
+    },
+    {
+      "id": "GALLERY",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 400
+      }
+    },
+    {
+      "id": "GALLERY",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 740,
+        "h": 450
+      }
+    },
+    {
+      "id": "GALLERY",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 830,
+        "h": 500
+      }
+    },
+    {
+      "id": "MUSIC_ROOM",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 560,
+        "h": 420
+      }
+    },
+    {
+      "id": "MUSIC_ROOM",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 470
+      }
+    },
+    {
+      "id": "MUSIC_ROOM",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 730,
+        "h": 530
+      }
+    },
+    {
+      "id": "LOUNGE",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 520,
+        "h": 400
+      }
+    },
+    {
+      "id": "LOUNGE",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 600,
+        "h": 450
+      }
+    },
+    {
+      "id": "LOUNGE",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 680,
+        "h": 500
+      }
+    },
+    {
+      "id": "BEDROOM",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 320
+      }
+    },
+    {
+      "id": "BEDROOM",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 410,
+        "h": 360
+      }
+    },
+    {
+      "id": "BEDROOM",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 470,
+        "h": 400
+      }
+    },
+    {
+      "id": "KITCHEN",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 560,
+        "h": 440
+      }
+    },
+    {
+      "id": "KITCHEN",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 490
+      }
+    },
+    {
+      "id": "KITCHEN",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 730,
+        "h": 550
+      }
+    },
+    {
+      "id": "DINING_ROOM",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 520,
+        "h": 360
+      }
+    },
+    {
+      "id": "DINING_ROOM",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 600,
+        "h": 400
+      }
+    },
+    {
+      "id": "DINING_ROOM",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 680,
+        "h": 450
+      }
+    },
+    {
+      "id": "BATHROOM",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 320
+      }
+    },
+    {
+      "id": "BATHROOM",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 410,
+        "h": 360
+      }
+    },
+    {
+      "id": "BATHROOM",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 470,
+        "h": 400
+      }
+    },
+    {
+      "id": "LAUNDRY",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 400,
+        "h": 300
+      }
+    },
+    {
+      "id": "LAUNDRY",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 460,
+        "h": 340
+      }
+    },
+    {
+      "id": "LAUNDRY",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 520,
+        "h": 380
+      }
+    },
+    {
+      "id": "HOSPITAL_WARD",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 800,
+        "h": 520
+      }
+    },
+    {
+      "id": "HOSPITAL_WARD",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 920,
+        "h": 580
+      }
+    },
+    {
+      "id": "HOSPITAL_WARD",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 1040,
+        "h": 660
+      }
+    },
+    {
+      "id": "RECEPTION",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 480,
+        "h": 340
+      }
+    },
+    {
+      "id": "RECEPTION",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 550,
+        "h": 380
+      }
+    },
+    {
+      "id": "RECEPTION",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 620,
+        "h": 430
+      }
+    },
+    {
+      "id": "GUARDROOM",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 320
+      }
+    },
+    {
+      "id": "GUARDROOM",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 410,
+        "h": 360
+      }
+    },
+    {
+      "id": "GUARDROOM",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 470,
+        "h": 400
+      }
+    },
+    {
+      "id": "PASSAGE_PROPS",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 480,
+        "h": 160
+      }
+    },
+    {
+      "id": "PASSAGE_PROPS",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 550,
+        "h": 180
+      }
+    },
+    {
+      "id": "PASSAGE_PROPS",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 620,
+        "h": 200
+      }
+    },
+    {
+      "id": "UTILITY_ROOM",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 440,
+        "h": 340
+      }
+    },
+    {
+      "id": "UTILITY_ROOM",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 510,
+        "h": 380
+      }
+    },
+    {
+      "id": "UTILITY_ROOM",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 570,
+        "h": 430
+      }
+    },
+    {
+      "id": "SECURE_VAULT",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 440,
+        "h": 360
+      }
+    },
+    {
+      "id": "SECURE_VAULT",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 510,
+        "h": 400
+      }
+    },
+    {
+      "id": "SECURE_VAULT",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 570,
+        "h": 450
+      }
+    },
+    {
+      "id": "DETENTION_CELL",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 320
+      }
+    },
+    {
+      "id": "DETENTION_CELL",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 410,
+        "h": 360
+      }
+    },
+    {
+      "id": "DETENTION_CELL",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 470,
+        "h": 400
+      }
+    },
+    {
+      "id": "PUBLIC_COUNTER",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 560,
+        "h": 400
+      }
+    },
+    {
+      "id": "PUBLIC_COUNTER",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 450
+      }
+    },
+    {
+      "id": "PUBLIC_COUNTER",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 730,
+        "h": 500
+      }
+    },
+    {
+      "id": "CEREMONY_HALL",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 720,
+        "h": 480
+      }
+    },
+    {
+      "id": "CEREMONY_HALL",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 830,
+        "h": 540
+      }
+    },
+    {
+      "id": "CEREMONY_HALL",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 940,
+        "h": 600
+      }
+    },
+    {
+      "id": "ENTRANCE_VESTIBULE",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 460
+      }
+    },
+    {
+      "id": "ENTRANCE_VESTIBULE",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 740,
+        "h": 520
+      }
+    },
+    {
+      "id": "ENTRANCE_VESTIBULE",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 830,
+        "h": 580
+      }
+    },
+    {
+      "id": "CLOAKROOM_LOCKERS",
+      "size": "S",
+      "variant": "Áo khoác",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 520,
+        "h": 380
+      }
+    },
+    {
+      "id": "CLOAKROOM_LOCKERS",
+      "size": "S",
+      "variant": "Trang phục",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 520,
+        "h": 380
+      }
+    },
+    {
+      "id": "CLOAKROOM_LOCKERS",
+      "size": "M",
+      "variant": "Áo khoác",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 600,
+        "h": 430
+      }
+    },
+    {
+      "id": "CLOAKROOM_LOCKERS",
+      "size": "M",
+      "variant": "Trang phục",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 600,
+        "h": 430
+      }
+    },
+    {
+      "id": "CLOAKROOM_LOCKERS",
+      "size": "L",
+      "variant": "Áo khoác",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 680,
+        "h": 480
+      }
+    },
+    {
+      "id": "CLOAKROOM_LOCKERS",
+      "size": "L",
+      "variant": "Trang phục",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 680,
+        "h": 480
+      }
+    },
+    {
+      "id": "ART_CARTOGRAPHY_STUDIO",
+      "size": "S",
+      "variant": "Bản đồ",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 660,
+        "h": 480
+      }
+    },
+    {
+      "id": "ART_CARTOGRAPHY_STUDIO",
+      "size": "S",
+      "variant": "Mỹ thuật",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 660,
+        "h": 480
+      }
+    },
+    {
+      "id": "ART_CARTOGRAPHY_STUDIO",
+      "size": "M",
+      "variant": "Bản đồ",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 760,
+        "h": 540
+      }
+    },
+    {
+      "id": "ART_CARTOGRAPHY_STUDIO",
+      "size": "M",
+      "variant": "Mỹ thuật",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 760,
+        "h": 540
+      }
+    },
+    {
+      "id": "ART_CARTOGRAPHY_STUDIO",
+      "size": "L",
+      "variant": "Bản đồ",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 860,
+        "h": 600
+      }
+    },
+    {
+      "id": "ART_CARTOGRAPHY_STUDIO",
+      "size": "L",
+      "variant": "Mỹ thuật",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 860,
+        "h": 600
+      }
+    },
+    {
+      "id": "GAMES_ROOM",
+      "size": "S",
+      "variant": "Cờ phù thủy",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 620,
+        "h": 460
+      }
+    },
+    {
+      "id": "GAMES_ROOM",
+      "size": "S",
+      "variant": "Gobstones",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 620,
+        "h": 460
+      }
+    },
+    {
+      "id": "GAMES_ROOM",
+      "size": "M",
+      "variant": "Cờ phù thủy",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 710,
+        "h": 520
+      }
+    },
+    {
+      "id": "GAMES_ROOM",
+      "size": "M",
+      "variant": "Gobstones",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 710,
+        "h": 520
+      }
+    },
+    {
+      "id": "GAMES_ROOM",
+      "size": "L",
+      "variant": "Cờ phù thủy",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 810,
+        "h": 580
+      }
+    },
+    {
+      "id": "GAMES_ROOM",
+      "size": "L",
+      "variant": "Gobstones",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": {
+        "x": 0,
+        "y": 0,
+        "w": 810,
+        "h": 580
+      }
+    },
+    {
+      "id": "OUT_COURTYARD",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": null
+    },
+    {
+      "id": "OUT_COURTYARD",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": null
+    },
+    {
+      "id": "OUT_COURTYARD",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": null
+    },
+    {
+      "id": "OUT_GARDEN",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": null
+    },
+    {
+      "id": "OUT_GARDEN",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": null
+    },
+    {
+      "id": "OUT_GARDEN",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": null
+    },
+    {
+      "id": "OUT_LAWN",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": null
+    },
+    {
+      "id": "OUT_LAWN",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": null
+    },
+    {
+      "id": "OUT_LAWN",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": null
+    },
+    {
+      "id": "OUT_WOODLAND",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": null
+    },
+    {
+      "id": "OUT_WOODLAND",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": null
+    },
+    {
+      "id": "OUT_WOODLAND",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": null
+    },
+    {
+      "id": "OUT_WATERSIDE",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": null
+    },
+    {
+      "id": "OUT_WATERSIDE",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": null
+    },
+    {
+      "id": "OUT_WATERSIDE",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": null
+    },
+    {
+      "id": "OUT_BUILDING_YARD",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": null
+    },
+    {
+      "id": "OUT_BUILDING_YARD",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": null
+    },
+    {
+      "id": "OUT_BUILDING_YARD",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": null
+    },
+    {
+      "id": "OUT_CAMP",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": null
+    },
+    {
+      "id": "OUT_CAMP",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": null
+    },
+    {
+      "id": "OUT_CAMP",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": null
+    },
+    {
+      "id": "OUT_SERVICE_GARDEN",
+      "size": "S",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": null
+    },
+    {
+      "id": "OUT_SERVICE_GARDEN",
+      "size": "M",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": null
+    },
+    {
+      "id": "OUT_SERVICE_GARDEN",
+      "size": "L",
+      "variant": "",
+      "text": 0,
+      "height": 40,
+      "dropped": [],
+      "duplicateIds": 0,
+      "extraFloor": false,
+      "floorBox": null
+    }
+  ]
+}
