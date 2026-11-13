@@ -6,6 +6,27 @@ README này là tài liệu chỉ đạo hiện hành, viết lại theo các qu
 
 **Trạng thái:** đã có tài nguyên và runtime một phần; chưa hoàn thiện cơ chế, chưa nghiệm thu AI Studio Preview. Việc khóa tài liệu không chứng nhận code đã thực hiện đúng mọi mục dưới đây. Trạng thái từng lượt nằm ở checkpoint dưới; đã có thay đổi contract/routing/Atlas, chưa hoàn thiện renderer hoặc nghiệm thu runtime.
 
+### Rà soát hiện hành tại 8d2bade — lỗi và việc còn lại
+
+7 bộ test hiện có PASS (routing-current, inventory-visual, xray-occlusion, corridor-source, indoor-placement, catalog-editor, current-scope), nhưng không đủ chứng nhận dự án hoàn tất. Rà source cả 6 module, build/loader/compiler, baseline dữ liệu và prompt; đã tái hiện thêm lỗi browser. [Bằng chứng](docs/PROJECT_AUDIT_CURRENT.json); tools/audit-runtime.cjs tái hiện các ca quan sát. Không sửa runtime trong lượt audit.
+
+| Ưu tiên | Mục | Trạng thái / cần làm |
+|---|---|---|
+| 1 | Số lượng khi sửa state | LỖI TÁI HIỆN: 5 ghế → chỉ sửa broken → còn 1. Phân biệt count không gửi với count=1 |
+| 1 | Outdoor số lượng/placement | LỖI TÁI HIỆN: 60 đồ vẽ tới y=1000 trong viewBox cao 760, bị cắt. Bỏ dải extras cố định; bố trí/mở vùng phù hợp, giữ RP |
+| 1 | Outdoor X-Ray | LỖI TÁI HIỆN: OUT_BUILDING_YARD có nhà nhưng 0 occluder/record. Cần đưa công trình vào pipeline occlusion |
+| 1 | Visual tối thiểu/fallback | LỖI TÁI HIỆN: rect ngoài viewBox và path “M” được nhận. Kiểm hình thực/viewport, fallback khi vô hình hoặc path lỗi |
+| 2 | Sửa/xóa đồ con | Có code; đọc source thấy diagnostic unresolved-child nằm inventory, chưa hiển thị lý do trong Inspector. Cần giữ số lượng/thành phần, thông báo thật khi không sửa được; kiểm thêm clone/surface/đồ con chưa có ID |
+| 2 | X-Ray 13 Fixed | Chưa hoàn tất semantic layer/depth; vẫn fallback silhouette. Cần ma trận trước/sau, inside, ribbon dịch, đổi cảnh, opacity .3/phục hồi trên đủ mẫu |
+| 2 | Contract/Atlas/routing | Ca nền PASS; còn validate theo nhánh, tham chiếu/alias mơ hồ/ID trùng, scope/ngoại lệ và đủ ma trận |
+| 2 | Indoor/Outdoor, nhóm/Inspector | Có code; cần đủ ca layout đặc biệt, props/state/count/surface, đồng bộ nhóm trên map/sidebar và duyệt bố trí thực |
+| 2 | Loader/lifecycle | JSON hỏng/queue/recovery PASS; lỗi CSS/pack/bundle và stress cleanup chưa kiểm đầy đủ |
+| 3 | Prompt/build/SHA | CHƯA XONG: provenance vẫn 392a468, chưa đồng bộ contract và bản build cuối |
+| 3 | Tối ưu/QA/nghiệm thu | Chưa đo mạng/render/memory, chưa đủ desktop-mobile/13 Fixed và AI Studio Preview |
+| Giữ | Asset/màu/icon/editor/H40 | XONG các phần đã duyệt; catalog 443, 49 recipe không thiếu item, hash catalog duyệt giữ nguyên; build tái lập không đổi dist |
+
+Review cơ chế trước chỉ là smoke scene, không phải bản đủ chứng minh X-Ray/merge/child/fallback. Cần thay bằng review có tình huống, trạng thái và thao tác rõ khi sửa các lỗi trên. Báo cáo này phân biệt lỗi đã tái hiện với phần đọc source/chưa kiểm; không lấy 7 suite PASS làm PASS toàn dự án.
+
 ### Bảng trạng thái hiện hành — kiểm tại 48596a9
 
 Bảng ngắn này ưu tiên hơn trạng thái lịch sử ở các checkpoint cũ. Lượt này đối chiếu README/source/hồ sơ duyệt, không chạy lại toàn bộ test.
