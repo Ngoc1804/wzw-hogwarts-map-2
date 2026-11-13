@@ -60,7 +60,7 @@ Phạm vi cụ thể lấy từ Atlas nguồn và được chốt thành bảng 
 
 ### 3.2. Binding nhà/tiệm AU vào nhà dân trống
 
-- Chỉ chọn nhà dân chưa có binding trong đúng template và đúng khu Diagon/Knockturn khi đã xác định khu.
+- Các đối tượng nguồn mang tên **“Nhà dân số…”** là chỗ có thể auto-fill nhà/tiệm AU. Chọn một nhà chưa dùng trong đúng template/khu Diagon hoặc Knockturn; không xây hệ quản lý nhà trống riêng.
 - Không thay nhà/tiệm canon có chủ, không dùng một nhà cho hai địa điểm RP khác nhau trong cùng cảnh.
 - Cùng input/binding phải cho cùng kết quả; render lại không đổi nhà tùy tiện. Binding là dữ liệu trình bày, không ghi địa điểm AU ngược vào Atlas chuẩn.
 - PC/NPC và click dùng cùng binding nhà; tên, mô tả và hoạt động AU xuất hiện trong sidebar.
@@ -125,6 +125,8 @@ Không phát hành prompt trước khi runtime nhận đúng những field đó.
 
 Layout là mẫu tổ chức không gian; recipe là cụm nền theo công năng; asset là hình nguyên liệu. Code tự đối chiếu tên/công năng phòng với recipe, Gemini không phải biết ID từng món. Được đổi số cụm, bố trí và kích thước phòng theo RP, không kéo méo artwork hoặc ép mọi phòng thành cùng một mẫu.
 
+**Ưu tiên trong prompt:** Fixed phù hợp → layout/asset sẵn có → xây mới khi cần. **Code khóa một khung dựng hành lang Generated Indoor và cùng góc nhìn 2.5D xuyên suốt dự án**, dùng lõi corridors nguồn (tường cao 36 hiện có). Không để nhánh Gemini tạo mới đổi khung thành mặt bằng phẳng. Size/vị trí phòng, sàn/tường và nội–ngoại thất được tùy biến; hình đồ vật phẳng theo source không làm đổi góc nhìn khung. Fixed giữ nguyên góc nhìn artwork đã duyệt.
+
 Indoor giữ 10 preset `horizontal`, `vertical`, `windows`, `ell`, `tee`, `cross`, `court`, `cloister`, `curved`, `tower`; phòng đơn không buộc có hành lang. Outdoor dùng nền/đường/nước/công trình/cảnh quan, cảnh đơn không buộc có đường. Không tự thêm kết nối canon hoặc đồ vật RP.
 
 Pipeline hình duy nhất:
@@ -151,15 +153,30 @@ Với MAP_DATA hợp lệ và đủ thông tin bắt buộc, phải có cảnh m
 
 ### Placement vừa đủ cho hình ảnh
 
-Giữ cửa/lối đi, scale đồng đều, đồ trên bàn là surface child, đồ tường đúng mount. Vùng chân dựa sàn/hành lang/ngưỡng cửa thật; mái/nước không thành điểm đứng. Bounds chỉ lọc sơ bộ; hình cong/lõm dùng footprint phù hợp. Không xây solver/game physics. Cùng scope/input ổn định bố cục; đổi thời gian/NPC không xáo phòng tùy tiện.
+Gemini xác định phòng/spot/zone; code chọn điểm minh họa trong vùng đó. Indoor tránh tường và footprint **ước lượng** của nội thất lớn như bàn, tủ, kệ — những chỗ đứng/chui vào vô lý. Ngoài vùng không nên đứng, actor được đặt tự do. Không đòi độ chính xác game, không tìm đường hoặc xây solver.
+
+RP có thể xác nhận đứng trên bàn, trong tường, ngồi/nằm hoặc tình huống đặc biệt; biểu diễn đúng ngoại lệ đó, không áp luật mặc định để phủ quyết. Ngồi/nằm vẫn có actor/ribbon và nội dung; ẩn footsteps phù hợp. Không tìm được điểm hợp lý thì giữ ribbon ở anchor địa điểm, ẩn chân, không đổi phòng hoặc bỏ actor.
+
+Giữ cửa/lối đi, scale đồng đều, đồ trên bàn là surface child, đồ tường đúng mount. Mái/nước không thành điểm đứng mặc định. Dùng bounds/footprint đơn giản phù hợp, không lập hệ va chạm chính xác. Cùng scope/input ổn định bố cục; đổi thời gian/NPC không xáo phòng tùy tiện.
+
+### Hành lang và chuyển cảnh tối giản
+
+Tái sử dụng decor nguồn, tạo **3 cấu hình nhẹ**: tối giản; đèn/nến; tranh–cây. Chọn bằng seed scope ổn định, không random lại mỗi lần /map, không nhân bản SVG chỉ để có recipe mới. Chỉ đặt khi đủ chỗ, tránh cửa; thiếu asset phù hợp thì giữ tối giản. Nội thất hành lang là decor hỗ trợ, không phải dependency phức tạp của Indoor.
+
+Bỏ đường **tự mở detail từ Fixed** đang có trong code cũ sau khi kiểm dependency. Chọn Fixed hoặc sandbox ngay từ routing. User yêu cầu xem riêng nội thất thì dựng một scene sandbox mới qua entry/pipeline hiện có; actor lấy geometry của scene đang active, không giữ cách đặt từ Fixed trước đó.
+
+### Màu mặc định
+
+Giữ nguyên màu artwork đã duyệt. Asset chưa có màu dùng token theo vật liệu: gỗ, đá, kim loại, vải, kính, cây. Hình mới dùng cùng token/phong cách; Gemini không phải phối hex từng món. Chỉ override khi RP nêu màu quan trọng. Không tô lại toàn thư viện, không tạo nhiều SVG chỉ để đổi màu; giữ biến thể màu/góc nhìn có chủ đích.
 
 ## 7. PC, NPC/nhóm, POI và Inspector
 
 - PC có marker riêng, đúng vị trí Gemini xác định.
-- **Tối đa 10 ribbon NPC/cá nhân/nhóm**, PC không tính trong trần này. Gemini nhóm trước khi xuất, code không âm thầm cắt NPC.
+- **Tối đa 10 ribbon NPC/cá nhân/nhóm**, PC không tính trong trần này. Đây là yêu cầu contract MAP_DATA và prompt: Gemini trả dữ liệu đã nhóm cùng nội dung sidebar; code chỉ hiển thị, không tự suy thành viên hoặc âm thầm cắt NPC.
 - Ribbon cá nhân: click hiện hoạt động ngắn và mô tả ngắn vị trí.
 - Nhóm 3–5 người: click hiện tên thành viên ở sidebar. Nhóm đông: tên/mô tả nhóm ngắn như “nhóm Slytherin”, “đội Quidditch”. Dữ liệu thành viên/hoạt động do Gemini cung cấp.
 - **`?`: đầu mối/quest hidden mà PC đã nhận biết dấu hiệu. `!`: hoạt động/quest thường.** Thay quy định kính lúp cũ; hidden không cho phép gửi bí mật PC chưa biết.
+- Ý nghĩa ?/! đã khóa, **giao diện cụ thể chưa duyệt**. Dựng một bộ mẫu chung kích thước/nét/vùng bấm/hiệu ứng, khác glyph/màu; gửi HTML/ảnh để user chốt trước áp toàn bộ.
 - Click/tap/keyboard chỉ chọn và xem thông tin, không thực hiện hành động RP.
 
 Giữ tagType/palette đã duyệt: gryffindor, slytherin, ravenclaw, hufflepuff, beauxbatons, durmstrang, teacher, adult, patrol, animal, monster, ghost, unknown, crowd. `unknown` ở đây là loại actor, không phải cho phép vị trí unknown. PC giữ màu loại/Nhà và viền vàng; patrol chỉ khi RP xác nhận tuần tra.
@@ -193,6 +210,57 @@ Hoàn thiện cơ chế trước, sau đó kiểm thử kỹ thuật tổng; **n
 
 P2/P3 chuẩn bị cùng nhau khi interface rõ, không tạo contract thứ hai. P5/P6 nhân rộng sau cổng mẫu tương ứng. Không redesign asset người dùng đã cấp chỉ vì tự thấy đẹp hơn. Phần X còn lại (hình học/visual nâng cao ngoài khả năng tối thiểu) tùy chọn, không chặn lõi.
 
+## 9A. Dung lượng, SVG và làm sạch — thực hiện có đo
+
+Đọc và lập phương án từ đầu; xóa/gộp khi đã rõ dependency. Phân biệt dung lượng repository với bytes browser tải. Không tối ưu hàng loạt chỉ theo tên/số lượng asset.
+
+1. Đo baseline source/catalog/artwork/pack/bundle: bytes thô/gzip, số lần nhúng, request dự kiến và đường build. Số transfer/render/memory thực đo ở bước kiểm cuối.
+2. Lập bảng hình giống hệt, defs lặp, hình nhúng lại giữa catalog/layout; rà code/adapter/phiên bản không dùng. Khác góc nhìn/màu/chi tiết có chủ đích vẫn giữ.
+3. Chốt asset chính, alias và tham chiếu dùng chung; không gộp hai instance RP thành một vật. Ghi giữ–gộp–bỏ, dependency và lợi ích dự kiến trước chỉnh.
+4. Gộp source chính, bỏ nhánh thay thế đã hết dùng; dist sinh tự động. Source HTML nguyên bản là mốc đối chiếu, không đóng gói nguyên viewer vào runtime.
+5. Dùng chung defs/symbol, bỏ metadata runtime không cần; giữ viewBox, transform, nét, màu, opacity, IDs/refs và motion. Không giảm precision path tùy tiện, không bỏ hình hoặc ca kiểm để đạt bytes.
+6. Sau chỉnh đối chiếu hình trước/sau, SVG/refs/build và đo lại. Chỉ báo giảm dung lượng thực có số đo; chưa kiểm hình thì chưa kết luận bảo toàn hình.
+
+## 9B. Bảng task phát triển chi tiết
+
+Trạng thái mặc định **TODO** là chưa hoàn tất theo cơ chế mới, dù có code nền. DONE-DOC chỉ xác nhận tài liệu. Không tick task triển khai bằng báo cáo PASS cũ. Cột điều kiện là đầu ra cần đạt; kiểm kỹ thuật tổng chạy sau hoàn thiện cơ chế, Preview cuối, riêng render/rà hình phục vụ cổng duyệt được làm đúng lúc.
+
+| Task | Trạng thái | Việc cần làm / phạm vi file | Dependency | Đầu ra / điều kiện hoàn tất |
+|---|---|---|---|---|
+| M2-P00-01 | DONE-DOC | Khóa quyết định và bảng task trong README | Quyết định user | Một chỉ đạo hiện hành; lịch sử nằm trong Git |
+| M2-P00-02 | TODO | Đối chiếu phạm vi/ngoại lệ Atlas và source; hash/license/keep–fix–missing | P00-01 | Bảng nguồn và phạm vi có căn cứ; phần chưa chốt nêu rõ |
+| M2-P00-03 | TODO | Đọc build/dependency, đo bytes nguồn và dist, tìm nhúng SVG/defs/code trùng | P00-01 | Baseline và phương án tối ưu giữ–gộp–bỏ, chưa xóa tùy tiện |
+| M2-P01-01 | TODO | Rà index/shell/build: một entry, một loader, một pipeline | P00-02 | Interface khởi tạo/chuyển scene thống nhất, giữ branding |
+| M2-P01-02 | TODO | Tách parse/lỗi tải khỏi RP; vòng đời scene/listener/timer | P01-01 | Không khởi tạo lặp hoặc báo ready giả; cleanup rõ |
+| M2-P02-01 | TODO | Khóa schemaVersion/field bắt buộc từng nhánh; normalize ID/count/PC/spot/zone | P01-01 | contract.js và MAP_DATA.md cùng một contract ngắn |
+| M2-P02-02 | TODO | Khóa dữ liệu ribbon nhóm, thành viên/summary/sidebar và ?/! | P02-01 | Prompt yêu cầu tối đa 10 ribbon NPC; code không suy/cắt danh sách |
+| M2-P02-03 | TODO | Khóa visual tối thiểu và token vật liệu, nhận hình mới/fallback riêng món | P02-01 | Một dạng visual có cấu trúc; không thực thi mã/URL tùy ý |
+| M2-P02-04 | TODO | Draft một prompt: ưu tiên Fixed → layout/asset → mới, xác định vị trí bắt buộc | P02-01–03, P03-01 | Draft khớp interface; chưa phát hành prompt dùng thật |
+| M2-P03-01 | TODO | Đồng bộ Atlas nguồn/index và bảng routing 13 Fixed/ngoại lệ | P00-02, P02-01 | Một nguồn routing, giữ owner/cluster/pointer |
+| M2-P03-02 | TODO | H1/H2 công trình AU mới/user yêu cầu → sandbox; bỏ auto-detail Fixed | P03-01, P01-01 | Chọn nhánh trước dựng, actor theo geometry active |
+| M2-P03-03 | TODO | Auto-fill “Nhà dân số…” đúng làng/Diagon/Knockturn | P03-01 | Binding ổn định, không chiếm canon/trùng nhà; ca hết chỗ ghi rõ |
+| M2-P03-04 | TODO | Alias/phòng–công năng–recipe, đủ cluster và phòng RP bổ sung | P03-01 | Không yêu cầu Gemini biết asset ID; không tự nhân phòng |
+| M2-P04-01 | TODO | Khóa khung corridors cùng góc nhìn 2.5D, height 36, kể cả hình mới | P02-03, P03-04 | Một khung dựng, size/vật liệu linh hoạt; Fixed không đổi |
+| M2-P04-02 | TODO | Mẫu Horizontal + Potions/Office/Storage/Classroom nếu có | P04-01 | Có props lạ, merge/replace và bố trí thích nghi, không ép nguyên layout |
+| M2-P04-03 | TODO | Placement actor nhẹ: zone/sàn, tránh tường/đồ lớn, ngoại lệ RP, anchor khi chật | P02-01, P04-02 | Không solver/game physics; actor không đổi địa điểm hoặc biến mất |
+| M2-P04-04 | TODO | Ba cấu hình decor hành lang, seed ổn định, dùng asset nguồn | P04-01 | Trang trí tối giản, không chắn cửa/nhúng thêm asset trùng |
+| M2-P04-05 | TODO | Mẫu ?/! chung nét/vùng bấm/hover/reduced-motion | P02-02 | HTML/ảnh có tương tác, chưa tự coi đã duyệt hình |
+| M2-P04-06 | WAIT-VISUAL | Gửi Indoor và ?/! cụ thể cho user | P04-02–05 | User duyệt bản cụ thể trước nhân rộng; hiện chưa có bản mới để duyệt |
+| M2-P05-01 | TODO | Phòng đơn/10 preset; size/vị trí phòng, vật liệu từ layout/asset/RP | P04-06 | Cùng khung 2.5D; không làm mọi phòng thành span vuông cố định |
+| M2-P05-02 | TODO | Hoàn thiện compose/merge/replace/ensure/add/state, định danh ổn định | P02-01, P04-02 | Không thêm trùng; phòng rỗng; sửa/xóa đúng món hoặc nêu giới hạn cụm |
+| M2-P05-03 | TODO | Placement props: floor/wall/surface, cửa/lối đi và fallback khi chật | P05-01–02 | Đồ thêm không thành hàng dưới art; không bỏ đồ RP nhường decor |
+| M2-P06-01 | TODO | Áp 8 Outdoor thành nguyên liệu trong builder hiện có | P02-03, P03-02, P04-06 | Cảnh đơn/nhiều khu theo RP, không vòng 7 vị trí cố định |
+| M2-P06-02 | TODO | Nhà/công trình AU, nền/nước/props/hình mới, vùng đứng ước lượng | P06-01 | Không tự thêm canon; thiếu hình fallback riêng món |
+| M2-P06-03 | WAIT-VISUAL | Mẫu Outdoor gồm công trình AU H1/H2 | P06-02 | User duyệt hình trước nhân rộng style mới |
+| M2-P07-01 | TODO | Nối contract nhóm/10 ribbon với sidebar và POI ?/! đã duyệt | P02-02, P04-06 | Click có đúng nội dung Gemini, giữ năm mục Inspector |
+| M2-P07-02 | TODO | Đồng bộ Fixed/binding/actor/footsteps/review selector | P03-03, P04-03, P07-01 | Giữ 13 artwork/UI; inside ẩn chân; nhãn tách chân |
+| M2-P07-03 | TODO | Hoàn thiện X-Ray layer/depth/vùng che và phục hồi | P07-02 | Đúng nhóm che opacity 0.3, không inside→mờ hoặc bbox-only |
+| M2-P08-01 | TODO | Áp phương án tối ưu: dùng chung defs/asset, bỏ code/nhúng trùng đã hết dependency | P00-03, P05–07 cơ chế | Source chính gọn; giữ hình/refs/motion; số đo trước–sau |
+| M2-P08-02 | TODO | Build dist; một prompt cuối và loader CSS/pack/bundle cùng SHA thật | P08-01, P02-04 | Hướng dẫn dán một khối, không SHA cũ/placeholder/file đính kèm |
+| M2-P09-01 | TODO | Kiểm tổng dữ liệu/routing/Indoor/Outdoor/markers/cleanup desktop-mobile | P05–08 cơ chế | Log PASS/FAIL theo commit; sửa lỗi thực, không kế thừa PASS cũ |
+| M2-P09-02 | TODO | Đối chiếu hình SVG trước–sau và đo tải/render/request/memory | P09-01 | Không mất hình/RP; giới hạn đo rõ; tối ưu bổ sung nếu bằng chứng cần |
+| M2-P09-03 | TODO | AI Studio Playground/Preview đích và bàn giao | P09-01–02, duyệt hình cần thiết | Nghiệm thu cuối có log/ảnh; chưa có phiên thì ghi chưa nghiệm thu |
+
 ## 10. Ma trận kiểm cuối và tiêu chí hoàn tất
 
 Chuẩn bị fixtures theo cơ chế trong quá trình code; không báo test đã chạy khi mới viết ca. Chạy kiểm tổng sau khi cơ chế hoàn thiện, sửa theo lỗi thực. Các lần render/rà hình cần thiết cho cổng thẩm mỹ phải ghi rõ phạm vi, không gọi là nghiệm thu toàn hệ thống.
@@ -210,7 +278,7 @@ Ba trạng thái độc lập: **đã triển khai trong commit; đạt kiểm t
 
 ## 11. Baseline và trạng thái triển khai thực tế
 
-Baseline khi viết lại: **739643d1fa3f6360e0ccf26ae266dcb1aa07a824**, local/remote nhánh triển khai khớp, working tree sạch trước sửa. Không có AGENTS.md trong checkout tại lần kiểm trước. Bản cập nhật này không thay assets/runtime/dist.
+Baseline lần viết lại đầu: **739643d1fa3f6360e0ccf26ae266dcb1aa07a824**; lần bổ sung task dựa trên **b2cf159f4771babfa20dc5b419e8f70cc3b12747**, local/remote nhánh triển khai khớp, working tree sạch trước sửa. Không có AGENTS.md trong checkout tại lần kiểm trước. Bản cập nhật này không thay assets/runtime/dist.
 
 | Đã có — giữ và tích hợp | Còn sửa theo plan mới |
 |---|---|
@@ -231,6 +299,8 @@ Baseline cũ: [docs/baseline.json](docs/baseline.json), [final intake](docs/fina
 
 - [x] Đọc plan/source, xác minh repository/branch/HEAD và tài nguyên có sẵn.
 - [x] Viết lại README khóa cơ chế mới và kế hoạch P0–P9.
+- [x] Bổ sung placement nhẹ, khung hành lang 2.5D, decor tối giản, palette, tối ưu SVG và bảng task chi tiết.
+- [ ] Đo baseline dung lượng và lập phương án dọn/gộp trước sửa runtime.
 - [ ] P0 hoàn tất đối chiếu phạm vi Atlas/ngoại lệ và hồ sơ nguồn còn mở.
 - [ ] P1 thống nhất khung chạy theo cơ chế mới.
 - [ ] P2 contract/nhóm/visual tối thiểu và draft prompt.
