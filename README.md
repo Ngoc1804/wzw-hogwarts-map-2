@@ -24,6 +24,29 @@ Base `342d833`; đã sửa `src/contract.js`, `src/resolver.js`, dependency entr
 
 Task P02-01/P02-02/P03-02/P03-03 đã có triển khai nền, chờ kiểm cuối và các dependency trình bày; chưa tick DONE. P03-01 mới cập nhật quy tắc đầu Atlas, chưa đóng audit phạm vi; P03-04 giữ compile/bảng công năng hiện có, alias mơ hồ/toàn phạm vi còn mở. Bước kế tiếp là tiếp tục khung/mẫu P4 và các task còn thiếu theo bảng, không coi mốc này hoàn thiện P5–P7.
 
+### Kiểm tra hiện trạng theo README — 14/11/2026
+
+Người dùng xác nhận dùng README làm plan. Base kiểm tra `857f0c6c0f22b7f16b66b75af0ce9f5f5103130e`, branch `M2-P01-baseline-loader`, local/remote khớp và tree sạch trước ghi. Không có AGENTS.md trong checkout. Bằng chứng mới: [audit JSON](docs/M2-P00-CURRENT-AUDIT.json). Đây là kiểm tra giới hạn, không phải nghiệm thu tổng.
+
+- **PASS dữ liệu:** giải nén source Fixed có 13 mẫu; Atlas 13 Fixed, 59 cluster/285 phòng; catalog 450 ID; 41 Indoor + 8 Outdoor, 509 instance, không thiếu item recipe trong catalog. Hai HTML FINAL khớp hash baseline mục 11. Notice dependency hiện có được giữ; không suy giấy phép toàn artwork từ MIT dependency.
+- **PASS giới hạn:** cú pháp 6 module src và bundle; 8 ca trong `contract-routing-cases.json` chạy bằng Node VM với maps thật và source normalize/compose/resolve. Chưa kiểm toàn additionalMatrix hoặc browser routing đầy đủ; không tick DONE cho P2/P3.
+- **Browser local:** minimal lên ready, không pageerror nhưng diagnostic `missing-schema-version`. JSON hỏng tái hiện `incomplete` **vẫn có SVG/WZW_SCENE với phòng “Không gian RP”**: FAIL yêu cầu tách transport khỏi cảnh RP, cần sửa P01-02. Không phải lỗi tải mạng đã được kiểm.
+
+| Task còn mở | Kết quả đối chiếu source hiện tại |
+|---|---|
+| P00-02 | Hash/count đã kiểm mới; audit toàn phạm vi/ngoại lệ/alias và hồ sơ nguồn còn mở |
+| P01-01/02 | Một entry/pipeline hiện có, giữ lại; cần chặn dựng khi parse lỗi, kiểm khởi tạo lại/render đồng thời và cleanup. `renderInput` chưa có serialize/generation guard |
+| P02-01/02 | Đã có version 2.0.0, spot/zone, members/summary, diagnostic >10 ribbon, ?/!; validation bắt buộc theo nhánh và nối trình bày còn thiếu. Không làm lại phần routing đã có |
+| P02-03/04 | Chưa có compiler visual tối thiểu trong draw; prompt draft/final chưa đồng bộ |
+| P03 | Có forceSandbox, H1/H2 AU, binding nhà trống, cluster và World focus; 8 ca nền PASS giới hạn. Còn audit toàn phạm vi, mơ hồ, hết nhà, reorder và bảo toàn dữ liệu |
+| P04/P05 | Indoor lấy span vuông từ artwork, chưa dùng đủ geometry FINAL; passage không drawFurniture; extras thành hàng dưới art. Mount/surface/count/đồ con và 3 cấu hình decor chưa hoàn thiện; mẫu mới chưa duyệt |
+| P06 | outdoorMap còn 7 vị trí lặp; build loại OUT_* khỏi runtime art. Có đủ source 8 Outdoor nhưng chưa tích hợp đúng cơ chế |
+| P07 | generatedActorPoint chưa nhận zone, inside dùng tâm phòng chưa tránh footprint. Actor unresolved bị lọc khỏi marker, Inspector chưa bảo đảm giữ toàn bộ nội dung. Click ribbon trên map chưa trình bày members/summary như chip Inspector. X-Ray dùng mask + depth nhưng vùng xét theo ribbon đã dịch và có fallback depth bbox; cần hoàn thiện semantic/các ca phục hồi. Review picker 13 mẫu đã có, giữ lại |
+| P08 | MAP_PROMPT/provenance còn pin 392a468; compiler recipe bỏ metadata zone/quan hệ, prompt/build chưa thống nhất. Tối ưu SVG mới có audit, chưa thực thi |
+| P09 | Chưa kiểm tổng, đo transfer/render/memory, đối chiếu hình hoặc nghiệm thu AI Studio Preview; chưa duyệt mẫu Indoor/Outdoor/?/! mới |
+
+**Giữ:** artwork/UI/13 Fixed, source FINAL, catalog/recipe/Atlas và pipeline hiện hành. Không áp đề xuất sửa props trực tiếp lên Fixed từ PROJECT_READINESS cũ: README mục 3.1 là chỉ đạo. **Thiếu cơ chế, không thiếu bộ asset nền.** Lượt này chỉ cập nhật hồ sơ kiểm tra, không sửa runtime/dist, không có HTML/ảnh mới và không thay trạng thái duyệt hình. Ưu tiên code tiếp theo: đóng lỗi transport/lifecycle P1, rồi P2 và dependency P3 trước mẫu P4.
+
 ## 1. Sản phẩm và luồng duy nhất
 
 Đây là công cụ **visualize map cho sandbox roleplay AI trên Playground**, không phải game hoặc world simulator. User chơi gì thì minh họa cảnh đó. Template/layout/SVG giúp giảm lượng dữ liệu và code phải tạo; chúng không giới hạn nội dung RP.
