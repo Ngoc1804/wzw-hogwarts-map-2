@@ -230,6 +230,8 @@ P2/P3 chuẩn bị cùng nhau khi interface rõ, không tạo contract thứ hai
 
 ## 9A. Dung lượng, SVG và làm sạch — thực hiện có đo
 
+**Kết quả audit M2-P00-03:** [báo cáo baseline](docs/M2-P00-03-BASELINE.md) · [46 nhóm ứng viên SVG](docs/M2-P00-03-SVG-DECISIONS.csv) · [metrics JSON](docs/M2-P00-03-METRICS.json). Chỉ hoàn tất đo/plan; tối ưu thực thi ở P08.
+
 Đọc và lập phương án từ đầu; xóa/gộp khi đã rõ dependency. Phân biệt dung lượng repository với bytes browser tải. Không tối ưu hàng loạt chỉ theo tên/số lượng asset.
 
 1. Đo baseline source/catalog/artwork/pack/bundle: bytes thô/gzip, số lần nhúng, request dự kiến và đường build. Số transfer/render/memory thực đo ở bước kiểm cuối.
@@ -247,7 +249,7 @@ Trạng thái mặc định **TODO** là chưa hoàn tất theo cơ chế mới,
 |---|---|---|---|---|
 | M2-P00-01 | DONE-DOC | Khóa quyết định và bảng task trong README | Quyết định user | Một chỉ đạo hiện hành; lịch sử nằm trong Git |
 | M2-P00-02 | TODO | Đối chiếu phạm vi/ngoại lệ Atlas và source; hash/license/keep–fix–missing | P00-01 | Bảng nguồn và phạm vi có căn cứ; phần chưa chốt nêu rõ |
-| M2-P00-03 | TODO | Đọc build/dependency, đo bytes nguồn và dist, tìm nhúng SVG/defs/code trùng | P00-01 | Baseline và phương án tối ưu giữ–gộp–bỏ, chưa xóa tùy tiện |
+| M2-P00-03 | DONE-DOC | Đã rà build/dependency/bytes SVG; [baseline](docs/M2-P00-03-BASELINE.md) + [bảng gộp](docs/M2-P00-03-SVG-DECISIONS.csv) | P00-01 | Baseline và KEEP–SHARE–DROP có bằng chứng; chưa sửa asset/runtime |
 | M2-P01-01 | TODO | Rà index/shell/build: một entry, một loader, một pipeline | P00-02 | Interface khởi tạo/chuyển scene thống nhất, giữ branding |
 | M2-P01-02 | TODO | Tách parse/lỗi tải khỏi RP; vòng đời scene/listener/timer | P01-01 | Không khởi tạo lặp hoặc báo ready giả; cleanup rõ |
 | M2-P02-01 | TODO | Khóa schemaVersion/field bắt buộc từng nhánh; normalize ID/count/PC/spot/zone | P01-01 | contract.js và MAP_DATA.md cùng một contract ngắn |
@@ -318,7 +320,7 @@ Baseline cũ: [docs/baseline.json](docs/baseline.json), [final intake](docs/fina
 - [x] Đọc plan/source, xác minh repository/branch/HEAD và tài nguyên có sẵn.
 - [x] Viết lại README khóa cơ chế mới và kế hoạch P0–P9.
 - [x] Bổ sung placement nhẹ, khung hành lang 2.5D, decor tối giản, palette, tối ưu SVG và bảng task chi tiết.
-- [ ] Đo baseline dung lượng và lập phương án dọn/gộp trước sửa runtime.
+- [x] Đo baseline dung lượng và lập phương án dọn/gộp trước sửa runtime (M2-P00-03; audit-only).
 - [ ] P0 hoàn tất đối chiếu phạm vi Atlas/ngoại lệ và hồ sơ nguồn còn mở.
 - [ ] P1 thống nhất khung chạy theo cơ chế mới.
 - [ ] P2 contract/nhóm/visual tối thiểu và draft prompt.
