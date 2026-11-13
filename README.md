@@ -16,6 +16,19 @@ Kiểm tập trung 10 preset PASS (replace rỗng, actor tránh đồ lớn, sit
 
 Giới hạn: footprint ảnh là ước lượng; surface chưa có metadata không đoán; cụm đồ không có định danh con không tự tháo rời; geometry đặc biệt FINAL chưa được coi tái hiện chính xác mọi hình phòng. P5/P7 chưa đóng toàn mốc. Palette mới/visual compiler/Outdoor/icon mới không nằm trong thay đổi này.
 
+### Checkpoint loader / Outdoor / routing — 14/11/2026
+
+Tích hợp trên `8a09e91` (giữ thay đổi nội thất/actor H40 của phiên khác). Không merge main. Sửa source chính và rebuild dist:
+
+- Loader: JSON hỏng dừng trước normalize/build, không SVG/WZW_SCENE; thông báo riêng. Render API xếp hàng; có thể phục hồi bằng payload hợp lệ sau lỗi parse. Lỗi pack/CSS không được báo ready. Dữ liệu thiếu PC/vị trí, nhiều PC hoặc version không hỗ trợ không dựng scene; payload legacy thiếu version vẫn có diagnostic để tương thích, minimal mới dùng 2.0.0.
+- Routing: giữ sandbox/Fixed/Atlas hiện hành; reserve thêm nhà canon được PC/NPC/event tham chiếu trước cấp nhà AU. Nội dung địa điểm/actor/event unresolved giữ trong Inspector, không gán bừa phòng.
+- Outdoor: đưa đủ 8 artwork/layout FINAL vào bundle và cùng buildMap; dùng nền nguồn và inventory, namespace theo vùng, giữ merge/replace. Không dùng vòng 7 vị trí cũ. Bản nhiều khu dùng các ô minh họa không tạo đường nối canon. Water path nguồn OUT_WATERSIDE dùng kiểm điểm hình; footprint đồ lớn chặn điểm đứng mặc định.
+- Review: [8 Outdoor](examples/outdoor-review.html), dùng cùng runtime, có selector 8 mẫu. **Chờ duyệt hình; chưa nghiệm thu AI Studio**. Không coi tích hợp này đã hoàn tất mọi ca Outdoor tùy ý, visual mới tối thiểu hoặc toàn bộ semantic contract/props.
+
+Kiểm mới: `tests/current-scope.cjs` (browser boot, 8 Outdoor, 5 render liên tiếp, JSON hỏng không scene, phục hồi API); `tests/routing-current.cjs` (8 fixture, AU reorder/không trùng/hết nhà, giữ 11 NPC, thiếu PC invalid); corridor-source và indoor-placement PASS. Không đổi pack Fixed/CSS/template source. Số liệu build mới ở build-metrics; bundle tăng do giữ terrain/art Outdoor, chưa phải tối ưu P8. Báo cáo [scope QA](docs/CURRENT_SCOPE_QA.json).
+
+**Còn mở trong phạm vi yêu cầu:** kiểm lỗi tải CSS/pack/bundle bằng browser và vòng đời stress rộng hơn; contract validation theo nhánh/alias mơ hồ toàn Atlas, đủ ma trận routing; Outdoor nhiều vùng/props state/count/đồ lạ nâng cao và hình tương ứng. Chưa tick “hoàn thiện hẳn” pipeline/contract/routing. Các task visual tối thiểu/semantic inventory còn theo P2/P5, không giả đã hoàn tất từ smoke PASS.
+
 ### Checkpoint áp khung corridors đã duyệt H40 — 14/11/2026
 
 Base `857f0c6`; file user cấp lại `CHỐT_01_10_CORRIDORS_FINAL.html` có SHA-256 `e1fd37c355ec679b2d44b52fc0a669b8ea00d36f284a4da3f4ff9f837e1cd7e6`, khớp baseline cũ. Runtime giải nén **trùng nguyên byte** `assets/source/corridors.js`, không nhập renderer mới. User chốt khung/góc nhìn/10 công thức/hốc/khe, chiều cao **40**, không cần thiết kế hay duyệt lại khung.

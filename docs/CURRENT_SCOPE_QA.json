@@ -1,0 +1,20 @@
+{
+  "checks": [
+    "valid boot",
+    "OUT_COURTYARD",
+    "OUT_GARDEN",
+    "OUT_LAWN",
+    "OUT_WOODLAND",
+    "OUT_WATERSIDE",
+    "OUT_BUILDING_YARD",
+    "OUT_CAMP",
+    "OUT_SERVICE_GARDEN",
+    "five queued renders",
+    "malformed JSON creates no scene",
+    "recover via API after parse failure"
+  ],
+  "errors": [],
+  "targetPreview": "NOT RUN",
+  "visualApproval": "PENDING",
+  "integrationBase": "8a09e9152ed0285afd2be51c05be35150be068d6"
+}

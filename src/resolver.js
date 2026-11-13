@@ -44,6 +44,7 @@ function resolve(d){
  };
  // Reserve explicitly addressed houses before allocating AU entries. Stable ordering avoids payload-order reshuffles.
  for(const p of d.places){const hit=locate(p);if(hit)used.add(hit.id);}
+ for(const ref of [d.pcPlace,...d.actors.map(a=>a.placeId||a.placeName),...d.events.map(e=>e.placeId||e.placeName)]){const hit=exact(ref);if(hit)used.add(hit.id);}
  const sorted=[...d.places].sort((a,b)=>key(a.id||a.name).localeCompare(key(b.id||b.name)));
  for(const p of sorted){
   let match=locate(p);

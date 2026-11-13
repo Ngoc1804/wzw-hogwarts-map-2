@@ -63,37 +63,38 @@ function sceneryAsset(id,x,y,w,h,prefix){
  return `<g data-asset="${id}"><use href="#${symbolId}" x="${x}" y="${y}" width="${w}" height="${h}"/></g>`;
 }
 function outdoorMap(scene,d){
- sceneryDefs=new Map();
- const places=scene.places,width=1100,height=Math.max(780,620+places.length*35),blockers=[],objects=[];
- let terrain=`<rect width="${width}" height="${height}" fill="#f1e5ca"/><path d="M50 190Q250 40 620 125T1050 300L1010 ${height-140}Q700 ${height+10} 160 ${height-100}Q-10 500 50 190Z" fill="#c7cba9" opacity=".43"/><path d="M90 500Q280 340 500 510T1010 570" fill="none" stroke="#d7c7a2" stroke-width="85" opacity=".17"/>`;
- const locations=[[165,190],[695,180],[640,510],[155,530],[430,140],[425,620],[850,410]];
+ const places=scene.places,columns=Math.max(1,Math.ceil(Math.sqrt(places.length))),cellW=1000,cellH=760;
+ const rows=Math.max(1,Math.ceil(places.length/columns)),footprints=[],zones=[],water=[];let markup='';
  for(const [i,p]of places.entries()){
-  let [x,y]=locations[i%locations.length];y+=Math.floor(i/locations.length)*230;
-  const semantic=key(p.type||p.name),water=/lake|river|pond|hồ|sông|ao/.test(semantic),open=/garden|yard|clearing|field|vườn|sân|bãi/.test(semantic);
-  const w=water?340:open?300:230,h=water?220:open?210:200;
-  p.bounds=[x,y,w,h];p.geometry={outdoor:true,water,open};let art='';
-  if(water){
-   art=`<path data-forbidden="water" d="M${x} ${y+90}Q${x+35} ${y-25} ${x+180} ${y+15}T${x+w} ${y+110}Q${x+w-10} ${y+h+15} ${x+150} ${y+h}T${x} ${y+90}Z" fill="#8fae9e" stroke="#d7c9a4" stroke-width="9"/><path d="M${x+45} ${y+105}q65 -15 140 0m-95 35q65 12 155 -4" fill="none" stroke="#c5d5c2" stroke-width="2" opacity=".6"/>`;
-   blockers.push({x,y,w,h,ellipse:true});
-  }else if(open){
-   art=`<ellipse cx="${x+w/2}" cy="${y+h/2}" rx="${w/2}" ry="${h/2}" fill="#c9caa5" opacity=".45"/>`;
-   art+=sceneryAsset('landscape.garden-bench',x+35,y+130,65,40,'o'+i+'bench-');
-  }else{
-   const id=/tower|tháp/.test(semantic)?'architecture.owlery':/storage|shed|kho/.test(semantic)?'house.wood.barn':/shop|tiệm/.test(semantic)?'architecture.shop':/inn|quán/.test(semantic)?'architecture.inn':i%2?'house.wood.gable':'architecture.cottage';
-   art=`<ellipse cx="${x+w/2}" cy="${y+h-8}" rx="${w*.48}" ry="18" fill="#8d9774" opacity=".16"/>`+`<g data-forbidden="building" data-occluder="building" data-depth="${y+h}">${sceneryAsset(id,x,y,w,h,'o'+i+'-')}</g>`;
-   blockers.push({x:x+12,y:y+20,w:w-24,h:h-20});
+  const x=i%columns*cellW,y=Math.floor(i/columns)*cellH;
+  const rid=recipeId(p.type),art=P4_ART[rid],prefix='out'+i+'-';
+  p.bounds=[x,y,cellW,cellH];p.geometry={outdoor:true,open:true};
+  let body='<rect width="1000" height="760" fill="#f1e5ca"/>';
+  if(art?.sceneSvg&&rid.startsWith('OUT_')){
+   const doc=new DOMParser().parseFromString(art.sceneSvg,'image/svg+xml');
+   // Keep source terrain/layout, draw inventory once from the same compiled instances.
+   doc.querySelectorAll('[data-element-id],text,title').forEach(n=>n.remove());
+   for(const n of doc.querySelectorAll('path[fill="#88b3b6"]'))water.push({x,y,path:new Path2D(n.getAttribute('d'))});
+   body=doc.documentElement.innerHTML;
+   for(const item of p.inventory.objects){
+    const node=art.objects.find(n=>n.id===item.id);
+    if(node){body+=`<g data-instance="${escapeXML(item.id)}">${node.svg}</g>`;
+     const [bx,by,w,h]=node.bounds;footprints.push({placeId:p.id,id:item.id,bounds:[x+bx,y+by,w,h]});
+    }
+   }
+  }else body+='<ellipse cx="500" cy="380" rx="420" ry="280" fill="#c7cba9" opacity=".3"/>';
+  const extras=p.inventory.objects.filter(item=>!art?.objects.some(n=>n.id===item.id));
+  for(const [j,item]of extras.entries()){
+   const asset=CATALOG[item.item||propAliases[key(item.name)]],px=40+j%10*92,py=560+Math.floor(j/10)*75;
+   body+=asset&&!item.informationOnly?`<svg x="${px}" y="${py}" width="80" height="65" viewBox="${(asset.viewBox||[0,0,256,256]).join(' ')}">${namespaceArt(asset.svg.replace(/^<svg\b[^>]*>/,'').replace(/<\/svg>\s*$/,''),'extra'+j+'-')}</svg>`:`<g data-prop-fallback="true"><path d="M${px} ${py}l18 -12 18 12 -18 12Z" fill="#d8c6a6" stroke="#8d7658"/><title>${escapeXML(item.name)} × ${item.count}</title></g>`;
   }
-  objects.push({depth:y+h,svg:`<g data-id="${escapeXML(p.id)}" role="button" tabindex="0" aria-label="${escapeXML(p.name)}">${art}<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="transparent"/></g>`});
-  (p.props||[]).forEach((prop,j)=>objects.push({depth:y+h+25,svg:`<g data-prop-fallback="true"><path d="M${x+20+j*22} ${y+h+12}l7 7 -7 7 -7 -7Z" fill="#d8c6a6" stroke="#8d7658"/><title>${escapeXML(prop.name)} × ${prop.count}</title></g>`}));
+  markup+=`<g data-id="${escapeXML(p.id)}" data-recipe="${escapeXML(rid||'custom')}" tabindex="0" role="button" aria-label="${escapeXML(p.name)}" transform="translate(${x} ${y})">${namespaceArt(body,prefix)}</g>`;
+  zones.push({p,x,y,rid});
  }
- for(let i=0;i<44;i++){
-  const x=55+(i*239%990),y=65+(i*173%(height-130)),w=32+(i%4)*13,h=w*1.25;
-  if(places.some(p=>{const[a,b,c,e]=p.bounds;return x+w>a-20&&x<a+c+20&&y+h>b-20&&y<b+e+35}))continue;
-  const id=i%6===0?'terrain.boulder':['architecture.tree','tree.pine','tree.spreading','tree.bare','plant.bush'][i%5];
-  objects.push({depth:y+h,svg:sceneryAsset(id,x,y,w,h,'land'+i+'-')});
- }
- const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}"><defs>${[...sceneryDefs.values()].join('')}</defs><g data-layer="terrain">${terrain}</g><g data-layer="architecture">${objects.sort((a,b)=>a.depth-b.depth).map(o=>o.svg).join('')}</g></svg>`;
- return {kind:'outdoor',title:d.meta.areaName||d.pcPlace,bounds:[0,0,width,height],places,svg,safeFloor:(x,y,pad=0)=>x-pad>=0&&y-pad>=0&&x+pad<=width&&y+pad<=height&&!blockers.some(r=>r.ellipse?((x-r.x-r.w/2)/(r.w/2+pad))**2+((y-r.y-r.h/2)/(r.h/2+pad))**2<=1:x+pad>=r.x&&x-pad<=r.x+r.w&&y+pad>=r.y&&y-pad<=r.y+r.h)};
+ const width=columns*cellW,height=rows*cellH,ctx=document.createElement('canvas').getContext('2d');
+ const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}">${markup}</svg>`;
+ return {kind:'outdoor',title:d.meta.areaName||d.pcPlace,bounds:[0,0,width,height],places,svg,footprints,
+ safeFloor:(x,y,pad=0)=>x-pad>=0&&y-pad>=0&&x+pad<=width&&y+pad<=height&&!footprints.some(f=>{const[a,b,w,h]=f.bounds;return x+pad>=a&&x-pad<=a+w&&y+pad>=b&&y-pad<=b+h})&&!water.some(z=>[[x,y],[x-pad,y-pad],[x+pad,y+pad],[x-pad,y+pad],[x+pad,y-pad]].some(([px,py])=>ctx.isPointInPath(z.path,px-z.x,py-z.y)))};
 }
 function styleIndoor(markup,plan,places){
  const doc=new DOMParser().parseFromString(markup,'image/svg+xml'),root=doc.documentElement;
@@ -110,7 +111,7 @@ function generatedActorPoint(map,place,spot,actor={}){
  if(map.kind==='outdoor'){
   if(spot==='inside'&&!place.geometry.water)return{x:x+w/2,y:y+h/2};
   if(spot==='inside')return null;
-  const candidates=place.geometry.open?[[x+w/2,y+h/2],[x+w/2,y+h+30]]:[[x+w/2,y+h+30],[x-15,y+h+25],[x+w+15,y+h+25]];
+  const candidates=place.geometry.open?Array.from({length:81},(_,i)=>[x+w*(.1+i%9*.1),y+h*(.1+Math.floor(i/9)*.1)]):[[x+w/2,y+h+30],[x-15,y+h+25],[x+w+15,y+h+25]];
   const p=candidates.find(([x,y])=>map.safeFloor(x,y,7));return p?{x:p[0],y:p[1]}:null;
  }
  const room=place.geometry?.room,hall=place.geometry?.hall;

@@ -78,3 +78,9 @@ Khung H40 giữ nguyên core. Recipe w/h/minW/minH điều chỉnh frontage/dept
 Prop optional: mount floor/wall/surface và parentId (ID instance mẹ). Surface cần parent có metadata surface; không tìm được thì ghi diagnostic và giữ đại diện/Inspector, không tự chọn bàn khác. Source group không tách được đồ con vẫn là một instance; chưa khẳng định sửa đúng mọi thành phần trong cụm.
 
 Actor optional tương thích 2.0.0: posture standing/sitting/lying/hidden; placement normal/on_furniture/in_wall; supportId nhắm đúng instance khi RP xác nhận đứng/ngồi trên vật. Không suy ngoại lệ từ NLP activity. Thiếu support thì giữ anchor thông tin, ẩn chân; không giả đã đặt đúng trên đồ. Inside vẫn ẩn chân, không tự X-Ray. Điểm actor tránh tường và nội thất lớn bằng footprint ước lượng; ribbon có thể dịch riêng để dễ đọc. Actor chưa binding vẫn giữ trong Inspector.
+
+## Loader / validation update
+
+Malformed JSON is a transport error: no normalize/build/scene is produced. Corrected object input may recover using `WZWMap.render`. Render calls are serialized. Missing PC actor/location, multiple PCs, and unsupported explicit versions produce `invalid-data` without a scene. Legacy omitted schemaVersion is diagnosed; new payloads must send 2.0.0. Unresolved Fixed locations remain information in Inspector; they never allocate invented buildings. Canonical PC/NPC/event references reserve AU house slots before allocation.
+
+Outdoor uses the same mapMode/places/type/props contract. All eight OUT_* recipes are available in runtime; `propsMode: replace` removes recipe inventory while terrain remains. The offline `examples/outdoor-review.html` is a review fixture, never RP data. Current multi-zone composition is illustrative tiles without inferred connecting routes; advanced placement/state/count and visual acceptance remain open.

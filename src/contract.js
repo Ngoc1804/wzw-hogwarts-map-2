@@ -23,5 +23,7 @@ function normalize(input){
  if(!pcPlace||key(pcPlace)==='unknown')diagnostics.push('missing-pc-location');
  if(pc&&(pc.placeId||pc.placeName)&&pcPlace!== (pc.placeId||pc.placeName))diagnostics.push('pc-place-conflict');
  const mode=['indoor','outdoor','template'].includes(d.mapMode)?d.mapMode:undefined;
- return {...d,schemaVersion:MAP_SCHEMA_VERSION,meta:d.meta&&typeof d.meta==='object'?d.meta:{},atlasAnchor:VOCAB.scopes[key(d.atlasAnchor)]||text(d.atlasAnchor)||'custom',mapMode:mode,forceSandbox:d.forceSandbox===true,pcPlace,pcSpot:spot(d.pcSpot),places,actors,events:list(d.events).filter(e=>e&&text(e.title)).map(e=>({...e,title:text(e.title),detail:text(e.detail),hidden:e.hidden===true,icon:e.hidden===true?'?':'!'})),diagnostics};
+ if(!pc)diagnostics.push('missing-pc-actor');
+ const fatal=!pcPlace||key(pcPlace)==='unknown'||!pc||diagnostics.includes('ambiguous-pc')||(d.schemaVersion!==undefined&&d.schemaVersion!==MAP_SCHEMA_VERSION);
+ return {...d,fatal,schemaVersion:MAP_SCHEMA_VERSION,meta:d.meta&&typeof d.meta==='object'?d.meta:{},atlasAnchor:VOCAB.scopes[key(d.atlasAnchor)]||text(d.atlasAnchor)||'custom',mapMode:mode,forceSandbox:d.forceSandbox===true,pcPlace,pcSpot:spot(d.pcSpot),places,actors,events:list(d.events).filter(e=>e&&text(e.title)).map(e=>({...e,title:text(e.title),detail:text(e.detail),hidden:e.hidden===true,icon:e.hidden===true?'?':'!'})),diagnostics};
 }
