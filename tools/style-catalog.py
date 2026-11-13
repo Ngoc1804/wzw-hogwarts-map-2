@@ -25,7 +25,7 @@ for k,a in list(c.items()):
   target=seen[sig];aliases[k]=target;c[target]['aliases']=sorted(set(c[target].get('aliases',[])+[k,a.get('name',k)]));groups.append([k,target]);del c[k]
  else:seen[sig]=k
 # Material-specific muted walnut, aged brass, burgundy; preserve gradients and source geometry.
-bases={'wood':'#916849','timber':'#916849','fabric':'#793D48','metal':'#A68A53','paper':'#DACAA5','stone':'#A9A394','ceramic':'#A6B29E','glass':'#88AAA5'}
+bases={'wood':'#916849','timber':'#916849','fabric':'#DCC9A5','metal':'#A68A53','paper':'#DACAA5','stone':'#A9A394','ceramic':'#A6B29E','glass':'#88AAA5'}
 changes=[]
 def paint(svg):
  def tag(m):
@@ -38,15 +38,15 @@ def paint(svg):
   return re.sub(r'(fill|stop-color)="(#[0-9a-fA-F]{6})"',color,s)
  return re.sub(r'<[^>]+>',tag,svg)
 for k,a in c.items():
- if a.get('corridorSource') or a.get('paletteVersion')=='hogwarts-1':continue
+ if a.get('corridorSource') or a.get('paletteVersion')in ['hogwarts-1','hogwarts-2']:continue
  old=a['svg'];a['svg']=paint(old)
- if a['svg']!=old:changes.append(k);a['paletteVersion']='hogwarts-1'
+ if a['svg']!=old:changes.append(k);a['paletteVersion']='hogwarts-2'
 for rec in recipes.values():
  for i in rec['instances']:i['item']=aliases.get(i['item'],i['item'])
 art=read('assets/p4-art.json')
 for v in art.values():
- if v.get('paletteVersion')=='hogwarts-1':continue
- v['paletteVersion']='hogwarts-1'
+ if v.get('paletteVersion')in ['hogwarts-1','hogwarts-2']:continue
+ v['paletteVersion']='hogwarts-2'
  for field in ['defs','sceneSvg']:
   if field in v:v[field]=paint(v[field])
  for o in v['objects']:o['svg']=paint(o['svg']);o['item']=aliases.get(o['item'],o['item'])

@@ -440,3 +440,11 @@ User yêu cầu thực hiện: đã thay glyph marker bằng ống nhòm (!)/kí
 Đã xóa 55 tabletop.* khỏi catalog (không có recipe tham chiếu); còn 443 ID. Đã đổi màu 129 asset có data-material sang gỗ óc chó/đồng cổ/burgundy/giấy da; giữ hình học và độ chuyển gradient. Các phần không có nhãn vật liệu giữ màu nguồn; không tự tô toàn bộ silhouette. tools/style-catalog.py được gọi sau importer để rebuild giữ quyết định. HTML asset-review sinh từ catalog mới, bỏ tab Cụm để bàn; hai icon giữ nguyên. Fixed pack/CSS không đổi ở mốc này.
 
 Nhóm cluster.layout-* chọn lọc: so XML bỏ ID/nhãn, giữ geometry/transform/viewBox/màu: 0 trùng; so hình render chuẩn 512px cũng 0 bản giống hệt. Không xóa chỉ vì cùng tên hoặc nhìn gần giống. Báo cáo docs/CATALOG_STYLE_CLEANUP.json có danh sách ID bỏ/đổi màu. PASS recipe item refs, browser catalog 443 ID/0 tabletop, H40 40 cấu hình/48 reference, 8 Outdoor/lifecycle. Đã xem ảnh tests/asset-hogwarts-review.png; chưa nghiệm thu AI Studio hoặc user duyệt bảng màu mới.
+
+### Chỉnh vải beige và editor offline — 14/11/2026
+
+Theo user bác burgundy: đưa phần fabric mới recolor của 17 asset về beige, đồng bộ catalog/art/bundle. Màu Nhà/cờ nguồn và pack Fixed giữ nguyên. Compiler palette mới dùng fabric beige.
+
+HTML chính examples/asset-review.html có editor màu trong nút “Xem / chỉnh màu / tải SVG”. Cho đổi từng mã màu fill/stroke/gradient, cập nhật ảnh trực tiếp, hoàn tác, về màu lúc mở file, tải SVG/JSON và **Tải HTML đã chỉnh**. Chỉ sửa màu cùng mã trong asset đang chọn; không thay ID/ref hoặc geometry. Không tự lưu vào file đang mở hoặc ghi vào GitHub; muốn giữ thay đổi phải xuất HTML/JSON. Editor nhúng offline từ tools/catalog-editor.js, không thêm renderer runtime.
+
+PASS tests/catalog-editor.cjs: chỉnh màu, undo, xuất HTML, mở lại giữ màu, editor sau mở lại, reset và mobile không tràn ngang. Corridor-source 40 cấu hình/48 reference và Indoor placement PASS. Ảnh tests/catalog-color-editor.png. Chưa kiểm AI Studio; chưa coi user đã duyệt màu mới.
