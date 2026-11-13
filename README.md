@@ -418,3 +418,9 @@ Chỉ repo Map 2, nhánh phù hợp phần việc; giữ nhánh hiện hành khi
 Gộp sửa vào source chính, dist sinh từ source; không chồng patch/v2/final hoặc hai renderer/contract hoạt động song song. Không tự tạo/bật lịch tự động.
 
 Sau mỗi mốc báo ngắn: đã làm/chưa làm, file sửa, interface nếu đổi, PASS/FAIL hoặc chưa chạy, HTML/ảnh cụ thể, điểm chưa xác minh, branch/commit và bước tiếp. Tự quyết kỹ thuật thông thường trong phạm vi đã chốt; chỉ hỏi khi thiếu đầu vào chặn việc, xung đột thật hoặc cần đổi cơ chế/phạm vi. Cổng duyệt hình không được tự tick.
+
+### M2-P04-05 — mẫu !/? và palette, chờ duyệt — 14/11/2026
+
+Review-only: [HTML](examples/marker-palette-review.html), [ảnh](tests/marker-palette-review.png), [token đề xuất](docs/marker-palette-proposal.json). Ba palette: default Giấy & gỗ, Rêu & đá, Mận & đồng. Glyph !/? cùng nét/vùng bấm 44px, hover/focus/selected; không thực hiện hành động RP. Đề xuất seed canonical scope + place ID chọn palette ổn định cho Generated; không đổi màu theo giờ/NPC. Chỉ dùng token cho hình mới/vùng cho phép, không tô lại artwork đã có màu, không đổi Fixed hoặc palette actor/Nhà.
+
+Đã kiểm click và không tràn ngang ở viewport 390px; đã xem ảnh desktop 1440px. Lượt đầu mở HTTP local lỗi ERR_EMPTY_RESPONSE; render lại bằng HTML self-contained thành công. Chưa kiểm AI Studio. **Chưa được user duyệt; chưa áp token/seed vào runtime.** Hình hành lang trong review là nguồn H40 giữ nguyên; bảng swatch là đề xuất token, không phải bằng chứng đã recolor runtime. Chờ user duyệt !/? và ba palette trước triển khai.
