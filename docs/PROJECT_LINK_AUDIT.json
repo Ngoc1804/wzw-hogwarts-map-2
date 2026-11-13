@@ -1,0 +1,203 @@
+{
+  "baseCommit": "6fa860885477cfa1d87fd7d64c4f54cf532156fe",
+  "date": "2026-11-14",
+  "idAudit": {
+    "counts": {
+      "catalog": 443,
+      "recipes": 49,
+      "instances": 509,
+      "clusters": 59,
+      "fixed": 13,
+      "atlasRoomsIncludingWorld": 349
+    },
+    "checks": {
+      "runtime-CATALOG-keys": true,
+      "runtime-RECIPES-keys": true,
+      "runtime-P4_ART-keys": true,
+      "runtime-ATLAS-keys": true
+    },
+    "issues": [
+      {
+        "kind": "fixed-svg-anchor",
+        "owner": "diagon-knockturn",
+        "ref": "da-brick-gateway"
+      },
+      {
+        "kind": "fixed-svg-anchor",
+        "owner": "diagon-knockturn",
+        "ref": "ka-stair"
+      }
+    ],
+    "issueCounts": {
+      "fixed-svg-anchor": 2
+    }
+  },
+  "compiledArtSvgRefs": [],
+  "fixedBrowser": {
+    "report": [
+      {
+        "id": "h1",
+        "status": "ready",
+        "missingPlaces": [],
+        "missingUseRefs": []
+      },
+      {
+        "id": "h2",
+        "status": "ready",
+        "missingPlaces": [],
+        "missingUseRefs": []
+      },
+      {
+        "id": "hall",
+        "status": "ready",
+        "missingPlaces": [],
+        "missingUseRefs": []
+      },
+      {
+        "id": "ministry2",
+        "status": "ready",
+        "missingPlaces": [],
+        "missingUseRefs": []
+      },
+      {
+        "id": "express",
+        "status": "ready",
+        "missingPlaces": [],
+        "missingUseRefs": []
+      },
+      {
+        "id": "gryffindor-common",
+        "status": "ready",
+        "missingPlaces": [],
+        "missingUseRefs": []
+      },
+      {
+        "id": "ravenclaw-common",
+        "status": "ready",
+        "missingPlaces": [],
+        "missingUseRefs": []
+      },
+      {
+        "id": "hufflepuff-common",
+        "status": "ready",
+        "missingPlaces": [],
+        "missingUseRefs": []
+      },
+      {
+        "id": "slytherin-common",
+        "status": "ready",
+        "missingPlaces": [],
+        "missingUseRefs": []
+      },
+      {
+        "id": "village-static",
+        "status": "ready",
+        "missingPlaces": [],
+        "missingUseRefs": []
+      },
+      {
+        "id": "pitch-static",
+        "status": "ready",
+        "missingPlaces": [],
+        "missingUseRefs": []
+      },
+      {
+        "id": "diagon-knockturn",
+        "status": "ready",
+        "missingPlaces": [
+          "da-brick-gateway",
+          "ka-stair"
+        ],
+        "missingUseRefs": []
+      },
+      {
+        "id": "ministry-8-10",
+        "status": "ready",
+        "missingPlaces": [],
+        "missingUseRefs": []
+      }
+    ],
+    "failures": [
+      {
+        "pcPlace": "da-brick-gateway",
+        "markers": 0,
+        "resolved": true
+      },
+      {
+        "pcPlace": "ka-stair",
+        "markers": 0,
+        "resolved": true
+      }
+    ],
+    "errors": []
+  },
+  "childSequenceReproduction": {
+    "expected": 1,
+    "actual": 3,
+    "diagnostics": [
+      "unresolved-child:parent:bottle"
+    ]
+  },
+  "suites": [
+    {
+      "test": "four-fixes",
+      "status": "PASS",
+      "output": "[\n  'state-only preserves five',\n  'explicit count replaces',\n  'missing removes all',\n  'zero removes',\n  'all 182 instances rendered',\n  'all footprints inside expanded multi-zone viewBox',\n  'Outdoor building registered',\n  'building shape mask exists',\n  'opaque sample found',\n  'no automatic X-Ray',\n  'real building fades .3 at anchored foreground overlap',\n  'ribbon mouseleave restores',\n  'building hover activates',\n  'building mouseout restores',\n  'touch has no sticky hover',\n  'building tap pins',\n  'second building tap restores',\n  'ribbon click pins through mouseleave',\n  'background click clears',\n  'Escape clears',\n  'own inside does not fade',\n  'moving beyond building restores',\n  'clearing actor restores',\n  'three invalid or invisible visuals fall back individually',\n  'valid visual still rendered',\n  'native browser touch tap toggles ribbon on/off'\n]\n"
+    },
+    {
+      "test": "routing-current",
+      "status": "PASS",
+      "output": "PASS: 8 routing fixtures, AU reorder/uniqueness/exhaustion, 11 NPC preserved, missing PC invalid\n"
+    },
+    {
+      "test": "inventory-visual",
+      "status": "PASS",
+      "output": "[\n  'replace empty',\n  'add new ID and count',\n  'duplicate add ID prevented',\n  'remove exact instance',\n  'structured visual',\n  'invalid visual fallback',\n  'path injection rejected',\n  'remove child preserves sibling',\n  'unknown child diagnosed'\n]\n"
+    },
+    {
+      "test": "xray-occlusion",
+      "status": "PASS",
+      "output": "PASS X-Ray: foreground shape, transparent bbox region, behind, layer, own inside, unknown depth\n"
+    },
+    {
+      "test": "corridor-source",
+      "status": "PASS",
+      "output": "{\"frameScenes\":40,\"sourceAssetReferences\":48,\"wallHeight\":40,\"browser\":\"NOT RUN\",\"visualApproval\":\"source approved by user; no new style approval claimed\"}\n"
+    },
+    {
+      "test": "indoor-placement",
+      "status": "PASS",
+      "output": "{\"presets\":10,\"checks\":\"H40, replace empty, actor avoids large furniture, sitting, explicit support, unknown RP retained\",\"browser\":\"separate\"}\n"
+    },
+    {
+      "test": "catalog-editor",
+      "status": "PASS",
+      "output": "PASS colors/edit/undo/export/reopen/reset/mobile\n"
+    },
+    {
+      "test": "current-scope",
+      "status": "PASS",
+      "output": "[\n  'valid boot',\n  'OUT_COURTYARD',\n  'OUT_GARDEN',\n  'OUT_LAWN',\n  'OUT_WOODLAND',\n  'OUT_WATERSIDE',\n  'OUT_BUILDING_YARD',\n  'OUT_CAMP',\n  'OUT_SERVICE_GARDEN',\n  'five queued renders',\n  'malformed JSON creates no scene',\n  'recover via API after parse failure'\n]\n"
+    }
+  ],
+  "preservation": {
+    "approvedCatalogHashUnchanged": true,
+    "approvedFixedPackHashUnchanged": true,
+    "buildRegeneratedWithoutDiff": true
+  },
+  "notRun": [
+    "full interactive X-Ray semantic depth matrix for all Fixed anchors",
+    "full alias ambiguity/ownership/PC/spot/zone matrix",
+    "all loader network-failure/stress cases",
+    "AI Studio Preview",
+    "network/render/memory benchmark"
+  ],
+  "remaining": [
+    "two Fixed anchor IDs with zero PC markers",
+    "child count edit sequence and visible diagnostics",
+    "map ribbon group members/summary parity with sidebar",
+    "Indoor special shapes/props surface and Outdoor composition acceptance",
+    "final single prompt/provenance pinned SHA currently 392a468",
+    "full QA and measured optimization"
+  ]
+}

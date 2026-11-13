@@ -6,6 +6,27 @@ README này là tài liệu chỉ đạo hiện hành, viết lại theo các qu
 
 **Trạng thái:** đã có tài nguyên và runtime một phần; chưa hoàn thiện cơ chế, chưa nghiệm thu AI Studio Preview. Việc khóa tài liệu không chứng nhận code đã thực hiện đúng mọi mục dưới đây. Trạng thái từng lượt nằm ở checkpoint dưới; đã có thay đổi contract/routing/Atlas, chưa hoàn thiện renderer hoặc nghiệm thu runtime.
 
+### Audit liên kết ID / plan tại 6fa8608 — 14/11/2026
+
+[Hồ sơ đầy đủ](docs/PROJECT_LINK_AUDIT.json). 8 bộ test hiện hành PASS, trong đó four-fixes có 26 kiểm; không suy thành PASS toàn dự án. Build tái lập không đổi dist. Catalog và Fixed pack khớp hash bản duyệt.
+
+| Mục | Xác nhận hiện tại |
+|---|---|
+| Recipe → catalog | PASS: 49 recipe / 509 instance → 443 asset, không thiếu item/parent hoặc trùng instance ID trong recipe |
+| Artwork → recipe instance/item | PASS, không orphan/mismatch; SVG href/url trong art biên dịch không thiếu đích |
+| Atlas/vocabulary → recipe/scope/Fixed | PASS tham chiếu tĩnh, 59 cluster; không trùng ID phòng theo tập audit, alias có đích tồn tại; chưa chứng nhận mọi alias không mơ hồ |
+| Source → bundle | PASS tập ID CATALOG/RECIPES/P4_ART/ATLAS khớp |
+| Catalog SVG nội bộ | PASS parse/IDs/local refs; không thiếu href/url hoặc trùng ID nội bộ từng SVG |
+| 13 Fixed browser | Cả 13 lên ready, không pageerror/missing use ref; 2 anchor metadata không có node hình |
+| da-brick-gateway / ka-stair | LỖI xác nhận ở diagon-knockturn: resolver tìm được nhưng không có anchor DOM, PC marker = 0 |
+| Đồ con count tuần tự | LỖI tái hiện: 1 → 3 → 1 vẫn vẽ 3, diagnostic unresolved-child; cần reconcile trước draw, hiện diagnostic trong Inspector |
+| Nhóm/Inspector | Đọc source: click ribbon map chưa hiện members/summary như sidebar; cần đồng bộ và test |
+| Bốn lỗi audit trước | Regression PASS: state giữ count, Outdoor không cắt, building occluder và tương tác X-Ray, visual lỗi fallback |
+| Asset/màu/icon/editor/H40 | Xong các phần đã duyệt; không thay đổi trong lượt audit |
+| Còn theo plan | Validation/alias matrix; layout/surface/props và duyệt bố trí Indoor/Outdoor; semantic X-Ray toàn 13 Fixed; loader failure/stress; tối ưu có đo; prompt/SHA cuối; QA và AI Studio |
+
+Prompt-provenance vẫn pin 392a468: chưa phải bản cuối đồng bộ runtime. parentId/childId RP không phải ID đã được compiler bảo chứng cho mọi đồ: parent instance và part token phải xác nhận theo cụm đang dùng, cần sửa ca tuần tự trên. Audit này không sửa runtime, không đóng các mục còn mở bằng test mẫu.
+
 ### Chốt cơ chế X-Ray tương tác — theo xác nhận user
 
 User yêu cầu hover/click cho laptop/phone, kích hoạt từ cả công trình và ribbon. Đã bỏ auto-fade: không tương tác thì giữ opacity 1; rê chuột xem tạm và rời chuột phục hồi; click/tap giữ, lần nữa hoặc nền/Escape xóa giữ. Touch pointer không kích hover dính. Pin/hover reset khi actor/scene bị thay hoặc cleanup. Chỉ nhóm thực sự che actor, đúng layer/depth và alpha mask mới opacity .3; inside không tự mờ. Ribbon click vẫn mở Inspector. Đây là cơ chế hiện hành, thay mô tả auto X-Ray trong các checkpoint/test lịch sử.
