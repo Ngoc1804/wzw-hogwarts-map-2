@@ -22,7 +22,7 @@
 
 <!-- atlas-extra-aliases {"St Mungo’s Hospital":["St Mungo's","St Mungo’s","St Mungos","St Mungo's Hospital"],"No. 4 Privet Drive":["4 Privet Drive","Privet Drive 4"],"The Burrow":["Burrow"],"Malfoy Manor":["Malfoy Manor"],"12 Grimmauld Place":["Grimmauld Place","12 Grimmauld"],"Wool’s Orphanage":["Wool’s","Wool's Orphanage","Wools Orphanage"]} -->
 
-<!-- atlas-anchor-aliases {"h1":{"region:extra:5":["Hagrid's Hut","Hagrid Hut"],"region:extra:0":["Greenhouses","Greenhouse 1","Greenhouse 2","Greenhouse 3"],"region-4":["Forbidden Forest"],"region-3":["Great Lake","Black Lake"],"lakeside-boathouse":["Boathouse"],"region:extra:2":["Whomping Willow"]},"h2":{"h2-place-59":["Owlery","West Tower Owlery","Injured Owl Room","Feed Store","Owlery Stairs"]},"hall":{"gf-dais":["Great Hall"],"gf-staff":["Staff Room"],"gf-filch":["Filch’s Office","Filch's Office"],"gf-class11":["Classroom 11"],"gf-broom":["Broom Cupboard"],"gf-entrance":["Entrance Hall"],"gf-courtyard":["Dedicated hall Inner Courtyard"]},"village-static":{"v-honeydukes":["Honeydukes"],"v-broomsticks":["Three Broomsticks"],"v-hogshead":["Hog's Head"],"v-shack":["Shrieking Shack"],"v-zonkos":["Zonko's","Zonko"],"v-gladrags":["Gladrags"],"v-post":["Owl Post"],"v-quills":["Scrivenshaft's"],"v-dervish":["Dervish & Banges"],"v-puddifoot":["Madam Puddifoot's"]},"diagon-knockturn":{"da-gringotts":["Gringotts"],"da-ollivanders":["Ollivanders"],"da-leaky":["Leaky Cauldron"],"ka-borgin":["Borgin & Burkes"],"da-weasleys":["WWW","Weasleys' Wizard Wheezes"],"da-flourish":["Flourish & Blotts"],"da-malkin":["Madam Malkin"],"da-quidditch":["Quality Quidditch Supplies"],"da-eeylops":["Eeylops"],"da-menagerie":["Magical Menagerie"],"da-potage":["Potage's Cauldrons"],"da-fortescue":["Fortescue's"],"da-gambol":["Gambol & Japes"],"da-twilfitt":["Twilfitt & Tatting's"],"da-scribbulus":["Scribbulus"],"da-apothecary":["Diagon Apothecary"]},"express":{"ex-kings":["King's Cross","Platform 9¾"],"ex-station":["Hogsmeade Station"],"ex-standard":["Hogwarts Express","Standard Carriage"]},"pitch-static":{"q-field":["Quidditch Pitch","Pitch"],"q-commentary":["Commentary Box"]},"gryffindor-common":{"gryffindor-hearth":["Gryffindor Common Room"]},"ravenclaw-common":{"ravenclaw-hearth":["Ravenclaw Common Room"]},"hufflepuff-common":{"huff-lounge":["Hufflepuff Common Room"]},"slytherin-common":{"sly-lounge":["Slytherin Common Room"]}} -->
+<!-- atlas-anchor-aliases {"h1":{"region:extra:5":["Hagrid's Hut","Hagrid Hut"],"region:extra:0":["Greenhouses","Greenhouse 1","Greenhouse 2","Greenhouse 3"],"region-4":["Forbidden Forest"],"region-3":["Great Lake","Black Lake"],"lakeside-boathouse":["Boathouse"],"region:extra:2":["Whomping Willow"]},"h2":{"h2-place-59":["Owlery","West Tower Owlery","Injured Owl Room","Feed Store","Owlery Stairs"]},"hall":{"gf-dais":["Great Hall"],"gf-staff":["Staff Room"],"gf-filch":["Filch’s Office","Filch's Office"],"gf-class11":["Classroom 11"],"gf-broom":["Broom Cupboard"],"gf-entrance":["Entrance Hall"],"gf-courtyard":["Dedicated hall Inner Courtyard"]},"village-static":{"v-honeydukes":["Honeydukes","Tiệm Công tước Mật","Honeydukes Sweetshop"],"v-broomsticks":["Three Broomsticks","The Three Broomsticks"],"v-hogshead":["Hog's Head","The Hog's Head"],"v-shack":["Shrieking Shack","The Shrieking Shack"],"v-zonkos":["Zonko's","Zonko","Tiệm giỡn Zonko","Zonko's Joke Shop"],"v-gladrags":["Gladrags","Tiệm trang phục Gladrags","Gladrags Wizardwear"],"v-post":["Owl Post","Bưu điện cú","Hogsmeade Post Office"],"v-quills":["Scrivenshaft's","Tiệm bút lông Scrivenshaft","Scrivenshaft's Quill Shop"],"v-dervish":["Dervish & Banges","Dervish and Banges"],"v-puddifoot":["Madam Puddifoot's","Madam Puddifoot's Tea Shop"]},"diagon-knockturn":{"da-gringotts":["Gringotts","Ngân hàng Gringotts","Gringotts Wizarding Bank"],"da-ollivanders":["Ollivanders","Tiệm đũa phép Ollivanders"],"da-leaky":["Leaky Cauldron","The Leaky Cauldron"],"ka-borgin":["Borgin & Burkes","Borgin and Burkes"],"da-weasleys":["WWW","Weasleys' Wizard Wheezes","Tiệm giỡn của anh em Weasley"],"da-flourish":["Flourish & Blotts","Flourish and Blotts"],"da-malkin":["Madam Malkin","Tiệm áo chùng của phu nhân Malkin","Madam Malkin's Robes for All Occasions"],"da-quidditch":["Quality Quidditch Supplies","Tiệm dụng cụ Quidditch cao cấp"],"da-eeylops":["Eeylops","Tiệm cú Eeylops","Eeylops Owl Emporium"],"da-menagerie":["Magical Menagerie","Tiệm sinh vật huyền bí"],"da-potage":["Potage's Cauldrons","Tiệm vạc Potage","Potage's Cauldron Shop"],"da-fortescue":["Fortescue's","Florean Fortescue's Ice Cream Parlour"],"da-gambol":["Gambol & Japes","Tiệm đồ giỡn Gambol và Japes","Gambol and Japes Wizarding Joke Shop"],"da-twilfitt":["Twilfitt & Tatting's","Tiệm trang phục Twilfitt và Tatting","Twilfitt and Tatting's"],"da-scribbulus":["Scribbulus","Văn phòng phẩm Scribbulus","Scribbulus Writing Implements"],"da-apothecary":["Diagon Apothecary","Tiệm bào chế độc dược","Apothecary / Slug & Jiggers"],"da-goods":["Tiệm đồ cũ","Junk Shop"],"da-robe-used":["Tiệm áo chùng cũ","Second-Hand Robes Shop"],"da-obscurus":["Tiệm sách Obscurus","Obscurus Books"]},"express":{"ex-kings":["King's Cross","Platform 9¾"],"ex-station":["Hogsmeade Station"],"ex-standard":["Hogwarts Express","Standard Carriage"]},"pitch-static":{"q-field":["Quidditch Pitch","Pitch"],"q-commentary":["Commentary Box"]},"gryffindor-common":{"gryffindor-hearth":["Gryffindor Common Room"]},"ravenclaw-common":{"ravenclaw-hearth":["Ravenclaw Common Room"]},"hufflepuff-common":{"huff-lounge":["Hufflepuff Common Room"]},"slytherin-common":{"sly-lounge":["Slytherin Common Room"]}} -->
 
 <!-- atlas-world-expansion {"Muriel / Hepzibah / Moody / Crouch / Longbottom":["Muriel's Home","Hepzibah's Home","Moody's Home","Crouch's Home","Longbottom Home"],"Tonks / Shacklebolt / Granger / Diggle / Gregorovitch":["Tonks Home","Shacklebolt Home","Granger Home","Diggle Home","Gregorovitch Home"],"11 & 13 Grimmauld Place":["11 Grimmauld Place","13 Grimmauld Place"]} -->
 
@@ -353,12 +353,12 @@ Generated dùng màu giấy beige cũ, mực nâu, đường viền/texture dị
 | `v-home-28` | Nhà dân · Ngõ 28 | Anchor nhà trống, chỉ binding AU ổn định |
 | `v-home-29` | Nhà dân · Ngõ 29 | Anchor nhà trống, chỉ binding AU ổn định |
 | `v-home-30` | Nhà dân · Ngõ 30 | Anchor nhà trống, chỉ binding AU ổn định |
-| `v-honeydukes` | Tiệm Công tước Mật | Tiệm bánh kẹo: kệ lọ kẹo, quầy bán, lối tới kho/hầm nếu đã có trong template. |
+| `v-honeydukes` | Tiệm Kẹo Công tước Mật | Tiệm bánh kẹo: kệ lọ kẹo, quầy bán, lối tới kho/hầm nếu đã có trong template. |
 | `v-broomsticks` | Quán Ba Cây Chổi Thần | Quán rượu: quầy phục vụ, bàn ghế khách, phòng trọ; chỉ mô tả, không đắp nội thất lên Fixed. |
-| `v-zonkos` | Tiệm giỡn Zonko | Cửa hàng đồ đùa: các kệ món đồ chơi/quầy, khách NPC theo RP. |
-| `v-gladrags` | Tiệm trang phục Gladrags | Tiệm/quán trên Fixed, dùng POI/marker |
-| `v-post` | Bưu điện cú | Anchor/POI hiện hữu trên Fixed |
-| `v-quills` | Tiệm bút lông Scrivenshaft | Tiệm/quán trên Fixed, dùng POI/marker |
+| `v-zonkos` | Tiệm Giỡn Zonko | Cửa hàng đồ đùa: các kệ món đồ chơi/quầy, khách NPC theo RP. |
+| `v-gladrags` | Tiệm Giẻ Vui | Tiệm/quán trên Fixed, dùng POI/marker |
+| `v-post` | Bưu điện Hogsmeade | Anchor/POI hiện hữu trên Fixed |
+| `v-quills` | Tiệm Viết lông ngỗng Scrivenshaft | Tiệm/quán trên Fixed, dùng POI/marker |
 | `v-dervish` | Tiệm Dervish và Banges | Tiệm/quán trên Fixed, dùng POI/marker |
 | `v-puddifoot` | Quán trà bà Puddifoot | Tiệm/quán trên Fixed, dùng POI/marker |
 | `v-hogshead` | Quán Đầu Heo | Quán Hog’s Head: bàn khách, quầy, phòng phụ theo dữ liệu khu. |
@@ -447,28 +447,28 @@ Generated dùng màu giấy beige cũ, mực nâu, đường viền/texture dị
 
 | Anchor ID thực | Tên hiển thị nguồn | Ý nghĩa/chi tiết hình |
 |---|---|---|
-| `da-potage` | Tiệm vạc Potage | Tiệm/quán trên Fixed, dùng POI/marker |
-| `da-malkin` | Tiệm áo chùng của phu nhân Malkin | Tiệm/quán trên Fixed, dùng POI/marker |
-| `da-ollivanders` | Tiệm đũa phép Ollivanders | Tiệm đũa: tủ/hộp đũa và quầy thử; không tự bật diễn biến. |
-| `da-scribbulus` | Văn phòng phẩm Scribbulus | Room/POI trong artwork Fixed; không dựng map con |
-| `da-eeylops` | Tiệm cú Eeylops | Tiệm/quán trên Fixed, dùng POI/marker |
+| `da-potage` | Tiệm Vạc Potage | Tiệm/quán trên Fixed, dùng POI/marker |
+| `da-malkin` | Tiệm Áo chùng Phu nhân Malkin | Tiệm/quán trên Fixed, dùng POI/marker |
+| `da-ollivanders` | Tiệm Đũa phép Ollivander | Tiệm đũa: tủ/hộp đũa và quầy thử; không tự bật diễn biến. |
+| `da-scribbulus` | Tiệm Bút mực Scribbulus | Room/POI trong artwork Fixed; không dựng map con |
+| `da-eeylops` | Sở cú Eeylops | Tiệm/quán trên Fixed, dùng POI/marker |
 | `da-flourish` | Tiệm sách Phú Quý và Cơ Hàn | Hiệu sách: giá sách, bàn sách/quầy; không mở detail map tự động. |
 | `da-house-a` | Số 47 · Tiệm đóng sách | Tiệm/quán trên Fixed, dùng POI/marker |
-| `da-quidditch` | Tiệm dụng cụ Quidditch cao cấp | Tiệm/quán trên Fixed, dùng POI/marker |
-| `da-menagerie` | Tiệm sinh vật huyền bí | Tiệm/quán trên Fixed, dùng POI/marker |
-| `da-twilfitt` | Tiệm trang phục Twilfitt và Tatting | Tiệm/quán trên Fixed, dùng POI/marker |
-| `da-gambol` | Tiệm đồ giỡn Gambol và Japes | Tiệm/quán trên Fixed, dùng POI/marker |
-| `da-apothecary` | Tiệm bào chế độc dược | Tiệm nguyên liệu độc dược: chai, lọ và quầy; chỉ giữ thành metadata mô tả. |
-| `da-goods` | Tiệm đồ cũ | Tiệm/quán trên Fixed, dùng POI/marker |
+| `da-quidditch` | Tiệm Dụng cụ Quidditch Chất lượng | Tiệm/quán trên Fixed, dùng POI/marker |
+| `da-menagerie` | Tiệm Thú kiểng Pháp thuật | Tiệm/quán trên Fixed, dùng POI/marker |
+| `da-twilfitt` | Tiệm May mặc Twilfitt và Tatting | Tiệm/quán trên Fixed, dùng POI/marker |
+| `da-gambol` | Tiệm Giỡn Gambol và Japes | Tiệm/quán trên Fixed, dùng POI/marker |
+| `da-apothecary` | Tiệm Độc dược Slug và Jiggers | Tiệm nguyên liệu độc dược: chai, lọ và quầy; chỉ giữ thành metadata mô tả. |
+| `da-goods` | Tiệm Đồ cũ | Tiệm/quán trên Fixed, dùng POI/marker |
 | `da-print` | Tiệm bản in và giấy da | Tiệm/quán trên Fixed, dùng POI/marker |
-| `da-weasleys` | Tiệm giỡn của anh em Weasley | Cửa hàng WWW: trưng bày đồ giỡn, cầu thang/đầu gian nếu bản Fixed có. |
+| `da-weasleys` | Tiệm Giỡn Phù thủy nhà Weasley | Cửa hàng WWW: trưng bày đồ giỡn, cầu thang/đầu gian nếu bản Fixed có. |
 | `da-tailor` | Tiệm áo choàng du hành | Tiệm/quán trên Fixed, dùng POI/marker |
 | `da-optics` | Tiệm kính thiên văn và dụng cụ | Tiệm/quán trên Fixed, dùng POI/marker |
 | `da-gold` | Tiệm kim hoàn bạc | Tiệm/quán trên Fixed, dùng POI/marker |
 | `da-stationery` | Tiệm giấy da và bút lông | Tiệm/quán trên Fixed, dùng POI/marker |
 | `da-leaky` | Quán Cái Vạc Lủng | Quán Leaky Cauldron: quầy, lối phòng trọ và cửa vào hẻm. |
 | `da-brick-gateway` | Cổng gạch sau Cái Vạc Lủng | Anchor/POI hiện hữu trên Fixed |
-| `da-gringotts` | Ngân hàng Gringotts | Ngân hàng: quầy giao dịch, khu an ninh và kho hầm như marker, không sinh kho con. |
+| `da-gringotts` | Ngân hàng Phù thủy Gringotts | Ngân hàng: quầy giao dịch, khu an ninh và kho hầm như marker, không sinh kho con. |
 | `ka-stair` | Lối xuống Knockturn | Lối/kết nối hoặc điểm vào trong Fixed |
 | `ka-block-0` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
 | `ka-block-1` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
@@ -497,9 +497,9 @@ Generated dùng màu giấy beige cũ, mực nâu, đường viền/texture dị
 | `ka-end` | Kho khóa kín | Anchor/POI hiện hữu trên Fixed |
 | `ka-corner` | Tiệm đồ bạc và đồ lạ | Tiệm/quán trên Fixed, dùng POI/marker |
 | `da-fortescue` | Tiệm kem Florean Fortescue | Tiệm/quán trên Fixed, dùng POI/marker |
-| `da-robe-used` | Tiệm áo chùng cũ | Tiệm/quán trên Fixed, dùng POI/marker |
+| `da-robe-used` | Tiệm Áo chùng Cũ | Tiệm/quán trên Fixed, dùng POI/marker |
 | `da-remedies` | Tiệm thảo dược | Tiệm/quán trên Fixed, dùng POI/marker |
-| `da-obscurus` | Tiệm sách Obscurus | Tiệm/quán trên Fixed, dùng POI/marker |
+| `da-obscurus` | Nhà xuất bản Obscurus | Tiệm/quán trên Fixed, dùng POI/marker |
 | `da-wizardwear` | Tiệm trang phục phù thủy | Tiệm/quán trên Fixed, dùng POI/marker |
 | `da-workshop` | Tiệm sửa vạc | Tiệm/quán trên Fixed, dùng POI/marker |
 | `da-cafe` | Tiệm trà và cà phê | Tiệm/quán trên Fixed, dùng POI/marker |

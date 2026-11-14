@@ -1,0 +1,463 @@
+{
+  "repository": "Ngoc1804/wzw-hogwarts-map-2",
+  "baseBranch": "M2-P01-baseline-loader",
+  "source": "examples/WIZAMAP_FIXED_UI.html / wzw-embedded-atlas",
+  "sourceList": "User-supplied 53 locations, 2026-11-14",
+  "capacity": {
+    "diagon-knockturn": {
+      "diagonBuildings": 43,
+      "diagonResidential": 15,
+      "knockturnBuildings": 26,
+      "knockturnResidential": 16
+    },
+    "village-static": {
+      "shops": 9,
+      "shack": 1,
+      "residential": 22,
+      "stationBuilding": 0,
+      "stationRoute": "v-station"
+    }
+  },
+  "locations": [
+    {
+      "area": "Hẻm Xéo",
+      "number": 1,
+      "english": "The Leaky Cauldron",
+      "vietnamese": "Quán Cái Vạc Lủng",
+      "function": "Quán rượu, nhà trọ, lối vào Hẻm Xéo",
+      "elementId": "da-leaky"
+    },
+    {
+      "area": "Hẻm Xéo",
+      "number": 2,
+      "english": "Gringotts Wizarding Bank",
+      "vietnamese": "Ngân hàng Phù thủy Gringotts",
+      "function": "Ngân hàng và kho bạc",
+      "elementId": "da-gringotts"
+    },
+    {
+      "area": "Hẻm Xéo",
+      "number": 3,
+      "english": "Ollivanders",
+      "vietnamese": "Tiệm Đũa phép Ollivander",
+      "function": "Chế tác và bán đũa phép",
+      "elementId": "da-ollivanders"
+    },
+    {
+      "area": "Hẻm Xéo",
+      "number": 4,
+      "english": "Flourish and Blotts",
+      "vietnamese": "Tiệm sách Phú Quý và Cơ Hàn",
+      "function": "Sách giáo khoa và sách pháp thuật",
+      "elementId": "da-flourish"
+    },
+    {
+      "area": "Hẻm Xéo",
+      "number": 5,
+      "english": "Madam Malkin's Robes for All Occasions",
+      "vietnamese": "Tiệm Áo chùng Phu nhân Malkin",
+      "function": "Đồng phục, áo chùng, trang phục",
+      "elementId": "da-malkin"
+    },
+    {
+      "area": "Hẻm Xéo",
+      "number": 6,
+      "english": "Eeylops Owl Emporium",
+      "vietnamese": "Sở cú Eeylops",
+      "function": "Cú đưa thư, dụng cụ nuôi cú",
+      "elementId": "da-eeylops"
+    },
+    {
+      "area": "Hẻm Xéo",
+      "number": 7,
+      "english": "Quality Quidditch Supplies",
+      "vietnamese": "Tiệm Dụng cụ Quidditch Chất lượng",
+      "function": "Chổi bay, bóng và đồ Quidditch",
+      "elementId": "da-quidditch"
+    },
+    {
+      "area": "Hẻm Xéo",
+      "number": 8,
+      "english": "Magical Menagerie",
+      "vietnamese": "Tiệm Thú kiểng Pháp thuật",
+      "function": "Thú cưng và vật dụng chăm sóc",
+      "elementId": "da-menagerie"
+    },
+    {
+      "area": "Hẻm Xéo",
+      "number": 9,
+      "english": "Florean Fortescue's Ice Cream Parlour",
+      "vietnamese": "Tiệm kem Florean Fortescue",
+      "function": "Kem và món tráng miệng",
+      "elementId": "da-fortescue"
+    },
+    {
+      "area": "Hẻm Xéo",
+      "number": 10,
+      "english": "Gambol and Japes Wizarding Joke Shop",
+      "vietnamese": "Tiệm Giỡn Gambol và Japes",
+      "function": "Đồ chơi khăm, đồ đùa phép thuật",
+      "elementId": "da-gambol"
+    },
+    {
+      "area": "Hẻm Xéo",
+      "number": 11,
+      "english": "Weasleys' Wizard Wheezes",
+      "vietnamese": "Tiệm Giỡn Phù thủy nhà Weasley",
+      "function": "Trò đùa, pháo phép, vật phẩm tinh nghịch",
+      "elementId": "da-weasleys"
+    },
+    {
+      "area": "Hẻm Xéo",
+      "number": 12,
+      "english": "Twilfitt and Tatting's",
+      "vietnamese": "Tiệm May mặc Twilfitt và Tatting",
+      "function": "Áo chùng, trang phục phù thủy cao cấp",
+      "elementId": "da-twilfitt"
+    },
+    {
+      "area": "Hẻm Xéo",
+      "number": 13,
+      "english": "Apothecary / Slug & Jiggers",
+      "vietnamese": "Tiệm Độc dược Slug và Jiggers",
+      "function": "Nguyên liệu độc dược, bình lọ",
+      "elementId": "da-apothecary"
+    },
+    {
+      "area": "Hẻm Xéo",
+      "number": 14,
+      "english": "Second-Hand Robes Shop",
+      "vietnamese": "Tiệm Áo chùng Cũ",
+      "function": "Trang phục đã qua sử dụng",
+      "elementId": "da-robe-used"
+    },
+    {
+      "area": "Hẻm Xéo",
+      "number": 15,
+      "english": "Junk Shop",
+      "vietnamese": "Tiệm Đồ cũ",
+      "function": "Đồ linh tinh, vật phẩm cũ",
+      "elementId": "da-goods"
+    },
+    {
+      "area": "Hẻm Xéo",
+      "number": 16,
+      "english": "Scribbulus Writing Implements",
+      "vietnamese": "Tiệm Bút mực Scribbulus",
+      "function": "Bút lông, mực, giấy da",
+      "elementId": "da-scribbulus"
+    },
+    {
+      "area": "Hẻm Xéo",
+      "number": 17,
+      "english": "Potage's Cauldron Shop",
+      "vietnamese": "Tiệm Vạc Potage",
+      "function": "Vạc đồng, thiếc, dụng cụ pha chế",
+      "elementId": "da-potage"
+    },
+    {
+      "area": "Hẻm Xéo",
+      "number": 18,
+      "english": "Wiseacre's Wizarding Equipment",
+      "vietnamese": "Tiệm Pháp cụ Wiseacre",
+      "function": "Kính thiên văn, thiết bị pháp thuật",
+      "elementId": null
+    },
+    {
+      "area": "Hẻm Xéo",
+      "number": 19,
+      "english": "Mr Mulpepper's Apothecary",
+      "vietnamese": "Tiệm Độc dược ông Mulpepper",
+      "function": "Thảo dược, nguyên liệu và độc dược",
+      "elementId": null
+    },
+    {
+      "area": "Hẻm Xéo",
+      "number": 20,
+      "english": "Sugarplum's Sweets Shop",
+      "vietnamese": "Tiệm Kẹo Mận Đường",
+      "function": "Kẹo, bánh ngọt phép thuật",
+      "elementId": null
+    },
+    {
+      "area": "Hẻm Xéo",
+      "number": 21,
+      "english": "Brews & Stews",
+      "vietnamese": "Quán Trọ Nồi Hầm và Rượu Ủ",
+      "function": "Nhà trọ cho phù thủy",
+      "elementId": null
+    },
+    {
+      "area": "Hẻm Xéo",
+      "number": 22,
+      "english": "Madam Primpernelle's Beautifying Potions",
+      "vietnamese": "Tiệm Mỹ dược bà Primpernelle",
+      "function": "Độc dược và sản phẩm làm đẹp",
+      "elementId": null
+    },
+    {
+      "area": "Hẻm Xéo",
+      "number": 23,
+      "english": "Obscurus Books",
+      "vietnamese": "Nhà xuất bản Obscurus",
+      "function": "Xuất bản sách pháp thuật",
+      "elementId": "da-obscurus"
+    },
+    {
+      "area": "Hẻm Xéo",
+      "number": 24,
+      "english": "WhizzHard Books",
+      "vietnamese": "Nhà xuất bản WhizzHard",
+      "function": "Xuất bản sách phép thuật",
+      "elementId": null
+    },
+    {
+      "area": "Hẻm Xéo",
+      "number": 25,
+      "english": "Terrortours",
+      "vietnamese": "Hãng Du lịch Kinh Hoàng",
+      "function": "Du lịch, tham quan mạo hiểm",
+      "elementId": null
+    },
+    {
+      "area": "Hẻm Xéo",
+      "number": 26,
+      "english": "Daily Prophet Offices",
+      "vietnamese": "Tòa soạn Nhật báo Tiên tri",
+      "function": "Báo chí và xuất bản tin tức",
+      "elementId": null
+    },
+    {
+      "area": "Knockturn",
+      "number": 1,
+      "english": "Borgin and Burkes",
+      "vietnamese": "Tiệm Borgin và Burkes",
+      "function": "Cổ vật Hắc thuật, pháp khí nguyền rủa",
+      "elementId": "ka-borgin"
+    },
+    {
+      "area": "Knockturn",
+      "number": 2,
+      "english": "Unnamed Shrunken Heads Shop",
+      "vietnamese": "Tiệm Đầu người Teo quắt",
+      "function": "Trưng bày đầu người thu nhỏ",
+      "elementId": null
+    },
+    {
+      "area": "Knockturn",
+      "number": 3,
+      "english": "Unnamed Poisonous Candles Shop",
+      "vietnamese": "Tiệm Nến Độc",
+      "function": "Nến chứa chất độc và vật phẩm nguy hiểm",
+      "elementId": null
+    },
+    {
+      "area": "Knockturn",
+      "number": 4,
+      "english": "Unnamed Dark Creatures Shop",
+      "vietnamese": "Tiệm Sinh vật Hắc ám",
+      "function": "Trưng bày sinh vật nguy hiểm, nhện khổng lồ",
+      "elementId": null
+    },
+    {
+      "area": "Knockturn",
+      "number": 5,
+      "english": "Cobb & Webb's",
+      "vietnamese": "Tiệm Tơ Nhện Cobb & Webb",
+      "function": "Vật phẩm liên quan Hắc thuật",
+      "elementId": null
+    },
+    {
+      "area": "Knockturn",
+      "number": 6,
+      "english": "Ye Olde Curiosity Shop",
+      "vietnamese": "Tiệm Cổ vật Kỳ Bí",
+      "function": "Đồ cổ, đồ lạ và pháp khí Hắc thuật",
+      "elementId": null
+    },
+    {
+      "area": "Knockturn",
+      "number": 7,
+      "english": "Moribund's",
+      "vietnamese": "Tiệm Moribund",
+      "function": "Cửa hiệu bí ẩn, chưa rõ hàng hóa",
+      "elementId": null
+    },
+    {
+      "area": "Knockturn",
+      "number": 8,
+      "english": "The Coffin House",
+      "vietnamese": "Nhà Quan Tài",
+      "function": "Cơ sở mang chủ đề quan tài và chiêu hồn",
+      "elementId": null
+    },
+    {
+      "area": "Knockturn",
+      "number": 9,
+      "english": "Mr Mulpepper's Apothecary",
+      "vietnamese": "Tiệm Độc dược ông Mulpepper",
+      "function": "Độc dược, nguyên liệu pha chế; chi nhánh Knockturn",
+      "elementId": null
+    },
+    {
+      "area": "Knockturn",
+      "number": 10,
+      "english": "The White Wyvern",
+      "vietnamese": "Quán Rồng Trắng",
+      "function": "Quán rượu",
+      "elementId": null
+    },
+    {
+      "area": "Knockturn",
+      "number": 11,
+      "english": "Noggin and Bonce",
+      "vietnamese": "Tiệm Đầu Lâu Noggin và Bonce",
+      "function": "Đầu người thu nhỏ",
+      "elementId": null
+    },
+    {
+      "area": "Knockturn",
+      "number": 12,
+      "english": "Shyverwretch's Venoms and Poisons",
+      "vietnamese": "Tiệm Nọc độc Shyverwretch",
+      "function": "Nọc độc, chất độc và nguyên liệu nguy hiểm",
+      "elementId": null
+    },
+    {
+      "area": "Knockturn",
+      "number": 13,
+      "english": "The Spiny Serpent",
+      "vietnamese": "Tiệm Rắn Gai",
+      "function": "Cửa hiệu bí ẩn, chưa rõ hàng hóa",
+      "elementId": null
+    },
+    {
+      "area": "Knockturn",
+      "number": 14,
+      "english": "The Starry Prophesier",
+      "vietnamese": "Nhà Tiên Tri Tinh Tú",
+      "function": "Cơ sở được quảng cáo bằng áp phích tiên tri; chưa rõ dịch vụ",
+      "elementId": null
+    },
+    {
+      "area": "Hogsmeade",
+      "number": 1,
+      "english": "The Three Broomsticks",
+      "vietnamese": "Quán Ba Cây Chổi Thần",
+      "function": "Quán rượu, Bia Bơ, ăn uống, nhà trọ",
+      "elementId": "v-broomsticks"
+    },
+    {
+      "area": "Hogsmeade",
+      "number": 2,
+      "english": "The Hog's Head",
+      "vietnamese": "Quán Đầu Heo",
+      "function": "Quán rượu, nhà trọ",
+      "elementId": "v-hogshead"
+    },
+    {
+      "area": "Hogsmeade",
+      "number": 3,
+      "english": "Honeydukes Sweetshop",
+      "vietnamese": "Tiệm Kẹo Công tước Mật",
+      "function": "Kẹo, chocolate, bánh ngọt phép thuật",
+      "elementId": "v-honeydukes"
+    },
+    {
+      "area": "Hogsmeade",
+      "number": 4,
+      "english": "Zonko's Joke Shop",
+      "vietnamese": "Tiệm Giỡn Zonko",
+      "function": "Đồ chơi khăm và trò đùa",
+      "elementId": "v-zonkos"
+    },
+    {
+      "area": "Hogsmeade",
+      "number": 5,
+      "english": "Dervish and Banges",
+      "vietnamese": "Tiệm Dervish và Banges",
+      "function": "Bán và sửa chữa pháp cụ",
+      "elementId": "v-dervish"
+    },
+    {
+      "area": "Hogsmeade",
+      "number": 6,
+      "english": "Gladrags Wizardwear",
+      "vietnamese": "Tiệm Giẻ Vui",
+      "function": "Trang phục và phụ kiện phù thủy",
+      "elementId": "v-gladrags"
+    },
+    {
+      "area": "Hogsmeade",
+      "number": 7,
+      "english": "Scrivenshaft's Quill Shop",
+      "vietnamese": "Tiệm Viết lông ngỗng Scrivenshaft",
+      "function": "Bút lông, mực, giấy da",
+      "elementId": "v-quills"
+    },
+    {
+      "area": "Hogsmeade",
+      "number": 8,
+      "english": "Madam Puddifoot's Tea Shop",
+      "vietnamese": "Quán trà bà Puddifoot",
+      "function": "Tiệm trà, bánh ngọt, nơi hẹn hò",
+      "elementId": "v-puddifoot"
+    },
+    {
+      "area": "Hogsmeade",
+      "number": 9,
+      "english": "Hogsmeade Post Office",
+      "vietnamese": "Bưu điện Hogsmeade",
+      "function": "Gửi nhận thư bằng cú",
+      "elementId": "v-post"
+    },
+    {
+      "area": "Hogsmeade",
+      "number": 10,
+      "english": "The Shrieking Shack",
+      "vietnamese": "Lều Hét",
+      "function": "Căn nhà bỏ hoang, nơi Lupin từng biến hình",
+      "elementId": "v-shack"
+    },
+    {
+      "area": "Hogsmeade",
+      "number": 11,
+      "english": "Hogsmeade Railway Station",
+      "vietnamese": "Ga Hogsmeade",
+      "function": "Nhà ga tàu Hogwarts Express",
+      "elementId": null
+    },
+    {
+      "area": "Hogsmeade",
+      "number": 12,
+      "english": "McGonagall–Urquart Cottage",
+      "vietnamese": "Nhà McGonagall và Urquart",
+      "function": "Nhà cư trú của giáo sư McGonagall và chồng",
+      "elementId": null
+    },
+    {
+      "area": "Hogsmeade",
+      "number": 13,
+      "english": "Silvanus Kettleburn's House",
+      "vietnamese": "Nhà giáo sư Kettleburn",
+      "function": "Nhà cư trú của cựu giáo sư Chăm sóc Sinh vật Huyền bí",
+      "elementId": null
+    }
+  ],
+  "policy": "Existing identified places renamed only. Unassigned buildings are capacity, not confirmed canon locations. No station building in village-static; v-station is a route. Placement of unassigned locations is not performed.",
+  "verification": {
+    "date": "2026-11-14",
+    "baseCommit": "389db4d8cfa93b349391b8fd2ab57e829c576405",
+    "sourceSha256": "210e283334ca6b6389a4a94dd98beac873456e56ef74fc2f4c2b910df1663c85",
+    "checks": [
+      "53 source rows; 29 identified names consistent across SVG titles, aria labels, places and compiled Atlas",
+      "English names and previous Vietnamese names preserved as scoped aliases",
+      "Geometry, place coordinates, IDs, shared vectors and other 11 maps unchanged",
+      "tests/presentation.cjs PASS desktop/mobile across 13 Fixed, zoom/pan, marker/footstep alignment and Generated policies",
+      "tests/alias-export.cjs PASS 5 alias/canonical exports",
+      "Chromium full view and zoom of both maps; no page errors",
+      "tools/check-id-links.py PASS: 443 assets, 49 recipes, 509 instances, 13 Fixed; zero issues"
+    ],
+    "notTested": "AI Studio Preview; CDN pins still point to the existing release, not this draft branch"
+  }
+}
