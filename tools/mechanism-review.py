@@ -12,4 +12,4 @@ document.getElementById('demo-clear').onclick=async()=>{await WZWTemplateUI.stat
 document.getElementById('demo-visual').onclick=async()=>{await demo([{name:'Hình ngoài khung',visual:{shapes:[{kind:'rect',x:500,y:500,width:10,height:10}]}},{name:'Path hỏng',visual:{shapes:[{kind:'path',d:'M'}]}},{name:'Path thiếu số',visual:{shapes:[{kind:'path',d:'M0 0 L20'}]}},{name:'Hình hợp lệ',visual:{shapes:[{kind:'rect',x:10,y:10,width:70,height:60,material:'wood'}]}}],'OFFICE','indoor');result.textContent='Visual hợp lệ: '+document.querySelectorAll('[data-rp-instance]').length+'; fallback: '+document.querySelectorAll('[data-prop-fallback]').length+' (mong đợi 1 / 3).'};
 for(const button of document.querySelectorAll('[id^=demo-]')){if(button.tagName!=='BUTTON')continue;const action=button.onclick;button.onclick=async()=>{const buttons=[...document.querySelectorAll('section button')];buttons.forEach(b=>b.disabled=true);try{await action()}catch(e){result.textContent='Lỗi kiểm: '+e.message}finally{buttons.forEach(b=>b.disabled=false)}};}
 </script>'''
-Path('examples/mechanism-review.html').write_text(s)
+Path('examples/WIZAMAP_MECHANISMS_CHECK.html').write_text(s)

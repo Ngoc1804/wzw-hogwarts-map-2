@@ -1,5 +1,5 @@
 const fs=require('fs'),vm=require('vm'),zlib=require('zlib'),assert=require('assert');
-const packed=fs.readFileSync('examples/template-review.html','utf8').match(/<script[^>]*id="wzw-embedded-atlas"[^>]*>(.*?)<\/script>/s)[1];
+const packed=fs.readFileSync('examples/WIZAMAP_FIXED_UI.html','utf8').match(/<script[^>]*id="wzw-embedded-atlas"[^>]*>(.*?)<\/script>/s)[1];
 const DATA=JSON.parse(zlib.gunzipSync(Buffer.from(packed,'base64'))),ATLAS=JSON.parse(fs.readFileSync('assets/atlas.json')),VOCAB=JSON.parse(fs.readFileSync('assets/vocabulary.json')),RECIPES=JSON.parse(fs.readFileSync('assets/recipes.json'));
 const ctx=vm.createContext({DATA,ATLAS,VOCAB,RECIPES,KEYS:['unknown']});vm.runInContext(['contract','props','resolver'].map(x=>fs.readFileSync('src/'+x+'.js','utf8')).join('\n')+';globalThis.run=x=>{const d=normalize(x);return {d,s:resolve(d)}}',ctx);
 for(const c of JSON.parse(fs.readFileSync('tests/contract-routing-cases.json')).cases){const {s,d}=ctx.run(c.input),e=c.expect;if(e.route)assert.equal(s.route,e.route);if(e.bindingPrefix)assert(s.exact(d.pcPlace).id.startsWith(e.bindingPrefix));if(e.unresolved)assert(s.unresolved.length);if(e.allClusterRooms)assert(s.cluster.rooms.every(p=>s.places.some(x=>x.id===p.id)));if(e.icons)assert.equal(JSON.stringify(d.events.map(x=>x.icon)),JSON.stringify(e.icons))}

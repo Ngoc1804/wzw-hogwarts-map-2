@@ -2,7 +2,7 @@ const {chromium}=require('playwright'),fs=require('fs'),assert=require('assert')
 const http=require('http'),path=require('path');
 let base=process.env.MAP_PREVIEW_URL;
 (async()=>{
- const server=http.createServer((q,r)=>{const file=path.join(process.cwd(),new URL(q.url,'http://localhost').pathname);try{r.end(fs.readFileSync(file))}catch{r.statusCode=404;r.end()}});await new Promise(r=>server.listen(0,'127.0.0.1',r));base=base||'http://127.0.0.1:'+server.address().port+'/examples/p4-review.html';
+ const server=http.createServer((q,r)=>{const file=path.join(process.cwd(),new URL(q.url,'http://localhost').pathname);try{r.end(fs.readFileSync(file))}catch{r.statusCode=404;r.end()}});await new Promise(r=>server.listen(0,'127.0.0.1',r));base=base||'http://127.0.0.1:'+server.address().port+'/examples/WIZAMAP_RUNTIME_CHECK.html';
  const b=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox']});
  const p=await b.newPage({viewport:{width:1700,height:1050},reducedMotion:'reduce'}),errors=[],report=[];
  p.on('pageerror',e=>errors.push(e.message));await p.goto(base);await p.waitForFunction(()=>document.querySelector('#wzw-map').dataset.status==='ready');

@@ -1,7 +1,7 @@
 import math,json,re,base64,gzip,collections,xml.etree.ElementTree as E,hashlib
 from pathlib import Path
 load=lambda p:json.loads(Path(p).read_text())
-c=load('assets/catalog.json');r=load('assets/recipes.json');a=load('assets/atlas.json');art=load('assets/p4-art.json');v=load('assets/vocabulary.json');s=Path('examples/template-review.html').read_text();pack=json.loads(gzip.decompress(base64.b64decode(re.search(r'id="wzw-embedded-atlas"[^>]*>(.*?)</script>',s,re.S)[1])))
+c=load('assets/catalog.json');r=load('assets/recipes.json');a=load('assets/atlas.json');art=load('assets/p4-art.json');v=load('assets/vocabulary.json');s=Path('examples/WIZAMAP_FIXED_UI.html').read_text();pack=json.loads(gzip.decompress(base64.b64decode(re.search(r'id="wzw-embedded-atlas"[^>]*>(.*?)</script>',s,re.S)[1])))
 issues=[];counts={};checks={};coordinateAnchors=[]
 def issue(kind,owner,ref):issues.append({'kind':kind,'owner':owner,'ref':ref})
 for rid,recipe in r.items():

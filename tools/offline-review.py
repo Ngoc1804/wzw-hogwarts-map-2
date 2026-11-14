@@ -1,8 +1,9 @@
 """Package the existing review loader with the same runtime; no alternate renderer."""
 from pathlib import Path
 import re
+from pack_html import pack as pack_html
 r=Path(__file__).resolve().parents[1]
-p=r/'examples/mechanism-review.html';s=p.read_text()
+p=r/'examples/WIZAMAP_MECHANISMS_CHECK.html';s=p.read_text()
 # Works on the original loader or on an already embedded review.
 s=re.sub(r'<style id="offline-css">.*?</style>','',s,flags=re.S)
 s=re.sub(r'<script id="offline-(?:pack|bundle)">.*?</script>','',s,flags=re.S)
@@ -13,3 +14,5 @@ s+='<style id="offline-css">'+css+'</style>'
 for id,code in [('pack',pack),('bundle',bundle)]:s+='<script id="offline-'+id+'">'+code.replace('</script','<\\/script')+'</script>'
 p.write_text(s)
 print('Self-contained review bytes',len(s.encode()))
+
+pack_html(p)

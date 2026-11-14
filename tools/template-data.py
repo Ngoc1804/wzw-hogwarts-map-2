@@ -5,7 +5,7 @@ parser=argparse.ArgumentParser(description=__doc__)
 parser.add_argument('action',choices=['unpack','pack'])
 parser.add_argument('json_path',type=Path)
 args=parser.parse_args()
-html=Path(__file__).resolve().parents[1]/'examples/template-review.html'
+html=Path(__file__).resolve().parents[1]/'examples/WIZAMAP_FIXED_UI.html'
 s=html.read_text(encoding='utf-8')
 pattern=r'(<script[^>]*id="wzw-embedded-atlas"[^>]*>)(.*?)(</script>)'
 m=re.search(pattern,s,re.S)
