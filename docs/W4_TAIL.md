@@ -1,8 +1,0 @@
-#### W4.2 — Connections & Travel
-Adjacent 1–3 min; nearby castle 3–8; lower castle→high tower 8–15; castle→near grounds 3–8; grounds destinations 5–15. Long-distance travel requires valid transport. House/private/staff/restricted/secret locations retain RP access and knowledge rules; renderer receives only PC-safe accepted facts. Willow↔Shrieking Shack, One-Eyed Witch↔Honeydukes, Myrtle↔Chamber, RoR↔Hog's Head [Y7] remain LATENT until discovered. No renderer-generated route becomes canon.
-
-#### W4.3 — Special Locations & AU
-Liad's Attic is Liad's assigned private sleeping/living loft in Gryffindor Tower, separate from the standard five-bed second-year boys' dormitory; access requires Gryffindor access plus Liad consent/school authority. CCC 07.18 is the F8W inter-house study/letter/board-game space outside House barriers, open lawfully daytime/before curfew. Whitecap Estate retains Atlas LOCKED/UNBUILT status; the letter's return Floo/supervised coastal coach-and-ferry instructions arranged by House White require confirmed RSVP. Operation: Fallen Angel is a tabletop tactical roleplaying campaign with physical miniatures/polyhedral dice in the estate D&D room, upon confirmed H-0731-LIAD travel. Map status does not itself create travel or authorize knowledge.
-
-#### W4.4 — Seven-Year Canon States
-Y1: Philosopher's Stone, Fluffy, Mirror of Erised, Forbidden Forest. Y2: Chamber of Secrets, Myrtle, Deathday, Aragog. Y3: Hogsmeade, Shrieking Shack, Honeydukes passage, Dementors. Y4: World Cup, Triwizard, Lake, Maze, Hangleton. Y5: RoR/DA, Umbridge, Grimmauld, St Mungo's, Mysteries. Y6: Slughorn, Cabinets, Cave, Astronomy Tower, Tomb. Y7: Ministry, Godric's Hollow, Forest of Dean, Malfoy Manor, Shell Cottage, Gringotts, Hog's Head passage, Battle.

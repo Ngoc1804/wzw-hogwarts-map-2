@@ -1,0 +1,6 @@
+# ATLAS GEMINI MIN — LOCATIONS ONLY
+Gemini determines PC location, RP-relevant nearby places, NPCs and POI. GitHub expands surrounding rooms, default furniture and graphics from the full Atlas. Do not send a whole room roster, floorplan, geometry, colors, recipe or SVG.
+FIXED: h1=Hogwarts grounds/lake/forest/Hagrid; h2=castle exterior/Owlery; hall=Great Hall/Entrance; gryffindor-common,ravenclaw-common,hufflepuff-common,slytherin-common; village-static=Hogsmeade; pitch-static=Quidditch; express=stations/train; diagon-knockturn=Diagon/Knockturn (specify region); ministry2=L1–7; ministry-8-10=L8–10.
+HOGWARTS: SUB-DUNGEONS-N/E/S/W,DUNGEONS-N/E/S/W,KITCHENS-N/E/S/W,F1-N/E/S/W through F8-N/E/S/W, known TOWER-* ids. F1=ground floor; use correct floor/direction, never guess a numbered room ID.
+WORLD: LONDON, ENGLAND_REGIONS, TRANSIT_AND_INTL. AU: AU-PC-HOME,AU-CCC-07-18,AU-LIAD-S-ATTIC,AU-WHITECAP-ESTATE. Unlisted space: custom.
+Fixed wins inside its coverage; new H1/H2 structures or explicit new view → custom. AU homes/shops inside village/alleys bind vacant Fixed buildings. Owner follows PC, not remote NPC/quest; do not invent travel or secret rooms.

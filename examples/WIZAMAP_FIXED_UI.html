@@ -509,8 +509,8 @@ function put(id,value){const e=$(id);if(e)e.textContent=value||''}
 function getVB(node){return (node.getAttribute('viewBox')||'0 0 1400 1000').trim().split(/[ ,]+/).map(Number)}
 function paintVB(){if(svg&&vb)svg.setAttribute('viewBox',vb.join(' '));presentation?.renderPositions()}
 function fit(){if(!svg)return;vb=[...originalVB];paintVB()}
-const ZOOM_MIN=1,ZOOM_MAX=4;
-function zoom(f){if(!vb||!originalVB||!Number.isFinite(f)||f<=0)return;const current=originalVB[2]/vb[2],next=Math.max(ZOOM_MIN,Math.min(ZOOM_MAX,current/f)),ratio=current/next;vb=[vb[0]+vb[2]*(1-ratio)/2,vb[1]+vb[3]*(1-ratio)/2,vb[2]*ratio,vb[3]*ratio];paintVB()}
+const ZOOM_MIN=1;
+function zoom(f){if(!vb||!originalVB||!Number.isFinite(f)||f<=0)return;const current=originalVB[2]/vb[2],next=Math.max(ZOOM_MIN,current/f);if(!Number.isFinite(next))return;const ratio=current/next;vb=[vb[0]+vb[2]*(1-ratio)/2,vb[1]+vb[3]*(1-ratio)/2,vb[2]*ratio,vb[3]*ratio];paintVB()}
 function getPoint(){if(!svg)return null;const r=svg.getBoundingClientRect();if(!r.width||!r.height)return null;const ratio=Math.min(r.width/vb[2],r.height/vb[3]);const w=vb[2]*ratio,h=vb[3]*ratio;return {r,left:r.left+(r.width-w)/2,top:r.top+(r.height-h)/2,k:ratio}}
 function showActorDetails(actor,place){
  put('#place-title',actor.name||'Chưa rõ');put('#drawer-name',actor.name||'Chưa rõ');
