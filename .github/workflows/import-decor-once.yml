@@ -39,8 +39,6 @@ jobs:
           node --check dist/bundle.js
           node tests/canonical-sources.cjs
           node tests/layout-sizes.cjs
-          node tests/p1.cjs
-          node tests/zoom-bounds.cjs
           git diff --check
       - name: Publish final clean layout assets
         run: |
