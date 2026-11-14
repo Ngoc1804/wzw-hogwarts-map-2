@@ -56,3 +56,16 @@ Lượt dọn này không sửa decor, palette phòng, tên cửa hàng, tọa �
 Người dùng đã duyệt HTML local có so sánh trước/sau và yêu cầu đẩy lên nhánh M2-P01-baseline-loader. Đã thay artwork nguồn của hall, gryffindor-common, ravenclaw-common, hufflepuff-common, slytherin-common; build lại pack. Bản cũ chỉ giữ trong lịch sử Git, không thêm HTML review hay renderer song song. Nhiệm vụ decor Fixed trong bảng P1 phía trên đã hoàn tất; decor layout vẫn là phạm vi riêng.
 
 Bước tiếp theo: rà dependency/file thừa, hợp nhất tài liệu và tối ưu prompt dựa trên contract hiện hành; lập danh sách giữ–gộp–bỏ trước khi xóa.
+
+## Plan tiếp theo — dọn project và prompt sau decor
+
+Khảo sát tại commit decor `aae54f4`: 111 file theo cây được theo dõi (33 docs, 27 tests, 20 tools, 14 assets, 6 src, 5 examples, 3 dist và 3 file gốc). Chưa xác nhận file nào thừa chỉ từ tên.
+
+1. **Inventory/dependency:** cập nhật FILE_INVENTORY từ cây thật; truy vết import, build, script sinh, link HTML/docs và test. Phân loại nguồn duy nhất, file sinh bắt buộc, tài liệu hiện hành, báo cáo lịch sử và file không còn người dùng. Xóa sau khi có bằng chứng không phụ thuộc; lịch sử Git giữ bản cũ.
+2. **Nguồn và bản sinh:** giữ ba HTML hiện hành (ASSETS/FIXED_UI/LAYOUTS), index và loader cần thiết. Không đưa HTML duyệt tạm vào repo. Loại file sinh dư/trùng nếu truy vết chứng minh; rebuild trên checkout sạch phải tạo lại đủ output.
+3. **Docs:** gộp chỉ dẫn hiện hành và dọn redirect/báo cáo lỗi thời. `WZW_MAP2_ATLAS_GITHUB_MASTER.md` hiện là nguồn của atlas.py và prompt.py, không xóa trực tiếp. Đối chiếu W4_TAIL, W4_1, MAP_DATA_GITHUB_GEMINI_REVIEW, PROJECT_READINESS và prompt-provenance với code trước khi gộp/bỏ. Không dùng báo cáo cũ để chứng nhận HEAD mới.
+4. **Code/payload:** đo bytes thô/gzip và tham chiếu SVG; tìm dữ liệu layout/artwork/catalog bị nhúng trùng, hàm/adapter không còn caller. Ưu tiên giảm payload bundle (hiện 7,328,560 bytes thô) và pool SVG decor mà bảo toàn hình đã duyệt. Không xóa metadata/recipe/layout chỉ để giảm số file hoặc mất tính năng RP. Chốt số đo trước/sau.
+5. **Prompt duy nhất:** hiện chưa có system prompt cuối; tools/prompt.py chỉ sinh Atlas-only fragment. Đối chiếu contract/resolver/loader thực, hợp nhất luật /map, Atlas nén, field bắt buộc, nhóm/PC/spot và visual/fallback thành một khối dán. Loại luật lặp, ví dụ dài không cần thiết và tham chiếu legacy. Dùng runtime-release cho SHA thật; đo ký tự/bytes/token với tokenizer được ghi rõ, không ước lượng thành kết quả đo.
+6. **Kiểm và bàn giao:** rebuild từ checkout sạch, kiểm refs/IDs, routing/placement/loader và ảnh trước/sau năm template. Chỉ chạy lại test liên quan sau từng nhóm sửa; nghiệm thu AI Studio ghi riêng khi có bằng chứng tại đích. Bàn giao manifest giữ–gộp–bỏ, metric trước/sau, một prompt và một pin runtime.
+
+Lượt push decor chỉ thay artwork chính, pack sinh lại, tài liệu trạng thái và pin loader. Dọn code/file/prompt diện rộng là lượt triển khai tiếp theo theo plan này.
