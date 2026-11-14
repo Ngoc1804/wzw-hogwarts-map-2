@@ -603,7 +603,7 @@ async function prepareTemplateUI(){
  scene.addEventListener('pointerover',overXray);scene.addEventListener('pointerout',outXray);scene.addEventListener('click',clickXray,true);scene.addEventListener('keydown',keyXray,true);
 
  const maskFor=async r=>{if(!r.promise)r.promise=paintedMask(r.node).then(m=>{r.mask=m;if(r.depth===null&&m){let bottom=-1;for(let y=m.h-1;y>=0&&bottom<0;y--)for(let x=0;x<m.w;x++)if(m.pixels[(y*m.w+x)*4+3]>24){bottom=y;break;}if(bottom>=0)r.depth=m.box.y+(bottom+.5)/m.h*m.box.h;}return m}).catch(()=>null);await r.promise;return r.mask};
- function pointSafe(x,y,pad=0){if(!inMap(x,y,pad)||DATA.maps[activeId].safeFloor&&!DATA.maps[activeId].safeFloor(x,y,pad))return false;for(const r of records){if(x+pad<r.box.x||x-pad>r.box.x+r.box.w||y+pad<r.box.y||y-pad>r.box.y+r.box.h)continue;if(!r.mask)return false;if(maskOverlaps(r.mask,{x:x-pad,y:y-pad,w:Math.max(.1,pad*2),h:Math.max(.1,pad*2)}))return false;}return true}
+ function pointSafe(x,y,pad=0){if(!inMap(x,y,pad)||DATA.maps[activeId].safeFloor&&!DATA.maps[activeId].safeFloor(x,y,pad))return false;if(DATA.maps[activeId].kind==='outdoor')return true;for(const r of records){if(x+pad<r.box.x||x-pad>r.box.x+r.box.w||y+pad<r.box.y||y-pad>r.box.y+r.box.h)continue;if(!r.mask)return false;if(maskOverlaps(r.mask,{x:x-pad,y:y-pad,w:Math.max(.1,pad*2),h:Math.max(.1,pad*2)}))return false;}return true}
  async function readyMasks(){await Promise.all(records.map(maskFor))}
  function localPoint(place,inside,actor){if(actor?.scenePoint&&Number.isFinite(actor.scenePoint.x)&&Number.isFinite(actor.scenePoint.y))return actor.scenePoint;const node=[...svg.querySelectorAll('[data-id]')].find(e=>e.dataset.id===place.id&&!e.closest('defs'));if(!node)return null;const b=worldBox(node),center={x:b.x+b.w/2,y:b.y+b.h/2};if(inside)return center;const min=Math.min(originalVB[2],originalVB[3]),step=min/110;
   // Search only the named place's bounds and immediate threshold; never reroute to a different place.
@@ -641,7 +641,7 @@ async function prepareTemplateUI(){
    if(actor.placement==='in_wall')return true;
    if(point.x<box.x+pad||point.x>box.x+box.w-pad||point.y<box.y+pad||point.y>box.y+box.h-pad)return false;
    if(inside&&!overview&&shape){const matrix=shape.getScreenCTM().inverse().multiply(svg.getScreenCTM());for(const[dx,dy]of [[0,0],[-pad,0],[pad,0],[0,-pad],[0,pad]])if(!shape.isPointInFill(new DOMPoint(point.x+dx,point.y+dy).matrixTransform(matrix)))return false;}
-   if(!(overview&&inside)&&map.safeFloor&&!map.safeFloor(point.x,point.y,pad))return false;
+   if((!(overview&&inside)||map.kind==='outdoor')&&map.safeFloor&&!map.safeFloor(point.x,point.y,pad))return false;
    // A floor rectangle can meet another rectangle at a wall. Only actual door
    // openings permit anchors on that boundary; windows are not walkable gaps.
    for(const wall of map.geometry?.walls||[]){
@@ -655,7 +655,8 @@ async function prepareTemplateUI(){
    return true;
   };
   // Slots change on mount or viewport resize, never on zoom or pan.
-  if(actor.placement==='in_wall'||actor.placement==='on_furniture'&&actor.supportId&&actor.scenePoint&&!actor.scenePoint.anchorOnly)return{point:desired,labelScale:factor};
+  if(actor.scenePoint?.anchorOnly)return{point:desired,labelScale:factor,anchorOnly:true};
+  if(actor.placement==='in_wall'||['on_furniture','on_landscape'].includes(actor.placement)&&actor.supportId&&actor.scenePoint&&!actor.scenePoint.anchorOnly)return{point:desired,labelScale:factor};
   if(passage&&count===1&&safe(desired))return{point:desired,labelScale:factor};
   if(count>1&&inside&&!actor.zone&&!actor.placement?.match(/^(on_furniture|in_wall)$/)){const index=actorItems.filter(a=>a.placeId===place.id).length;desired={x:box.x+box.w*((index%columns)+.5)/columns,y:box.y+box.h*(Math.floor(index/columns)+.72)/rows};}
   const candidates=[desired];

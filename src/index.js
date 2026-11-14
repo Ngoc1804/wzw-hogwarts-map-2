@@ -3,6 +3,7 @@ function inventoryNote(code){
  if(code.startsWith('unresolved-child:'))return 'Chưa xác định duy nhất món trong cụm; hình món đó được giữ nguyên.';
  if(code.startsWith('unknown-parent:'))return 'Chưa xác định cụm đồ cần chỉnh; thay đổi chưa được áp vào hình.';
  if(code.startsWith('child-count-summary:'))return 'Cụm có nhiều món: hình vẽ rút gọn, tổng số vẫn giữ trong thông tin bên dưới.';
+ if(code.startsWith('unresolved-support:'))return 'Chưa xác định đúng vật/vùng đỡ được RP yêu cầu; giữ nhãn thông tin, chưa xác nhận vị trí đứng trên đó.';
  if(code.startsWith('unresolved-surface:'))return 'Chưa xác định mặt đỡ phù hợp để đặt món đồ.';
  if(code.startsWith('invalid-visual:'))return 'Hình được cung cấp không dùng được; món đồ vẫn có đại diện thay thế.';
  if(code.startsWith('prop-detail-only:')||code.startsWith('outdoor-count-summary:'))return 'Một phần đồ được biểu diễn rút gọn; số lượng đầy đủ vẫn giữ trong thông tin.';

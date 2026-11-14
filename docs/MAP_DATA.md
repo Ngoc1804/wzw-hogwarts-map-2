@@ -116,3 +116,7 @@ The GitHub–Gemini comparison is pending approval in [MAP_DATA_GITHUB_GEMINI_RE
 Nhiều nhân vật ở cửa/hành lang được đặt tách nhau trong vùng sàn kết nối hợp lệ của hành lang hoặc vùng lân cận cửa; tránh tường kín, cửa sổ và nội thất lớn. Không đưa người ở hành lang vào phòng khác. Cửa đi là khoảng mở hợp lệ, cửa sổ không phải lối đứng/đi qua tường. Với một nhân vật, ưu tiên vị trí cửa/hành lang đã xác định nếu vẫn hợp lệ.
 
 Khi viewport/drawer đổi kích thước, presentation tính lại vị trí và tỉ lệ tag/chân cùng nhau trong đúng địa điểm. Zoom/pan đơn thuần giữ nguyên các điểm neo đã chọn. Nhân vật ngoài trời cũng có thể tách nhau trên phần nền được map đánh dấu hợp lệ, tránh vùng nước/công trình theo metadata hiện có. Không thêm công trình, nội thất hay màu mới.
+
+## Generated Outdoor placement
+
+Ngoại lệ RP tường minh cho Outdoor: actor `placement: on_landscape` + `supportId` nhắm đúng vùng/cảnh quan có trong geometry; `in_wall` cũng cần support tường cụ thể. Mặc định vẫn tránh vật cản/công trình, mặt nước và bồn cảnh quan. Không xử lý riêng thân/tán cây. Props dùng zone và `mount: surface`/`parentId` khi có mặt đỡ xác định; số lượng chưa xếp được giữ ở Inspector. Xem `OUTDOOR_PLACEMENT.md`.
