@@ -12,7 +12,7 @@ Quyết định người dùng: dọn file trước; decor/đổ màu/tên cửa
 | P1 | Hogsmeade + Hẻm Xéo/Knockturn | Rà tên canon bản Lý Lan; tên chưa chắc giữ thương hiệu; điền nhãn, alias, mô tả và tọa độ | Một ID/địa điểm, có marker bấm được; tách canon thương hiệu và vị trí AU; xét mốc thời gian RP |
 | P1 | H40 S/M/L | Lập danh sách phòng cần đổ màu rồi sửa từng phòng | Duyệt trước/sau ở S/M/L; không tự recolor toàn bộ |
 | P2 | Runtime | Nghiệm thu layout Indoor/Outdoor, inventory/đồ con/X-Ray và 13 Fixed đầy đủ | Bảng ca và kết quả thật; không lấy HTML mở được làm nghiệm thu cơ chế |
-| P2 | Gemini/AI Studio | Đồng bộ CSS/pack/bundle cùng SHA, prompt/provenance/hướng dẫn | Tải đúng commit và nghiệm thu tại Preview |
+| P2 | Gemini/AI Studio | Loader CSS/pack/bundle đã đồng bộ pin f801eff và kiểm CDN; còn nghiệm thu Preview, hồ sơ phiên bản để sau | Kiểm thực tại AI Studio; không suy từ test local |
 
 Nguồn đối chiếu địa danh cho lượt sau:
 - https://www.harrypotter.com/fact-file/locations/diagon-alley
@@ -27,3 +27,11 @@ Lượt dọn này không sửa decor, palette phòng, tên cửa hàng, tọa �
 - Tên/icon/footstep dùng cùng tọa độ và tỉ lệ zoom; không dịch nhãn tự do khỏi nhân vật.
 - H1, H2, Hogsmeade, Hẻm Xéo và Outdoor: ở trong nhà giữ tên, bỏ chân; bên ngoài có chân. Các map còn lại bắt buộc có chân dưới tên.
 - Tên layout hiện hành: `WIZAMAP_LAYOUTS.html`; bỏ hậu tố H40_SML.
+
+## Chốt sau rà soát runtime
+
+- PC: prompt bắt buộc có PC/place/spot; đóng mục xử lý payload thiếu vị trí, không thêm cơ chế đoán vị trí.
+- Fixed canon: chỉ giữ artwork và đặt tag đúng địa điểm; inventory/đồ vật/construction/detail không thuộc phạm vi. Không mở task thêm cơ chế đồ vật Fixed.
+- Cập nhật test độc lập HTML đã xóa; chỉnh contract và loader CDN theo bản đang dùng.
+- Công cụ kiểm ID tự tạo work/ trên checkout mới.
+- Hồ sơ hash/provenance: để sau theo yêu cầu, không chứng nhận lại trong lượt này.

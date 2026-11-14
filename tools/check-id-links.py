@@ -51,4 +51,5 @@ for name,obj in [('CATALOG',c),('RECIPES',r),('P4_ART',art),('ATLAS',a)]:
  checks['runtime-'+name+'-keys']=set(runtime)==set(obj)
 counts.update(catalog=len(c),recipes=len(r),instances=sum(len(x['instances']) for x in r.values()),clusters=len(a['clusters']),fixed=len(a['fixed']),atlasRoomsIncludingWorld=len(allrooms))
 result={'counts':counts,'checks':checks,'issues':issues,'issueCounts':dict(collections.Counter(i['kind'] for i in issues)),'coordinatePresentationAnchors':coordinateAnchors}
+Path('work').mkdir(parents=True,exist_ok=True)
 Path('work/id-audit.json').write_text(json.dumps(result,ensure_ascii=False,indent=2));print(json.dumps({**counts,'checks':checks,'issueCounts':result['issueCounts'],'examples':issues[:12]},ensure_ascii=False,indent=2))

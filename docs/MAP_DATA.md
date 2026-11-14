@@ -1,10 +1,10 @@
 # MAP_DATA 2.0.0 — contract và routing
 
-Cập nhật cho cơ chế README mới. Đây là contract code hiện nhận; chưa phải prompt cuối/P8 hoặc chứng nhận test/Preview. Contract 2.0.0 thay cách xử lý Fixed structural/detail cũ. Payload cũ thiếu version vẫn normalize ở cùng entry với diagnostic, không có adapter/renderer thứ hai; schemaVersion không được hỗ trợ được ghi diagnostic, không tự xác nhận tương thích.
+Quyết định đã chốt: Fixed canon chỉ hiển thị vị trí nhân vật trên artwork gốc. Không xây thêm, không thêm đồ vật, không mở cơ chế chỉnh đồ hoặc detail mới. PC/place/spot bắt buộc do prompt bảo đảm; không thêm fallback đoán vị trí cho payload thiếu trường.
 
 ## Bắt buộc khi Gemini xuất /map
 
-`schemaVersion: "2.0.0"`, `meta` (areaName, date, time, quote theo nội dung có thật), `atlasAnchor`, `pcPlace`, `pcSpot`, `places`, `actors`, `events`. Mảng rỗng hợp lệ; không bịa nội dung để điền. PC là một actor `isPC:true`; pcPlace/pcSpot cấp cảnh ưu tiên. Gemini phải xác định vị trí trước xuất, không dùng unknown. Runtime thiếu trường vẫn xử lý bảo thủ và diagnostic, không tự đoán vị trí.
+`schemaVersion: "2.0.0"`, `meta` (areaName, date, time, quote theo nội dung có thật), `atlasAnchor`, `pcPlace`, `pcSpot`, `places`, `actors`, `events`. Mảng rỗng hợp lệ; không bịa nội dung để điền. PC là một actor `isPC:true`; pcPlace/pcSpot cấp cảnh ưu tiên. Gemini phải xác định vị trí trước xuất, không dùng unknown. Payload thiếu vị trí không thuộc đầu vào hợp lệ; không tự đoán hoặc thêm vị trí PC.
 
 - `atlasAnchor`: một ID Fixed, cluster Atlas, scope World hoặc `custom`; tên alias scope từ vocabulary được normalize một điểm.
 - `pcPlace`: canonical ID hoặc tên rõ trong scope. `pcSpot`: inside/corridor/threshold/outdoor. Alias outside chỉ normalize thành outdoor.
@@ -20,7 +20,7 @@ Tên/type mở; type công năng ngắn (office, classroom, potions, storage, sh
 
 Props: chuỗi hoặc `{name,count?,zone?,item?,id?,op?,state?}`. count mặc định 1, hữu hạn/nguyên/không âm; op ensure/add, propsMode merge/replace. Đây là dữ liệu Generated. Fixed giữ nguyên artwork, không áp inventory thay thế hoặc props overlay. templateState cũ không còn khiến Fixed tự thay hình/mở detail.
 
-Visual mới tối thiểu, palette, placement, semantic merge đầy đủ thuộc task sau; **chưa có visual compiler**, không đưa raw SVG/visual vào prompt dùng thật tại mốc này.
+Visual tối thiểu cho Generated được mô tả bên dưới; không đưa raw SVG/HTML vào payload. Không áp cơ chế này cho Fixed canon.
 
 ## Actors và nhóm
 
@@ -31,11 +31,11 @@ Visual mới tối thiểu, palette, placement, semantic merge đầy đủ thu�
 - Nhóm 3–5: name là nhãn nhóm, members là mảng tên; click sidebar hiện danh sách. Nhóm đông: name + summary ngắn. Không tự phát sinh thành viên.
 - spot là trạng thái vị trí, zone là gợi ý tương đối, không phải tọa độ. Placement theo zone còn ở P4.
 - tagType: gryffindor/slytherin/ravenclaw/hufflepuff/beauxbatons/durmstrang/teacher/adult/patrol/animal/monster/ghost/unknown/crowd. Màu theo token; unknown là loại actor, không phải địa điểm.
-- footstep walk/idle/hidden; mặc định hidden. onPatrol chỉ true khi RP xác nhận, không suy từ chức danh. Inside ẩn chân; ngoại lệ placement RP hoàn thiện ở P4.
+- footstep walk/idle/hidden là trạng thái đầu vào. Presentation quyết định khả năng hiển thị: H1, H2, Hogsmeade (`village-static`), Hẻm Xéo (`diagon-knockturn`) và Generated Outdoor ẩn chân khi inside, giữ tag. Các map còn lại luôn có chân dưới tên, kể cả inside hoặc đầu vào hidden. Walk có chuyển động, còn lại idle; không có khoảng mất toàn bộ dấu chân. onPatrol chỉ true khi RP xác nhận.
 
 ## Events
 
-`{id?, title, detail?, placeId?, placeName?, hidden?, target?}`. hidden true → icon `?`; còn lại → `!`. Icon là dữ liệu chuẩn hóa, giao diện cuối chờ P4/user duyệt. target chỉ tham chiếu kiến trúc có thật; binding chi tiết còn ở P7, thiếu thì giữ cấp địa điểm.
+`{id?, title, detail?, placeId?, placeName?, hidden?, target?}`. hidden true tương ứng kính lúp; còn lại tương ứng ống nhòm. Giá trị chuẩn hóa ?/! là ngữ nghĩa, không phải glyph hiển thị. target chỉ tham chiếu kiến trúc có thật; binding chi tiết còn ở P7, thiếu thì giữ cấp địa điểm.
 
 ## Routing và tham chiếu
 
@@ -63,9 +63,9 @@ Các vị trí không binding được giữ trong dữ liệu/Inspector, không
 }
 ```
 
-## Trạng thái
+## Trạng thái và phạm vi
 
-Đã sửa normalize/resolver và nối sidebar members/summary. Chưa chạy test tổng/browser theo yêu cầu hoàn thiện cơ chế trước. P4/P5 placement/merge, visual mới, P7 icon/X-Ray và P8 prompt/SHA vẫn mở. Không dùng báo cáo test cũ để chứng nhận version này. Khi kiểm cuối cần ma trận Fixed bất biến, H1/H2 AU, binding nhà/region/overflow/order, đủ cluster, tham chiếu lỗi/mơ hồ, nhóm/10 ribbon và target.
+Fixed canon position-only đã chốt; không có việc mở triển khai inventory/props/structural-detail cho Fixed. Các props/state/composition bên dưới chỉ dành cho Generated. Artwork, asset và layout đã chốt giữ nguyên; decor/đổi màu làm sau. Test kỹ thuật không thay thế nghiệm thu AI Studio. Hồ sơ hash/phiên bản cập nhật ở lượt sau.
 
 ## Atlas source integration
 
@@ -77,13 +77,13 @@ Khung H40 giữ nguyên core. Recipe w/h/minW/minH điều chỉnh frontage/dept
 
 Prop optional: mount floor/wall/surface và parentId (ID instance mẹ). Surface cần parent có metadata surface; không tìm được thì ghi diagnostic và giữ đại diện/Inspector, không tự chọn bàn khác. Source group không tách được đồ con vẫn là một instance; chưa khẳng định sửa đúng mọi thành phần trong cụm.
 
-Actor optional tương thích 2.0.0: posture standing/sitting/lying/hidden; placement normal/on_furniture/in_wall; supportId nhắm đúng instance khi RP xác nhận đứng/ngồi trên vật. Không suy ngoại lệ từ NLP activity. Thiếu support thì giữ anchor thông tin, ẩn chân; không giả đã đặt đúng trên đồ. Inside vẫn ẩn chân, không tự X-Ray. Điểm actor tránh tường và nội thất lớn bằng footprint ước lượng; ribbon có thể dịch riêng để dễ đọc. Actor chưa binding vẫn giữ trong Inspector.
+Actor optional tương thích 2.0.0: posture standing/sitting/lying/hidden; placement normal/on_furniture/in_wall; supportId nhắm đúng instance khi RP xác nhận đứng/ngồi trên vật. Không suy ngoại lệ từ NLP activity. Thiếu support thì giữ anchor thông tin; không giả đã đặt đúng trên đồ. Chân tuân theo quy tắc từng map ở phần Actors, không ẩn tự động vì inside trên map chi tiết. Điểm actor Generated dùng footprint ước lượng. Tên, icon và chân dùng chung điểm neo và tỉ lệ zoom; ribbon không tự dịch riêng khỏi nhân vật. Không tự kích hoạt X-Ray. Actor chưa binding vẫn giữ trong Inspector.
 
 ## Loader / validation update
 
 Malformed JSON is a transport error: no normalize/build/scene is produced. Corrected object input may recover using `WZWMap.render`. Render calls are serialized. Missing PC actor/location, multiple PCs, and unsupported explicit versions produce `invalid-data` without a scene. Legacy omitted schemaVersion is diagnosed; new payloads must send 2.0.0. Unresolved Fixed locations remain information in Inspector; they never allocate invented buildings. Canonical PC/NPC/event references reserve AU house slots before allocation.
 
-Outdoor uses the same mapMode/places/type/props contract. All eight OUT_* recipes are available in runtime; `propsMode: replace` removes recipe inventory while terrain remains. The offline `examples/outdoor-review.html` is a review fixture, never RP data. Current multi-zone composition is illustrative tiles without inferred connecting routes; advanced placement/state/count and visual acceptance remain open.
+Outdoor uses the same mapMode/places/type/props contract. All eight OUT_* recipes are available in runtime; `propsMode: replace` removes recipe inventory while terrain remains. Hai HTML kiểm cũ đã xóa; test dùng dữ liệu trong bộ nhớ, không sinh lại các trang đó. Current multi-zone composition is illustrative tiles without inferred connecting routes; advanced placement/state/count and visual acceptance remain open.
 
 ## Props / visual / X-Ray update
 
@@ -91,7 +91,7 @@ Generated props: add accepts a new stable id, repeated add id is diagnosed; repl
 
 Optional visual: {shapes:[{kind:"rect",x:10,y:10,width:70,height:50,material:"wood"}]} on a named prop. Coordinate space 0..100, up to 32 shapes; rect/ellipse/path only, finite bounded numbers and restricted path characters. Materials: wood/stone/metal/fabric/paper/glass/plant/ink. No raw SVG/HTML/scripts/URLs accepted. Invalid visual uses normal fallback. Typical payloads need no visual.
 
-X-Ray now tests anchored actor region independently of label shifts; requires building occluder, layer/depth ordering and alpha shape overlap. Own inside building does not fade. Explicit depth is preferred; missing depth derives approximate ground contact from opaque silhouette, not bbox alone. Unknown/unrenderable masks never conclude occlusion. 13-Fixed semantic depth and visual acceptance still require full matrix, not inferred from unit PASS.
+X-Ray now tests anchored actor region independently of label shifts; requires building occluder, layer/depth ordering and alpha shape overlap. Own inside building does not fade. Explicit depth is preferred; missing depth derives approximate ground contact from opaque silhouette, not bbox alone. Unknown/unrenderable masks never conclude occlusion. X-Ray kiểm theo shape/layer/depth và tương tác; không suy ra nghiệm thu AI Studio từ unit PASS.
 
 ### Four audit corrections
 

@@ -1,4 +1,6 @@
-# Rà soát toàn dự án — trước AI Studio Preview
+# Rà soát toàn dự án — hồ sơ lịch sử
+
+> Đã được thay thế bởi contract và quyết định hiện hành. R07 (đồ vật Fixed) đóng theo phạm vi: Fixed canon chỉ hiển thị vị trí/tag, không triển khai props/inventory/detail. PC/place/spot do prompt bắt buộc. Loader hiện hành xem MAP_PROMPT.md; không dùng SHA và danh sách việc mở cũ bên dưới làm trạng thái hiện tại.
 
 Ngày 2026-11-14. Repo Ngoc1804/wzw-hogwarts-map-2, branch M2-P01-baseline-loader; runtime HEAD kiểm a869be2139e2a70d5a53c81bf2826c5be7011df7. Remote bằng HEAD, checkout sạch khi bắt đầu. Phương pháp: đọc source chính src/*, shell/markers trong template-review, compiler/build/loader/prompt, Atlas/catalog/recipe metadata, master plan nhúng README, checkpoint và báo cáo QA có sẵn. Không chạy browser, test local, render, benchmark hoặc nghiệm thu mới theo yêu cầu người dùng. Đây là audit source, không phải chứng nhận mọi tổ hợp đầu vào hay kiểm mắt từng SVG.
 

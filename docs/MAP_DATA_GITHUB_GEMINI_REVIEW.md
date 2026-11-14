@@ -1,6 +1,6 @@
 # MAP_DATA — bảng GitHub / Gemini để duyệt
 
-Trạng thái: **CHỜ DUYỆT quy ước prompt**. Chỉ phần tích hợp size được triển khai trong lượt này; chưa sửa system prompt, quota quest, zoom, footer hoặc CDN của prompt legacy.
+Trạng thái: bảng đối chiếu lịch sử; các quyết định PC bắt buộc, Fixed canon position-only, footstep và loader CDN hiện hành đã ghi tại MAP_DATA.md / MAP_PROMPT.md. Quota quest và system prompt RP riêng không được thay đổi.
 
 Nền chuẩn: M2-P01-baseline-loader tại 3c6a8674. Nguồn S/M/L: ATLAS_CAN_DUYET tại 3615b31d, tools/build-layout-review.py. Màu dùng mặc định FINAL theo chỉ dẫn người dùng. Prompt đối chiếu: bản WzW · Hogwarts Year 2 được người dùng gửi, phần R14.6 MAP_DATA và R/W/C đi kèm.
 
@@ -82,7 +82,7 @@ Nền chuẩn: M2-P01-baseline-loader tại 3c6a8674. Nguồn S/M/L: ATLAS_CAN_D
 | activity | Nội dung hoạt động actor | Một câu ai đang làm gì | Giữ ngắn |
 | observation | Mô tả actor trong Inspector | Một câu quan sát được | Giữ ngắn |
 | members/summary | Một ribbon nhóm, mở chi tiết thành viên/tóm tắt | Tên thật đã biết hoặc summary nhóm | Gemini nhóm, engine không tự tạo thành viên |
-| footstep | walk/idle/hidden; một số posture/inside tự ẩn chân | Theo cảnh | Mặc định hidden |
+| footstep | Theo chính sách map trong MAP_DATA.md; chỉ overview/Outdoor inside ẩn chân | Theo cảnh | Các map chi tiết bắt buộc có chân dưới tên |
 | posture | standing/sitting/lying/hidden | Khi có căn cứ | Giữ |
 | placement/supportId | normal/on_furniture/in_wall; support nhắm instance | Chỉ khi có ngoại lệ xác nhận | Không đoán từ văn activity |
 | onPatrol | Cờ tuần tra phục vụ marker | Chỉ true khi thực sự tuần tra | Không suy từ chức danh |
