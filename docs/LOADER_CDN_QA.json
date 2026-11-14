@@ -2,26 +2,26 @@
   "date": "2026-11-14",
   "release": {
     "repository": "Ngoc1804/wzw-hogwarts-map-2",
-    "runtimeCommit": "2bad6c7a7badecbde956fb22c0c83afb92be2016",
+    "runtimeCommit": "f8cf480c39a32c69c9a54d50cbe22bc5b97dd816",
     "files": {
       "shell.css": {
         "sha256": "e66f7789b5df099f588f9028d947607cc7e584e7170b4e6cc627419db9bb4f15",
         "bytes": 11039
       },
       "templates-pack.js": {
-        "sha256": "2f8f07aaece3d885146600ef441e59f3c10a6113fd346b33839b474c8f5e149e",
-        "bytes": 919357
+        "sha256": "ba5bf68beaa869d2f2e582f924a8601b36b849fe8f668adc11c2aa2f76201204",
+        "bytes": 963681
       },
       "bundle.js": {
-        "sha256": "a5033c369add1750df8466004519567779d16894213e4f53ef1ca35733d0cb2e",
-        "bytes": 7328560
+        "sha256": "1b54f9d8a6b1d6b61f9653f3db423b889235af7e4e436447700a17c91c886c9c",
+        "bytes": 11550234
       }
     }
   },
   "downloads": [
     {
       "name": "shell.css",
-      "url": "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@2bad6c7a7badecbde956fb22c0c83afb92be2016/dist/shell.css",
+      "url": "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@f8cf480c39a32c69c9a54d50cbe22bc5b97dd816/dist/shell.css",
       "bytes": 11039,
       "sha256": "e66f7789b5df099f588f9028d947607cc7e584e7170b4e6cc627419db9bb4f15",
       "matchesLocal": true,
@@ -29,17 +29,17 @@
     },
     {
       "name": "templates-pack.js",
-      "url": "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@2bad6c7a7badecbde956fb22c0c83afb92be2016/dist/templates-pack.js",
-      "bytes": 919357,
-      "sha256": "2f8f07aaece3d885146600ef441e59f3c10a6113fd346b33839b474c8f5e149e",
+      "url": "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@f8cf480c39a32c69c9a54d50cbe22bc5b97dd816/dist/templates-pack.js",
+      "bytes": 963681,
+      "sha256": "ba5bf68beaa869d2f2e582f924a8601b36b849fe8f668adc11c2aa2f76201204",
       "matchesLocal": true,
       "contentType": "application/javascript; charset=utf-8"
     },
     {
       "name": "bundle.js",
-      "url": "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@2bad6c7a7badecbde956fb22c0c83afb92be2016/dist/bundle.js",
-      "bytes": 7328560,
-      "sha256": "a5033c369add1750df8466004519567779d16894213e4f53ef1ca35733d0cb2e",
+      "url": "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@f8cf480c39a32c69c9a54d50cbe22bc5b97dd816/dist/bundle.js",
+      "bytes": 11550234,
+      "sha256": "1b54f9d8a6b1d6b61f9653f3db423b889235af7e4e436447700a17c91c886c9c",
       "matchesLocal": true,
       "contentType": "application/javascript; charset=utf-8"
     }
@@ -49,19 +49,20 @@
       "diagon Mulpepper da-terrace-11",
       "knockturn Mulpepper ka-block-7",
       "new Outdoor ground placement",
-      "inside stays on building informational anchor"
+      "inside stays on building informational anchor",
+      "approved CLASSROOM M native floor, walls and 740x520 size"
     ],
     "responses": [
       {
-        "url": "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@2bad6c7a7badecbde956fb22c0c83afb92be2016/dist/shell.css",
+        "url": "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@f8cf480c39a32c69c9a54d50cbe22bc5b97dd816/dist/shell.css",
         "status": 200
       },
       {
-        "url": "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@2bad6c7a7badecbde956fb22c0c83afb92be2016/dist/templates-pack.js",
+        "url": "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@f8cf480c39a32c69c9a54d50cbe22bc5b97dd816/dist/templates-pack.js",
         "status": 200
       },
       {
-        "url": "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@2bad6c7a7badecbde956fb22c0c83afb92be2016/dist/bundle.js",
+        "url": "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@f8cf480c39a32c69c9a54d50cbe22bc5b97dd816/dist/bundle.js",
         "status": 200
       }
     ],

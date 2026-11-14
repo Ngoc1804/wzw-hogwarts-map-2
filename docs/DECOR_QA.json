@@ -156,5 +156,36 @@
       "seconds": 0.1
     }
   ],
-  "AIStudio": "Deferred by user; local browser regressions do not claim target acceptance"
+  "AIStudio": "Deferred by user; local browser regressions do not claim target acceptance",
+  "afterConcurrentFixedDecorMerge": {
+    "fixedBase": "aae54f4290e9e249ce5334efb2694aed8ce43cf4",
+    "suites": [
+      {
+        "test": "approved-decor",
+        "status": "PASS",
+        "seconds": 27.4
+      },
+      {
+        "test": "interaction",
+        "status": "PASS",
+        "seconds": 45.6
+      },
+      {
+        "test": "outdoor-overlap",
+        "status": "PASS",
+        "seconds": 13.5
+      },
+      {
+        "test": "presentation",
+        "status": "PASS",
+        "seconds": 77.1
+      },
+      {
+        "test": "repair-functional",
+        "status": "PASS",
+        "seconds": 51.0
+      }
+    ],
+    "fixedPackMatchesApprovedRemote": true
+  }
 }
