@@ -92,6 +92,7 @@ function furnitureLayout(place){
   objects.push({item,node,magnify,dx,dy,bounds:[x*magnify+dx,y*magnify+dy,w*magnify,h*magnify]});
 
  }
+ if(art?.source==='APPROVED_DECOR')return{inventory,art,objects:objects.map(o=>({...o,dx:0,dy:0,magnify:1,bounds:o.node.bounds})),extra,width:art.width,height:art.height};
  if(art?.source==='FINAL'&&objects.length){
   const minX=Math.min(0,...objects.map(o=>o.bounds[0])),minY=Math.min(0,...objects.map(o=>o.bounds[1]));
   const maxX=Math.max(art.width,...objects.map(o=>o.bounds[0]+o.bounds[2])),maxY=Math.max(art.height,...objects.map(o=>o.bounds[1]+o.bounds[3]));
@@ -106,10 +107,10 @@ function drawFurniture(place,prefix,room,layout,door){
  const pad={left:14,right:14,top:14,bottom:44};
  if(door){const ln=door.ln;if(ln.axis==='H')pad[Math.abs(ln.at-room.y)<.1?'top':'bottom']=52;else pad[Math.abs(ln.at-room.x)<.1?'left':'right']=52;}
  const circle=room.circular;const usableW=circle?room.w*.68:room.w,usableH=circle?room.h*.68:room.h;
- const scale=Math.min((usableW-pad.left-pad.right)/layout.width,(usableH-pad.top-pad.bottom)/layout.height,.95);
- const x=room.x+(room.w-usableW)/2+pad.left+(usableW-pad.left-pad.right-layout.width*scale)/2;
- const y=room.y+(room.h-usableH)/2+pad.top+(usableH-pad.top-pad.bottom-layout.height*scale)/2;
- let markup=layout.art?namespaceArt(layout.art.defs,prefix):'';const footprints=[];
+ const native=layout.art?.source==='APPROVED_DECOR';const scale=native?1:Math.min((usableW-pad.left-pad.right)/layout.width,(usableH-pad.top-pad.bottom)/layout.height,.95);
+ const x=native?room.x:room.x+(room.w-usableW)/2+pad.left+(usableW-pad.left-pad.right-layout.width*scale)/2;
+ const y=native?room.y:room.y+(room.h-usableH)/2+pad.top+(usableH-pad.top-pad.bottom-layout.height*scale)/2;
+ let markup=layout.art?namespaceArt(layout.art.defs,prefix):'';if(native)markup+=`<g data-approved-decor="true" transform="translate(${room.x} ${room.y})">${namespaceArt(layout.art.decorSvg||'',prefix)}</g>`;const footprints=[];
  for(const o of layout.objects){
   const [bx,by,bw,bh]=o.bounds;const box=[x+bx*scale,y+by*scale,bw*scale,bh*scale];
   const asset=CATALOG[o.node.item];
@@ -125,12 +126,27 @@ function drawFurniture(place,prefix,room,layout,door){
 function largeFurniture(item,name,asset){
  return asset?.mount!=='wall'&&/table|desk|cabinet|cupboard|bookcase|shelf|shelves|storage|bed|sofa|counter|bench|bàn|tủ|kệ|giường|ghế băng/.test(key(item+' '+name));
 }
+// Surface slots use the actual support surface metadata and previously used slots.
+function supportSurface(parent){
+ const [x,y,w,h]=parent.bounds,a=CATALOG[parent.item],ref=a?.occupancy||{x:0,y:0,width:a?.viewBox?.[2]||w,height:a?.viewBox?.[3]||h},surface=parent.surface;
+ if(!surface)return{bounds:[x,y,w,h],contains:b=>b[0]>=x&&b[1]>=y&&b[0]+b[2]<=x+w&&b[1]+b[3]<=y+h};
+ const sx=w/ref.width,sy=h/ref.height;
+ if(Number.isFinite(surface.r)){const cx=x+(surface.cx-ref.x)*sx,cy=y+(surface.cy-ref.y)*sy,rx=surface.r*sx,ry=surface.r*sy;return{bounds:[cx-rx,cy-ry,2*rx,2*ry],contains:b=>[[0,0],[1,0],[0,1],[1,1]].every(([u,v])=>((b[0]+b[2]*u-cx)/rx)**2+((b[1]+b[3]*v-cy)/ry)**2<=1)};}
+ const b=[x+(surface.x-ref.x)*sx,y+(surface.y-ref.y)*sy,surface.width*sx,surface.height*sy];return{bounds:b,contains:q=>q[0]>=b[0]&&q[1]>=b[1]&&q[0]+q[2]<=b[0]+b[2]&&q[1]+q[3]<=b[1]+b[3]};
+}
+function surfaceSlot(parent,width,height,zone,placed){
+ const region=supportSurface(parent),[x,y,w,h]=region.bounds,desired=zonePoint(region.bounds,zone),points=[{x:desired.x-width/2,y:desired.y-height/2}];
+ for(let py=y+1;py+height<=y+h-1;py+=Math.max(3,height/3))for(let px=x+1;px+width<=x+w-1;px+=Math.max(3,width/3))points.push({x:px,y:py});
+ points.sort((a,b)=>Math.hypot(a.x+width/2-desired.x,a.y+height/2-desired.y)-Math.hypot(b.x+width/2-desired.x,b.y+height/2-desired.y));
+ const p=points.find(p=>{const b=[p.x,p.y,width,height];return region.contains(b)&&!placed.some(f=>f.parentId===parent.id&&b[0]<f.bounds[0]+f.bounds[2]+1&&b[0]+b[2]+1>f.bounds[0]&&b[1]<f.bounds[1]+f.bounds[3]+1&&b[1]+b[3]+1>f.bounds[1]);});
+ return p?[p.x,p.y,width,height]:null;
+}
 function placeExtraProps(place,prefix,room,props,door,base){
  const footprints=[],occupied=base.map(f=>f.bounds),diagnostics=place.inventory.diagnostics;
  let svg='';const candidates=[];
  for(let y=room.y+18;y<room.y+room.h-25;y+=28)for(let x=room.x+18;x<room.x+room.w-25;x+=28)candidates.push({x,y});
  const overlap=(a,b)=>a[0]<b[0]+b[2]+4&&a[0]+a[2]+4>b[0]&&a[1]<b[1]+b[3]+4&&a[1]+a[3]+4>b[1];
- const valid=box=>box[0]>=room.x+26&&box[1]>=room.y+8&&box[0]+box[2]<=room.x+room.w-8&&box[1]+box[3]<=room.y+room.h-46&&(!room.circular||[[0,0],[1,0],[0,1],[1,1]].every(([u,v])=>Math.hypot(box[0]+box[2]*u-room.x-room.w/2,box[1]+box[3]*v-room.y-room.h/2)<room.w/2-8))&&(!door||!overlap(box,door.ln.axis==='H'?[door.at-door.width/2-8,door.ln.at-26,door.width+16,52]:[door.ln.at-26,door.at-door.width/2-8,52,door.width+16]));
+ const valid=box=>box[0]>=room.x+26&&box[1]>=room.y+8&&box[0]+box[2]<=room.x+room.w-8&&box[1]+box[3]<=room.y+room.h-46&&(!room.circular||[[0,0],[1,0],[0,1],[1,1]].every(([u,v])=>Math.hypot(box[0]+box[2]*u-room.x-room.w/2,box[1]+box[3]*v-room.y-room.h/2)<room.w/2-8))&&(!room.sourceFloor||[[0,0],[1,0],[0,1],[1,1]].every(([u,v])=>room.sourceFloor(box[0]+box[2]*u,box[1]+box[3]*v)))&&(!door||!overlap(box,door.ln.axis==='H'?[door.at-door.width/2-8,door.ln.at-26,door.width+16,52]:[door.ln.at-26,door.at-door.width/2-8,52,door.width+16]));
  for(const [i,prop]of props.entries()){
   const matches=Object.values(CATALOG).filter(a=>key(a.name)===key(prop.name)||a.aliases?.some(n=>key(n)===key(prop.name)));
   const asset=CATALOG[prop.item||propAliases[key(prop.name)]]||(matches.length===1?matches[0]:null)||visualAsset(prop);
@@ -141,19 +157,18 @@ function placeExtraProps(place,prefix,room,props,door,base){
   const count=Number.isInteger(prop.count)&&prop.count>=0?prop.count:1;
   let drawn=0;
   for(let n=0;n<count;n++){
-   const width=largeFurniture(prop.item||'',prop.name,asset)?48:22,height=width*Math.min(2,Math.max(.3,vb[3]/Math.max(vb[2],1)));
+   let width=largeFurniture(prop.item||'',prop.name,asset)?48:22,height=width*Math.min(2,Math.max(.3,vb[3]/Math.max(vb[2],1)));
    let box;
    if(mount==='surface'||prop.parentId){
     if(!parent||!parent.surface){diagnostics.push('unresolved-surface:'+prop.name);break;}
-    const [x,y,w,h]=parent.bounds;box=[x+w*.2+n*width,y+h*.2,width,height];
-    if(box[0]+width>x+w||box[1]+height>y+h)break;
+    const region=supportSurface(parent).bounds,scale=Math.min(1,region[2]/(4*width),region[3]/(4*height));width*=scale;height*=scale;box=surfaceSlot(parent,width,height,prop.zone,footprints);if(!box)break;
    }else{
     const ordered=[...candidates].sort((a,b)=>Math.hypot(a.x-desired.x,a.y-desired.y)-Math.hypot(b.x-desired.x,b.y-desired.y));
     const point=ordered.find(p=>{const b=[p.x,p.y,width,height];return valid(b)&&!occupied.some(o=>overlap(b,o))&&(mount!=='wall'||Math.min(p.x-room.x,room.x+room.w-p.x,p.y-room.y,room.y+room.h-p.y)<45);});
     if(!point)break;box=[point.x,point.y,width,height];
    }
    occupied.push(box);const id=prop.id+':'+n;
-   footprints.push({id,name:prop.name,item:prop.item,bounds:box,blocksActor:mount==='floor'&&largeFurniture(prop.item||'',prop.name,asset),surface:asset?.surface});
+   footprints.push({id,name:prop.name,item:prop.item,bounds:box,parentId:mount==='surface'||prop.parentId?parent?.id:null,blocksActor:mount==='floor'&&largeFurniture(prop.item||'',prop.name,asset),surface:asset?.surface});
    if(asset&&!prop.informationOnly)svg+=`<svg data-rp-instance="${escapeXML(id)}" data-state="${escapeXML(prop.state||'intact')}" pointer-events="none" x="${box[0]}" y="${box[1]}" width="${box[2]}" height="${box[3]}" viewBox="${vb.join(' ')}" overflow="visible"><title>${escapeXML(prop.name)}</title>${namespaceArt(asset.svg.replace(/^<svg\b[^>]*>/,'').replace(/<\/svg>\s*$/,''),prefix+'extra'+i+'-'+n+'-')}</svg>`;
    else svg+=`<g data-prop-fallback="true" pointer-events="none"><path d="M${box[0]+11} ${box[1]}l11 11 -11 11 -11 -11Z" fill="#d8c6a6" stroke="#8d7658"/><title>${escapeXML(prop.name)}</title></g>`;
    drawn++;

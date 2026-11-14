@@ -19,7 +19,7 @@ code=re.sub(r'function mountTemplatePicker\(\)\{.*?\n\}', '', code, flags=re.S)
 pack='window.WZW_TEMPLATE_PACK='+json.dumps(payload)+';\n'
 # Runtime consumes recipe identities/inventory only; reference transforms/descriptions stay in source.
 recipes=json.loads((r/'assets/recipes.json').read_text())
-compact_recipes={rid:{**{k:recipe[k] for k in ['w','h','minW','minH','sizeProfiles'] if k in recipe},'instances':[{k:x[k] for k in ['id','name','item','count','zone','mount','parentId'] if k in x} for x in recipe['instances']]} for rid,recipe in recipes.items()}
+compact_recipes={rid:{**{k:recipe[k] for k in ['w','h','minW','minH','sizeProfiles','instancesBySize'] if k in recipe},'instances':[{k:x[k] for k in ['id','name','item','count','zone','mount','parentId'] if k in x} for x in recipe['instances']]} for rid,recipe in recipes.items()}
 atlas=json.loads((r/'assets/atlas.json').read_text());atlas['fixed']={fid:{'places':[{'id':p['id'],'aliases':p['aliases']} for p in f['places'] if p.get('aliases')]} for fid,f in atlas['fixed'].items()} # Artwork already packed; only lookup aliases belong here.
 # Reuse the supplied architecture core, excluding the reference editor UI/startup.
 # Patterns, wall projection and openings have one active implementation.

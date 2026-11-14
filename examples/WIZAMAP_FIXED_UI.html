@@ -691,12 +691,14 @@ async function prepareTemplateUI(){
   const fitScale=Math.min(base.width/originalVB[2],base.height/originalVB[3]);
   const mapScale=Math.hypot(ctm.a,ctm.b),ratio=mapScale/fitScale;
   linkLayer.replaceChildren();
+  const anchorStacks=new Map();for(const item of actorItems){item.stackOffset=0;if(item.inside&&item.actor.scenePoint?.anchorOnly){if(!anchorStacks.has(item.placeId))anchorStacks.set(item.placeId,[]);anchorStacks.get(item.placeId).push(item);}}
+  for(const group of anchorStacks.values()){group.sort((a,b)=>Number(b.actor.isPC)-Number(a.actor.isPC));let offset=0;for(const item of group){item.stackOffset=offset;item.element.dataset.stackIndex=String(group.indexOf(item));offset+=item.element.offsetHeight+6;}}
   for(const item of [...actorItems,...eventItems]){
    const point=new DOMPoint(item.point.x,item.point.y).matrixTransform(ctm),actor=!!item.actor,markerScale=ratio*(item.labelScale||1);
    item.element.style.transformOrigin=actor?'50% 100%':'50% 50%';
    item.element.style.transform=`translate(-50%,${actor?'-100%':'-50%'}) scale(${markerScale})`;
    item.element.style.left=(point.x-base.left)+'px';
-   item.element.style.top=(point.y-base.top-(actor?8*markerScale:0))+'px';
+   item.element.style.top=(point.y-base.top-(actor?(8+(item.stackOffset||0))*markerScale:0))+'px';
    if(item.feet)item.feet.setAttribute('transform',`translate(${item.point.x} ${item.point.y}) scale(${.55*(item.labelScale||1)/fitScale})`);
   }
   const faded=new Set();for(const a of actorItems){

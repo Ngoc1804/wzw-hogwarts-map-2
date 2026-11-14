@@ -11,7 +11,7 @@ function finalChildChanges(changes){
   out.set(p.childId,{...prior,...p,count:total,state:p.state||(prior.count===0&&total>0?'intact':prior.state),countProvided:true,op:'ensure'});
  }return [...out.values()];
 }
-function composeRoom(place){const rid=recipeId(place.type),recipe=RECIPES[rid];const base=place.propsMode==='replace'?[]:(recipe?.instances||[]).map(i=>({...i,source:'recipe'}));let out=base;const diagnostics=[];
+function composeRoom(place){const rid=recipeId(place.type),recipe=RECIPES[rid];const size=({small:'S',medium:'M',large:'L',S:'S',M:'M',L:'L'})[place.size]||'M';const base=place.propsMode==='replace'?[]:(recipe?.instancesBySize?.[size]||recipe?.instances||[]).map(i=>({...i,source:'recipe'}));let out=base;const diagnostics=[];
  list(place.props).forEach((p,index)=>{
  if(p.childId){const parent=out.find(x=>x.id===p.parentId);if(!parent){diagnostics.push('unknown-parent:'+p.parentId);out.push({...p,id:'rp:child:'+index,informationOnly:true,source:'rp'});return;}parent.childChanges=finalChildChanges([...(parent.childChanges||[]),p]);return;}
  let matches=[];if(p.id)matches=out.filter(x=>x.id===p.id);else{const item=p.item||propAliases[key(p.name)];matches=out.filter(x=>(item?x.item===item:key(x.name)===key(p.name))&&(!p.zone||x.zone===p.zone));}

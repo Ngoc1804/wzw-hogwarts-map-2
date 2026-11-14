@@ -14,7 +14,7 @@ Quyết định đã chốt: Fixed canon chỉ hiển thị vị trí nhân vậ
 
 ## Places
 
-`{id?, name, type?, description?, props?, propsMode?, architecture?, isNewConstruction?, region?}`.
+`{id?, name, type?, size?, description?, props?, propsMode?, architecture?, isNewConstruction?, region?}`.
 
 Tên/type mở; type công năng ngắn (office, classroom, potions, storage, shop, bedroom...) tra vocabulary; recipe ID nguồn vẫn nhận. Không yêu cầu asset ID/tọa độ. `isNewConstruction:true` trên nhà/công trình AU mới ở scope h1/h2 chuyển toàn scene đang xem sang sandbox. Nhà/tiệm mới tại làng/hẻm không dùng cờ này để bỏ template: resolver gán nhà dân trống đúng khu.
 
@@ -73,7 +73,7 @@ Master nguồn là WZW_MAP2_ATLAS_GITHUB_MASTER.md; tools/atlas.py sinh index. A
 
 ## Indoor H40 placement update
 
-Khung H40 giữ nguyên core. Recipe w/h/minW/minH điều chỉnh frontage/depth qua overrides nguồn; size small/large chỉ là gợi ý tương đối, không prefab bắt buộc. Đồ extras đặt theo zone, tránh footprint/cửa và mặt tường chiếu; hết chỗ giữ biểu tượng tổng + số lượng/nội dung trong Inspector. Unknown giữ biểu tượng trung tính có title, không ép thành rương hoặc bàn.
+Khung H40 giữ nguyên core. Layout đã chốt giữ đúng size S/M/L (small/medium/large), mặc định M; không co giãn phòng để lấp cạnh hành lang. Khi dùng layout nguồn, giữ sàn/tường đã duyệt; phòng riêng giữ nguyên shell, phòng ghép dùng các finish nguồn với cửa/hành lang theo kết nối. Đồ extras đặt theo zone, tránh footprint/cửa và mặt tường chiếu; hết chỗ giữ biểu tượng tổng + số lượng/nội dung trong Inspector. Unknown giữ biểu tượng trung tính có title, không ép thành rương hoặc bàn.
 
 Prop optional: mount floor/wall/surface và parentId (ID instance mẹ). Surface cần parent có metadata surface; không tìm được thì ghi diagnostic và giữ đại diện/Inspector, không tự chọn bàn khác. Source group không tách được đồ con vẫn là một instance; chưa khẳng định sửa đúng mọi thành phần trong cụm.
 

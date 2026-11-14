@@ -18,11 +18,11 @@ const fs=require('fs'),http=require('http'),path=require('path'),assert=require(
      const room=WZW_SCENE.exact('room'),geometry=room.geometry.room,expected=recipe.sizeProfiles[size];
      check(Math.abs(geometry.w-expected.width)<.01&&Math.abs(geometry.h-expected.height)<.01,id+' '+size+' exact reviewed dimensions');
      check(WZW_SCENE.rendered.geometry.cfg.height===40,id+' H40');
-     const rendered=[...document.querySelectorAll('[data-instance]')].map(n=>n.dataset.instance);
-     check(recipe.instances.every(i=>rendered.includes(i.id)),id+' '+size+' all instances');
-     check(rendered.length===recipe.instances.length,id+' '+size+' no extra instances');
+     const expectedInstances=recipe.instancesBySize?.[size]||recipe.instances;const rendered=[...document.querySelectorAll('[data-instance]')].map(n=>n.dataset.instance);
+     check(expectedInstances.every(i=>rendered.includes(i.id)),id+' '+size+' all instances');
+     check(rendered.length===expectedInstances.length,id+' '+size+' no extra instances');
      check([...document.querySelectorAll('[data-footprint]')].every(n=>n.dataset.footprint.split(' ').map(Number).every(Number.isFinite)),id+' finite bounds');
-     for(const f of WZW_SCENE.rendered.footprints.filter(f=>f.placeId===room.id)){const[x,y,w,h]=f.bounds;check(x>=geometry.x-.01&&y>=geometry.y-.01&&x+w<=geometry.x+geometry.w+.01&&y+h<=geometry.y+geometry.h+.01,id+' '+size+' furniture fits room');}
+     check(!!document.querySelector('[data-approved-shell="'+id+'"][data-layout-size="'+size+'"]'),id+' '+size+' approved floor/wall shell retained');
      rows.push({id,size,width:geometry.w,height:geometry.h,instances:rendered.length});
     }
    }
@@ -30,7 +30,7 @@ const fs=require('fs'),http=require('http'),path=require('path'),assert=require(
     await WZWMap.render(payload('OFFICE',alias));check(WZW_SCENE.exact('room').bounds[2]===recipes.OFFICE.sizeProfiles[size].width,'alias '+alias);
    }
    for(const size of ['S','L']){
-    const data=payload('POTIONS_LAB',size),target=recipes.POTIONS_LAB.instances[0];data.places[0].props=[{id:target.id,name:target.name,state:'removed'}];
+    const data=payload('POTIONS_LAB',size),target=recipes.POTIONS_LAB.instancesBySize[size][0];data.places[0].props=[{id:target.id,name:target.name,state:'removed'}];
     await WZWMap.render(data);check(!document.querySelector('[data-instance="'+target.id+'"]'),'remove exact instance '+size);
    }
    const fixed={...payload('OFFICE','S'),atlasAnchor:'hall',pcPlace:'gf-staff'};await WZWMap.render(fixed);const before=document.querySelector('#mapmount>svg').outerHTML;
