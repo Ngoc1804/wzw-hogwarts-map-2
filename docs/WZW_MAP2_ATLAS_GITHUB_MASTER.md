@@ -331,8 +331,8 @@ Generated dùng màu giấy beige cũ, mực nâu, đường viền/texture dị
 
 | Anchor ID thực | Tên hiển thị nguồn | Ý nghĩa/chi tiết hình |
 |---|---|---|
-| `v-home-0` | Nhà McGonagall và Urquart | Anchor nhà trống, chỉ binding AU ổn định |
-| `v-home-1` | Nhà giáo sư Kettleburn | Anchor nhà trống, chỉ binding AU ổn định |
+| `v-home-0` | Nhà McGonagall và Urquart | Nhà cư trú của giáo sư McGonagall và chồng; gán trên nhà trống cũ, vị trí minh hoạ WIZAMAP; không còn dành cho binding AU. |
+| `v-home-1` | Nhà giáo sư Kettleburn | Nhà cư trú của cựu giáo sư Chăm sóc Sinh vật Huyền bí; gán trên nhà trống cũ, vị trí minh hoạ WIZAMAP; không còn dành cho binding AU. |
 | `v-home-3` | Nhà dân · Ngõ 3 | Anchor nhà trống, chỉ binding AU ổn định |
 | `v-home-4` | Nhà dân · Ngõ 4 | Anchor nhà trống, chỉ binding AU ổn định |
 | `v-home-6` | Nhà dân · Ngõ 6 | Anchor nhà trống, chỉ binding AU ổn định |
@@ -470,19 +470,19 @@ Generated dùng màu giấy beige cũ, mực nâu, đường viền/texture dị
 | `da-brick-gateway` | Cổng gạch sau Cái Vạc Lủng | Anchor/POI hiện hữu trên Fixed |
 | `da-gringotts` | Ngân hàng Phù thủy Gringotts | Ngân hàng: quầy giao dịch, khu an ninh và kho hầm như marker, không sinh kho con. |
 | `ka-stair` | Lối xuống Knockturn | Lối/kết nối hoặc điểm vào trong Fixed |
-| `ka-block-0` | Tiệm Đầu người Teo quắt | Anchor nhà trống, chỉ binding AU ổn định |
-| `ka-block-1` | Tiệm Nến Độc | Anchor nhà trống, chỉ binding AU ổn định |
-| `ka-block-2` | Tiệm Sinh vật Hắc ám | Anchor nhà trống, chỉ binding AU ổn định |
-| `ka-block-3` | Tiệm Tơ Nhện Cobb & Webb | Anchor nhà trống, chỉ binding AU ổn định |
-| `ka-block-4` | Tiệm Cổ vật Kỳ Bí | Anchor nhà trống, chỉ binding AU ổn định |
-| `ka-block-5` | Tiệm Moribund | Anchor nhà trống, chỉ binding AU ổn định |
-| `ka-block-6` | Nhà Quan Tài | Anchor nhà trống, chỉ binding AU ổn định |
-| `ka-block-7` | Tiệm Độc dược ông Mulpepper | Anchor nhà trống, chỉ binding AU ổn định |
-| `ka-block-8` | Quán Rồng Trắng | Anchor nhà trống, chỉ binding AU ổn định |
-| `ka-block-9` | Tiệm Đầu Lâu Noggin và Bonce | Anchor nhà trống, chỉ binding AU ổn định |
-| `ka-block-10` | Tiệm Nọc độc Shyverwretch | Anchor nhà trống, chỉ binding AU ổn định |
-| `ka-block-11` | Tiệm Rắn Gai | Anchor nhà trống, chỉ binding AU ổn định |
-| `ka-block-12` | Nhà Tiên Tri Tinh Tú | Anchor nhà trống, chỉ binding AU ổn định |
+| `ka-block-0` | Tiệm Đầu người Teo quắt | Trưng bày đầu người thu nhỏ; gán trên nhà trống cũ, vị trí minh hoạ WIZAMAP; không còn dành cho binding AU. |
+| `ka-block-1` | Tiệm Nến Độc | Nến chứa chất độc và vật phẩm nguy hiểm; gán trên nhà trống cũ, vị trí minh hoạ WIZAMAP; không còn dành cho binding AU. |
+| `ka-block-2` | Tiệm Sinh vật Hắc ám | Trưng bày sinh vật nguy hiểm, nhện khổng lồ; gán trên nhà trống cũ, vị trí minh hoạ WIZAMAP; không còn dành cho binding AU. |
+| `ka-block-3` | Tiệm Tơ Nhện Cobb & Webb | Vật phẩm liên quan Hắc thuật; gán trên nhà trống cũ, vị trí minh hoạ WIZAMAP; không còn dành cho binding AU. |
+| `ka-block-4` | Tiệm Cổ vật Kỳ Bí | Đồ cổ, đồ lạ và pháp khí Hắc thuật; gán trên nhà trống cũ, vị trí minh hoạ WIZAMAP; không còn dành cho binding AU. |
+| `ka-block-5` | Tiệm Moribund | Cửa hiệu bí ẩn, chưa rõ hàng hóa; gán trên nhà trống cũ, vị trí minh hoạ WIZAMAP; không còn dành cho binding AU. |
+| `ka-block-6` | Nhà Quan Tài | Cơ sở mang chủ đề quan tài và chiêu hồn; gán trên nhà trống cũ, vị trí minh hoạ WIZAMAP; không còn dành cho binding AU. |
+| `ka-block-7` | Tiệm Độc dược ông Mulpepper | Độc dược, nguyên liệu pha chế; chi nhánh Knockturn; gán trên nhà trống cũ, vị trí minh hoạ WIZAMAP; không còn dành cho binding AU. |
+| `ka-block-8` | Quán Rồng Trắng | Quán rượu; gán trên nhà trống cũ, vị trí minh hoạ WIZAMAP; không còn dành cho binding AU. |
+| `ka-block-9` | Tiệm Đầu Lâu Noggin và Bonce | Đầu người thu nhỏ; gán trên nhà trống cũ, vị trí minh hoạ WIZAMAP; không còn dành cho binding AU. |
+| `ka-block-10` | Tiệm Nọc độc Shyverwretch | Nọc độc, chất độc và nguyên liệu nguy hiểm; gán trên nhà trống cũ, vị trí minh hoạ WIZAMAP; không còn dành cho binding AU. |
+| `ka-block-11` | Tiệm Rắn Gai | Cửa hiệu bí ẩn, chưa rõ hàng hóa; gán trên nhà trống cũ, vị trí minh hoạ WIZAMAP; không còn dành cho binding AU. |
+| `ka-block-12` | Nhà Tiên Tri Tinh Tú | Cơ sở được quảng cáo bằng áp phích tiên tri; chưa rõ dịch vụ; gán trên nhà trống cũ, vị trí minh hoạ WIZAMAP; không còn dành cho binding AU. |
 | `ka-block-13` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
 | `ka-block-14` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
 | `ka-block-15` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
@@ -503,20 +503,20 @@ Generated dùng màu giấy beige cũ, mực nâu, đường viền/texture dị
 | `da-wizardwear` | Tiệm trang phục phù thủy | Tiệm/quán trên Fixed, dùng POI/marker |
 | `da-workshop` | Tiệm sửa vạc | Tiệm/quán trên Fixed, dùng POI/marker |
 | `da-cafe` | Tiệm trà và cà phê | Tiệm/quán trên Fixed, dùng POI/marker |
-| `da-terrace-7` | Tiệm Pháp cụ Wiseacre | Anchor nhà trống, chỉ binding AU ổn định |
-| `da-terrace-8` | Nhà xuất bản WhizzHard | Anchor nhà trống, chỉ binding AU ổn định |
-| `da-terrace-9` | Hãng Du lịch Kinh Hoàng | Anchor nhà trống, chỉ binding AU ổn định |
-| `da-terrace-10` | Tòa soạn Nhật báo Tiên tri | Anchor nhà trống, chỉ binding AU ổn định |
-| `da-terrace-11` | Tiệm Độc dược ông Mulpepper | Anchor nhà trống, chỉ binding AU ổn định |
+| `da-terrace-7` | Tiệm Pháp cụ Wiseacre | Kính thiên văn, thiết bị pháp thuật; gán trên nhà trống cũ, vị trí minh hoạ WIZAMAP; không còn dành cho binding AU. |
+| `da-terrace-8` | Nhà xuất bản WhizzHard | Xuất bản sách phép thuật; gán trên nhà trống cũ, vị trí minh hoạ WIZAMAP; không còn dành cho binding AU. |
+| `da-terrace-9` | Hãng Du lịch Kinh Hoàng | Du lịch, tham quan mạo hiểm; gán trên nhà trống cũ, vị trí minh hoạ WIZAMAP; không còn dành cho binding AU. |
+| `da-terrace-10` | Tòa soạn Nhật báo Tiên tri | Báo chí và xuất bản tin tức; gán trên nhà trống cũ, vị trí minh hoạ WIZAMAP; không còn dành cho binding AU. |
+| `da-terrace-11` | Tiệm Độc dược ông Mulpepper | Thảo dược, nguyên liệu và độc dược; gán trên nhà trống cũ, vị trí minh hoạ WIZAMAP; không còn dành cho binding AU. |
 | `da-terrace-12` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
-| `da-terrace-13` | Tiệm Kẹo Mận Đường | Anchor nhà trống, chỉ binding AU ổn định |
+| `da-terrace-13` | Tiệm Kẹo Mận Đường | Kẹo, bánh ngọt phép thuật; gán trên nhà trống cũ, vị trí minh hoạ WIZAMAP; không còn dành cho binding AU. |
 | `da-terrace-14` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
 | `da-terrace-15` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
 | `da-terrace-16` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
-| `da-terrace-17` | Quán Trọ Nồi Hầm và Rượu Ủ | Anchor nhà trống, chỉ binding AU ổn định |
+| `da-terrace-17` | Quán Trọ Nồi Hầm và Rượu Ủ | Nhà trọ cho phù thủy; gán trên nhà trống cũ, vị trí minh hoạ WIZAMAP; không còn dành cho binding AU. |
 | `da-terrace-18` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
 | `da-terrace-19` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
-| `da-terrace-20` | Tiệm Mỹ dược bà Primpernelle | Anchor nhà trống, chỉ binding AU ổn định |
+| `da-terrace-20` | Tiệm Mỹ dược bà Primpernelle | Độc dược và sản phẩm làm đẹp; gán trên nhà trống cũ, vị trí minh hoạ WIZAMAP; không còn dành cho binding AU. |
 | `da-terrace-21` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
 
 ### 2.12. `ministry2` — Bộ Pháp thuật L1–L7
