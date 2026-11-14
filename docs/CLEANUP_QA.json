@@ -31,5 +31,7 @@
     "current-scope: 8 Outdoor, lifecycle, malformed payload recovery PASS",
     "check-id-links: 443 catalog / 49 recipes / 509 instances / 59 clusters / 13 Fixed; zero issues",
     "full rebuild deterministic across two runs; no deleted source dependencies"
-  ]
+  ],
+  "historicalReport": true,
+  "supersededBy": "PRESENTATION_QA.json; the two old review HTMLs are deleted per user request"
 }

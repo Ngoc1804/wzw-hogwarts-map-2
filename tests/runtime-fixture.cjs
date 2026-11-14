@@ -1,0 +1,2 @@
+// Test-only in-memory harness for the current distribution. Never writes an HTML deliverable.
+const fs=require('fs');module.exports=()=>{let html=fs.readFileSync('examples/minimal.html','utf8');html=html.replace(/<link rel="stylesheet"[^>]*>/,'<style>'+fs.readFileSync('dist/shell.css','utf8')+'</style>');for(const name of ['templates-pack','bundle'])html=html.replace(new RegExp('<script src="[^\"]*'+name+'\\.js"[^>]*></script>'),()=>'<script>'+fs.readFileSync('dist/'+name+'.js','utf8').replace(/<\/script/gi,'<\\/script')+'</script>');return html};

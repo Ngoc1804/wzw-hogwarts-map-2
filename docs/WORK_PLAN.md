@@ -6,7 +6,7 @@ Quyết định người dùng: dọn file trước; decor/đổ màu/tên cửa
 |---|---|---|---|
 | P0 | Assets | Giữ 443 ID, editor màu; chia sẻ SVG trùng; phân biệt hai cụm picnic | Không mất màu/hình/alias; editor xuất/mở lại chạy offline |
 | P0 | Toàn project | Một bộ tên file; bỏ HTML FINAL gốc, bản cũ và công cụ import cũ | Rebuild không cần file đã xóa; không đổi hash artwork Fixed/UI |
-| P0 | Runtime/Mechanisms HTML | Đóng gói offline, mở trực tiếp, không phụ thuộc HTML Preview/CDN | Mở bằng file://, có map, không lỗi JS/request ngoài |
+| P0 | Hai HTML kiểm cũ | Đã xóa hẳn HTML, nút mở và công cụ sinh; bộ kiểm mới làm sau | Rebuild không tạo lại hai file |
 | P1 | Fixed/UI · hall | Decor lại cụm phòng giáo viên, Filch, lớp 11 và phòng phụ phù hợp | Xem ảnh trước/sau; giữ cửa, lối đi, ID, PC/NPC và vùng bấm |
 | P1 | Fixed/UI · bốn phòng chung | Decor riêng theo bản sắc Gryffindor/Ravenclaw/Hufflepuff/Slytherin | Giữ màu Nhà; đồ cân đối, không chắn cửa; desktop/mobile |
 | P1 | Hogsmeade + Hẻm Xéo/Knockturn | Rà tên canon bản Lý Lan; tên chưa chắc giữ thương hiệu; điền nhãn, alias, mô tả và tọa độ | Một ID/địa điểm, có marker bấm được; tách canon thương hiệu và vị trí AU; xét mốc thời gian RP |
@@ -21,3 +21,9 @@ Nguồn đối chiếu địa danh cho lượt sau:
 - Tên Phú Quý và Cơ Hàn có đối chiếu tiếng Việt; các tên khác chưa được chứng nhận đồng loạt là bản dịch Lý Lan.
 
 Lượt dọn này không sửa decor, palette phòng, tên cửa hàng, tọa độ hoặc hành vi RP.
+
+## Sửa presentation theo phản hồi
+
+- Tên/icon/footstep dùng cùng tọa độ và tỉ lệ zoom; không dịch nhãn tự do khỏi nhân vật.
+- H1, H2, Hogsmeade, Hẻm Xéo và Outdoor: ở trong nhà giữ tên, bỏ chân; bên ngoài có chân. Các map còn lại bắt buộc có chân dưới tên.
+- Tên layout hiện hành: `WIZAMAP_LAYOUTS.html`; bỏ hậu tố H40_SML.

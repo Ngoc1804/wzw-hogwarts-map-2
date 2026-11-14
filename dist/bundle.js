@@ -105,7 +105,7 @@ function chip(name,index,pc){const b=document.createElement('button');b.classNam
 function addUse(g,side){const e=document.createElementNS(NS,'use');e.setAttribute('href','#demo-shoe-'+side);g.append(e);return e}
 function setupFeet(g){g.replaceChildren();if(g.dataset.motion==='idle'){
  const l=addUse(g,'r'),r=addUse(g,'l');l.setAttribute('transform','translate(-8 0) rotate(-6)');r.setAttribute('transform','translate(8 0) rotate(6)');
-}else for(let i=0;i<6;i++){const e=addUse(g,i%2?'l':'r');e.setAttribute('transform',`translate(${i%2?7:-7} ${-i*17}) rotate(${i%2?6:-6})`);e.style.opacity='0'}}
+}else for(let i=0;i<6;i++){const e=addUse(g,i%2?'l':'r');e.setAttribute('transform',`translate(${i%2?7:-7} ${Math.floor(i/2)*12}) rotate(${i%2?6:-6})`);e.style.opacity='0'}}
 
 
 function tagType(actor) {
@@ -126,12 +126,12 @@ function feetState(elapsed, stance='idle', reduced=false) {
     const f=Math.sin(elapsed/6400*Math.PI*2)*.05;
     return [.95+f,.95-f];
   }
-  const t=((elapsed%5300)+5300)%5300, step=Math.floor(t/550);
-  return Array.from({length:6},(_,i)=>t<3300&&i===step?1:0);
+  const t=((elapsed%2200)+2200)%2200,step=Math.floor(t/550);
+  return Array.from({length:6},(_,i)=>i<2?.9:(i-2===step?.7:.12));
 }
 const feetJobs=new Set();let feetTimer;
 function mountFeet(g,stance='idle'){
- if(stance==='hidden'){g.replaceChildren();return()=>{}}const reduced=matchMedia('(prefers-reduced-motion: reduce)');const job={g,stance,reduced,origin:performance.now(),mode:reduced.matches?'idle':stance};feetJobs.add(job);g.dataset.motion=job.mode;setupFeet(g);for(const n of g.children)n.style.opacity='0';
+ if(stance==='hidden'){g.replaceChildren();return()=>{}}const reduced=matchMedia('(prefers-reduced-motion: reduce)');const job={g,stance,reduced,origin:performance.now(),mode:reduced.matches?'idle':stance};feetJobs.add(job);g.dataset.motion=job.mode;setupFeet(g);const initial=feetState(0,stance,reduced.matches);[...g.children].forEach((n,i)=>n.style.opacity=String(initial[i]??0));
  if(!feetTimer)feetTimer=setInterval(()=>{if(document.hidden||document.body.classList.contains('motion-off'))return;const now=performance.now();for(const j of feetJobs){const next=j.reduced.matches?'idle':j.stance;if(next!==j.mode){j.mode=next;j.g.dataset.motion=next;setupFeet(j.g)}const values=feetState(now-j.origin,j.stance,j.reduced.matches);[...j.g.children].forEach((n,i)=>n.style.opacity=String(j.valid&&!j.valid(n)?0:(values[i]??0)));}},100);
  return ()=>{feetJobs.delete(job);if(!feetJobs.size){clearInterval(feetTimer);feetTimer=null}};
 }
@@ -280,12 +280,21 @@ async function prepareTemplateUI(){
   for(let ring=0;ring<18;ring++)for(let a=0;a<(ring?16:1);a++){const x=center.x+Math.cos(a*Math.PI/8)*ring*step,y=center.y+Math.sin(a*Math.PI/8)*ring*step;if(x<b.x-12||x>b.x+b.w+12||y<b.y-12||y>b.y+b.h+24)continue;if(pointSafe(x,y,5))return{x,y}}
   return null;
  }
- function renderPositions(){if(svg!==scene)return;const base=$('#mapmount').getBoundingClientRect(),ctm=svg.getScreenCTM(),inverse=ctm.inverse();
-  linkLayer.replaceChildren();const placed=[];for(const item of [...actorItems,...eventItems]){const screen=new DOMPoint(item.point.x,item.point.y).matrixTransform(ctm),a=new DOMPoint(originalVB[0],originalVB[1]).matrixTransform(ctm),b=new DOMPoint(originalVB[0]+originalVB[2],originalVB[1]+originalVB[3]).matrixTransform(ctm),rect=item.element.getBoundingClientRect();let x=Math.max(a.x+rect.width/2,Math.min(b.x-rect.width/2,screen.x)),y=Math.max(a.y+rect.height,Math.min(b.y,screen.y));
-   const collides=(x,y)=>placed.some(r=>x+rect.width/2+3>r.x&&x-rect.width/2-3<r.x+r.w&&y+3>r.y&&y-rect.height-3<r.y+r.h);
-   if(collides(x,y)){let found=false;for(let ring=1;ring<=8&&!found;ring++)for(const [dx,dy]of [[0,-ring],[0,ring],[-ring,0],[ring,0],[-ring,-ring],[ring,ring]]){const nx=x+dx*(rect.width+5),ny=y+dy*(rect.height+5);if(nx-rect.width/2<a.x||nx+rect.width/2>b.x||ny-rect.height<a.y||ny>b.y||collides(nx,ny))continue;x=nx;y=ny;found=true;break;}}
-   if(Math.hypot(x-screen.x,y-screen.y)>20){const target=new DOMPoint(x,y).matrixTransform(inverse);uiElement('line',{x1:item.point.x,y1:item.point.y,x2:target.x,y2:target.y},linkLayer);}
-   placed.push({x:x-rect.width/2,y:y-rect.height,w:rect.width,h:rect.height});item.element.style.left=(x-base.left)+'px';item.element.style.top=(y-base.top)+'px'}
+ function renderPositions(){if(svg!==scene)return;
+  const base=$('#mapmount').getBoundingClientRect(),ctm=svg.getScreenCTM();if(!ctm)return;const inverse=ctm.inverse();
+  // Every marker uses the same map anchor and zoom ratio. Never clamp or move
+  // labels independently of the artwork: that changes their apparent location.
+  const fitScale=Math.min(base.width/originalVB[2],base.height/originalVB[3]);
+  const mapScale=Math.hypot(ctm.a,ctm.b),ratio=mapScale/fitScale;
+  linkLayer.replaceChildren();
+  for(const item of [...actorItems,...eventItems]){
+   const point=new DOMPoint(item.point.x,item.point.y).matrixTransform(ctm),actor=!!item.actor;
+   item.element.style.transformOrigin=actor?'50% 100%':'50% 50%';
+   item.element.style.transform=`translate(-50%,${actor?'-100%':'-50%'}) scale(${ratio})`;
+   item.element.style.left=(point.x-base.left)+'px';
+   item.element.style.top=(point.y-base.top-(actor?8*ratio:0))+'px';
+   if(item.feet)item.feet.setAttribute('transform',`translate(${item.point.x} ${item.point.y}) scale(${.55/fitScale})`);
+  }
   const faded=new Set();for(const a of actorItems){
    // Test the character's anchored silhouette, independently of a relocated ribbon.
    const scale=Math.hypot(inverse.a,inverse.b),region={x:a.point.x-4*scale,y:a.point.y-18*scale,w:8*scale,h:20*scale};
@@ -295,15 +304,16 @@ async function prepareTemplateUI(){
  }
  function clearActors(){hovered=pinned=null;for(const a of actorItems){a.stop?.();a.element.remove();a.feet?.remove()}actorItems=[];renderPositions()}
  async function mountActors(actors=[]){const version=++generation;await readyMasks();if(svg!==scene||version!==generation)return;clearActors();
-  for(const actor of actors){const place=(DATA.maps[activeId].places||[]).find(p=>p.id===actor.placeId||p.name===actor.placeName);if(!place)continue;const inside=actor.inside===true||actor.pcSpot==='inside',point=localPoint(place,inside,actor);if(!point)continue;
+  for(const actor of actors){const place=(DATA.maps[activeId].places||[]).find(p=>p.id===actor.placeId||p.name===actor.placeName);if(!place)continue;const inside=actor.inside===true||actor.spot==='inside'||actor.pcSpot==='inside',point=localPoint(place,inside,actor);if(!point)continue;
    const element=actorTag(actor);element.classList.add('npc-tag');element.title=actor.activity||place.name;layer.append(element);
    element.onpointerenter=e=>{if(e.pointerType!=='touch'){hovered=element;renderPositions()}};element.onpointerleave=()=>{if(hovered===element){hovered=null;renderPositions()}};element.onfocus=()=>{hovered=element;renderPositions()};element.onblur=()=>{if(hovered===element){hovered=null;renderPositions()}};
    element.onclick=()=>{toggleXray(element);showActorDetails(actor,place)};
-   const stance=inside?'hidden':(['walk','idle','hidden'].includes(actor.footstep)?actor.footstep:'idle');let feet=null,stop=null;
+   const overview=['h1','h2','village-static','diagon-knockturn'].includes(activeId)||DATA.maps[activeId].kind==='outdoor';
+   const stance=overview&&inside?'hidden':actor.footstep==='walk'?'walk':'idle';let feet=null,stop=null;
    if(stance!=='hidden'){
     feet=uiElement('g',{class:'footstep',transform:`translate(${point.x} ${point.y}) scale(.6)`},footLayer);stop=mountFeet(feet,stance);
-    // Validate each entire shoe silhouette, not only its centre; invalid steps stay hidden.
-    const job=[...feetJobs].find(j=>j.g===feet);if(job)job.valid=(use)=>{const b=worldBox(use);for(let y=b.y;y<=b.y+b.h;y+=Math.max(.8,b.h/12))for(let x=b.x;x<=b.x+b.w;x+=Math.max(.8,b.w/8))if(!pointSafe(x,y))return false;return pointSafe(b.x+b.w,b.y+b.h)};
+    // Feet are a character marker beneath the name, not furniture geometry.
+    // Do not hide them intermittently because a shoe touches an occupied pixel.
    }
    actorItems.push({point,element,feet,stop,inside,actor,placeId:place.id});
   }showPlaceActors();renderPositions();
@@ -826,7 +836,7 @@ async function renderInput(input){const renderStart=performance.now();root.paren
  if(!window.WZW_ORIGINAL_MAPS)window.WZW_ORIGINAL_MAPS=structuredClone(DATA.maps);DATA.maps=structuredClone(window.WZW_ORIGINAL_MAPS);
  const scene=resolve(d);d.unresolvedPlaces=scene.unresolved;let mapId=scene.source?scene.fixedId:'rp-scene';if(scene.source){DATA.maps[mapId].places=scene.places.filter(p=>scene.source.places.some(x=>x.id===p.id));}else DATA.maps[mapId]=buildMap(scene,d);
  await setTemplate(mapId);
- async function mount(){DATA.maps[activeId].actorPoints=[];for(const a of d.actors){const place=scene.exact(a.placeId||a.placeName);a.placeId=place?.id;if(a.isPC){a.placeName=d.pcPlace;a.placeId=scene.exact(d.pcPlace)?.id;a.spot=d.pcSpot||a.spot;}a.inside=a.spot==='inside';a.scenePoint=undefined;a.unresolvedAnchor=false;const resolved=scene.exact(a.placeId||a.placeName);a.hearingText=resolved?.overhear||'';if(!resolved)a.unresolvedAnchor=true;const map=DATA.maps[activeId];if(!scene.source&&resolved){a.scenePoint=generatedActorPoint(map,resolved,a.spot,a);if(!a.scenePoint)a.unresolvedAnchor=true;else if(a.scenePoint.anchorOnly||a.scenePoint.noFeet)a.footstep='hidden';}if(a.inside||['sitting','lying','hidden'].includes(a.posture))a.footstep='hidden';}for(const e of d.events)e.placeId=scene.exact(e.placeId||e.placeName)?.id;await presentation.mountActors(d.actors.filter(a=>a.placeId&&!a.unresolvedAnchor));presentation.mountEvents(d.events.filter(e=>e.placeId));svg.addEventListener('wzw-place-selected',e=>inspect(scene.places.find(p=>p.id===e.detail.id)));inspect(scene.exact(d.pcPlace));}
+ async function mount(){DATA.maps[activeId].actorPoints=[];for(const a of d.actors){const place=scene.exact(a.placeId||a.placeName);a.placeId=place?.id;if(a.isPC){a.placeName=d.pcPlace;a.placeId=scene.exact(d.pcPlace)?.id;a.spot=d.pcSpot||a.spot;}a.inside=a.spot==='inside';a.scenePoint=undefined;a.unresolvedAnchor=false;const resolved=scene.exact(a.placeId||a.placeName);a.hearingText=resolved?.overhear||'';if(!resolved)a.unresolvedAnchor=true;const map=DATA.maps[activeId];if(!scene.source&&resolved){a.scenePoint=generatedActorPoint(map,resolved,a.spot,a);if(!a.scenePoint)a.unresolvedAnchor=true;else if(a.scenePoint.anchorOnly||a.scenePoint.noFeet)a.footstep='hidden';}/* Footstep visibility follows the active map's presentation policy. */}for(const e of d.events)e.placeId=scene.exact(e.placeId||e.placeName)?.id;await presentation.mountActors(d.actors.filter(a=>a.placeId&&!a.unresolvedAnchor));presentation.mountEvents(d.events.filter(e=>e.placeId));svg.addEventListener('wzw-place-selected',e=>inspect(scene.places.find(p=>p.id===e.detail.id)));inspect(scene.exact(d.pcPlace));}
  await mount();put('#place-area',scene.source?'BẢN ĐỒ CỐ ĐỊNH':'KHÔNG GIAN RP');for(const [selector,value]of [['#zone',d.meta.areaName],['.quote',d.meta.quote],['.date',d.meta.date],['.clock',d.meta.time]]){const el=$(selector);if(el)el.textContent=value||'';}
  root.dataset.status='ready';root.dataset.renderMs=String(performance.now()-renderStart);window.WZW_SCENE={...scene,rendered:{kind:DATA.maps[activeId].kind,geometry:DATA.maps[activeId].geometry,footprints:DATA.maps[activeId].footprints},diagnostics:d.diagnostics};return scene;}
 let renderQueue=Promise.resolve(),initialized=false;

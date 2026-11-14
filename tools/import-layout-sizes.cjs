@@ -1,7 +1,7 @@
 // Compile the reviewed sizes once. The reference editor never runs in RP.
 const fs=require('fs'),http=require('http'),{chromium}=require('playwright');
 (async()=>{
- const server=http.createServer((q,r)=>{r.setHeader('Content-Type','text/html; charset=utf-8');r.end(fs.readFileSync('examples/WIZAMAP_LAYOUTS_H40_SML.html'))});
+ const server=http.createServer((q,r)=>{r.setHeader('Content-Type','text/html; charset=utf-8');r.end(fs.readFileSync('examples/WIZAMAP_LAYOUTS.html'))});
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
  const browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox']});
  try{

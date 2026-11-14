@@ -3,7 +3,7 @@
   "renames": {
     "examples/asset-review.html": "examples/WIZAMAP_ASSETS.html",
     "examples/template-review.html": "examples/WIZAMAP_FIXED_UI.html",
-    "examples/WIZAMAP_LAYOUTS_REVIEW_H40_SML.html": "examples/WIZAMAP_LAYOUTS_H40_SML.html",
+    "examples/WIZAMAP_LAYOUTS_REVIEW_H40_SML.html": "examples/WIZAMAP_LAYOUTS.html",
     "examples/p4-review.html": "examples/WIZAMAP_RUNTIME_CHECK.html",
     "examples/mechanism-review.html": "examples/WIZAMAP_MECHANISMS_CHECK.html"
   },
@@ -998,12 +998,26 @@
   "publicIdPolicy": "Public IDs remain unchanged; SVG local IDs remain scoped. No wholesale renumbering.",
   "sourceInvariants": {
     "examples/WIZAMAP_FIXED_UI.html": {
-      "sha256": "e5955a663e7faec4234541f1d5f0801f16a2fa6e3f766906e408837b20ecd30f",
-      "identicalToBaseline": true
+      "sha256": "4f108717dc072e6629d5beb0265e329b961ee21ade60d2a61e7edb178e5e3d78",
+      "identicalToBaseline": false,
+      "artworkPackUnchanged": true,
+      "presentationUpdated": true
     },
-    "examples/WIZAMAP_LAYOUTS_H40_SML.html": {
+    "examples/WIZAMAP_LAYOUTS.html": {
       "sha256": "fab1c5449dcefad3ab0d32d23f461783282b79097b3b7c93bfb813857940b904",
       "identicalToBaseline": true
     }
+  },
+  "presentationUpdate": {
+    "fromCommit": "cfcbce2",
+    "removedReviewHtml": [
+      "examples/WIZAMAP_RUNTIME_CHECK.html",
+      "examples/WIZAMAP_MECHANISMS_CHECK.html"
+    ],
+    "layoutRename": {
+      "old": "examples/WIZAMAP_LAYOUTS_H40_SML.html",
+      "new": "examples/WIZAMAP_LAYOUTS.html"
+    },
+    "policy": "Common map anchor/scale for tags/icons/feet. Overview/outdoor hide inside footsteps only; remaining maps show footsteps. Old review generators removed."
   }
 }

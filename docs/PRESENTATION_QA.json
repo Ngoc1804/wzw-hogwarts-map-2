@@ -1,0 +1,312 @@
+{
+  "checks": [
+    {
+      "mobile": false,
+      "footstepPolicies": [
+        {
+          "id": "h1",
+          "inside": true,
+          "count": 0
+        },
+        {
+          "id": "h1",
+          "inside": false,
+          "count": 1
+        },
+        {
+          "id": "h2",
+          "inside": true,
+          "count": 0
+        },
+        {
+          "id": "h2",
+          "inside": false,
+          "count": 1
+        },
+        {
+          "id": "hall",
+          "inside": true,
+          "count": 1
+        },
+        {
+          "id": "hall",
+          "inside": false,
+          "count": 1
+        },
+        {
+          "id": "ministry2",
+          "inside": true,
+          "count": 1
+        },
+        {
+          "id": "ministry2",
+          "inside": false,
+          "count": 1
+        },
+        {
+          "id": "express",
+          "inside": true,
+          "count": 1
+        },
+        {
+          "id": "express",
+          "inside": false,
+          "count": 1
+        },
+        {
+          "id": "gryffindor-common",
+          "inside": true,
+          "count": 1
+        },
+        {
+          "id": "gryffindor-common",
+          "inside": false,
+          "count": 1
+        },
+        {
+          "id": "ravenclaw-common",
+          "inside": true,
+          "count": 1
+        },
+        {
+          "id": "ravenclaw-common",
+          "inside": false,
+          "count": 1
+        },
+        {
+          "id": "hufflepuff-common",
+          "inside": true,
+          "count": 1
+        },
+        {
+          "id": "hufflepuff-common",
+          "inside": false,
+          "count": 1
+        },
+        {
+          "id": "slytherin-common",
+          "inside": true,
+          "count": 1
+        },
+        {
+          "id": "slytherin-common",
+          "inside": false,
+          "count": 1
+        },
+        {
+          "id": "village-static",
+          "inside": true,
+          "count": 0
+        },
+        {
+          "id": "village-static",
+          "inside": false,
+          "count": 1
+        },
+        {
+          "id": "pitch-static",
+          "inside": true,
+          "count": 1
+        },
+        {
+          "id": "pitch-static",
+          "inside": false,
+          "count": 1
+        },
+        {
+          "id": "diagon-knockturn",
+          "inside": true,
+          "count": 0
+        },
+        {
+          "id": "diagon-knockturn",
+          "inside": false,
+          "count": 1
+        },
+        {
+          "id": "ministry-8-10",
+          "inside": true,
+          "count": 1
+        },
+        {
+          "id": "ministry-8-10",
+          "inside": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "mobile": false,
+      "zoomPanScale": "PASS",
+      "feetNeverBlank": "PASS"
+    },
+    {
+      "mobile": true,
+      "footstepPolicies": [
+        {
+          "id": "h1",
+          "inside": true,
+          "count": 0
+        },
+        {
+          "id": "h1",
+          "inside": false,
+          "count": 1
+        },
+        {
+          "id": "h2",
+          "inside": true,
+          "count": 0
+        },
+        {
+          "id": "h2",
+          "inside": false,
+          "count": 1
+        },
+        {
+          "id": "hall",
+          "inside": true,
+          "count": 1
+        },
+        {
+          "id": "hall",
+          "inside": false,
+          "count": 1
+        },
+        {
+          "id": "ministry2",
+          "inside": true,
+          "count": 1
+        },
+        {
+          "id": "ministry2",
+          "inside": false,
+          "count": 1
+        },
+        {
+          "id": "express",
+          "inside": true,
+          "count": 1
+        },
+        {
+          "id": "express",
+          "inside": false,
+          "count": 1
+        },
+        {
+          "id": "gryffindor-common",
+          "inside": true,
+          "count": 1
+        },
+        {
+          "id": "gryffindor-common",
+          "inside": false,
+          "count": 1
+        },
+        {
+          "id": "ravenclaw-common",
+          "inside": true,
+          "count": 1
+        },
+        {
+          "id": "ravenclaw-common",
+          "inside": false,
+          "count": 1
+        },
+        {
+          "id": "hufflepuff-common",
+          "inside": true,
+          "count": 1
+        },
+        {
+          "id": "hufflepuff-common",
+          "inside": false,
+          "count": 1
+        },
+        {
+          "id": "slytherin-common",
+          "inside": true,
+          "count": 1
+        },
+        {
+          "id": "slytherin-common",
+          "inside": false,
+          "count": 1
+        },
+        {
+          "id": "village-static",
+          "inside": true,
+          "count": 0
+        },
+        {
+          "id": "village-static",
+          "inside": false,
+          "count": 1
+        },
+        {
+          "id": "pitch-static",
+          "inside": true,
+          "count": 1
+        },
+        {
+          "id": "pitch-static",
+          "inside": false,
+          "count": 1
+        },
+        {
+          "id": "diagon-knockturn",
+          "inside": true,
+          "count": 0
+        },
+        {
+          "id": "diagon-knockturn",
+          "inside": false,
+          "count": 1
+        },
+        {
+          "id": "ministry-8-10",
+          "inside": true,
+          "count": 1
+        },
+        {
+          "id": "ministry-8-10",
+          "inside": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "mobile": true,
+      "zoomPanScale": "PASS",
+      "feetNeverBlank": "PASS"
+    },
+    {
+      "mode": "indoor",
+      "spot": "inside",
+      "feet": 1
+    },
+    {
+      "mode": "outdoor",
+      "spot": "inside",
+      "feet": 0
+    },
+    {
+      "mode": "outdoor",
+      "spot": "outdoor",
+      "feet": 1
+    }
+  ],
+  "errors": [],
+  "targetPreview": "NOT RUN",
+  "scope": "Zoom/pan anchors, marker scaling and footstep rules. No artwork/layout redesign or replacement review HTML.",
+  "regressions": [
+    "current-scope PASS",
+    "link-child-ribbon PASS",
+    "xray-occlusion PASS",
+    "catalog-editor PASS edit/undo/export/reopen/reset/mobile",
+    "check-id-links PASS 443 assets / 49 recipes / 509 instances / 13 Fixed, zero issues",
+    "inventory-visual PASS",
+    "Fixed compressed artwork pack unchanged",
+    "deterministic rebuild, deleted HTMLs not recreated"
+  ]
+}
