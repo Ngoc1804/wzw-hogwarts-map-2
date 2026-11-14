@@ -43,6 +43,7 @@
     "props honor zones",
     "actor honors zone",
     "building excluded without RP exception",
+    "explicit inside remains an informational building anchor, not relocated to yard",
     "lake forbidden by default",
     "deck is walkable over water",
     "explicit wall anchor follows actual fence instead of bbox center",
@@ -92,5 +93,5 @@
     "13 Fixed payloads, shared vectors, H1 contents and catalog artwork unchanged"
   ],
   "scope": "Generated Outdoor ground and obstacle placement. No tree trunk/canopy or foreground-layer feature; AI Studio deferred by user.",
-  "sourceSha256": "6742c137bac8bc79002f25c89d5a700e148d3b2a6457329e20072cd9df84f038"
+  "sourceSha256": "35b98c589e33fb057439997d790992c191a511bf9eafe8cdd55db623571dd547"
 }

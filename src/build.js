@@ -181,11 +181,18 @@ function outdoorActorPoint(map,place,actor){
   const point=samples?.length?samples.reduce((best,p)=>Math.hypot(p.x-target.x,p.y-target.y)<Math.hypot(best.x-target.x,best.y-target.y)?p:best):target;
   return{...point,noFeet:true};
  }
+ // An explicit indoor RP location remains attached to its building on an
+ // exterior scene. Do not move it out to the yard or invent an interior floor.
+ if(actor.spot==='inside'){
+  const buildings=supports.filter(f=>f.kind==='building'),building=actor.supportId?buildings.find(f=>f.id===actor.supportId||f.sourceId===actor.supportId):buildings.length===1?buildings[0]:null;
+  if(building){place.inventory.diagnostics.push('outdoor-interior-anchor:'+place.id);return{...zonePoint(building.bounds,actor.zone),anchorOnly:true,noFeet:true};}
+  place.inventory.diagnostics.push('unresolved-support:indoor-building');
+ }
  const[x,y,w,h]=place.bounds,points=[desired];for(let v=.08;v<.96;v+=.06)for(let u=.06;u<.96;u+=.06)points.push({x:x+w*u,y:y+h*v});
  points.sort((a,b)=>Math.hypot(a.x-desired.x,a.y-desired.y)-Math.hypot(b.x-desired.x,b.y-desired.y));
  const point=points.find(p=>map.safeFloor(p.x,p.y,7)&&!(map.actorPoints||[]).some(q=>Math.hypot(q.x-p.x,q.y-p.y)<18));
  if(!point)return{...desired,anchorOnly:true,noFeet:true};
- (map.actorPoints||(map.actorPoints=[])).push(point);return{...point,noFeet:['sitting','lying','hidden'].includes(actor.posture)};
+ (map.actorPoints||(map.actorPoints=[])).push(point);return{...point,...(actor.spot==='inside'?{anchorOnly:true,noFeet:true}:{noFeet:['sitting','lying','hidden'].includes(actor.posture)})};
 }
 function styleIndoor(markup,plan,places){
  const doc=new DOMParser().parseFromString(markup,'image/svg+xml'),root=doc.documentElement;
@@ -199,7 +206,7 @@ function buildMap(scene,d){return (d.mapMode||scene.mapMode)==='outdoor'?outdoor
 function generatedActorPoint(map,place,spot,actor={}){
  if(!place.bounds||!spot)return null;
  const [x,y,w,h]=place.bounds;
- if(map.kind==='outdoor')return outdoorActorPoint(map,place,actor);
+ if(map.kind==='outdoor')return outdoorActorPoint(map,place,{...actor,spot});
  const room=place.geometry?.room,hall=place.geometry?.hall;
  if(hall||spot==='inside')return indoorActorPoint(map,place,actor);
  const door=place.geometry?.door;
