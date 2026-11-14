@@ -50,3 +50,9 @@ Lượt dọn này không sửa decor, palette phòng, tên cửa hàng, tọa �
 - Resize desktop/mobile hoặc drawer tính lại tag/chân; zoom/pan không tự đổi điểm đứng.
 - Thêm kiểm hồi quy horizontal/vertical, 2/4/5 người, chuyển viewport và nhiều người ngoài trời.
 - Chỉ sửa presentation và build liên quan; asset, màu và layout nguồn giữ nguyên. AI Studio/duyệt hình vẫn để sau.
+
+## Decor Fixed đã được duyệt
+
+Người dùng đã duyệt HTML local có so sánh trước/sau và yêu cầu đẩy lên nhánh M2-P01-baseline-loader. Đã thay artwork nguồn của hall, gryffindor-common, ravenclaw-common, hufflepuff-common, slytherin-common; build lại pack. Bản cũ chỉ giữ trong lịch sử Git, không thêm HTML review hay renderer song song. Nhiệm vụ decor Fixed trong bảng P1 phía trên đã hoàn tất; decor layout vẫn là phạm vi riêng.
+
+Bước tiếp theo: rà dependency/file thừa, hợp nhất tài liệu và tối ưu prompt dựa trên contract hiện hành; lập danh sách giữ–gộp–bỏ trước khi xóa.

@@ -298,15 +298,5 @@
   ],
   "errors": [],
   "targetPreview": "NOT RUN",
-  "scope": "Zoom/pan anchors, marker scaling and footstep rules. No artwork/layout redesign or replacement review HTML.",
-  "regressions": [
-    "current-scope PASS",
-    "link-child-ribbon PASS",
-    "xray-occlusion PASS",
-    "catalog-editor PASS edit/undo/export/reopen/reset/mobile",
-    "check-id-links PASS 443 assets / 49 recipes / 509 instances / 13 Fixed, zero issues",
-    "inventory-visual PASS",
-    "Fixed compressed artwork pack unchanged",
-    "deterministic rebuild, deleted HTMLs not recreated"
-  ]
+  "scope": "Zoom/pan anchors, marker scaling and footstep rules. No artwork/layout redesign or replacement review HTML."
 }

@@ -7,7 +7,7 @@ Mở [trang chọn HTML](index.html). Tải repository bằng **Code → Downloa
 | Bộ | File hiện hành | Trạng thái |
 |---|---|---|
 | 443 asset, icon, editor màu | [WIZAMAP_ASSETS.html](examples/WIZAMAP_ASSETS.html) | Bộ asset đã chốt; giữ 443 ID, chia sẻ 3 bản SVG trùng trong bản sinh |
-| 13 Fixed + UI | [WIZAMAP_FIXED_UI.html](examples/WIZAMAP_FIXED_UI.html) | Giữ nguyên artwork/UI; decor sảnh và bốn nhà làm sau |
+| 13 Fixed + UI | [WIZAMAP_FIXED_UI.html](examples/WIZAMAP_FIXED_UI.html) | Decor Sảnh và bốn Nhà đã được duyệt; UI/ID giữ nguyên |
 | Layout H40 S/M/L | [WIZAMAP_LAYOUTS.html](examples/WIZAMAP_LAYOUTS.html) | Giữ bản hiện hành; danh sách phòng đổi màu chờ lượt sau |
 
 ## Nguồn duy nhất

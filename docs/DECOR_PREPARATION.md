@@ -1,6 +1,8 @@
-# Chuẩn bị decor — chưa áp vào artwork
+# Decor — bản Fixed đã được duyệt
 
-Phạm vi được chuẩn bị trực tiếp trên `M2-P01-baseline-loader`. Không đổi hình H1/H2, vị trí/ID/lối đi, palette bốn Nhà hoặc màu asset đã chốt.
+Đã áp artwork được người dùng duyệt từ `WIZAMAP_DECOR_REVIEW.html` vào nguồn `examples/WIZAMAP_FIXED_UI.html` trên `M2-P01-baseline-loader`. Thay sàn/tường và thêm decor cho hall cùng bốn Nhà; giữ tám template còn lại, ID/vùng bấm và mã UI. Không đưa toolbar so sánh hoặc payload trước sửa vào nguồn/runtime. Màu catalog và layout không đổi.
+
+Đồ trang trí mới được vẽ bằng SVG trong bản duyệt, lấy cảm hứng Hogwarts Legacy; không nhập thư viện bên ngoài hoặc asset trích từ game. Các project GitHub đã research chưa được tích hợp làm dependency.
 
 ## Fixed cần decor
 
