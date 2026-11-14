@@ -29,6 +29,9 @@ async function initialize(){if(initialized)return;
  if(!window.WZW_TEMPLATE_PACK)throw Error('Template pack unavailable');
  const b=Uint8Array.from(atob(window.WZW_TEMPLATE_PACK),c=>c.charCodeAt(0));
  DATA=JSON.parse(await new Response(new Blob([b]).stream().pipeThrough(new DecompressionStream('gzip'))).text());
+ // One compressed canonical layout payload (49 recipes × S/M/L); decompress once on boot.
+ const bytes=Uint8Array.from(atob(LAYOUT_SIZES_PACK),c=>c.charCodeAt(0));
+ LAYOUT_SIZES=JSON.parse(await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text());
  if(!document.getElementById("mapmount"))root.innerHTML=runtimeShell;bindUI();initialized=true;
 }
 async function boot(){let input=window.MAP_DATA;
