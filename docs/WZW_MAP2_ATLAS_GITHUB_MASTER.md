@@ -22,7 +22,7 @@
 
 <!-- atlas-extra-aliases {"St Mungo’s Hospital":["St Mungo's","St Mungo’s","St Mungos","St Mungo's Hospital"],"No. 4 Privet Drive":["4 Privet Drive","Privet Drive 4"],"The Burrow":["Burrow"],"Malfoy Manor":["Malfoy Manor"],"12 Grimmauld Place":["Grimmauld Place","12 Grimmauld"],"Wool’s Orphanage":["Wool’s","Wool's Orphanage","Wools Orphanage"]} -->
 
-<!-- atlas-anchor-aliases {"h1":{"region:extra:5":["Hagrid's Hut","Hagrid Hut"],"region:extra:0":["Greenhouses","Greenhouse 1","Greenhouse 2","Greenhouse 3"],"region-4":["Forbidden Forest"],"region-3":["Great Lake","Black Lake"],"lakeside-boathouse":["Boathouse"],"region:extra:2":["Whomping Willow"]},"h2":{"h2-place-59":["Owlery","West Tower Owlery","Injured Owl Room","Feed Store","Owlery Stairs"]},"hall":{"gf-dais":["Great Hall"],"gf-staff":["Staff Room"],"gf-filch":["Filch’s Office","Filch's Office"],"gf-class11":["Classroom 11"],"gf-broom":["Broom Cupboard"],"gf-entrance":["Entrance Hall"],"gf-courtyard":["Dedicated hall Inner Courtyard"]},"village-static":{"v-honeydukes":["Honeydukes","Tiệm Công tước Mật","Honeydukes Sweetshop"],"v-broomsticks":["Three Broomsticks","The Three Broomsticks"],"v-hogshead":["Hog's Head","The Hog's Head"],"v-shack":["Shrieking Shack","The Shrieking Shack"],"v-zonkos":["Zonko's","Zonko","Tiệm giỡn Zonko","Zonko's Joke Shop"],"v-gladrags":["Gladrags","Tiệm trang phục Gladrags","Gladrags Wizardwear"],"v-post":["Owl Post","Bưu điện cú","Hogsmeade Post Office"],"v-quills":["Scrivenshaft's","Tiệm bút lông Scrivenshaft","Scrivenshaft's Quill Shop"],"v-dervish":["Dervish & Banges","Dervish and Banges"],"v-puddifoot":["Madam Puddifoot's","Madam Puddifoot's Tea Shop"]},"diagon-knockturn":{"da-gringotts":["Gringotts","Ngân hàng Gringotts","Gringotts Wizarding Bank"],"da-ollivanders":["Ollivanders","Tiệm đũa phép Ollivanders"],"da-leaky":["Leaky Cauldron","The Leaky Cauldron"],"ka-borgin":["Borgin & Burkes","Borgin and Burkes"],"da-weasleys":["WWW","Weasleys' Wizard Wheezes","Tiệm giỡn của anh em Weasley"],"da-flourish":["Flourish & Blotts","Flourish and Blotts"],"da-malkin":["Madam Malkin","Tiệm áo chùng của phu nhân Malkin","Madam Malkin's Robes for All Occasions"],"da-quidditch":["Quality Quidditch Supplies","Tiệm dụng cụ Quidditch cao cấp"],"da-eeylops":["Eeylops","Tiệm cú Eeylops","Eeylops Owl Emporium"],"da-menagerie":["Magical Menagerie","Tiệm sinh vật huyền bí"],"da-potage":["Potage's Cauldrons","Tiệm vạc Potage","Potage's Cauldron Shop"],"da-fortescue":["Fortescue's","Florean Fortescue's Ice Cream Parlour"],"da-gambol":["Gambol & Japes","Tiệm đồ giỡn Gambol và Japes","Gambol and Japes Wizarding Joke Shop"],"da-twilfitt":["Twilfitt & Tatting's","Tiệm trang phục Twilfitt và Tatting","Twilfitt and Tatting's"],"da-scribbulus":["Scribbulus","Văn phòng phẩm Scribbulus","Scribbulus Writing Implements"],"da-apothecary":["Diagon Apothecary","Tiệm bào chế độc dược","Apothecary / Slug & Jiggers"],"da-goods":["Tiệm đồ cũ","Junk Shop"],"da-robe-used":["Tiệm áo chùng cũ","Second-Hand Robes Shop"],"da-obscurus":["Tiệm sách Obscurus","Obscurus Books"]},"express":{"ex-kings":["King's Cross","Platform 9¾"],"ex-station":["Hogsmeade Station"],"ex-standard":["Hogwarts Express","Standard Carriage"]},"pitch-static":{"q-field":["Quidditch Pitch","Pitch"],"q-commentary":["Commentary Box"]},"gryffindor-common":{"gryffindor-hearth":["Gryffindor Common Room"]},"ravenclaw-common":{"ravenclaw-hearth":["Ravenclaw Common Room"]},"hufflepuff-common":{"huff-lounge":["Hufflepuff Common Room"]},"slytherin-common":{"sly-lounge":["Slytherin Common Room"]}} -->
+<!-- atlas-anchor-aliases {"h1":{"region:extra:5":["Hagrid's Hut","Hagrid Hut"],"region:extra:0":["Greenhouses","Greenhouse 1","Greenhouse 2","Greenhouse 3"],"region-4":["Forbidden Forest"],"region-3":["Great Lake","Black Lake"],"lakeside-boathouse":["Boathouse"],"region:extra:2":["Whomping Willow"]},"h2":{"h2-place-59":["Owlery","West Tower Owlery","Injured Owl Room","Feed Store","Owlery Stairs"]},"hall":{"gf-dais":["Great Hall"],"gf-staff":["Staff Room"],"gf-filch":["Filch’s Office","Filch's Office"],"gf-class11":["Classroom 11"],"gf-broom":["Broom Cupboard"],"gf-entrance":["Entrance Hall"],"gf-courtyard":["Dedicated hall Inner Courtyard"]},"village-static":{"v-honeydukes":["Honeydukes","Tiệm Công tước Mật","Honeydukes Sweetshop"],"v-broomsticks":["Three Broomsticks","The Three Broomsticks"],"v-hogshead":["Hog's Head","The Hog's Head"],"v-shack":["Shrieking Shack","The Shrieking Shack"],"v-zonkos":["Zonko's","Zonko","Tiệm giỡn Zonko","Zonko's Joke Shop"],"v-gladrags":["Gladrags","Tiệm trang phục Gladrags","Gladrags Wizardwear"],"v-post":["Owl Post","Bưu điện cú","Hogsmeade Post Office"],"v-quills":["Scrivenshaft's","Tiệm bút lông Scrivenshaft","Scrivenshaft's Quill Shop"],"v-dervish":["Dervish & Banges","Dervish and Banges"],"v-puddifoot":["Madam Puddifoot's","Madam Puddifoot's Tea Shop"],"v-home-0":["McGonagall–Urquart Cottage"],"v-home-1":["Silvanus Kettleburn's House"],"v-station":["Hogsmeade Railway Station"]},"diagon-knockturn":{"da-gringotts":["Gringotts","Ngân hàng Gringotts","Gringotts Wizarding Bank"],"da-ollivanders":["Ollivanders","Tiệm đũa phép Ollivanders"],"da-leaky":["Leaky Cauldron","The Leaky Cauldron"],"ka-borgin":["Borgin & Burkes","Borgin and Burkes"],"da-weasleys":["WWW","Weasleys' Wizard Wheezes","Tiệm giỡn của anh em Weasley"],"da-flourish":["Flourish & Blotts","Flourish and Blotts"],"da-malkin":["Madam Malkin","Tiệm áo chùng của phu nhân Malkin","Madam Malkin's Robes for All Occasions"],"da-quidditch":["Quality Quidditch Supplies","Tiệm dụng cụ Quidditch cao cấp"],"da-eeylops":["Eeylops","Tiệm cú Eeylops","Eeylops Owl Emporium"],"da-menagerie":["Magical Menagerie","Tiệm sinh vật huyền bí"],"da-potage":["Potage's Cauldrons","Tiệm vạc Potage","Potage's Cauldron Shop"],"da-fortescue":["Fortescue's","Florean Fortescue's Ice Cream Parlour"],"da-gambol":["Gambol & Japes","Tiệm đồ giỡn Gambol và Japes","Gambol and Japes Wizarding Joke Shop"],"da-twilfitt":["Twilfitt & Tatting's","Tiệm trang phục Twilfitt và Tatting","Twilfitt and Tatting's"],"da-scribbulus":["Scribbulus","Văn phòng phẩm Scribbulus","Scribbulus Writing Implements"],"da-apothecary":["Diagon Apothecary","Tiệm bào chế độc dược","Apothecary / Slug & Jiggers"],"da-goods":["Tiệm đồ cũ","Junk Shop"],"da-robe-used":["Tiệm áo chùng cũ","Second-Hand Robes Shop"],"da-obscurus":["Tiệm sách Obscurus","Obscurus Books"],"da-terrace-7":["Wiseacre's Wizarding Equipment"],"da-terrace-11":["Mr Mulpepper's Apothecary"],"da-terrace-13":["Sugarplum's Sweets Shop"],"da-terrace-17":["Brews & Stews"],"da-terrace-20":["Madam Primpernelle's Beautifying Potions"],"da-terrace-8":["WhizzHard Books"],"da-terrace-9":["Terrortours"],"da-terrace-10":["Daily Prophet Offices"],"ka-block-0":["Unnamed Shrunken Heads Shop"],"ka-block-1":["Unnamed Poisonous Candles Shop"],"ka-block-2":["Unnamed Dark Creatures Shop"],"ka-block-3":["Cobb & Webb's"],"ka-block-4":["Ye Olde Curiosity Shop"],"ka-block-5":["Moribund's"],"ka-block-6":["The Coffin House"],"ka-block-7":["Mr Mulpepper's Apothecary"],"ka-block-8":["The White Wyvern"],"ka-block-9":["Noggin and Bonce"],"ka-block-10":["Shyverwretch's Venoms and Poisons"],"ka-block-11":["The Spiny Serpent"],"ka-block-12":["The Starry Prophesier"]},"express":{"ex-kings":["King's Cross","Platform 9¾"],"ex-station":["Hogsmeade Station"],"ex-standard":["Hogwarts Express","Standard Carriage"]},"pitch-static":{"q-field":["Quidditch Pitch","Pitch"],"q-commentary":["Commentary Box"]},"gryffindor-common":{"gryffindor-hearth":["Gryffindor Common Room"]},"ravenclaw-common":{"ravenclaw-hearth":["Ravenclaw Common Room"]},"hufflepuff-common":{"huff-lounge":["Hufflepuff Common Room"]},"slytherin-common":{"sly-lounge":["Slytherin Common Room"]}} -->
 
 <!-- atlas-world-expansion {"Muriel / Hepzibah / Moody / Crouch / Longbottom":["Muriel's Home","Hepzibah's Home","Moody's Home","Crouch's Home","Longbottom Home"],"Tonks / Shacklebolt / Granger / Diggle / Gregorovitch":["Tonks Home","Shacklebolt Home","Granger Home","Diggle Home","Gregorovitch Home"],"11 & 13 Grimmauld Place":["11 Grimmauld Place","13 Grimmauld Place"]} -->
 
@@ -331,8 +331,8 @@ Generated dùng màu giấy beige cũ, mực nâu, đường viền/texture dị
 
 | Anchor ID thực | Tên hiển thị nguồn | Ý nghĩa/chi tiết hình |
 |---|---|---|
-| `v-home-0` | Nhà dân · Ngõ 0 | Anchor nhà trống, chỉ binding AU ổn định |
-| `v-home-1` | Nhà dân · Ngõ 1 | Anchor nhà trống, chỉ binding AU ổn định |
+| `v-home-0` | Nhà McGonagall và Urquart | Anchor nhà trống, chỉ binding AU ổn định |
+| `v-home-1` | Nhà giáo sư Kettleburn | Anchor nhà trống, chỉ binding AU ổn định |
 | `v-home-3` | Nhà dân · Ngõ 3 | Anchor nhà trống, chỉ binding AU ổn định |
 | `v-home-4` | Nhà dân · Ngõ 4 | Anchor nhà trống, chỉ binding AU ổn định |
 | `v-home-6` | Nhà dân · Ngõ 6 | Anchor nhà trống, chỉ binding AU ổn định |
@@ -470,19 +470,19 @@ Generated dùng màu giấy beige cũ, mực nâu, đường viền/texture dị
 | `da-brick-gateway` | Cổng gạch sau Cái Vạc Lủng | Anchor/POI hiện hữu trên Fixed |
 | `da-gringotts` | Ngân hàng Phù thủy Gringotts | Ngân hàng: quầy giao dịch, khu an ninh và kho hầm như marker, không sinh kho con. |
 | `ka-stair` | Lối xuống Knockturn | Lối/kết nối hoặc điểm vào trong Fixed |
-| `ka-block-0` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
-| `ka-block-1` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
-| `ka-block-2` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
-| `ka-block-3` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
-| `ka-block-4` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
-| `ka-block-5` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
-| `ka-block-6` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
-| `ka-block-7` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
-| `ka-block-8` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
-| `ka-block-9` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
-| `ka-block-10` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
-| `ka-block-11` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
-| `ka-block-12` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
+| `ka-block-0` | Tiệm Đầu người Teo quắt | Anchor nhà trống, chỉ binding AU ổn định |
+| `ka-block-1` | Tiệm Nến Độc | Anchor nhà trống, chỉ binding AU ổn định |
+| `ka-block-2` | Tiệm Sinh vật Hắc ám | Anchor nhà trống, chỉ binding AU ổn định |
+| `ka-block-3` | Tiệm Tơ Nhện Cobb & Webb | Anchor nhà trống, chỉ binding AU ổn định |
+| `ka-block-4` | Tiệm Cổ vật Kỳ Bí | Anchor nhà trống, chỉ binding AU ổn định |
+| `ka-block-5` | Tiệm Moribund | Anchor nhà trống, chỉ binding AU ổn định |
+| `ka-block-6` | Nhà Quan Tài | Anchor nhà trống, chỉ binding AU ổn định |
+| `ka-block-7` | Tiệm Độc dược ông Mulpepper | Anchor nhà trống, chỉ binding AU ổn định |
+| `ka-block-8` | Quán Rồng Trắng | Anchor nhà trống, chỉ binding AU ổn định |
+| `ka-block-9` | Tiệm Đầu Lâu Noggin và Bonce | Anchor nhà trống, chỉ binding AU ổn định |
+| `ka-block-10` | Tiệm Nọc độc Shyverwretch | Anchor nhà trống, chỉ binding AU ổn định |
+| `ka-block-11` | Tiệm Rắn Gai | Anchor nhà trống, chỉ binding AU ổn định |
+| `ka-block-12` | Nhà Tiên Tri Tinh Tú | Anchor nhà trống, chỉ binding AU ổn định |
 | `ka-block-13` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
 | `ka-block-14` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
 | `ka-block-15` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
@@ -503,20 +503,20 @@ Generated dùng màu giấy beige cũ, mực nâu, đường viền/texture dị
 | `da-wizardwear` | Tiệm trang phục phù thủy | Tiệm/quán trên Fixed, dùng POI/marker |
 | `da-workshop` | Tiệm sửa vạc | Tiệm/quán trên Fixed, dùng POI/marker |
 | `da-cafe` | Tiệm trà và cà phê | Tiệm/quán trên Fixed, dùng POI/marker |
-| `da-terrace-7` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
-| `da-terrace-8` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
-| `da-terrace-9` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
-| `da-terrace-10` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
-| `da-terrace-11` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
+| `da-terrace-7` | Tiệm Pháp cụ Wiseacre | Anchor nhà trống, chỉ binding AU ổn định |
+| `da-terrace-8` | Nhà xuất bản WhizzHard | Anchor nhà trống, chỉ binding AU ổn định |
+| `da-terrace-9` | Hãng Du lịch Kinh Hoàng | Anchor nhà trống, chỉ binding AU ổn định |
+| `da-terrace-10` | Tòa soạn Nhật báo Tiên tri | Anchor nhà trống, chỉ binding AU ổn định |
+| `da-terrace-11` | Tiệm Độc dược ông Mulpepper | Anchor nhà trống, chỉ binding AU ổn định |
 | `da-terrace-12` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
-| `da-terrace-13` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
+| `da-terrace-13` | Tiệm Kẹo Mận Đường | Anchor nhà trống, chỉ binding AU ổn định |
 | `da-terrace-14` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
 | `da-terrace-15` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
 | `da-terrace-16` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
-| `da-terrace-17` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
+| `da-terrace-17` | Quán Trọ Nồi Hầm và Rượu Ủ | Anchor nhà trống, chỉ binding AU ổn định |
 | `da-terrace-18` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
 | `da-terrace-19` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
-| `da-terrace-20` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
+| `da-terrace-20` | Tiệm Mỹ dược bà Primpernelle | Anchor nhà trống, chỉ binding AU ổn định |
 | `da-terrace-21` | Nhà dân | Anchor nhà trống, chỉ binding AU ổn định |
 
 ### 2.12. `ministry2` — Bộ Pháp thuật L1–L7

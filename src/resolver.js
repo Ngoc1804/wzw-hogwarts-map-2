@@ -30,17 +30,18 @@ function resolve(d){
    if(!places.length)places=[{id:worldSite.id,name:worldSite.name,desc:'',type:''}];
   }
  }
- const exact=ref=>{
+ const exact=(ref,region=d.region)=>{
   if(!ref)return null;
   const bound=bindings[ref];if(bound)return places.find(p=>p.id===bound)||null;
   if(worldSite){const r=worldRef(ref),hits=places.filter(p=>fold(p.name)===r.label&&(!r.level||p.level===r.level));if(hits.length===1)return hits[0];}
   const byId=places.filter(p=>p.id===ref);if(byId.length===1)return byId[0];
   const canonical=key(ref),hits=places.filter(p=>key(p.name)===canonical||p.aliases?.some(a=>key(a)===canonical)||ATLAS.fixed[fixedId]?.places.find(x=>x.id===p.id)?.aliases?.some(a=>key(a)===canonical));
+  if(hits.length>1&&fixedId==='diagon-knockturn'&&['diagon','knockturn'].includes(region)){const scoped=hits.filter(p=>p.id.startsWith(region==='diagon'?'da-':'ka-'));return scoped.length===1?scoped[0]:null;}
   return hits.length===1?hits[0]:null;
  };
  const locate=p=>{
   if(p.id){const hit=places.find(x=>x.id===p.id);if(hit){if(key(hit.name)!==key(p.name))diagnostics.push('place-id-name-conflict:'+p.id);return hit;}}
-  const hit=exact(p.name);if(hit&&p.id)diagnostics.push('place-id-fallback:'+p.id);return hit;
+  const hit=exact(p.name,p.region||d.region);if(hit&&p.id)diagnostics.push('place-id-fallback:'+p.id);return hit;
  };
  // Reserve explicitly addressed houses before allocating AU entries. Stable ordering avoids payload-order reshuffles.
  for(const p of d.places){const hit=locate(p);if(hit)used.add(hit.id);}

@@ -43,3 +43,7 @@ Trên 4 người cùng phòng/spot thì NPC được trình bày thành nhóm, P
 Kiểm hồi quy alias và vị trí: `node tests/alias-export.cjs`, `node tests/actor-placement.cjs`. Test X-Ray template cũ và hai tool phụ thuộc dữ liệu review đã xóa đã được bỏ. Không đổi màu mặc định hoặc nhập màu từ phiên khác.
 
 Cửa/hành lang dùng vùng sàn hợp lệ để tách nhân vật; resize tính lại bố trí và tỉ lệ tag/chân. Kiểm ca chuyển viewport: `node tests/passage-resize.cjs`.
+
+## Địa điểm hai hẻm và Hogsmeade
+
+[Đối chiếu 53 mục và bảng hiệu](docs/SHOP_NAME_AUDIT.md): 52 công trình được gán tên, một điểm đường tới ga; còn nhà trống theo khu cho AU. Chạy `node tests/shop-bindings.cjs` để kiểm tra tra cứu song ngữ, hai chi nhánh Mulpepper và tránh gán AU đè địa điểm đã có chủ.
