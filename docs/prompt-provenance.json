@@ -1,28 +1,26 @@
 {
-  "runtimeCommit": "392a4682fd550c1f8cdbe199856db6b84660c41c",
-  "urls": [
-    "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@392a4682fd550c1f8cdbe199856db6b84660c41c/dist/shell.css",
-    "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@392a4682fd550c1f8cdbe199856db6b84660c41c/dist/templates-pack.js",
-    "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@392a4682fd550c1f8cdbe199856db6b84660c41c/dist/bundle.js"
-  ],
+  "runtimeCommit": "1c96e53d2982ff2969a58335c859e1985d0afcd4",
+  "baseURL": "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@1c96e53d2982ff2969a58335c859e1985d0afcd4/dist/",
   "files": {
-    "W4_1.md": {
-      "bytes": 4746,
-      "sha256": "30ef0da17d592bbb58cc097fde324364b07b33c42a16b88bf66fcd1f4ae2cec2"
+    "docs/MAP_PROMPT.md": {
+      "bytes": 13654,
+      "sha256": "2034c4ffa6f8f0cecbbbc010f7c32fc91255d1c770d4ef30e113fd07dae52a2d"
     },
-    "MAP_PROMPT.md": {
-      "bytes": 4920,
-      "sha256": "f38d9f1b923784983f7760efbab173d829f8a251cb261ca1f021706b49b38354"
+    "docs/MAP_INSTRUCTIONS.md": {
+      "bytes": 6624,
+      "sha256": "82ca4ac5e24634f4b7ceb32896b26323f3445d56a73b2d964509e799190c05a5"
     },
-    "PASTE_GUIDE.md": {
-      "bytes": 1753,
-      "sha256": "2e15b47fb76cbb76513d0e84029aa2d16718d459e1af5ef1b48bac5e53f48b98"
+    "docs/MAP_DATA.md": {
+      "bytes": 6632,
+      "sha256": "f936b89421f2ac183f9765a39b54291a3f4959fc4a83f6d02ac0347f613f4074"
     },
-    "W4_TAIL.md": {
-      "bytes": 1798,
-      "sha256": "1f00ae3c36921503c16661940a1243de7a5ad7c2b312d59743199ba706bc3de4"
+    "docs/PASTE_GUIDE.md": {
+      "bytes": 761,
+      "sha256": "8cf26cf66a2d87aa1ec05b0aa28fdc41dc80baf981b4cb7d12a8233ff2b00c93"
     }
   },
-  "targetPreview": "NOT TESTED",
-  "reviewStatus": "PENDING USER VISUAL APPROVAL; old 10d2c37 review rejected"
+  "generator": "tools/map_prompt.py",
+  "loader": "tools/loader.py",
+  "targetPreview": "NOT RUN",
+  "status": "Approved public prompt workflow; story questions must be filled per story"
 }

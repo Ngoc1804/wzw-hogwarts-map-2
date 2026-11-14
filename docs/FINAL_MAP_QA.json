@@ -183,5 +183,6 @@
     "fixed": 13,
     "scopes": 59
   },
-  "codeLegacySupport": "Retained internally; not exposed or required by new prompt"
+  "codeLegacySupport": "Retained internally; not exposed or required by new prompt",
+  "runtimeCommit": "1c96e53d2982ff2969a58335c859e1985d0afcd4"
 }

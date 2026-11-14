@@ -1,76 +1,24 @@
 {
-  "date": "2026-11-14",
-  "release": {
-    "repository": "Ngoc1804/wzw-hogwarts-map-2",
-    "runtimeCommit": "f8cf480c39a32c69c9a54d50cbe22bc5b97dd816",
-    "files": {
-      "shell.css": {
-        "sha256": "e66f7789b5df099f588f9028d947607cc7e584e7170b4e6cc627419db9bb4f15",
-        "bytes": 11039
-      },
-      "templates-pack.js": {
-        "sha256": "ba5bf68beaa869d2f2e582f924a8601b36b849fe8f668adc11c2aa2f76201204",
-        "bytes": 963681
-      },
-      "bundle.js": {
-        "sha256": "1b54f9d8a6b1d6b61f9653f3db423b889235af7e4e436447700a17c91c886c9c",
-        "bytes": 11550234
-      }
-    }
-  },
+  "runtimeCommit": "1c96e53d2982ff2969a58335c859e1985d0afcd4",
   "downloads": [
     {
-      "name": "shell.css",
-      "url": "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@f8cf480c39a32c69c9a54d50cbe22bc5b97dd816/dist/shell.css",
+      "file": "shell.css",
+      "status": 200,
       "bytes": 11039,
-      "sha256": "e66f7789b5df099f588f9028d947607cc7e584e7170b4e6cc627419db9bb4f15",
-      "matchesLocal": true,
-      "contentType": "text/css; charset=utf-8"
+      "hashMatchesManifest": true
     },
     {
-      "name": "templates-pack.js",
-      "url": "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@f8cf480c39a32c69c9a54d50cbe22bc5b97dd816/dist/templates-pack.js",
+      "file": "templates-pack.js",
+      "status": 200,
       "bytes": 963681,
-      "sha256": "ba5bf68beaa869d2f2e582f924a8601b36b849fe8f668adc11c2aa2f76201204",
-      "matchesLocal": true,
-      "contentType": "application/javascript; charset=utf-8"
+      "hashMatchesManifest": true
     },
     {
-      "name": "bundle.js",
-      "url": "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@f8cf480c39a32c69c9a54d50cbe22bc5b97dd816/dist/bundle.js",
-      "bytes": 11550234,
-      "sha256": "1b54f9d8a6b1d6b61f9653f3db423b889235af7e4e436447700a17c91c886c9c",
-      "matchesLocal": true,
-      "contentType": "application/javascript; charset=utf-8"
+      "file": "bundle.js",
+      "status": 200,
+      "bytes": 11550237,
+      "hashMatchesManifest": true
     }
   ],
-  "browser": {
-    "checks": [
-      "diagon Mulpepper da-terrace-11",
-      "knockturn Mulpepper ka-block-7",
-      "new Outdoor ground placement",
-      "inside stays on building informational anchor",
-      "approved CLASSROOM M native floor, walls and 740x520 size"
-    ],
-    "responses": [
-      {
-        "url": "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@f8cf480c39a32c69c9a54d50cbe22bc5b97dd816/dist/shell.css",
-        "status": 200
-      },
-      {
-        "url": "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@f8cf480c39a32c69c9a54d50cbe22bc5b97dd816/dist/templates-pack.js",
-        "status": 200
-      },
-      {
-        "url": "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@f8cf480c39a32c69c9a54d50cbe22bc5b97dd816/dist/bundle.js",
-        "status": 200
-      }
-    ],
-    "errors": [],
-    "method": "Real CDN requests; no interception. Browser uses managed environment certificate override; byte/hash download independently verified with urllib.",
-    "AIStudio": "DEFERRED by user"
-  },
-  "generator": "tools/loader.py; local and CDN examples share one loader implementation",
-  "prompt": "Legacy MAP_PROMPT.md removed; no replacement system prompt authored in this task",
-  "AIStudio": "Deferred by explicit user instruction"
+  "AIStudio": "NOT RUN"
 }
