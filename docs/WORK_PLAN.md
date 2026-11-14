@@ -43,3 +43,10 @@ Lượt dọn này không sửa decor, palette phòng, tên cửa hàng, tọa �
 - Đặt tag trên sàn trong địa điểm, tránh tường/nội thất lớn; ngoại lệ chỉ theo RP. Điểm và tỉ lệ tag/chân đi cùng bản đồ khi zoom.
 - Đã bỏ tests/template-ui.cjs, tools/review-contact-sheet.cjs, tools/catalog-measure.cjs. Không tạo nghiệm thu X-Ray/AI Studio mới từ việc dọn này.
 - Màu đang làm ở phiên khác, decor và nghiệm thu hình/AI Studio tiếp tục để sau.
+
+## Đã sửa tiếp: cửa/hành lang và resize
+
+- Cửa/hành lang dùng vùng đặt hợp lệ thay vì ép mọi người vào một điểm; tránh tường kín, cửa sổ và vật cản.
+- Resize desktop/mobile hoặc drawer tính lại tag/chân; zoom/pan không tự đổi điểm đứng.
+- Thêm kiểm hồi quy horizontal/vertical, 2/4/5 người, chuyển viewport và nhiều người ngoài trời.
+- Chỉ sửa presentation và build liên quan; asset, màu và layout nguồn giữ nguyên. AI Studio/duyệt hình vẫn để sau.

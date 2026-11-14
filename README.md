@@ -41,3 +41,5 @@ Hai HTML kiểm runtime/mechanisms cũ đã xóa hẳn cùng công cụ sinh. B�
 Trên 4 người cùng phòng/spot thì NPC được trình bày thành nhóm, PC giữ tag riêng. Danh sách RP không bị sửa/cắt; click tag xem đủ thành viên và thông tin. Tag đặt trên phần sàn còn trống, tránh tường/đồ lớn, ngoại lệ theo yêu cầu RP; zoom/pan giữ cùng điểm neo.
 
 Kiểm hồi quy alias và vị trí: `node tests/alias-export.cjs`, `node tests/actor-placement.cjs`. Test X-Ray template cũ và hai tool phụ thuộc dữ liệu review đã xóa đã được bỏ. Không đổi màu mặc định hoặc nhập màu từ phiên khác.
+
+Cửa/hành lang dùng vùng sàn hợp lệ để tách nhân vật; resize tính lại bố trí và tỉ lệ tag/chân. Kiểm ca chuyển viewport: `node tests/passage-resize.cjs`.

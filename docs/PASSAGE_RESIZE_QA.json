@@ -1,0 +1,388 @@
+{
+  "scope": "Free placement within connected corridor/door floor regions and viewport reflow; no artwork/color/layout redesign.",
+  "baseline": "8f6ba14e67b6b1e0399c8ab5af9cd3ebe021381b",
+  "targeted": {
+    "checks": [
+      {
+        "layout": "horizontal",
+        "spot": "threshold",
+        "count": 2,
+        "viewport": 1280,
+        "overlap": 0
+      },
+      {
+        "layout": "horizontal",
+        "spot": "threshold",
+        "count": 2,
+        "viewport": 390,
+        "overlap": 0
+      },
+      {
+        "layout": "horizontal",
+        "spot": "threshold",
+        "count": 2,
+        "viewport": 1600,
+        "overlap": 0
+      },
+      {
+        "layout": "horizontal",
+        "spot": "threshold",
+        "count": 4,
+        "viewport": 1280,
+        "overlap": 0
+      },
+      {
+        "layout": "horizontal",
+        "spot": "threshold",
+        "count": 4,
+        "viewport": 390,
+        "overlap": 0
+      },
+      {
+        "layout": "horizontal",
+        "spot": "threshold",
+        "count": 4,
+        "viewport": 1600,
+        "overlap": 0
+      },
+      {
+        "layout": "horizontal",
+        "spot": "threshold",
+        "count": 5,
+        "viewport": 1280,
+        "overlap": 0
+      },
+      {
+        "layout": "horizontal",
+        "spot": "threshold",
+        "count": 5,
+        "viewport": 390,
+        "overlap": 0
+      },
+      {
+        "layout": "horizontal",
+        "spot": "threshold",
+        "count": 5,
+        "viewport": 1600,
+        "overlap": 0
+      },
+      {
+        "layout": "horizontal",
+        "spot": "corridor",
+        "count": 2,
+        "viewport": 1280,
+        "overlap": 0
+      },
+      {
+        "layout": "horizontal",
+        "spot": "corridor",
+        "count": 2,
+        "viewport": 390,
+        "overlap": 0
+      },
+      {
+        "layout": "horizontal",
+        "spot": "corridor",
+        "count": 2,
+        "viewport": 1600,
+        "overlap": 0
+      },
+      {
+        "layout": "horizontal",
+        "spot": "corridor",
+        "count": 4,
+        "viewport": 1280,
+        "overlap": 0
+      },
+      {
+        "layout": "horizontal",
+        "spot": "corridor",
+        "count": 4,
+        "viewport": 390,
+        "overlap": 0
+      },
+      {
+        "layout": "horizontal",
+        "spot": "corridor",
+        "count": 4,
+        "viewport": 1600,
+        "overlap": 0
+      },
+      {
+        "layout": "horizontal",
+        "spot": "corridor",
+        "count": 5,
+        "viewport": 1280,
+        "overlap": 0
+      },
+      {
+        "layout": "horizontal",
+        "spot": "corridor",
+        "count": 5,
+        "viewport": 390,
+        "overlap": 0
+      },
+      {
+        "layout": "horizontal",
+        "spot": "corridor",
+        "count": 5,
+        "viewport": 1600,
+        "overlap": 0
+      },
+      {
+        "layout": "vertical",
+        "spot": "threshold",
+        "count": 2,
+        "viewport": 1280,
+        "overlap": 0
+      },
+      {
+        "layout": "vertical",
+        "spot": "threshold",
+        "count": 2,
+        "viewport": 390,
+        "overlap": 0
+      },
+      {
+        "layout": "vertical",
+        "spot": "threshold",
+        "count": 2,
+        "viewport": 1600,
+        "overlap": 0
+      },
+      {
+        "layout": "vertical",
+        "spot": "threshold",
+        "count": 4,
+        "viewport": 1280,
+        "overlap": 0
+      },
+      {
+        "layout": "vertical",
+        "spot": "threshold",
+        "count": 4,
+        "viewport": 390,
+        "overlap": 0
+      },
+      {
+        "layout": "vertical",
+        "spot": "threshold",
+        "count": 4,
+        "viewport": 1600,
+        "overlap": 0
+      },
+      {
+        "layout": "vertical",
+        "spot": "threshold",
+        "count": 5,
+        "viewport": 1280,
+        "overlap": 0
+      },
+      {
+        "layout": "vertical",
+        "spot": "threshold",
+        "count": 5,
+        "viewport": 390,
+        "overlap": 0
+      },
+      {
+        "layout": "vertical",
+        "spot": "threshold",
+        "count": 5,
+        "viewport": 1600,
+        "overlap": 0
+      },
+      {
+        "layout": "vertical",
+        "spot": "corridor",
+        "count": 2,
+        "viewport": 1280,
+        "overlap": 0
+      },
+      {
+        "layout": "vertical",
+        "spot": "corridor",
+        "count": 2,
+        "viewport": 390,
+        "overlap": 0
+      },
+      {
+        "layout": "vertical",
+        "spot": "corridor",
+        "count": 2,
+        "viewport": 1600,
+        "overlap": 0
+      },
+      {
+        "layout": "vertical",
+        "spot": "corridor",
+        "count": 4,
+        "viewport": 1280,
+        "overlap": 0
+      },
+      {
+        "layout": "vertical",
+        "spot": "corridor",
+        "count": 4,
+        "viewport": 390,
+        "overlap": 0
+      },
+      {
+        "layout": "vertical",
+        "spot": "corridor",
+        "count": 4,
+        "viewport": 1600,
+        "overlap": 0
+      },
+      {
+        "layout": "vertical",
+        "spot": "corridor",
+        "count": 5,
+        "viewport": 1280,
+        "overlap": 0
+      },
+      {
+        "layout": "vertical",
+        "spot": "corridor",
+        "count": 5,
+        "viewport": 390,
+        "overlap": 0
+      },
+      {
+        "layout": "vertical",
+        "spot": "corridor",
+        "count": 5,
+        "viewport": 1600,
+        "overlap": 0
+      },
+      {
+        "fixed": "hall",
+        "viewport": "1280x900",
+        "overlap": 0
+      },
+      {
+        "fixed": "hall",
+        "viewport": "390x844",
+        "overlap": 0
+      },
+      {
+        "fixed": "hall",
+        "viewport": "390x520",
+        "overlap": 0
+      },
+      {
+        "fixed": "hall",
+        "viewport": "1600x1000",
+        "overlap": 0
+      },
+      {
+        "outdoor": true,
+        "overlap": 0
+      }
+    ],
+    "errors": [],
+    "scope": "Placement, resize and existing zoom anchoring; not visual/AI Studio acceptance"
+  },
+  "regressions": [
+    {
+      "suite": "passage-resize",
+      "status": "PASS"
+    },
+    {
+      "suite": "actor-placement",
+      "status": "PASS"
+    },
+    {
+      "suite": "alias-export",
+      "status": "PASS"
+    },
+    {
+      "suite": "interaction",
+      "status": "PASS"
+    },
+    {
+      "suite": "p1",
+      "status": "PASS"
+    },
+    {
+      "suite": "p2-p3",
+      "status": "PASS"
+    },
+    {
+      "suite": "compact-p4",
+      "status": "PASS"
+    },
+    {
+      "suite": "vocabulary",
+      "status": "PASS"
+    },
+    {
+      "suite": "ids-props",
+      "status": "PASS"
+    },
+    {
+      "suite": "repair-functional",
+      "status": "PASS"
+    },
+    {
+      "suite": "style-audit",
+      "status": "PASS"
+    },
+    {
+      "suite": "prompt-loader",
+      "status": "PASS"
+    },
+    {
+      "suite": "routing-current",
+      "status": "PASS"
+    },
+    {
+      "suite": "presentation",
+      "status": "PASS"
+    },
+    {
+      "suite": "catalog-editor",
+      "status": "PASS"
+    },
+    {
+      "suite": "four-fixes",
+      "status": "PASS"
+    },
+    {
+      "suite": "layout-sizes",
+      "status": "PASS"
+    },
+    {
+      "suite": "current-scope",
+      "status": "PASS"
+    },
+    {
+      "suite": "inventory-visual",
+      "status": "PASS"
+    },
+    {
+      "suite": "xray-occlusion",
+      "status": "PASS"
+    },
+    {
+      "suite": "indoor-placement",
+      "status": "PASS"
+    },
+    {
+      "suite": "corridor-source",
+      "status": "PASS"
+    },
+    {
+      "suite": "link-child-ribbon",
+      "status": "PASS"
+    }
+  ],
+  "additionalReruns": [
+    "passage-resize: 41 cases PASS including horizontal/vertical and Outdoor",
+    "current-scope PASS after Outdoor adjustment",
+    "four-fixes PASS after Outdoor adjustment"
+  ],
+  "sourceInvariants": "Asset sources, default colors, Fixed embedded artwork, layout HTML and deferred version profile unchanged",
+  "deterministicBuild": true,
+  "targetPreview": "NOT RUN"
+}

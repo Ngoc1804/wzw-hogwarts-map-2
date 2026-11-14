@@ -592,7 +592,7 @@ async function prepareTemplateUI(){
  const linkLayer=uiElement('g',{'data-layer':'actor-links','pointer-events':'none',stroke:'#a58c6a','stroke-width':'.7',opacity:'.65'},svg);
  const footLayer=uiElement('g',{'data-layer':'actor-feet','pointer-events':'none'},svg);
  const zones=[...svg.querySelectorAll('[data-forbidden]')].filter(e=>!e.closest('defs'));
- const records=zones.map(node=>{const box=worldBox(node);return{node,box,owner:node.closest('[data-id]')?.dataset.id,layer:Number(node.dataset.layer)||0,depth:node.hasAttribute('data-depth')&&Number.isFinite(+node.dataset.depth)?+node.dataset.depth:null,mask:null,promise:null}});let actorItems=[],eventItems=[],generation=0;
+ const records=zones.map(node=>{const box=worldBox(node);return{node,box,owner:node.closest('[data-id]')?.dataset.id,layer:Number(node.dataset.layer)||0,depth:node.hasAttribute('data-depth')&&Number.isFinite(+node.dataset.depth)?+node.dataset.depth:null,mask:null,promise:null}});let actorItems=[],eventItems=[],generation=0,placementSize=null;
  let hovered=null,pinned=null;
  const buildingAt=target=>records.find(r=>r.node.dataset.occluder==='building'&&r.node.contains(target))?.node||null;
  function toggleXray(target){pinned=pinned===target?null:target;hovered=null;renderPositions();}
@@ -612,16 +612,22 @@ async function prepareTemplateUI(){
  }
  function actorPlacement(place,inside,actor,element,count){
   let desired=localPoint(place,inside,actor);if(!desired)return null;
-  // An explicit generated door/corridor anchor must not be moved into the room.
-  if(!inside&&actor.scenePoint&&['threshold','corridor'].includes(actor.spot))return{point:desired,labelScale:1};
   const map=DATA.maps[activeId],overview=['h1','h2','village-static','diagon-knockturn'].includes(activeId)||map.kind==='outdoor';
   const node=[...svg.querySelectorAll('[data-id]')].find(n=>n.dataset.id===place.id&&!n.closest('defs'));
   const hit=node?.querySelector('.spot-hit'),shape=hit&&typeof hit.isPointInFill==='function'?hit:null;
-  const box=hit?worldBox(hit):place.bounds?{x:place.bounds[0],y:place.bounds[1],w:place.bounds[2],h:place.bounds[3]}:node?worldBox(node):null;
+  let box=hit?worldBox(hit):place.bounds?{x:place.bounds[0],y:place.bounds[1],w:place.bounds[2],h:place.bounds[3]}:node?worldBox(node):null;
+  const door=place.geometry?.door,spot=actor.spot||actor.pcSpot;
+  const hall=place.geometry?.hall||[door?.ln.A,door?.ln.B].find(x=>x?.kind==='hall')||map.geometry?.halls?.find(h=>desired.x>=h.x&&desired.x<=h.x+h.w&&desired.y>=h.y&&desired.y<=h.y+h.h);
+  const passage=!inside&&!overview&&(spot==='corridor'&&hall||spot==='threshold'&&door);
+  if(passage&&spot==='corridor')box={x:hall.x,y:hall.y,w:hall.w,h:hall.h};
+  if(passage&&spot==='threshold'){
+   const width=Math.max(100,(door.width||38)*2.5),depth=80;
+   box=door.ln.axis==='H'?{x:door.at-width/2,y:door.ln.at-depth/2,w:width,h:depth}:{x:door.ln.at-depth/2,y:door.at-width/2,w:depth,h:width};
+  }
   if(!box||box.w<2||box.h<2)return{point:desired,labelScale:1};
   const mount=$('#mapmount').getBoundingClientRect(),fitScale=Math.min(mount.width/originalVB[2],mount.height/originalVB[3]);
-  const size=element.getBoundingClientRect(),columns=count>=3?2:1,rows=Math.ceil(count/columns);
-  const factor=count>1||inside&&!overview?Math.max(.15,(count>=3?.65:count>1?.85:1)*Math.min(1,box.w*fitScale/(columns*(size.width+10)),box.h*fitScale/(rows*44))):1;
+  const style=getComputedStyle(element),size={width:parseFloat(style.width)||element.offsetWidth,height:parseFloat(style.height)||element.offsetHeight},columns=count>=3?2:1,rows=Math.ceil(count/columns);
+  const factor=count>1||inside&&!overview?Math.max(.05,(count>=3?.65:count>1?.85:1)*Math.min(1,box.w*fitScale/(columns*(size.width+10)),box.h*fitScale/(rows*44))):1;
   // Large furniture only. Small props and decorative floor art do not block actors.
   const furniture=[];
   if(node&&!overview)for(const n of node.querySelectorAll('svg,[data-decor],[data-forbidden="furniture"]')){
@@ -629,25 +635,35 @@ async function prepareTemplateUI(){
    if(!/furniture|table[.-]|seat\.(?:sofa|armchair|lounge)|storage[.-]|bookcase|bed[.-]|cabinet/.test(identity))continue;
    const b=worldBox(n);if(b.w*b.h>box.w*box.h*.008)furniture.push(b);
   }
-  for(const f of map.footprints||[])if(f.placeId===place.id&&f.blocksActor){const[x,y,w,h]=f.bounds;furniture.push({x,y,w,h});}
+  for(const f of map.footprints||[])if((passage||f.placeId===place.id)&&f.blocksActor){const[x,y,w,h]=f.bounds;furniture.push({x,y,w,h});}
   const pad=Math.max(1,Math.min(5,Math.min(box.w,box.h)*.025));
   const safe=point=>{
    if(actor.placement==='in_wall')return true;
    if(point.x<box.x+pad||point.x>box.x+box.w-pad||point.y<box.y+pad||point.y>box.y+box.h-pad)return false;
    if(inside&&!overview&&shape){const matrix=shape.getScreenCTM().inverse().multiply(svg.getScreenCTM());for(const[dx,dy]of [[0,0],[-pad,0],[pad,0],[0,-pad],[0,pad]])if(!shape.isPointInFill(new DOMPoint(point.x+dx,point.y+dy).matrixTransform(matrix)))return false;}
    if(!(overview&&inside)&&map.safeFloor&&!map.safeFloor(point.x,point.y,pad))return false;
+   // A floor rectangle can meet another rectangle at a wall. Only actual door
+   // openings permit anchors on that boundary; windows are not walkable gaps.
+   for(const wall of map.geometry?.walls||[]){
+    if(!['H','V'].includes(wall.axis)||!Number.isFinite(wall.at))continue;
+    const horizontal=wall.axis==='H',cross=horizontal?point.y:point.x,along=horizontal?point.x:point.y;
+    if(Math.abs(cross-wall.at)>pad+2||along<wall.a-pad||along>wall.b+pad)continue;
+    const open=map.geometry.openings?.doors?.some(d=>d.ln.axis===wall.axis&&Math.abs(d.ln.at-wall.at)<.01&&Math.abs(along-d.at)+pad<d.width/2);
+    if(!open)return false;
+   }
    if(actor.placement!=='on_furniture'&&furniture.some(b=>point.x>b.x-pad&&point.x<b.x+b.w+pad&&point.y>b.y-pad&&point.y<b.y+b.h+pad))return false;
    return true;
   };
-  // World-space slots are chosen once at mount; zoom/pan never moves a label on its own.
+  // Slots change on mount or viewport resize, never on zoom or pan.
   if(actor.placement==='in_wall'||actor.placement==='on_furniture'&&actor.supportId&&actor.scenePoint&&!actor.scenePoint.anchorOnly)return{point:desired,labelScale:factor};
-  if(count>1&&!actor.zone&&!actor.placement?.match(/^(on_furniture|in_wall)$/)){const index=actorItems.filter(a=>a.placeId===place.id).length;desired={x:box.x+box.w*((index%columns)+.5)/columns,y:box.y+box.h*(Math.floor(index/columns)+.72)/rows};}
+  if(passage&&count===1&&safe(desired))return{point:desired,labelScale:factor};
+  if(count>1&&inside&&!actor.zone&&!actor.placement?.match(/^(on_furniture|in_wall)$/)){const index=actorItems.filter(a=>a.placeId===place.id).length;desired={x:box.x+box.w*((index%columns)+.5)/columns,y:box.y+box.h*(Math.floor(index/columns)+.72)/rows};}
   const candidates=[desired];
-  if(inside||!overview)for(let y=1;y<20;y++)for(let x=1;x<20;x++)candidates.push({x:box.x+box.w*x/20,y:box.y+box.h*y/20});
+  if(inside||!overview||map.kind==='outdoor'&&count>1)for(let y=1;y<40;y++)for(let x=1;x<40;x++)candidates.push({x:box.x+box.w*x/40,y:box.y+box.h*y/40});
   let best=null,bestCost=Infinity;
   for(const point of candidates){if(!safe(point))continue;
    const rect={x:point.x-size.width*factor/fitScale/2,y:point.y-(size.height+8)*factor/fitScale,w:size.width*factor/fitScale,h:(size.height+12)*factor/fitScale};
-   if(inside&&!overview&&(rect.x<box.x+pad||rect.x+rect.w>box.x+box.w-pad||rect.y<box.y+pad||rect.y+rect.h>box.y+box.h-pad))continue;
+   if((inside||passage)&&!overview&&(rect.x<box.x+pad||rect.x+rect.w>box.x+box.w-pad||rect.y<box.y+pad||rect.y+rect.h>box.y+box.h-pad))continue;
    let overlap=0;for(const other of actorItems){const b=other.labelBox;if(!b)continue;overlap+=Math.max(0,Math.min(rect.x+rect.w,b.x+b.w)-Math.max(rect.x,b.x))*Math.max(0,Math.min(rect.y+rect.h,b.y+b.h)-Math.max(rect.y,b.y));}
    const cost=overlap*10000+Math.hypot(point.x-desired.x,point.y-desired.y);
    if(cost<bestCost){bestCost=cost;best={point,labelScale:factor,labelBox:rect};}
@@ -657,7 +673,18 @@ async function prepareTemplateUI(){
   return best||{point:desired,labelScale:factor,anchorOnly:true};
  }
  function renderPositions(){if(svg!==scene)return;
-  const base=$('#mapmount').getBoundingClientRect(),ctm=svg.getScreenCTM();if(!ctm)return;const inverse=ctm.inverse();
+  const base=$('#mapmount').getBoundingClientRect(),ctm=svg.getScreenCTM();if(!ctm||!base.width||!base.height)return;const inverse=ctm.inverse();
+  const resized=!placementSize||Math.abs(placementSize.width-base.width)>.5||Math.abs(placementSize.height-base.height)>.5;
+  placementSize={width:base.width,height:base.height};
+  if(resized&&actorItems.length){
+   const items=actorItems;actorItems=[];
+   for(const item of items){
+    const place=(DATA.maps[activeId].places||[]).find(p=>p.id===item.placeId);
+    const next=place&&actorPlacement(place,item.inside,item.actor,item.element,items.filter(a=>a.placeId===item.placeId).length);
+    if(next){Object.assign(item,next);item.element.dataset.anchorX=item.point.x;item.element.dataset.anchorY=item.point.y;item.element.dataset.placement=next.anchorOnly?'anchor':'floor';}
+    actorItems.push(item);
+   }
+  }
   // Every marker uses the same map anchor and zoom ratio. Never clamp or move
   // labels independently of the artwork: that changes their apparent location.
   const fitScale=Math.min(base.width/originalVB[2],base.height/originalVB[3]);

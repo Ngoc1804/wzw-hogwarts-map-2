@@ -110,3 +110,9 @@ Child edits are reconciled by childId into a final state before rendering. ensur
 Generated Indoor now reads the reviewed per-layout `sizeProfiles` from recipes. `places[].size` accepts `S`, `M`, `L`; existing `small`, `medium`, `large` inputs remain accepted. Omitted/unknown size retains M. This replaces the old 0.8/1/1.3 runtime multipliers. Size-specific furniture arrangements are compiled from the reviewed source, with existing recipe instance IDs retained. Standalone rooms retain exact profile width/height and H40; multi-room topology continues to adapt frontage/depth through the existing corridor geometry core. Fixed artwork and dimensions remain unchanged; Outdoor sizing is not changed in this Indoor integration.
 
 The GitHub–Gemini comparison is pending approval in [MAP_DATA_GITHUB_GEMINI_REVIEW.md](MAP_DATA_GITHUB_GEMINI_REVIEW.md). It is not an already-approved replacement system prompt.
+
+## Reflow cửa/hành lang và thay đổi viewport
+
+Nhiều nhân vật ở cửa/hành lang được đặt tách nhau trong vùng sàn kết nối hợp lệ của hành lang hoặc vùng lân cận cửa; tránh tường kín, cửa sổ và nội thất lớn. Không đưa người ở hành lang vào phòng khác. Cửa đi là khoảng mở hợp lệ, cửa sổ không phải lối đứng/đi qua tường. Với một nhân vật, ưu tiên vị trí cửa/hành lang đã xác định nếu vẫn hợp lệ.
+
+Khi viewport/drawer đổi kích thước, presentation tính lại vị trí và tỉ lệ tag/chân cùng nhau trong đúng địa điểm. Zoom/pan đơn thuần giữ nguyên các điểm neo đã chọn. Nhân vật ngoài trời cũng có thể tách nhau trên phần nền được map đánh dấu hợp lệ, tránh vùng nước/công trình theo metadata hiện có. Không thêm công trình, nội thất hay màu mới.

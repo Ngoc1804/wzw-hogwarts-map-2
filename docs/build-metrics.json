@@ -1,13 +1,13 @@
 {
   "WIZAMAP_FIXED_UI.html": {
-    "bytes": 975463,
-    "gzipBytes": 703532,
-    "sha256": "f48a19ec7786665c19e3aa28637f85b98253eef2d0c52ce6e3d1672ad259c9ec"
+    "bytes": 977555,
+    "gzipBytes": 704226,
+    "sha256": "d7061389d0b237214c3c34a0095d5b7ed598f5e68d735f5ceabab5368540c2f8"
   },
   "bundle.js": {
-    "bytes": 7315615,
-    "gzipBytes": 695880,
-    "sha256": "06abc64f0a999b5b5d5d384701095f10ac8026f2af72543d230c329a7ad5945b"
+    "bytes": 7317707,
+    "gzipBytes": 696508,
+    "sha256": "730e13aebe79d12c0e1ce280aecd347c356b8c320e91477169b49b7f157798b5"
   },
   "shell.css": {
     "bytes": 11039,
