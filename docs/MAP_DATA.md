@@ -104,3 +104,9 @@ X-Ray requires user interaction: hover the occluding building or actor ribbon fo
 ### Child quantities and group detail
 
 Child edits are reconciled by childId into a final state before rendering. ensure count sets a total, add increments it, state-only preserves it, removed/missing/destroyed or count 0 removes it. Very large counts use up to 32 shared SVG use instances plus explicit count/remainder information. No duplicate member ribbons are created: clicking the single group ribbon opens members AND summary in the sidebar. Fixed places with source x/y but no artwork data-id receive invisible presentation anchors using those exact coordinates; RP merge cannot replace Fixed x/y.
+
+## S/M/L integration — current implementation
+
+Generated Indoor now reads the reviewed per-layout `sizeProfiles` from recipes. `places[].size` accepts `S`, `M`, `L`; existing `small`, `medium`, `large` inputs remain accepted. Omitted/unknown size retains M. This replaces the old 0.8/1/1.3 runtime multipliers. Size-specific furniture arrangements are compiled from the reviewed source, with existing recipe instance IDs retained. Standalone rooms retain exact profile width/height and H40; multi-room topology continues to adapt frontage/depth through the existing corridor geometry core. Fixed artwork and dimensions remain unchanged; Outdoor sizing is not changed in this Indoor integration.
+
+The GitHub–Gemini comparison is pending approval in [MAP_DATA_GITHUB_GEMINI_REVIEW.md](MAP_DATA_GITHUB_GEMINI_REVIEW.md). It is not an already-approved replacement system prompt.

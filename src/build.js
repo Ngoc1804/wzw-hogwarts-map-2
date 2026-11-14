@@ -8,21 +8,21 @@ function generatedFloor(plan,x,y,pad=0){
 }
 function placeDoor(plan,room){return plan.openings.doors.find(d=>d.room===room.id);}
 function indoorMap(scene,d){
- const places=scene.places.filter(p=>recipeId(p.type)!=='PASSAGE_PROPS'),passages=scene.places.filter(p=>recipeId(p.type)==='PASSAGE_PROPS');
+ const standalone=scene.places.length===1;
+ const places=scene.places.filter(p=>standalone||recipeId(p.type)!=='PASSAGE_PROPS'),passages=scene.places.filter(p=>!standalone&&recipeId(p.type)==='PASSAGE_PROPS');
  if(!places.length)places.push({id:'context',name:d.meta.areaName||'Không gian RP',props:[],inventory:composeRoom({props:[]})});
  const layouts=places.map(furnitureLayout),requested=d.layoutType||scene.cluster?.layout||'horizontal';
  const type=CORRIDORS.templates.some(t=>t.id===requested)?requested:'horizontal';
  const cfg=structuredClone(CORRIDORS.defaults);Object.assign(cfg,{type,count:places.length,height:40,seed:0,selected:null,decor:true,overrides:{}});
- // Source formulas own room proportions, gaps and alcoves. RP sizing adaptation
- // may supply internal overrides in later placement work, without changing projection.
- // Adapt proportions through the approved core's overrides, never change its projection.
+ // With no corridor, preserve the source room dimensions without corridor-axis remapping.
+ if(places.length===1)Object.assign(cfg,{type:'horizontal',widthH:120,widthV:120});
+ // Reviewed per-layout dimensions, not a second set of runtime multipliers.
  for(const [i,place]of places.entries()){
-  const recipe=RECIPES[recipeId(place.type)],factor=({small:.8,large:1.3})[place.size]||1;
-  if(recipe&&layouts[i].objects?.length||factor!==1){
-   const w=recipe?.w||layouts[i].width,h=recipe?.h||layouts[i].height;
-   cfg.overrides[i]={fw:Math.max(recipe?.minW||180,w*.8*factor),depth:Math.max(recipe?.minH||160,h*.8*factor)};
-  }
+  const recipe=RECIPES[recipeId(place.type)],profile=recipe?.sizeProfiles?.[layoutSize(place.size)];
+  if(profile)cfg.overrides[i]={fw:profile.width,depth:profile.height};
+  else if(recipe&&layouts[i].objects?.length)cfg.overrides[i]={fw:Math.max(recipe.minW||180,recipe.w||layouts[i].width),depth:Math.max(recipe.minH||160,recipe.h||layouts[i].height)};
  }
+
  const plan=CORRIDORS.build(cfg),single=places.length===1;
  if(single){
   plan.halls=[];plan.passages=[];plan.special=null;plan.yard=null;

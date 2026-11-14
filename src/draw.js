@@ -73,8 +73,9 @@ function editedArtwork(markup,item,diagnostics){
  return doc.documentElement.innerHTML;
 }
 // Furniture stays upright. Only uniform scale/translation is used; no wall shear.
+function layoutSize(value){return ({small:'S',medium:'M',large:'L',S:'S',M:'M',L:'L'})[value]||'M';}
 function furnitureLayout(place){
- const inventory=place.inventory||composeRoom(place),art=P4_ART[inventory.recipeId];
+ const inventory=place.inventory||composeRoom(place),art=(typeof LAYOUT_SIZES!=='undefined'&&LAYOUT_SIZES[inventory.recipeId]?.[layoutSize(place.size)])||P4_ART[inventory.recipeId];
  const nodes=new Map((art?.objects||[]).map(x=>[x.id,x]));const objects=[],extra=[];
  const north=art?.source==='FINAL'?[]:art?.objects.filter(o=>o.bounds[1]+o.bounds[3]<5&&!/portrait|blackboard|banner|crest/.test(o.item))||[];
  const band=north.length?105:20;
