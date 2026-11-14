@@ -32,7 +32,7 @@ Python 3.12+, Node và Playwright/Chromium cho test; không cần các công c�
 
 ID public được giữ ổn định. SVG trùng chỉ chia sẻ payload theo XML tương đương, có giữ màu/geometry/viewBox và quan hệ local reference; không gộp instance hay xóa cụm khác hình. Xem [manifest dọn file](docs/CLEANUP_MANIFEST.json), [bảng việc cần làm](docs/WORK_PLAN.md), [báo cáo kiểm zoom/footstep](docs/PRESENTATION_QA.json).
 
-Các tài liệu nghiệm thu cũ chỉ chứng minh phạm vi ở commit ghi trong tài liệu. Loader/prompt hiện pin runtime `a8cb85c`; ba file CDN đã tải thật và khớp dist. `prompt-provenance.json` là hồ sơ cũ, để cập nhật sau theo yêu cầu. AI Studio chưa nghiệm thu; chưa phát hành hoặc merge main.
+Các tài liệu nghiệm thu cũ chỉ chứng minh phạm vi ở commit ghi trong tài liệu. Loader hiện lấy commit từ `assets/runtime-release.json`; ví dụ tải CDN là `examples/loader-cdn.html`. `MAP_PROMPT.md` legacy đã bỏ; system prompt mới sẽ làm riêng. `prompt-provenance.json` là hồ sơ cũ, để cập nhật sau theo yêu cầu. AI Studio chưa nghiệm thu; chưa phát hành hoặc merge main.
 
 Hai HTML kiểm runtime/mechanisms cũ đã xóa hẳn cùng công cụ sinh. Bộ kiểm mới sẽ làm sau từ nguồn đã chốt. Test hồi quy dùng harness trong bộ nhớ, không sinh lại HTML cũ.
 

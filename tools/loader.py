@@ -10,3 +10,10 @@ if __name__=='__main__':
  root=Path(__file__).resolve().parents[1]
  data={'schemaVersion':'2.0.0','meta':{'date':'','time':'','areaName':'Đại Sảnh','quote':''},'atlasAnchor':'hall','pcPlace':'gf-staff','pcSpot':'inside','places':[],'actors':[{'name':'PC','isPC':True,'placeId':'gf-staff','spot':'inside'}],'events':[]}
  (root/'examples/minimal.html').write_text(loader('../dist/',data))
+ release=root/'assets/runtime-release.json'
+ if release.exists():
+  config=json.loads(release.read_text());commit=config['runtimeCommit']
+  import re
+  if not re.fullmatch('[a-f0-9]{40}',commit):raise ValueError('runtimeCommit must be a published full SHA')
+  base='https://cdn.jsdelivr.net/gh/'+config['repository']+'@'+commit+'/dist/'
+  (root/'examples/loader-cdn.html').write_text(loader(base,data))
