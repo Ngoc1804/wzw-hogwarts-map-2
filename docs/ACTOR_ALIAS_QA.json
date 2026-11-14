@@ -156,7 +156,33 @@
       }
     ],
     "deterministicBuild": true,
-    "artworkAndAssetSourcesUnchanged": true
+    "artworkAndAssetSourcesUnchanged": true,
+    "liveCdn": [
+      {
+        "name": "shell.css",
+        "url": "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@930b7cb500db777a4adae6d674beafe58438e8a0/dist/shell.css",
+        "httpStatus": 200,
+        "bytes": 11039,
+        "matchesLocal": true,
+        "sha256": "e66f7789b5df099f588f9028d947607cc7e584e7170b4e6cc627419db9bb4f15"
+      },
+      {
+        "name": "templates-pack.js",
+        "url": "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@930b7cb500db777a4adae6d674beafe58438e8a0/dist/templates-pack.js",
+        "httpStatus": 200,
+        "bytes": 906641,
+        "matchesLocal": true,
+        "sha256": "ab8d08a8aef10fc2a8dadaaa6247a26134deb949fcbb3054442ece0bf72583b5"
+      },
+      {
+        "name": "bundle.js",
+        "url": "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@930b7cb500db777a4adae6d674beafe58438e8a0/dist/bundle.js",
+        "httpStatus": 200,
+        "bytes": 7315615,
+        "matchesLocal": true,
+        "sha256": "06abc64f0a999b5b5d5d384701095f10ac8026f2af72543d230c329a7ad5945b"
+      }
+    ]
   },
   "deleted": [
     "tests/template-ui.cjs",
