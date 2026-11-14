@@ -12,7 +12,7 @@ Quyết định người dùng: dọn file trước; decor/đổ màu/tên cửa
 | P1 | Hogsmeade + Hẻm Xéo/Knockturn | Rà tên canon bản Lý Lan; tên chưa chắc giữ thương hiệu; điền nhãn, alias, mô tả và tọa độ | Một ID/địa điểm, có marker bấm được; tách canon thương hiệu và vị trí AU; xét mốc thời gian RP |
 | P1 | H40 S/M/L | Lập danh sách phòng cần đổ màu rồi sửa từng phòng | Duyệt trước/sau ở S/M/L; không tự recolor toàn bộ |
 | P2 | Runtime | Nghiệm thu layout Indoor/Outdoor, inventory/đồ con/X-Ray và 13 Fixed đầy đủ | Bảng ca và kết quả thật; không lấy HTML mở được làm nghiệm thu cơ chế |
-| P2 | Gemini/AI Studio | Loader CSS/pack/bundle đã đồng bộ pin 930b7cb và kiểm CDN; còn nghiệm thu Preview, hồ sơ phiên bản để sau | Kiểm thực tại AI Studio; không suy từ test local |
+| P2 | Gemini/AI Studio | Loader CSS/pack/bundle đã đồng bộ pin a8cb85c và kiểm CDN; còn nghiệm thu Preview, hồ sơ phiên bản để sau | Kiểm thực tại AI Studio; không suy từ test local |
 
 Nguồn đối chiếu địa danh cho lượt sau:
 - https://www.harrypotter.com/fact-file/locations/diagon-alley

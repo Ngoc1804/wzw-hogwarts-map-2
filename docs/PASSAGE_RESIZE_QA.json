@@ -384,5 +384,31 @@
   ],
   "sourceInvariants": "Asset sources, default colors, Fixed embedded artwork, layout HTML and deferred version profile unchanged",
   "deterministicBuild": true,
-  "targetPreview": "NOT RUN"
+  "targetPreview": "NOT RUN",
+  "liveCdn": [
+    {
+      "name": "shell.css",
+      "url": "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@a8cb85c7585d3eb55fc455d38d6a9a37406a6b22/dist/shell.css",
+      "httpStatus": 200,
+      "bytes": 11039,
+      "matchesLocal": true,
+      "sha256": "e66f7789b5df099f588f9028d947607cc7e584e7170b4e6cc627419db9bb4f15"
+    },
+    {
+      "name": "templates-pack.js",
+      "url": "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@a8cb85c7585d3eb55fc455d38d6a9a37406a6b22/dist/templates-pack.js",
+      "httpStatus": 200,
+      "bytes": 906641,
+      "matchesLocal": true,
+      "sha256": "ab8d08a8aef10fc2a8dadaaa6247a26134deb949fcbb3054442ece0bf72583b5"
+    },
+    {
+      "name": "bundle.js",
+      "url": "https://cdn.jsdelivr.net/gh/Ngoc1804/wzw-hogwarts-map-2@a8cb85c7585d3eb55fc455d38d6a9a37406a6b22/dist/bundle.js",
+      "httpStatus": 200,
+      "bytes": 7317707,
+      "matchesLocal": true,
+      "sha256": "730e13aebe79d12c0e1ce280aecd347c356b8c320e91477169b49b7f157798b5"
+    }
+  ]
 }
