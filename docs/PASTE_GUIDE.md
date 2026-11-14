@@ -1,7 +1,5 @@
-# Loader /map
+# /map handoff
 
-`MAP_PROMPT.md` đã bỏ theo quyết định người dùng. System prompt mới sẽ làm riêng; chưa có bản prompt cuối để dán.
+Paste the complete English block in [MAP_PROMPT.md](MAP_PROMPT.md) into the story system instruction. Fill the story questions once, binding existing state/NPC/Atlas/quest sources; do not attach separate files or manually combine old prompt fragments. If the story lacks Atlas context, include the relevant text from WZW_MAP2_ATLAS_GEMINI_MIN.md in its location source.
 
-Loader dùng chung: `tools/loader.py`. Ví dụ local: `examples/minimal.html`; ví dụ tải CDN: `examples/loader-cdn.html`. Commit runtime lấy từ `assets/runtime-release.json`; cả CSS/pack/bundle cùng một SHA đã xuất bản.
-
-Atlas và contract vẫn nằm trong `WZW_MAP2_ATLAS_GEMINI_MIN.md` và `MAP_DATA.md`. Không ghép hướng dẫn legacy từ lịch sử Git thành bản phát hành. AI Studio Preview chỉ ghi đạt sau khi kiểm tại đúng phiên đích.
+Gemini emits one complete HTML document with filled MAP_DATA; no parentId/childId/supportId or component-edit workflow. Loader URLs are release-managed and kept unchanged during RP. `assets/runtime-release.json` is authoritative, never old historical provenance. Generate through `python tools/rebuild.py`. AI Studio Preview is not certified by local tests or HTTP success.

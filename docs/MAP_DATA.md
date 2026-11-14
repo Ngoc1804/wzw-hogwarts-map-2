@@ -1,122 +1,60 @@
-# MAP_DATA 2.0.0 — contract và routing
+# MAP_DATA 2.0.0 — current public contract
 
-Quyết định đã chốt: Fixed canon chỉ hiển thị vị trí nhân vật trên artwork gốc. Không xây thêm, không thêm đồ vật, không mở cơ chế chỉnh đồ hoặc detail mới. PC/place/spot bắt buộc do prompt bảo đảm; không thêm fallback đoán vị trí cho payload thiếu trường.
+One entry: `window.MAP_DATA`; JSON transport: `<script type="application/json" id="map-data">`. Gemini resolves narrative state, location, NPCs and quests; browser code only resolves technical references and renders. Prompt settings/quest registries/quotas/material seeds are not payload fields.
 
-## Bắt buộc khi Gemini xuất /map
+## Required root
 
-`schemaVersion: "2.0.0"`, `meta` (areaName, date, time, quote theo nội dung có thật), `atlasAnchor`, `pcPlace`, `pcSpot`, `places`, `actors`, `events`. Mảng rỗng hợp lệ; không bịa nội dung để điền. PC là một actor `isPC:true`; pcPlace/pcSpot cấp cảnh ưu tiên. Gemini phải xác định vị trí trước xuất, không dùng unknown. Payload thiếu vị trí không thuộc đầu vào hợp lệ; không tự đoán hoặc thêm vị trí PC.
+| Field | Value / rule |
+|---|---|
+| schemaVersion | `2.0.0` |
+| meta | `{date,time,areaName,quote}`; narrative date/time, short visible text |
+| atlasAnchor | Fixed ID, Atlas scope, World scope or `custom` |
+| pcPlace | Resolved canonical ID or unique place name; no empty/unknown |
+| pcSpot | `inside/corridor/threshold/outdoor` |
+| places | Array; Fixed/Atlas additions or text bindings only; custom declares required places |
+| actors | Array with exactly one `isPC:true` |
+| events | Array selected by Gemini; no engine quota/eligibility logic |
 
-- `atlasAnchor`: một ID Fixed, cluster Atlas, scope World hoặc `custom`; tên alias scope từ vocabulary được normalize một điểm.
-- `pcPlace`: canonical ID hoặc tên rõ trong scope. `pcSpot`: inside/corridor/threshold/outdoor. Alias outside chỉ normalize thành outdoor.
-- `forceSandbox: true` (optional): user yêu cầu tự dựng. `mapMode`: indoor/outdoor; template hoặc bỏ trống giữ định tuyến Fixed/Atlas. Dựng Generated Outdoor hiện cần mapMode outdoor rõ ràng.
-- `layoutType` optional: horizontal/vertical/windows/ell/tee/cross/court/cloister/curved/tower. Khung Generated Indoor giữ góc nhìn source đã duyệt và tường H40; payload không đổi hệ chiếu/chiều cao khung. Số phòng theo scope RP, không khóa số phòng của viewer.
-- `region` optional: diagon/knockturn, bắt buộc khi gán nhà/tiệm mới trong diagon-knockturn; cũng nhận ở từng place.
+Optional root: `mapMode:indoor/outdoor/template`, `layoutType:horizontal/vertical/windows/ell/tee/cross/court/cloister/curved/tower`, `forceSandbox:boolean`, `region:diagon/knockturn`. Explicit `mapMode:outdoor` for custom Outdoor. PC root place/spot wins. Every NPC must have a valid location and explicit spot; normalizer does not reject all missing spots, so prompt must ensure completeness.
 
-## Places
+## Fixed canon — position and existing interface only
 
-`{id?, name, type?, size?, description?, props?, propsMode?, architecture?, isNewConstruction?, region?}`.
+Preserve approved artwork, geometry, furniture, colors and size. Inside a house/shop is still an anchor on that Fixed map, not a request to build its interior. Supply correctly anchored PC/NPC/event markers and RP text through the existing interface. No props/propsMode/visual/architecture/size, added geometry, detail screen or extra UI. `places` may carry existing-location name/description/overhear bindings. Explicit AU/event exceptions follow configured routing; do not infer them from indoors or a mentioned quest. H1/H2 new construction switches to sandbox; village/alley AU premises bind available buildings in the correct district. Fixed props are not an open feature task.
 
-Tên/type mở; type công năng ngắn (office, classroom, potions, storage, shop, bedroom...) tra vocabulary; recipe ID nguồn vẫn nhận. Không yêu cầu asset ID/tọa độ. `isNewConstruction:true` trên nhà/công trình AU mới ở scope h1/h2 chuyển toàn scene đang xem sang sandbox. Nhà/tiệm mới tại làng/hẻm không dùng cờ này để bỏ template: resolver gán nhà dân trống đúng khu.
+## Generated places and furniture
 
-Props: chuỗi hoặc `{name,count?,zone?,item?,id?,op?,state?}`. count mặc định 1, hữu hạn/nguyên/không âm; op ensure/add, propsMode merge/replace. Đây là dữ liệu Generated. Fixed giữ nguyên artwork, không áp inventory thay thế hoặc props overlay. templateState cũ không còn khiến Fixed tự thay hình/mở detail.
+`PLACE={name,id?,type?,size?,description?,overhear?,region?,isNewConstruction?,architecture?:{floor?,wall?},propsMode?,props?}`.
 
-Visual tối thiểu cho Generated được mô tả bên dưới; không đưa raw SVG/HTML vào payload. Không áp cơ chế này cho Fixed canon.
+`type` selects a recipe/function; it is not an asset ID. S/M/L defaults to M; legacy small/medium/large remain accepted. Approved source now supplies 49 layouts × S/M/L, including Outdoor; native size and arrangement are retained by the current integration. New/custom spaces use supported architecture materials; approved source colors/artwork remain intact.
 
-## Actors và nhóm
+`PROP={name,item?,id?,count?,op?,state?,zone?,mount?,visual?}`. Name is mandatory, even with item/id. `item` is a verified native catalog ID; `id` addresses one inventory instance. Missing suitable assets must not prevent a named scene/object: Gemini may supply minimal visual, engine retains fallback/information.
 
-`{id?, name, isPC?, placeId?, placeName?, spot?, zone?, tagType?, footstep?, activity?, observation?, members?, summary?, onPatrol?}`.
+- merge (default): keep recipe inventory and apply changes.
+- replace: use supplied props as complete desired furniture inventory; empty array clears furniture, not architecture.
+- ensure: desired total; add: additional/new inventory. New explicit IDs in merge require add. New IDs in replace are accepted. Repeated render does not accumulate state.
+- count: nonnegative integer; state-only updates omit count to preserve totals. Count 0 / removed / missing / destroyed removes the target. Broken is a state marker, not a promise of detailed fracture artwork.
+- Edit assembled furniture as a whole. Prompt does not use child tokens or surface/support relations. Do not output parentId/childId/supportId. Legacy internal capabilities remain for compatibility, not a required public workflow.
 
-- Tối đa **10 ribbon NPC/cá nhân/nhóm**, không tính PC. Gemini nhóm trước khi trả nếu cần; runtime giữ nguyên danh sách đầu vào và ghi diagnostic khi vượt giới hạn. Lớp hiển thị tự gộp NPC khi trên 4 người đã biết cùng phòng/cùng inside hoặc spot; PC giữ tag riêng, không tự phát sinh hoặc bỏ thành viên.
-- Cá nhân: name/activity/observation; mô tả vị trí ngắn trong observation/placeName/zone.
-- Nhóm do prompt cung cấp: name là nhãn nhóm, members là mảng tên; click sidebar hiện danh sách. Trên 4 người cùng phòng, presentation giữ PC riêng và gom NPC thành một tag; cả sidebar và click tag nhóm giữ đủ members/summary/hoạt động/quan sát. Nhóm đông: name + summary ngắn. Không tự phát sinh thành viên.
-- spot là trạng thái vị trí, zone là gợi ý tương đối, không phải tọa độ. Placement theo zone còn ở P4.
-- tagType: gryffindor/slytherin/ravenclaw/hufflepuff/beauxbatons/durmstrang/teacher/adult/patrol/animal/monster/ghost/unknown/crowd. Màu theo token; unknown là loại actor, không phải địa điểm.
-- footstep walk/idle/hidden là trạng thái đầu vào. Presentation quyết định khả năng hiển thị: H1, H2, Hogsmeade (`village-static`), Hẻm Xéo (`diagon-knockturn`) và Generated Outdoor ẩn chân khi inside, giữ tag. Các map còn lại luôn có chân dưới tên, kể cả inside hoặc đầu vào hidden. Walk có chuyển động, còn lại idle; không có khoảng mất toàn bộ dấu chân. onPatrol chỉ true khi RP xác nhận.
+`visual={shapes:[...]}`: 1–32 visible rect/ellipse/path shapes in a 100×100 local viewport; finite valid numbers/path; materials wood/stone/metal/fabric/paper/glass/plant/ink. Rect: x/y/width/height; ellipse: cx/cy/rx/ry; path: d. No raw SVG/HTML/scripts/URLs. Invalid visual falls back per object.
+
+## Actors
+
+`ACTOR={name,isPC?,id?,placeId?,placeName?,spot?,zone?,tagType?,activity?,observation?,members?,summary?,footstep?,posture?,onPatrol?}`.
+
+One PC. Gemini supplies knowledge-safe names/descriptors and House/category. NPC place and spot are required by the prompt. More than 10 input NPC ribbons produces diagnostic, not truncation. Presentation groups more than four represented people in the same room/spot when there are multiple NPC entries; PC stays separate. Original RP actors and member information are retained.
+
+Supported tags: gryffindor/slytherin/ravenclaw/hufflepuff/beauxbatons/durmstrang/teacher/adult/patrol/animal/monster/ghost/unknown/crowd. Patrol only when onPatrol is true. Footstep input walk/idle/hidden follows active-map presentation policy: overview/Outdoor hides inside feet; detail maps retain feet. Posture standing/sitting/lying/hidden. Ordinary prompt does not request support-based placement; exceptional scenes are illustrated through sandbox and observable text, not detailed furniture physics.
 
 ## Events
 
-`{id?, title, detail?, placeId?, placeName?, hidden?, target?}`. hidden true tương ứng kính lúp; còn lại tương ứng ống nhòm. Giá trị chuẩn hóa ?/! là ngữ nghĩa, không phải glyph hiển thị. target chỉ tham chiếu kiến trúc có thật; binding chi tiết còn ở P7, thiếu thì giữ cấp địa điểm.
+`EVENT={title,detail?,placeId?,placeName?,hidden?,id?}`. Valid location required by prompt. hidden false = binoculars; true = magnifier. This selects presentation, not category/knowledge/eligibility. Gemini applies story-specific icon assignments and gates before serialization. No icon/pack/category/reward/stage/quota fields. All secrets must be removed before JSON. Advanced door target remains internal/optional, not needed by ordinary prompt.
 
-## Routing và tham chiếu
+## Materials / seed
 
-1. forceSandbox → Generated. H1/H2 + place isNewConstruction → Generated. Không dùng artwork H1/H2 cho scene đó.
-2. Anchor Fixed/pointer-only Fixed → giữ nguyên artwork, không auto-detail.
-3. Atlas cluster → giữ đủ rooms của cluster, thêm nơi RP mới; không mở mọi scope từ pointer. World macro-region dùng sites: pcPlace dạng “Malfoy Manor / Drawing Room” hoặc “St Mungo’s Hospital / F4 / Spell Damage”; chọn một công trình và mức focus phù hợp, không dựng cả vùng. ID site/room do compiler sinh chỉ là khóa nội bộ, không phải atlasAnchor mới. Nếu xác định được phòng World ngoài trời, builder nhận mode outdoor; mapMode tường minh vẫn ưu tiên.
-4. custom/World → Generated trong scope RP.
+Floor: tile/wood/brick/octagon/mosaic/herringbone/diamond/cobble. Wall: stone/dark/timber/wainscot/plaster/brick/ashlar/panel/limestone/rubble. Gemini may internally seed selection for new spaces and retain choices across refreshes; only final architecture values are sent. No public seed/materialSeed field. Preserve approved source and Fixed colors.
 
-ID hợp lệ ưu tiên tên; ID hỏng có thể tìm theo tên duy nhất và diagnostic. Binding AU giữ alias tên/ID input tới canonical house ID. Nhà dân được chọn ổn định theo danh sách input sắp thứ tự, không phụ thuộc thứ tự khai báo; không phải bộ nhớ RP lâu dài. Các nhà được places gọi rõ được giữ trước, không ghi đè nhà canon; không gán hai nơi vào cùng nhà. Không tìm thấy nhà/khu thì giữ unresolved + diagnostic, không tự mở detail hoặc ghi đè nhà khác.
+## Loader / release / verification
 
-Các vị trí không binding được giữ trong dữ liệu/Inspector, không đặt giả lên map. Actor/event chỉ có ID sai không được biến thành phòng mới mang tên ID. Không sửa Atlas từ RP.
+Use only tools/loader.py; one base URL expanded into CSS/templates-pack/bundle at one published commit. assets/runtime-release.json is the release source; examples/loader-cdn.html is generated. tools/map_prompt.py generates the single final docs/MAP_PROMPT.md. Story questions remain for the author; emitted HTML must contain no unresolved required values. Escape literal `<` as `\u003c` in embedded JSON.
 
-## Ví dụ payload ngắn
-
-```json
-{
-  "schemaVersion":"2.0.0",
-  "meta":{"areaName":"Hogsmeade","date":"","time":"","quote":""},
-  "atlasAnchor":"village-static",
-  "pcPlace":"Tiệm AU của PC",
-  "pcSpot":"inside",
-  "places":[{"name":"Tiệm AU của PC","type":"shop"}],
-  "actors":[{"name":"PC","isPC":true,"placeName":"Tiệm AU của PC","spot":"inside","footstep":"hidden"}],
-  "events":[]
-}
-```
-
-## Trạng thái và phạm vi
-
-Fixed canon position-only đã chốt; không có việc mở triển khai inventory/props/structural-detail cho Fixed. Các props/state/composition bên dưới chỉ dành cho Generated. Artwork, asset và layout đã chốt giữ nguyên; decor/đổi màu làm sau. Test kỹ thuật không thay thế nghiệm thu AI Studio. Hồ sơ hash/phiên bản cập nhật ở lượt sau.
-
-## Atlas source integration
-
-Master nguồn là WZW_MAP2_ATLAS_GITHUB_MASTER.md; tools/atlas.py sinh index. Alias Fixed tiếng Anh chỉ trỏ anchor đã có; bảng room type đã chỉnh các nhầm lẫn hành lang/phòng tắm/văn phòng/kho. Compiler giữ đủ 348 anchor, 285 phòng cluster; registry World có công trình riêng, không gộp danh sách nhiều nhà thành một nhà. MIN tiếng Anh chỉ là Atlas; hướng dẫn MAP_DATA/ribbon/icon/loader để ở /map instruction cuối P8.
-
-## Indoor H40 placement update
-
-Khung H40 giữ nguyên core. Layout đã chốt giữ đúng size S/M/L (small/medium/large), mặc định M; không co giãn phòng để lấp cạnh hành lang. Khi dùng layout nguồn, giữ sàn/tường đã duyệt; phòng riêng giữ nguyên shell, phòng ghép dùng các finish nguồn với cửa/hành lang theo kết nối. Đồ extras đặt theo zone, tránh footprint/cửa và mặt tường chiếu; hết chỗ giữ biểu tượng tổng + số lượng/nội dung trong Inspector. Unknown giữ biểu tượng trung tính có title, không ép thành rương hoặc bàn.
-
-Prop optional: mount floor/wall/surface và parentId (ID instance mẹ). Surface cần parent có metadata surface; không tìm được thì ghi diagnostic và giữ đại diện/Inspector, không tự chọn bàn khác. Source group không tách được đồ con vẫn là một instance; chưa khẳng định sửa đúng mọi thành phần trong cụm.
-
-Actor optional tương thích 2.0.0: posture standing/sitting/lying/hidden; placement normal/on_furniture/in_wall; supportId nhắm đúng instance khi RP xác nhận đứng/ngồi trên vật. Không suy ngoại lệ từ NLP activity. Thiếu support thì giữ anchor thông tin; không giả đã đặt đúng trên đồ. Chân tuân theo quy tắc từng map ở phần Actors, không ẩn tự động vì inside trên map chi tiết. Điểm actor dùng phần sàn trong địa điểm, tránh tường và nội thất lớn theo metadata/bounds hiện có; không loại vùng sàn chỉ vì có đồ nhỏ hoặc decor. Ngoại lệ lên đồ/trong tường chỉ theo yêu cầu RP tường minh; không tự đổi địa điểm. Điểm Generated dùng footprint ước lượng. Nếu Fixed macro không có mặt bằng nội thất, tag giữ anchor thông tin của công trình, không dựng nội thất mới. Tên, icon và chân dùng chung điểm neo và tỉ lệ zoom; ribbon không tự dịch riêng khỏi nhân vật. Không tự kích hoạt X-Ray. Actor chưa binding vẫn giữ trong Inspector.
-
-## Loader / validation update
-
-Malformed JSON is a transport error: no normalize/build/scene is produced. Corrected object input may recover using `WZWMap.render`. Render calls are serialized. Missing PC actor/location, multiple PCs, and unsupported explicit versions produce `invalid-data` without a scene. Legacy omitted schemaVersion is diagnosed; new payloads must send 2.0.0. Unresolved Fixed locations remain information in Inspector; they never allocate invented buildings. Canonical PC/NPC/event references reserve AU house slots before allocation.
-
-Outdoor uses the same mapMode/places/type/props contract. All eight OUT_* recipes are available in runtime; `propsMode: replace` removes recipe inventory while terrain remains. Hai HTML kiểm cũ đã xóa; test dùng dữ liệu trong bộ nhớ, không sinh lại các trang đó. Current multi-zone composition is illustrative tiles without inferred connecting routes; advanced placement/state/count and visual acceptance remain open.
-
-## Props / visual / X-Ray update
-
-Generated props: add accepts a new stable id, repeated add id is diagnosed; replace permits new ids. ensure count is a total across matched records, not a record count. Child edits use parentId (inventory instance) + childId (exact data-prop/data-piece token), plus name/count/state. Unknown or ambiguous child is diagnosed and left untouched. Removal targets only that child. Unavailable child metadata is not guessed. High child counts retain Inspector summary; bounded illustration is not a claim of drawing every instance.
-
-Optional visual: {shapes:[{kind:"rect",x:10,y:10,width:70,height:50,material:"wood"}]} on a named prop. Coordinate space 0..100, up to 32 shapes; rect/ellipse/path only, finite bounded numbers and restricted path characters. Materials: wood/stone/metal/fabric/paper/glass/plant/ink. No raw SVG/HTML/scripts/URLs accepted. Invalid visual uses normal fallback. Typical payloads need no visual.
-
-X-Ray now tests anchored actor region independently of label shifts; requires building occluder, layer/depth ordering and alpha shape overlap. Own inside building does not fade. Explicit depth is preferred; missing depth derives approximate ground contact from opaque silhouette, not bbox alone. Unknown/unrenderable masks never conclude occlusion. X-Ray kiểm theo shape/layer/depth và tương tác; không suy ra nghiệm thu AI Studio từ unit PASS.
-
-### Four audit corrections
-
-Omitted/invalid count on state-only updates preserves existing total; explicit valid count is applied. Outdoor map grows to contain extras and multi-zone rows. Extreme counts retain complete inventory plus a counted summary after 2000 individually drawn extras per zone. Outdoor buildings now participate in layer/depth/shape occlusion. Visuals require valid complete SVG path commands and a visible filled/stroked shape in the 100×100 viewport; otherwise the named RP object falls back.
-
-### X-Ray interaction correction
-
-X-Ray requires user interaction: hover the occluding building or actor ribbon for a temporary preview; click/tap either to pin/unpin. Leaving hover restores unless pinned; background click or Escape clears. Touch pointer hover is ignored. Occlusion shape/layer/depth checks still apply; no automatic fade when merely overlapping. Actor/scene cleanup clears interaction state.
-
-### Child quantities and group detail
-
-Child edits are reconciled by childId into a final state before rendering. ensure count sets a total, add increments it, state-only preserves it, removed/missing/destroyed or count 0 removes it. Very large counts use up to 32 shared SVG use instances plus explicit count/remainder information. No duplicate member ribbons are created: clicking the single group ribbon opens members AND summary in the sidebar. Fixed places with source x/y but no artwork data-id receive invisible presentation anchors using those exact coordinates; RP merge cannot replace Fixed x/y.
-
-## S/M/L integration — current implementation
-
-Generated Indoor now reads the reviewed per-layout `sizeProfiles` from recipes. `places[].size` accepts `S`, `M`, `L`; existing `small`, `medium`, `large` inputs remain accepted. Omitted/unknown size retains M. This replaces the old 0.8/1/1.3 runtime multipliers. Size-specific furniture arrangements are compiled from the reviewed source, with existing recipe instance IDs retained. Standalone rooms retain exact profile width/height and H40; multi-room topology continues to adapt frontage/depth through the existing corridor geometry core. Fixed artwork and dimensions remain unchanged; Outdoor sizing is not changed in this Indoor integration.
-
-The GitHub–Gemini comparison is pending approval in [MAP_DATA_GITHUB_GEMINI_REVIEW.md](MAP_DATA_GITHUB_GEMINI_REVIEW.md). It is not an already-approved replacement system prompt.
-
-## Reflow cửa/hành lang và thay đổi viewport
-
-Nhiều nhân vật ở cửa/hành lang được đặt tách nhau trong vùng sàn kết nối hợp lệ của hành lang hoặc vùng lân cận cửa; tránh tường kín, cửa sổ và nội thất lớn. Không đưa người ở hành lang vào phòng khác. Cửa đi là khoảng mở hợp lệ, cửa sổ không phải lối đứng/đi qua tường. Với một nhân vật, ưu tiên vị trí cửa/hành lang đã xác định nếu vẫn hợp lệ.
-
-Khi viewport/drawer đổi kích thước, presentation tính lại vị trí và tỉ lệ tag/chân cùng nhau trong đúng địa điểm. Zoom/pan đơn thuần giữ nguyên các điểm neo đã chọn. Nhân vật ngoài trời cũng có thể tách nhau trên phần nền được map đánh dấu hợp lệ, tránh vùng nước/công trình theo metadata hiện có. Không thêm công trình, nội thất hay màu mới.
-
-## Generated Outdoor placement
-
-Ngoại lệ RP tường minh cho Outdoor: actor `placement: on_landscape` + `supportId` nhắm đúng vùng/cảnh quan có trong geometry; `in_wall` cũng cần support tường cụ thể. Mặc định vẫn tránh vật cản/công trình, mặt nước và bồn cảnh quan. Không xử lý riêng thân/tán cây. Props dùng zone và `mount: surface`/`parentId` khi có mặt đỡ xác định; số lượng chưa xếp được giữ ở Inspector. Xem `OUTDOOR_PLACEMENT.md`.
+Malformed JSON is a transport error; invalid PC/version input does not justify invented location. Render API is serialized. AI Studio acceptance is separate from local/CDN checks. Zoom policy: fit=1, maximum=4; footer removed at source. Runtime notices are retained in assets/FINAL_NOTICES.txt and the source information dialog.

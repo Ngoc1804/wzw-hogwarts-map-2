@@ -79,7 +79,7 @@ body.motion-off #mapmount *{animation-play-state:paused!important}#mapmount .tre
 </svg>
 
 
- HÓNG HỚT TÁM PHƯƠNG</h3><small id="hintcount"></small></div><div id="quests"></div></section><div class="sidebar-foot">Cảnh giả lập để duyệt giao diện.<br/>Chọn công trình hoặc bảng tên để xem chi tiết.</div></aside></div><footer><span>WIZAMAP · ATLAS CỦA NHỮNG KẺ ĐI LẠC</span><button id="open-sources">Nguồn &amp; giấy phép</button><span>WZW MAP 2 · TEMPLATE VÀ GIAO DIỆN</span></footer></div><dialog id="sources"><div class="dialog-head"><div><small>03 / NGUỒN THIẾT KẾ</small><h2>Tài nguyên và giấy phép</h2></div><button aria-label="Đóng" class="close">×</button></div><div class="dialog-body sources"><p>Kiến trúc ngoài trời, cụm làng, cây cối và địa hình: tái sử dụng SVG có sẵn trong <b>H1_Hogwarts_Hogsmeade.html</b> bạn cung cấp. Mỗi công trình vẫn là phần tử tương tác riêng.</p><p>Nội thất, phòng, cửa và nội thất trang trí: tái sử dụng renderer WIZAMAP-Restored của dự án. Quyền sử dụng phần minh họa theo SVG-LICENSE.txt trong repo.</p><p>Icon: Lucide, ISC License. Đã nhúng trực tiếp để bản duyệt không phụ thuộc CDN.</p><p>Bộ xem dùng SVG và JavaScript trực tiếp, chạy offline. Kiến trúc và texture giữ từ tài nguyên đã duyệt.</p><details><summary>Giấy phép asset QA V2</summary><pre class="source-detail">paperjs
+ HÓNG HỚT TÁM PHƯƠNG</h3><small id="hintcount"></small></div><div id="quests"></div></section><div class="sidebar-foot">Cảnh giả lập để duyệt giao diện.<br/>Chọn công trình hoặc bảng tên để xem chi tiết.</div></aside></div></div><dialog id="sources"><div class="dialog-head"><div><small>03 / NGUỒN THIẾT KẾ</small><h2>Tài nguyên và giấy phép</h2></div><button aria-label="Đóng" class="close">×</button></div><div class="dialog-body sources"><p>Kiến trúc ngoài trời, cụm làng, cây cối và địa hình: tái sử dụng SVG có sẵn trong <b>H1_Hogwarts_Hogsmeade.html</b> bạn cung cấp. Mỗi công trình vẫn là phần tử tương tác riêng.</p><p>Nội thất, phòng, cửa và nội thất trang trí: tái sử dụng renderer WIZAMAP-Restored của dự án. Quyền sử dụng phần minh họa theo SVG-LICENSE.txt trong repo.</p><p>Icon: Lucide, ISC License. Đã nhúng trực tiếp để bản duyệt không phụ thuộc CDN.</p><p>Bộ xem dùng SVG và JavaScript trực tiếp, chạy offline. Kiến trúc và texture giữ từ tài nguyên đã duyệt.</p><details><summary>Giấy phép asset QA V2</summary><pre class="source-detail">paperjs
 Copyright (c) 2011 - 2020, Jürg Lehni &amp; Jonathan Puckey
 http://juerglehni.com/ &amp; https://puckey.studio/
 All rights reserved.
@@ -509,7 +509,8 @@ function put(id,value){const e=$(id);if(e)e.textContent=value||''}
 function getVB(node){return (node.getAttribute('viewBox')||'0 0 1400 1000').trim().split(/[ ,]+/).map(Number)}
 function paintVB(){if(svg&&vb)svg.setAttribute('viewBox',vb.join(' '));presentation?.renderPositions()}
 function fit(){if(!svg)return;vb=[...originalVB];paintVB()}
-function zoom(f){if(!vb)return;vb=[vb[0]+vb[2]*(1-f)/2,vb[1]+vb[3]*(1-f)/2,vb[2]*f,vb[3]*f];paintVB()}
+const ZOOM_MIN=1,ZOOM_MAX=4;
+function zoom(f){if(!vb||!originalVB||!Number.isFinite(f)||f<=0)return;const current=originalVB[2]/vb[2],next=Math.max(ZOOM_MIN,Math.min(ZOOM_MAX,current/f)),ratio=current/next;vb=[vb[0]+vb[2]*(1-ratio)/2,vb[1]+vb[3]*(1-ratio)/2,vb[2]*ratio,vb[3]*ratio];paintVB()}
 function getPoint(){if(!svg)return null;const r=svg.getBoundingClientRect();if(!r.width||!r.height)return null;const ratio=Math.min(r.width/vb[2],r.height/vb[3]);const w=vb[2]*ratio,h=vb[3]*ratio;return {r,left:r.left+(r.width-w)/2,top:r.top+(r.height-h)/2,k:ratio}}
 function showActorDetails(actor,place){
  put('#place-title',actor.name||'Chưa rõ');put('#drawer-name',actor.name||'Chưa rõ');

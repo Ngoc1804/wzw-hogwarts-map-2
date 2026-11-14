@@ -8,5 +8,5 @@ try:
  current=d['sha256']==digest('examples/WIZAMAP_LAYOUTS.html') and d['compilerSha256']==digest('tools/import-layout-sizes.cjs') and all(digest(p)==sha for p,sha in d['artifacts'].items())
 except (FileNotFoundError,KeyError,ValueError):current=False
 if not current:subprocess.run(['node','tools/import-layout-sizes.cjs'],cwd=r,check=True)
-for tool in ['check-approved-svg.py','build.py','asset-review.py','loader.py']:
+for tool in ['check-approved-svg.py','build.py','asset-review.py','loader.py','map_prompt.py']:
  subprocess.run([sys.executable,str(r/'tools'/tool)],cwd=r,check=True)

@@ -51,3 +51,9 @@ Cửa/hành lang dùng vùng sàn hợp lệ để tách nhân vật; resize tí
 ## Địa điểm hai hẻm và Hogsmeade
 
 [Đối chiếu 53 mục và bảng hiệu](docs/SHOP_NAME_AUDIT.md): 52 công trình được gán tên, một điểm đường tới ga; còn nhà trống theo khu cho AU. Chạy `node tests/shop-bindings.cjs` để kiểm tra tra cứu song ngữ, hai chi nhánh Mulpepper và tránh gán AU đè địa điểm đã có chủ.
+
+## /map — current handoff
+
+The single English system-instruction block is [MAP_PROMPT.md](docs/MAP_PROMPT.md). Fill its story questions once; Gemini fills only scene JSON on each /map. Native recipe/item IDs; whole furniture/group changes only; no parentId/childId/supportId workflow. Fixed canon uses only existing positions and interface. The release base URL is supplied by tools/map_prompt.py from assets/runtime-release.json, not story-time GitHub configuration.
+
+Source instructions: docs/MAP_INSTRUCTIONS.md; contract: docs/MAP_DATA.md. Rebuild generates the final prompt using tools/loader.py (no second loader). Zoom is bounded at fit through 4×; footer removed from source. Current source layout/decor from the parallel integration is retained. AI Studio acceptance remains separate.
