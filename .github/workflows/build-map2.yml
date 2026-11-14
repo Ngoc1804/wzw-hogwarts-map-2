@@ -7,6 +7,7 @@ permissions:
   contents: write
 jobs:
   build:
+    if: ${{ !contains(github.event.head_commit.message, 'DECOR_IMPORT_NOW') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

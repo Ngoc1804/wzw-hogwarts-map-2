@@ -1,0 +1,53 @@
+name: One-time import selected DECOR design
+on:
+  push:
+    branches: [M2-P01-baseline-loader]
+permissions:
+  contents: write
+jobs:
+  import-approved:
+    if: ${{ contains(github.event.head_commit.message, 'DECOR_IMPORT_NOW') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install offline DECOR compiler dependencies
+        run: |
+          npm install --no-save playwright@1.56.1
+          sudo apt-get update -qq
+          sudo apt-get install -y chromium
+          mkdir -p work
+      - name: Import ONLY approved DECOR artwork; never ship original editor
+        run: |
+          set -e
+          git fetch origin DECOR
+          git show origin/DECOR:examples/WIZAMAP_DECOR_49_LAYOUT_ALL_SIZES.html > examples/WIZAMAP_DECOR_SOURCE.html
+          git show 43f1a17891e3755fc74a30d8596f6f07dfc7c3be:tools/import-layout-sizes.cjs > tools/import-layout-sizes.cjs
+          sed -i 's#examples/WIZAMAP_LAYOUTS.html#examples/WIZAMAP_DECOR_SOURCE.html#g' tools/import-layout-sizes.cjs
+          node tools/import-layout-sizes.cjs
+          rm examples/WIZAMAP_DECOR_SOURCE.html tools/import-layout-sizes.cjs assets/p4-art.json docs/DECOR_IMPORT.json
+      - name: Build and verify imported data, runtime, layout geometry
+        run: |
+          python tools/rebuild.py
+          node --check dist/bundle.js
+          node tests/canonical-sources.cjs
+          node tests/layout-sizes.cjs
+          node tests/p1.cjs
+          node tests/zoom-bounds.cjs
+          git diff --check
+      - name: Publish final clean layout assets
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/catalog.json assets/recipes.json assets/layout-sizes.json assets/layout-finishes.json assets/finish-paint.json dist/ docs/build-metrics.json examples/WIZAMAP_ASSETS.html examples/WIZAMAP_FIXED_UI.html prompts/MAP_PROMPT.txt
+          if ! git diff --cached --quiet; then
+            git commit -m 'build: import approved DECOR 49 S/M/L into canonical JSON [skip ci]'
+            git push origin HEAD:M2-P01-baseline-loader
+          fi
