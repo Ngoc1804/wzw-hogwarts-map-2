@@ -27,6 +27,7 @@ def pack(path):
  payload=base64.b64encode(gzip.compress(json.dumps(entries,ensure_ascii=False,separators=(',',':')).encode(),compresslevel=9,mtime=0)).decode()
  # Only a single text payload and one boot sequence; cloned editor exports contain
  # restored scripts so loader intentionally does nothing on exported HTML.
+ s=re.sub(r'[ \t]+\n','\n',s)
  s+='\n<script type="application/octet-stream" id="wzw-script-pack">'+payload+'</script>'+LOADER
  p.write_text(s)
  print(p.name,len(s.encode()),'bytes compressed offline')

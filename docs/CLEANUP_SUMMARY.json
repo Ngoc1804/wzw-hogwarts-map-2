@@ -3,14 +3,14 @@
   "baselineFiles": 229,
   "baselineBytes": 49472075,
   "currentFiles": 107,
-  "currentBytes": 21613479,
-  "savedBytes": 27858596,
+  "currentBytes": 21613507,
+  "savedBytes": 27858568,
   "reductionPercent": 56.31,
   "note": "Tracked working-tree file bytes only, excludes .git history and work/. Deleted historical files remain recoverable in Git.",
   "htmlBytes": {
     "examples/WIZAMAP_LAYOUTS_H40_SML.html": 236343,
-    "examples/WIZAMAP_RUNTIME_CHECK.html": 1912899,
-    "examples/WIZAMAP_MECHANISMS_CHECK.html": 1909109,
+    "examples/WIZAMAP_RUNTIME_CHECK.html": 1912898,
+    "examples/WIZAMAP_MECHANISMS_CHECK.html": 1909108,
     "examples/WIZAMAP_FIXED_UI.html": 969779,
     "examples/WIZAMAP_ASSETS.html": 432291
   }
