@@ -1,11 +1,12 @@
 const fs=require('fs'),http=require('http'),path=require('path'),assert=require('node:assert/strict'),{chromium}=require('playwright');
 (async()=>{
- const server=http.createServer((q,r)=>{const file=path.resolve('.'+decodeURIComponent(q.url.split('?')[0]));if(!file.startsWith(process.cwd()+path.sep)){r.writeHead(403).end();return}try{const ext=path.extname(file);r.setHeader('Content-Type',ext==='.html'?'text/html; charset=utf-8':ext==='.js'?'text/javascript':ext==='.css'?'text/css':'application/json');r.end(fs.readFileSync(file))}catch{r.writeHead(404).end()}});
+ fs.mkdirSync('work',{recursive:true});
+ const server=http.createServer((q,r)=>{if(q.url.split('?')[0]==='/__runtime_fixture__'){r.setHeader('Content-Type','text/html');r.end(require('./runtime-fixture.cjs')());return;}const file=path.resolve('.'+decodeURIComponent(q.url.split('?')[0]));if(!file.startsWith(process.cwd()+path.sep)){r.writeHead(403).end();return}try{const ext=path.extname(file);r.setHeader('Content-Type',ext==='.html'?'text/html; charset=utf-8':ext==='.js'?'text/javascript':ext==='.css'?'text/css':'application/json');r.end(fs.readFileSync(file))}catch{r.writeHead(404).end()}});
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
  const browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox']});
  try{
   const page=await browser.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
-  await page.goto('http://127.0.0.1:'+server.address().port+'/examples/minimal.html');
+  await page.goto('http://127.0.0.1:'+server.address().port+'/__runtime_fixture__');
   await page.waitForFunction(()=>document.querySelector('#wzw-map').dataset.status==='ready');
   const recipes=JSON.parse(fs.readFileSync('assets/recipes.json'));
   const report=await page.evaluate(async recipes=>{

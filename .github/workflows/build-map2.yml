@@ -1,0 +1,35 @@
+name: Build MAP 2 canonical sources
+on:
+  push:
+    branches: [M2-P01-baseline-loader]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build and validate source inventory
+        run: |
+          python tools/rebuild.py
+          node --check dist/bundle.js
+          node tests/canonical-sources.cjs
+          git diff --check
+      - name: Publish generated artifacts to this branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add examples/WIZAMAP_FIXED_UI.html examples/WIZAMAP_ASSETS.html dist/ prompts/MAP_PROMPT.txt docs/build-metrics.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'build: regenerate canonical MAP 2 artifacts [skip ci]'
+            git push origin HEAD:M2-P01-baseline-loader
+          fi
