@@ -26,9 +26,9 @@ Visual tối thiểu cho Generated được mô tả bên dưới; không đưa 
 
 `{id?, name, isPC?, placeId?, placeName?, spot?, zone?, tagType?, footstep?, activity?, observation?, members?, summary?, onPatrol?}`.
 
-- Tối đa **10 ribbon NPC/cá nhân/nhóm**, không tính PC. Gemini nhóm trước khi trả, runtime ghi diagnostic nếu vượt nhưng giữ nội dung, không tự cắt hoặc gom người.
+- Tối đa **10 ribbon NPC/cá nhân/nhóm**, không tính PC. Gemini nhóm trước khi trả nếu cần; runtime giữ nguyên danh sách đầu vào và ghi diagnostic khi vượt giới hạn. Lớp hiển thị tự gộp NPC khi trên 4 người đã biết cùng phòng/cùng inside hoặc spot; PC giữ tag riêng, không tự phát sinh hoặc bỏ thành viên.
 - Cá nhân: name/activity/observation; mô tả vị trí ngắn trong observation/placeName/zone.
-- Nhóm 3–5: name là nhãn nhóm, members là mảng tên; click sidebar hiện danh sách. Nhóm đông: name + summary ngắn. Không tự phát sinh thành viên.
+- Nhóm do prompt cung cấp: name là nhãn nhóm, members là mảng tên; click sidebar hiện danh sách. Trên 4 người cùng phòng, presentation giữ PC riêng và gom NPC thành một tag; cả sidebar và click tag nhóm giữ đủ members/summary/hoạt động/quan sát. Nhóm đông: name + summary ngắn. Không tự phát sinh thành viên.
 - spot là trạng thái vị trí, zone là gợi ý tương đối, không phải tọa độ. Placement theo zone còn ở P4.
 - tagType: gryffindor/slytherin/ravenclaw/hufflepuff/beauxbatons/durmstrang/teacher/adult/patrol/animal/monster/ghost/unknown/crowd. Màu theo token; unknown là loại actor, không phải địa điểm.
 - footstep walk/idle/hidden là trạng thái đầu vào. Presentation quyết định khả năng hiển thị: H1, H2, Hogsmeade (`village-static`), Hẻm Xéo (`diagon-knockturn`) và Generated Outdoor ẩn chân khi inside, giữ tag. Các map còn lại luôn có chân dưới tên, kể cả inside hoặc đầu vào hidden. Walk có chuyển động, còn lại idle; không có khoảng mất toàn bộ dấu chân. onPatrol chỉ true khi RP xác nhận.
@@ -77,7 +77,7 @@ Khung H40 giữ nguyên core. Recipe w/h/minW/minH điều chỉnh frontage/dept
 
 Prop optional: mount floor/wall/surface và parentId (ID instance mẹ). Surface cần parent có metadata surface; không tìm được thì ghi diagnostic và giữ đại diện/Inspector, không tự chọn bàn khác. Source group không tách được đồ con vẫn là một instance; chưa khẳng định sửa đúng mọi thành phần trong cụm.
 
-Actor optional tương thích 2.0.0: posture standing/sitting/lying/hidden; placement normal/on_furniture/in_wall; supportId nhắm đúng instance khi RP xác nhận đứng/ngồi trên vật. Không suy ngoại lệ từ NLP activity. Thiếu support thì giữ anchor thông tin; không giả đã đặt đúng trên đồ. Chân tuân theo quy tắc từng map ở phần Actors, không ẩn tự động vì inside trên map chi tiết. Điểm actor Generated dùng footprint ước lượng. Tên, icon và chân dùng chung điểm neo và tỉ lệ zoom; ribbon không tự dịch riêng khỏi nhân vật. Không tự kích hoạt X-Ray. Actor chưa binding vẫn giữ trong Inspector.
+Actor optional tương thích 2.0.0: posture standing/sitting/lying/hidden; placement normal/on_furniture/in_wall; supportId nhắm đúng instance khi RP xác nhận đứng/ngồi trên vật. Không suy ngoại lệ từ NLP activity. Thiếu support thì giữ anchor thông tin; không giả đã đặt đúng trên đồ. Chân tuân theo quy tắc từng map ở phần Actors, không ẩn tự động vì inside trên map chi tiết. Điểm actor dùng phần sàn trong địa điểm, tránh tường và nội thất lớn theo metadata/bounds hiện có; không loại vùng sàn chỉ vì có đồ nhỏ hoặc decor. Ngoại lệ lên đồ/trong tường chỉ theo yêu cầu RP tường minh; không tự đổi địa điểm. Điểm Generated dùng footprint ước lượng. Nếu Fixed macro không có mặt bằng nội thất, tag giữ anchor thông tin của công trình, không dựng nội thất mới. Tên, icon và chân dùng chung điểm neo và tỉ lệ zoom; ribbon không tự dịch riêng khỏi nhân vật. Không tự kích hoạt X-Ray. Actor chưa binding vẫn giữ trong Inspector.
 
 ## Loader / validation update
 

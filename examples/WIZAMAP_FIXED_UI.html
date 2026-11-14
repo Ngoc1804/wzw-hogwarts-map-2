@@ -573,6 +573,19 @@ function occludesActor(record,actor,region){
  if(record.owner===actor.placeId&&actor.inside)return false;
  return maskOverlaps(record.mask,region);
 }
+// Presentation grouping preserves the original RP actors and never adds members.
+function groupRoomActors(actors){
+ const rooms=new Map(),out=[];
+ for(const actor of actors){const place=actor.placeId||actor.placeName;if(!place){out.push(actor);continue;}const id=JSON.stringify([place,actor.inside||actor.spot==='inside'||actor.pcSpot==='inside'?'inside':actor.spot||'outdoor']);if(!rooms.has(id))rooms.set(id,[]);rooms.get(id).push(actor);}
+ for(const people of rooms.values()){
+  const count=people.reduce((n,a)=>n+(a.members?.length||1),0),npcs=people.filter(a=>!a.isPC);
+  if(count<=4||npcs.length<=1){out.push(...people);continue;}
+  const members=npcs.flatMap(a=>a.members?.length?a.members:[a.name]);
+  const summary=npcs.map(a=>[a.name,a.activity,a.observation,a.summary].filter(Boolean).join(' — ')).join('\n');
+  out.push(...people.filter(a=>a.isPC),{...npcs[0],name:'Nhóm '+members.length+' người',entityType:'group',tagType:npcs.every(a=>a.tagType===npcs[0].tagType)?npcs[0].tagType:'crowd',members,summary,activity:'',observation:'',isPC:false});
+ }
+ return out;
+}
 async function prepareTemplateUI(){
  if(presentation)presentation.dispose();
  const scene=svg,layer=document.createElement('div');layer.className='qa-tags';$('#mapmount').append(layer);
@@ -597,6 +610,52 @@ async function prepareTemplateUI(){
   for(let ring=0;ring<18;ring++)for(let a=0;a<(ring?16:1);a++){const x=center.x+Math.cos(a*Math.PI/8)*ring*step,y=center.y+Math.sin(a*Math.PI/8)*ring*step;if(x<b.x-12||x>b.x+b.w+12||y<b.y-12||y>b.y+b.h+24)continue;if(pointSafe(x,y,5))return{x,y}}
   return null;
  }
+ function actorPlacement(place,inside,actor,element,count){
+  let desired=localPoint(place,inside,actor);if(!desired)return null;
+  // An explicit generated door/corridor anchor must not be moved into the room.
+  if(!inside&&actor.scenePoint&&['threshold','corridor'].includes(actor.spot))return{point:desired,labelScale:1};
+  const map=DATA.maps[activeId],overview=['h1','h2','village-static','diagon-knockturn'].includes(activeId)||map.kind==='outdoor';
+  const node=[...svg.querySelectorAll('[data-id]')].find(n=>n.dataset.id===place.id&&!n.closest('defs'));
+  const hit=node?.querySelector('.spot-hit'),shape=hit&&typeof hit.isPointInFill==='function'?hit:null;
+  const box=hit?worldBox(hit):place.bounds?{x:place.bounds[0],y:place.bounds[1],w:place.bounds[2],h:place.bounds[3]}:node?worldBox(node):null;
+  if(!box||box.w<2||box.h<2)return{point:desired,labelScale:1};
+  const mount=$('#mapmount').getBoundingClientRect(),fitScale=Math.min(mount.width/originalVB[2],mount.height/originalVB[3]);
+  const size=element.getBoundingClientRect(),columns=count>=3?2:1,rows=Math.ceil(count/columns);
+  const factor=count>1||inside&&!overview?Math.max(.15,(count>=3?.65:count>1?.85:1)*Math.min(1,box.w*fitScale/(columns*(size.width+10)),box.h*fitScale/(rows*44))):1;
+  // Large furniture only. Small props and decorative floor art do not block actors.
+  const furniture=[];
+  if(node&&!overview)for(const n of node.querySelectorAll('svg,[data-decor],[data-forbidden="furniture"]')){
+   const identity=[n.dataset.decor,n.getAttribute('data-forbidden'),...[...n.querySelectorAll('[id]')].map(x=>x.id)].join(' ');
+   if(!/furniture|table[.-]|seat\.(?:sofa|armchair|lounge)|storage[.-]|bookcase|bed[.-]|cabinet/.test(identity))continue;
+   const b=worldBox(n);if(b.w*b.h>box.w*box.h*.008)furniture.push(b);
+  }
+  for(const f of map.footprints||[])if(f.placeId===place.id&&f.blocksActor){const[x,y,w,h]=f.bounds;furniture.push({x,y,w,h});}
+  const pad=Math.max(1,Math.min(5,Math.min(box.w,box.h)*.025));
+  const safe=point=>{
+   if(actor.placement==='in_wall')return true;
+   if(point.x<box.x+pad||point.x>box.x+box.w-pad||point.y<box.y+pad||point.y>box.y+box.h-pad)return false;
+   if(inside&&!overview&&shape){const matrix=shape.getScreenCTM().inverse().multiply(svg.getScreenCTM());for(const[dx,dy]of [[0,0],[-pad,0],[pad,0],[0,-pad],[0,pad]])if(!shape.isPointInFill(new DOMPoint(point.x+dx,point.y+dy).matrixTransform(matrix)))return false;}
+   if(!(overview&&inside)&&map.safeFloor&&!map.safeFloor(point.x,point.y,pad))return false;
+   if(actor.placement!=='on_furniture'&&furniture.some(b=>point.x>b.x-pad&&point.x<b.x+b.w+pad&&point.y>b.y-pad&&point.y<b.y+b.h+pad))return false;
+   return true;
+  };
+  // World-space slots are chosen once at mount; zoom/pan never moves a label on its own.
+  if(actor.placement==='in_wall'||actor.placement==='on_furniture'&&actor.supportId&&actor.scenePoint&&!actor.scenePoint.anchorOnly)return{point:desired,labelScale:factor};
+  if(count>1&&!actor.zone&&!actor.placement?.match(/^(on_furniture|in_wall)$/)){const index=actorItems.filter(a=>a.placeId===place.id).length;desired={x:box.x+box.w*((index%columns)+.5)/columns,y:box.y+box.h*(Math.floor(index/columns)+.72)/rows};}
+  const candidates=[desired];
+  if(inside||!overview)for(let y=1;y<20;y++)for(let x=1;x<20;x++)candidates.push({x:box.x+box.w*x/20,y:box.y+box.h*y/20});
+  let best=null,bestCost=Infinity;
+  for(const point of candidates){if(!safe(point))continue;
+   const rect={x:point.x-size.width*factor/fitScale/2,y:point.y-(size.height+8)*factor/fitScale,w:size.width*factor/fitScale,h:(size.height+12)*factor/fitScale};
+   if(inside&&!overview&&(rect.x<box.x+pad||rect.x+rect.w>box.x+box.w-pad||rect.y<box.y+pad||rect.y+rect.h>box.y+box.h-pad))continue;
+   let overlap=0;for(const other of actorItems){const b=other.labelBox;if(!b)continue;overlap+=Math.max(0,Math.min(rect.x+rect.w,b.x+b.w)-Math.max(rect.x,b.x))*Math.max(0,Math.min(rect.y+rect.h,b.y+b.h)-Math.max(rect.y,b.y));}
+   const cost=overlap*10000+Math.hypot(point.x-desired.x,point.y-desired.y);
+   if(cost<bestCost){bestCost=cost;best={point,labelScale:factor,labelBox:rect};}
+  }
+  // Macro maps describe a building, not its interior floor plan. Keep its exact
+  // informational anchor when detailed floor geometry is unavailable.
+  return best||{point:desired,labelScale:factor,anchorOnly:true};
+ }
  function renderPositions(){if(svg!==scene)return;
   const base=$('#mapmount').getBoundingClientRect(),ctm=svg.getScreenCTM();if(!ctm)return;const inverse=ctm.inverse();
   // Every marker uses the same map anchor and zoom ratio. Never clamp or move
@@ -605,12 +664,12 @@ async function prepareTemplateUI(){
   const mapScale=Math.hypot(ctm.a,ctm.b),ratio=mapScale/fitScale;
   linkLayer.replaceChildren();
   for(const item of [...actorItems,...eventItems]){
-   const point=new DOMPoint(item.point.x,item.point.y).matrixTransform(ctm),actor=!!item.actor;
+   const point=new DOMPoint(item.point.x,item.point.y).matrixTransform(ctm),actor=!!item.actor,markerScale=ratio*(item.labelScale||1);
    item.element.style.transformOrigin=actor?'50% 100%':'50% 50%';
-   item.element.style.transform=`translate(-50%,${actor?'-100%':'-50%'}) scale(${ratio})`;
+   item.element.style.transform=`translate(-50%,${actor?'-100%':'-50%'}) scale(${markerScale})`;
    item.element.style.left=(point.x-base.left)+'px';
-   item.element.style.top=(point.y-base.top-(actor?8*ratio:0))+'px';
-   if(item.feet)item.feet.setAttribute('transform',`translate(${item.point.x} ${item.point.y}) scale(${.55/fitScale})`);
+   item.element.style.top=(point.y-base.top-(actor?8*markerScale:0))+'px';
+   if(item.feet)item.feet.setAttribute('transform',`translate(${item.point.x} ${item.point.y}) scale(${.55*(item.labelScale||1)/fitScale})`);
   }
   const faded=new Set();for(const a of actorItems){
    // Test the character's anchored silhouette, independently of a relocated ribbon.
@@ -621,8 +680,10 @@ async function prepareTemplateUI(){
  }
  function clearActors(){hovered=pinned=null;for(const a of actorItems){a.stop?.();a.element.remove();a.feet?.remove()}actorItems=[];renderPositions()}
  async function mountActors(actors=[]){const version=++generation;await readyMasks();if(svg!==scene||version!==generation)return;clearActors();
-  for(const actor of actors){const place=(DATA.maps[activeId].places||[]).find(p=>p.id===actor.placeId||p.name===actor.placeName);if(!place)continue;const inside=actor.inside===true||actor.spot==='inside'||actor.pcSpot==='inside',point=localPoint(place,inside,actor);if(!point)continue;
+  const resolved=actors.map(a=>{const place=(DATA.maps[activeId].places||[]).find(p=>p.id===a.placeId||p.name===a.placeName);return place?{...a,placeId:place.id}:a;}),displayActors=groupRoomActors(resolved);
+  for(const actor of displayActors){const place=(DATA.maps[activeId].places||[]).find(p=>p.id===actor.placeId||p.name===actor.placeName);if(!place)continue;const inside=actor.inside===true||actor.spot==='inside'||actor.pcSpot==='inside';
    const element=actorTag(actor);element.classList.add('npc-tag');element.title=actor.activity||place.name;layer.append(element);
+   const placement=actorPlacement(place,inside,actor,element,displayActors.filter(a=>a.placeId===place.id).length);if(!placement){element.remove();continue;}const{point,labelScale,labelBox}=placement;element.dataset.placeId=place.id;element.dataset.anchorX=point.x;element.dataset.anchorY=point.y;element.dataset.placement=placement.anchorOnly?'anchor':'floor';
    element.onpointerenter=e=>{if(e.pointerType!=='touch'){hovered=element;renderPositions()}};element.onpointerleave=()=>{if(hovered===element){hovered=null;renderPositions()}};element.onfocus=()=>{hovered=element;renderPositions()};element.onblur=()=>{if(hovered===element){hovered=null;renderPositions()}};
    element.onclick=()=>{toggleXray(element);showActorDetails(actor,place)};
    const overview=['h1','h2','village-static','diagon-knockturn'].includes(activeId)||DATA.maps[activeId].kind==='outdoor';
@@ -632,7 +693,7 @@ async function prepareTemplateUI(){
     // Feet are a character marker beneath the name, not furniture geometry.
     // Do not hide them intermittently because a shoe touches an occupied pixel.
    }
-   actorItems.push({point,element,feet,stop,inside,actor,placeId:place.id});
+   actorItems.push({point,labelScale,labelBox,element,feet,stop,inside,actor,placeId:place.id});
   }showPlaceActors();renderPositions();
  }
  function showPlaceActors(placeId){const target=$('#actors');target.replaceChildren();for(const item of actorItems.filter(a=>!placeId||a.placeId===placeId)){const row=actorTag(item.actor,true);row.onclick=item.element.onclick;target.append(row)}}

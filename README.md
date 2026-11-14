@@ -35,3 +35,9 @@ ID public được giữ ổn định. SVG trùng chỉ chia sẻ payload theo X
 Các tài liệu nghiệm thu cũ chỉ chứng minh phạm vi ở commit ghi trong tài liệu. Loader/prompt hiện pin runtime `f801eff`; ba file CDN đã tải thật và khớp dist. `prompt-provenance.json` là hồ sơ cũ, để cập nhật sau theo yêu cầu. AI Studio chưa nghiệm thu; chưa phát hành hoặc merge main.
 
 Hai HTML kiểm runtime/mechanisms cũ đã xóa hẳn cùng công cụ sinh. Bộ kiểm mới sẽ làm sau từ nguồn đã chốt. Test hồi quy dùng harness trong bộ nhớ, không sinh lại HTML cũ.
+
+## Nhóm và vị trí nhân vật
+
+Trên 4 người cùng phòng/spot thì NPC được trình bày thành nhóm, PC giữ tag riêng. Danh sách RP không bị sửa/cắt; click tag xem đủ thành viên và thông tin. Tag đặt trên phần sàn còn trống, tránh tường/đồ lớn, ngoại lệ theo yêu cầu RP; zoom/pan giữ cùng điểm neo.
+
+Kiểm hồi quy alias và vị trí: `node tests/alias-export.cjs`, `node tests/actor-placement.cjs`. Test X-Ray template cũ và hai tool phụ thuộc dữ liệu review đã xóa đã được bỏ. Không đổi màu mặc định hoặc nhập màu từ phiên khác.

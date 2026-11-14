@@ -35,3 +35,11 @@ Lượt dọn này không sửa decor, palette phòng, tên cửa hàng, tọa �
 - Cập nhật test độc lập HTML đã xóa; chỉnh contract và loader CDN theo bản đang dùng.
 - Công cụ kiểm ID tự tạo work/ trên checkout mới.
 - Hồ sơ hash/provenance: để sau theo yêu cầu, không chứng nhận lại trong lượt này.
+
+## Lượt đã được duyệt: alias và nhóm nhân vật
+
+- HTML xuất từ catalog giữ SVG snapshot riêng của alias/canonical; không đổi màu mặc định hoặc geometry/ID nguồn. Không làm pipeline nhập màu.
+- Trên 4 người cùng phòng/spot: PC riêng, NPC một nhóm; giữ đầy đủ thành viên và thông tin.
+- Đặt tag trên sàn trong địa điểm, tránh tường/nội thất lớn; ngoại lệ chỉ theo RP. Điểm và tỉ lệ tag/chân đi cùng bản đồ khi zoom.
+- Đã bỏ tests/template-ui.cjs, tools/review-contact-sheet.cjs, tools/catalog-measure.cjs. Không tạo nghiệm thu X-Ray/AI Studio mới từ việc dọn này.
+- Màu đang làm ở phiên khác, decor và nghiệm thu hình/AI Studio tiếp tục để sau.
